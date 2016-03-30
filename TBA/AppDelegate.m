@@ -16,7 +16,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    UIUserNotificationType notificationTypes = (UIUserNotificationTypeBadge | UIUserNotificationTypeAlert);
+    UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:notificationTypes
+                                                                                             categories:nil];
+    
+    [[UIApplication sharedApplication] registerUserNotificationSettings:userNotificationSettings];
     return YES;
 }
 
@@ -28,6 +33,14 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    UILocalNotification *localNotification = [UILocalNotification new];
+    
+    localNotification.alertTitle = @"You ate this time yesterday";
+    localNotification.alertBody = @"Maybe you want to eat again now";
+    localNotification.alertAction = @"Log a meal";
+    localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:5];
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
