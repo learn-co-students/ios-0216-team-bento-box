@@ -7,15 +7,22 @@
 //
 
 #import "BONHowQuestionViewController.h"
+#import "BONMeal.h"
 
 @interface BONHowQuestionViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
-
+@property(strong, nonatomic) BONMeal * thisMeal;
 @end
 
 @implementation BONHowQuestionViewController
 
 - (void)viewDidLoad {
+    
+    self.thisMeal = [BONMeal sharedDataStore];
+    
+    
+    
+    
     self.overallFeelingPicker.delegate = self;
     self.overallFeelingPicker.dataSource = self;
     
@@ -33,12 +40,16 @@
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
+ 
+    
     return 10;
 }
 
 #pragma mark Delegate protocol
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"Row %i was selected", row+1);
+    NSLog(@"Row %li was selected", row+1);
+    self.thisMeal.howUserFelt =  [NSString stringWithFormat:@"%li", row+1];
+    NSLog(@"this is how user felt:%@", self.thisMeal.howUserFelt);
 }
 
 
