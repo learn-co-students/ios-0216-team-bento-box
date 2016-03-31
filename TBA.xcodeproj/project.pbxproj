@@ -20,6 +20,9 @@
 		F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */; };
 		F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */; };
 		F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */; };
+		F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */; };
+		F6A6F9171CAC93DD00838A72 /* BONSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A6F9161CAC93DD00838A72 /* BONSettingsViewController.m */; };
+		F6A6F91A1CAC9E5700838A72 /* BONSettingsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A6F9191CAC9E5700838A72 /* BONSettingsConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,11 @@
 		F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BONResultsViewController.m; path = TBA/BONResultsViewController.m; sourceTree = SOURCE_ROOT; };
 		F6A4B37A1CAC3EA900D8656F /* BONResultsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONResultsConstants.h; sourceTree = "<group>"; };
 		F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONResultsConstants.m; sourceTree = "<group>"; };
+		F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStoryboard.storyboard; sourceTree = "<group>"; };
+		F6A6F9151CAC93DD00838A72 /* BONSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONSettingsViewController.h; sourceTree = "<group>"; };
+		F6A6F9161CAC93DD00838A72 /* BONSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONSettingsViewController.m; sourceTree = "<group>"; };
+		F6A6F9181CAC9E5700838A72 /* BONSettingsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONSettingsConstants.h; sourceTree = "<group>"; };
+		F6A6F9191CAC9E5700838A72 /* BONSettingsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONSettingsConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +152,13 @@
 				E2EF25BF1CAB0A0700C5190E /* ViewController.m */,
 				E2EF25C11CAB0A0700C5190E /* Main.storyboard */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
+				F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */,
+				F6A6F9151CAC93DD00838A72 /* BONSettingsViewController.h */,
+				F6A6F9161CAC93DD00838A72 /* BONSettingsViewController.m */,
 				F616E2D11CAC2D5800624B25 /* BONResultsViewController.h */,
 				F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */,
+				F6A6F9181CAC9E5700838A72 /* BONSettingsConstants.h */,
+				F6A6F9191CAC9E5700838A72 /* BONSettingsConstants.m */,
 				F6A4B37A1CAC3EA900D8656F /* BONResultsConstants.h */,
 				F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */,
 				E2EF25EE1CAB1FDA00C5190E /* bonmeal.h */,
@@ -293,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */,
 				F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */,
 				E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */,
 				E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */,
@@ -372,8 +386,10 @@
 				F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */,
 				E2EF25C01CAB0A0700C5190E /* ViewController.m in Sources */,
 				E2EF25BD1CAB0A0700C5190E /* AppDelegate.m in Sources */,
+				F6A6F9171CAC93DD00838A72 /* BONSettingsViewController.m in Sources */,
 				F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */,
 				E2EF25BA1CAB0A0700C5190E /* main.m in Sources */,
+				F6A6F91A1CAC9E5700838A72 /* BONSettingsConstants.m in Sources */,
 				E2EF25F01CAB1FDA00C5190E /* bonmeal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
