@@ -19,7 +19,7 @@
 		E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */; };
 		E2EF25D31CAB0A0700C5190E /* TBATests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25D21CAB0A0700C5190E /* TBATests.m */; };
 		E2EF25DE1CAB0A0700C5190E /* TBAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25DD1CAB0A0700C5190E /* TBAUITests.m */; };
-		E2EF25F01CAB1FDA00C5190E /* bonmeal.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25EF1CAB1FDA00C5190E /* bonmeal.m */; };
+		E2EF25F01CAB1FDA00C5190E /* BONMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25EF1CAB1FDA00C5190E /* BONMeal.m */; };
 		F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */; };
 		F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */; };
 		F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */; };
@@ -70,8 +70,8 @@
 		E2EF25DD1CAB0A0700C5190E /* TBAUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBAUITests.m; sourceTree = "<group>"; };
 		E2EF25DF1CAB0A0700C5190E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2EF25EB1CAB0B7400C5190E /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
-		E2EF25EE1CAB1FDA00C5190E /* bonmeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bonmeal.h; path = TBA/bonmeal.h; sourceTree = SOURCE_ROOT; };
-		E2EF25EF1CAB1FDA00C5190E /* bonmeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bonmeal.m; path = TBA/bonmeal.m; sourceTree = SOURCE_ROOT; };
+		E2EF25EE1CAB1FDA00C5190E /* BONMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BONMeal.h; path = TBA/BONMeal.h; sourceTree = SOURCE_ROOT; };
+		E2EF25EF1CAB1FDA00C5190E /* BONMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BONMeal.m; path = TBA/BONMeal.m; sourceTree = SOURCE_ROOT; };
 		F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BONResultsStoryboard.storyboard; path = TBA/BONResultsStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		F616E2D11CAC2D5800624B25 /* BONResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BONResultsViewController.h; path = TBA/BONResultsViewController.h; sourceTree = SOURCE_ROOT; };
 		F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BONResultsViewController.m; path = TBA/BONResultsViewController.m; sourceTree = SOURCE_ROOT; };
@@ -169,15 +169,15 @@
 				F6A6F9191CAC9E5700838A72 /* BONSettingsConstants.m */,
 				F6A4B37A1CAC3EA900D8656F /* BONResultsConstants.h */,
 				F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */,
-				E2EF25EE1CAB1FDA00C5190E /* bonmeal.h */,
-				E2EF25EF1CAB1FDA00C5190E /* bonmeal.m */,
+				E2EF25EE1CAB1FDA00C5190E /* BONMeal.h */,
+				E2EF25EF1CAB1FDA00C5190E /* BONMeal.m */,
 				E2EF25C41CAB0A0700C5190E /* Assets.xcassets */,
 				E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */,
 				E2EF25C91CAB0A0700C5190E /* Info.plist */,
-				E2EF25B81CAB0A0700C5190E /* Supporting Files */,
 				3799AE541CAD5B9500408129 /* HowQuestion.storyboard */,
 				3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */,
 				3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */,
+				E2EF25B81CAB0A0700C5190E /* Supporting Files */,
 			);
 			path = TBA;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 				F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */,
 				E2EF25BA1CAB0A0700C5190E /* main.m in Sources */,
 				F6A6F91A1CAC9E5700838A72 /* BONSettingsConstants.m in Sources */,
-				E2EF25F01CAB1FDA00C5190E /* bonmeal.m in Sources */,
+				E2EF25F01CAB1FDA00C5190E /* BONMeal.m in Sources */,
 				3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
