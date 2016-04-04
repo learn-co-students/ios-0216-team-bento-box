@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Gd2-yL-z4b">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -31,23 +31,23 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYi-QQ-Bsb">
                                 <rect key="frame" x="282" y="457" width="37" height="30"/>
                                 <state key="normal" title="Enter"/>
+                                <connections>
+                                    <segue destination="ifT-lh-6i4" kind="show" id="WnS-ka-aBh"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="esh-2C-Bpr"/>
-                    <connections>
-                        <segue destination="ifT-lh-6i4" kind="show" id="bkL-hc-6LV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--How Question View Controller-->
         <scene sceneID="Ttb-Lh-9jV">
             <objects>
-                <viewController id="P71-qb-oex" sceneMemberID="viewController">
+                <viewController id="P71-qb-oex" customClass="BONHowQuestionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZOp-HW-JH5"/>
                         <viewControllerLayoutGuide type="bottom" id="mVe-Uc-iML"/>
@@ -86,42 +86,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbw-pW-T9D">
+                                <rect key="frame" x="275" y="437" width="51" height="30"/>
+                                <state key="normal" title="Results"/>
+                                <connections>
+                                    <action selector="resultsButtonIsTapped:" destination="P71-qb-oex" eventType="touchUpInside" id="Ove-K6-Kq3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dN-EF-eXl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4037" y="429"/>
-        </scene>
-        <!--BONResultsStoryboard-->
-        <scene sceneID="jae-Cm-hku">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BONResultsStoryboard" id="x6i-QK-jaZ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nGu-kE-Pdp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4326.5" y="283"/>
-        </scene>
-        <!--SettingsStoryboard-->
-        <scene sceneID="LqZ-Ez-QNh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SettingsStoryboard" id="ym8-Gv-hT1" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QUj-cC-o5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4322.5" y="335"/>
-        </scene>
-        <!--HowQuestion-->
-        <scene sceneID="5VG-Nx-twV">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HowQuestion" id="sLn-7J-kLW" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2jN-A4-dAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3604" y="358"/>
+            <point key="canvasLocation" x="3861" y="429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Rk-Ip-Rj9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gd2-yL-z4b" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainStoryboardNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Gd2-yL-z4b" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sdI-jA-9YI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -162,14 +145,14 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5d-03-BpI">
                                 <rect key="frame" x="282" y="457" width="37" height="30"/>
                                 <state key="normal" title="Enter"/>
+                                <connections>
+                                    <segue destination="XT8-uz-nA0" kind="show" id="h8h-7k-2uC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="vnH-gl-wyc"/>
-                    <connections>
-                        <segue destination="XT8-uz-nA0" kind="show" id="cV0-fY-B9a"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eac-Gn-0us" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,23 +184,23 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhK-HY-ELs">
                                 <rect key="frame" x="282" y="457" width="37" height="30"/>
                                 <state key="normal" title="Enter"/>
+                                <connections>
+                                    <segue destination="GBQ-t0-HJ3" kind="show" id="CaZ-ES-ZdE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="drW-k6-r7O"/>
-                    <connections>
-                        <segue destination="GBQ-t0-HJ3" kind="show" id="Yoi-QO-ULg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDt-oJ-u75" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2473" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--How Question View Controller-->
         <scene sceneID="nx2-bV-Hg6">
             <objects>
-                <viewController id="GBQ-t0-HJ3" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="GBQ-t0-HJ3" customClass="BONHowQuestionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iB1-jh-88Z"/>
                         <viewControllerLayoutGuide type="bottom" id="zI1-V8-RCS"/>
@@ -241,7 +224,7 @@
                                 <rect key="frame" x="282" y="457" width="37" height="30"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
-                                    <segue destination="sLn-7J-kLW" kind="show" id="sdv-wq-Icj"/>
+                                    <segue destination="P71-qb-oex" kind="show" id="5K9-5g-YpM"/>
                                 </connections>
                             </button>
                         </subviews>

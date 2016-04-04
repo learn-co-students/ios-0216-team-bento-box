@@ -59,11 +59,13 @@
     return [NSString stringWithFormat:@"%i", row+1] ;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)resultsButtonIsTapped:(id)sender {
+    BONResultsViewController *resultsViewController = [BONResultsViewController new];
+    
+    [self presentViewController:resultsViewController
+                       animated:YES
+                     completion:nil];
 }
-
 /*
 #pragma mark - Navigation
 
