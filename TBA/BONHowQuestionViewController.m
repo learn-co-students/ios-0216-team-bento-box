@@ -10,8 +10,9 @@
 #import "BONMeal.h"
 
 @interface BONHowQuestionViewController ()
-@property (weak, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
+
 @property(strong, nonatomic) BONMeal * thisMeal;
+
 @end
 
 @implementation BONHowQuestionViewController
@@ -19,6 +20,11 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    self.enterButton.enabled = NO;
+    
+    self.overallFeelingPicker.delegate = self;
+    self.overallFeelingPicker.dataSource = self;
     
     self.thisMeal = [BONMeal sharedDataStore];
     
@@ -32,11 +38,6 @@
                             @"8",
                             @"9",
                             @"10"];
-    
-    NSLog(@"%lu", self.sentimentScale.count);
-    
-    self.overallFeelingPicker.delegate = self;
-    self.overallFeelingPicker.dataSource = self;
 }
 
 
@@ -44,12 +45,12 @@
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
     return 1;
 }
 
 // returns the # of rows in each component..
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
     return self.sentimentScale.count;
 }
@@ -59,8 +60,6 @@ numberOfRowsInComponent:(NSInteger)component{
 - (NSString *)pickerView:(UIPickerView *)pickerView
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component {
-    
-    NSLog(@"%@", self.sentimentScale[row]);
     
     return self.sentimentScale[row];
 }
@@ -73,14 +72,15 @@ numberOfRowsInComponent:(NSInteger)component{
     NSLog(@"this is how user felt:%@", self.thisMeal.howUserFelt);
 }
 
-
-
-//- (nullable NSString *)pickerView:(UIPickerView *)pickerView
-//                      titleForRow:(NSInteger)row
-//                     forComponent:(NSInteger)component{
-//    
-//    return [NSString stringWithFormat:@"%li", row + 1] ;
-//}
+- (IBAction)editingChanged:(id)sender {
+    
+    if (![self.answerTextField.text isEqualToString:@""]) {
+        self.enterButton.enabled = YES;
+    }
+    else {
+        self.enterButton.enabled = NO;
+    }
+}
 
 - (IBAction)resultsButtonIsTapped:(id)sender {
     BONResultsViewController *resultsViewController = [BONResultsViewController new];
