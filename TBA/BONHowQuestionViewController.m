@@ -7,21 +7,18 @@
 //
 
 #import "BONHowQuestionViewController.h"
-#import "BONMeal.h"
+#import "BONDataStore.h"
 
 @interface BONHowQuestionViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
-@property(strong, nonatomic) BONMeal * thisMeal;
+@property(strong, nonatomic) Meal* thisMeal;
 @end
 
 @implementation BONHowQuestionViewController
 
 - (void)viewDidLoad {
     
-    self.thisMeal = [BONMeal sharedDataStore];
-    
-    
-    
+    self.thisMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:[BONDataStore sharedDataStore].managedObjectContext];
     
     self.overallFeelingPicker.delegate = self;
     self.overallFeelingPicker.dataSource = self;
@@ -56,7 +53,7 @@
 
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)componentD{
     
-    return [NSString stringWithFormat:@"%i", row+1] ;
+    return [NSString stringWithFormat:@"%li", row+1] ;
 }
 
 - (void)didReceiveMemoryWarning {
