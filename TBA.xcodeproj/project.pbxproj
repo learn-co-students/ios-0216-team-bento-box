@@ -161,6 +161,8 @@
 				F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */,
 				B0A0D69C1CB2DFEA0069C037 /* BONWelcomeViewController.h */,
 				B0A0D69D1CB2DFEA0069C037 /* BONWelcomeViewController.m */,
+				3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */,
+				3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */,
 				F6A6F9151CAC93DD00838A72 /* BONSettingsViewController.h */,
 				F6A6F9161CAC93DD00838A72 /* BONSettingsViewController.m */,
 				F616E2D11CAC2D5800624B25 /* BONResultsViewController.h */,
@@ -175,8 +177,6 @@
 				E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */,
 				E2EF25C91CAB0A0700C5190E /* Info.plist */,
 				3799AE541CAD5B9500408129 /* HowQuestion.storyboard */,
-				3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */,
-				3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */,
 				E2EF25B81CAB0A0700C5190E /* Supporting Files */,
 			);
 			path = TBA;

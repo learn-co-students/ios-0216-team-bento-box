@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--How Question View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BONHowQuestionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What did you eat?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLJ-0m-R6M">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What did you eat?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLJ-0m-R6M">
                                 <rect key="frame" x="231" y="76" width="138" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,8 +37,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gLJ-0m-R6M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MIh-fh-IvV"/>
+                            <constraint firstItem="gLJ-0m-R6M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="12" id="SoT-O2-tnI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="esh-2C-Bpr"/>
+                    <connections>
+                        <outlet property="answerTextField" destination="0yi-Dn-f3Q" id="rXo-AY-tBQ"/>
+                        <outlet property="enterButton" destination="gYi-QQ-Bsb" id="mgf-XC-WW2"/>
+                        <outlet property="questionLabel" destination="gLJ-0m-R6M" id="TAe-2v-Uo0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="411" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--How Question View Controller-->
         <scene sceneID="sqY-9u-5TW">
             <objects>
-                <viewController id="ifT-lh-6i4" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="ifT-lh-6i4" customClass="BONHowQuestionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bUp-WL-2eD"/>
                         <viewControllerLayoutGuide type="bottom" id="iKJ-cI-FV6"/>
@@ -158,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="1791" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--How Question View Controller-->
         <scene sceneID="exS-14-qqN">
             <objects>
-                <viewController id="XT8-uz-nA0" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="XT8-uz-nA0" customClass="BONHowQuestionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V9b-90-H45"/>
                         <viewControllerLayoutGuide type="bottom" id="Z7m-d5-UB5"/>
@@ -210,18 +219,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How do you feel?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ut-bo-pb9">
-                                <rect key="frame" x="237" y="76" width="132" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Users' Answer" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inc-f7-QVO">
-                                <rect key="frame" x="243" y="419" width="114" height="30"/>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Users' Answer" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="inc-f7-QVO">
+                                <rect key="frame" x="0.0" y="0.0" width="114" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIF-E4-c5Q">
-                                <rect key="frame" x="282" y="457" width="37" height="30"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-dV-2gT">
+                                <rect key="frame" x="0.0" y="279" width="600" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIF-E4-c5Q">
+                                <rect key="frame" x="282" y="465" width="37" height="30"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
                                     <segue destination="P71-qb-oex" kind="show" id="5K9-5g-YpM"/>
@@ -229,6 +241,13 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W5W-dV-2gT" firstAttribute="centerX" secondItem="aFF-mh-suS" secondAttribute="centerX" id="DFd-sd-gp3"/>
+                            <constraint firstItem="W5W-dV-2gT" firstAttribute="width" secondItem="aFF-mh-suS" secondAttribute="width" id="IYT-N0-Um0"/>
+                            <constraint firstItem="dIF-E4-c5Q" firstAttribute="bottom" secondItem="W5W-dV-2gT" secondAttribute="bottom" id="JgA-Wh-EIb"/>
+                            <constraint firstItem="W5W-dV-2gT" firstAttribute="top" secondItem="iB1-jh-88Z" secondAttribute="bottom" constant="215" id="alO-4s-uaD"/>
+                            <constraint firstItem="dIF-E4-c5Q" firstAttribute="centerX" secondItem="aFF-mh-suS" secondAttribute="centerX" id="ne6-wz-dqu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JU7-jB-zSA"/>
                 </viewController>
