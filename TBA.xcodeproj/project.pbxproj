@@ -18,18 +18,14 @@
 		E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AC08371CB45C6D003A6997 /* BONDataStore.m */; };
 		E2EF25BA1CAB0A0700C5190E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25B91CAB0A0700C5190E /* main.m */; };
 		E2EF25BD1CAB0A0700C5190E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */; };
-		E2EF25C31CAB0A0700C5190E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C11CAB0A0700C5190E /* Main.storyboard */; };
 		E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C41CAB0A0700C5190E /* Assets.xcassets */; };
 		E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */; };
 		E2EF25D31CAB0A0700C5190E /* TBATests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25D21CAB0A0700C5190E /* TBATests.m */; };
 		E2EF25DE1CAB0A0700C5190E /* TBAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25DD1CAB0A0700C5190E /* TBAUITests.m */; };
-
-		E2EF25F01CAB1FDA00C5190E /* bonmeal.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25EF1CAB1FDA00C5190E /* bonmeal.m */; };
 		F613E4DC1CB54CD7001FD82F /* BONContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4DB1CB54CD7001FD82F /* BONContainerViewController.m */; };
 		F613E4DF1CB54CF1001FD82F /* BONChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4DE1CB54CF1001FD82F /* BONChildViewController.m */; };
 		F613E4E21CB54D09001FD82F /* BONHamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4E11CB54D09001FD82F /* BONHamburgerViewController.m */; };
 		F613E4E51CB54DC3001FD82F /* BONLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4E41CB54DC3001FD82F /* BONLoginViewController.m */; };
-		E2EF25F01CAB1FDA00C5190E /* BONMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25EF1CAB1FDA00C5190E /* BONMeal.m */; };
 		F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */; };
 		F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */; };
 		F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */; };
@@ -77,7 +73,6 @@
 		E2EF25B91CAB0A0700C5190E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E2EF25C21CAB0A0700C5190E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2EF25C41CAB0A0700C5190E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2EF25C71CAB0A0700C5190E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2EF25C91CAB0A0700C5190E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,7 +175,6 @@
 				E2EF25EB1CAB0B7400C5190E /* Secrets.h */,
 				E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */,
 				E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */,
-				E2EF25C11CAB0A0700C5190E /* Main.storyboard */,
 				B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
 				F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */,
@@ -362,7 +356,6 @@
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,
 				3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */,
 				E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */,
-				E2EF25C31CAB0A0700C5190E /* Main.storyboard in Resources */,
 				B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +432,6 @@
 				F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */,
 				E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */,
 				E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */,
-				E2EF25C01CAB0A0700C5190E /* ViewController.m in Sources */,
 				E2AC082F1CB4586B003A6997 /* BONCoreData.xcdatamodeld in Sources */,
 				E2AC08351CB45979003A6997 /* Meal.m in Sources */,
 				F613E4DC1CB54CD7001FD82F /* BONContainerViewController.m in Sources */,
@@ -488,14 +480,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E2EF25C11CAB0A0700C5190E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2EF25C21CAB0A0700C5190E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
