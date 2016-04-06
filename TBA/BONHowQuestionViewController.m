@@ -10,57 +10,90 @@
 #import "BONDataStore.h"
 
 @interface BONHowQuestionViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
-@property (weak, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
-@property(strong, nonatomic) Meal* thisMeal;
+
+//@property (weak, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
+
+@property(strong, nonatomic) Meal *thisMeal;
+
 @end
 
 @implementation BONHowQuestionViewController
 
 - (void)viewDidLoad {
     
+
     self.thisMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:[BONDataStore sharedDataStore].managedObjectContext];
+    [super viewDidLoad];
+    
+    self.enterButton.enabled = NO;
     
     self.overallFeelingPicker.delegate = self;
     self.overallFeelingPicker.dataSource = self;
     
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.sentimentScale = @[@"1",
+                            @"2",
+                            @"3",
+                            @"4",
+                            @"5",
+                            @"6",
+                            @"7",
+                            @"8",
+                            @"9",
+                            @"10"];
 }
 
 
-#pragma mark DataSourcep rotocol
+#pragma mark DataSource protocol
+
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    
     return 1;
 }
 
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
- 
-    
-    return 10;
+    return self.sentimentScale.count;
 }
 
 #pragma mark Delegate protocol
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component {
+    
+    return self.sentimentScale[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component{
     NSLog(@"Row %li was selected", row+1);
     self.thisMeal.howUserFelt =  [NSString stringWithFormat:@"%li", row+1];
     NSLog(@"this is how user felt:%@", self.thisMeal.howUserFelt);
 }
 
-
-
-- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)componentD{
+- (IBAction)editingChanged:(id)sender {
     
-    return [NSString stringWithFormat:@"%li", row+1] ;
+    if (![self.answerTextField.text isEqualToString:@""]) {
+        self.enterButton.enabled = YES;
+    }
+    else {
+        self.enterButton.enabled = NO;
+    }
+    
+    
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)resultsButtonIsTapped:(id)sender {
+    BONResultsViewController *resultsViewController = [BONResultsViewController new];
+    
+    [self presentViewController:resultsViewController
+                       animated:YES
+                     completion:nil];
 }
-
 /*
 #pragma mark - Navigation
 
