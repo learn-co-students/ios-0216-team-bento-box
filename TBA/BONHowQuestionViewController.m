@@ -69,9 +69,6 @@
 - (void)pickerView:(UIPickerView *)pickerView
       didSelectRow:(NSInteger)row
        inComponent:(NSInteger)component{
-    NSLog(@"Row %li was selected", row+1);
-    self.thisMeal.howUserFelt =  [NSString stringWithFormat:@"%li", row+1];
-    NSLog(@"this is how user felt:%@", self.thisMeal.howUserFelt);
 }
 
 - (IBAction)editingChanged:(id)sender {
