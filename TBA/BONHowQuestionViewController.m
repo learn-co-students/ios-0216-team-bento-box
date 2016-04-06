@@ -11,8 +11,6 @@
 
 @interface BONHowQuestionViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
-//@property (weak, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
-
 @property(strong, nonatomic) Meal *thisMeal;
 
 @end
