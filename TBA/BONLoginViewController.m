@@ -9,6 +9,7 @@
 #import "BONLoginViewController.h"
 
 @interface BONLoginViewController ()
+@property (nonatomic,strong)UIButton *loginButton;
 
 @end
 
@@ -16,12 +17,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self buildLoginButton];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)buildLoginButton{
+    UIButton *loginButton = [[UIButton alloc] init];
+    loginButton.backgroundColor = [UIColor redColor];
+    [loginButton setTitle:@"I'm HANGRY" forState:UIControlStateNormal];
+    [loginButton addTarget:self action:@selector(loginButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginButton];
+    loginButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [loginButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:200].active = YES;
+    [loginButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [loginButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.05].active = YES;
+    self.loginButton = loginButton;
+}
+
+-(void)loginButtonTouched:(UIButton *)loginButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"login" object:self];
 }
 
 /*

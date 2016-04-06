@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "BONContainerViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -16,7 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
+    self.window.rootViewController = containerVC;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
