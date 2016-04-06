@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"Settings view controller loaded");
     [self buildTestData];
     [self createHeadingLabel];
     [self createSettingsView];
@@ -29,6 +30,7 @@
 
 -(void)viewDidLayoutSubviews{
     [self createResultRows];
+    
 }
 
 -(void)createHeadingLabel{

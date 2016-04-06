@@ -13,6 +13,8 @@
 @property (nonatomic,strong) UILabel *thanksLabel;
 @property (nonatomic, strong) UIView *resultsView;
 @property (nonatomic,strong) NSArray *resultsArray;
+@property (nonatomic,strong)UIButton *hamburgerButton;
+@property (nonatomic,strong)UISwipeGestureRecognizer *swipeRight;
 
 @end
 
@@ -24,6 +26,9 @@
     [self buildTestData];
     [self createThanksLabel];
     [self createResultsView];
+    [self addSwipeRightGesture];
+    [self addTapGesture];
+    [self buildHamburgerButton];
 }
 
 -(void)viewDidLayoutSubviews{
@@ -109,6 +114,50 @@
     [rightLabel.bottomAnchor constraintEqualToAnchor:label.bottomAnchor constant:RESULTS_ROW_LABEL_BOTTOM].active = YES;
 }
 
+#pragma mark - Hamburgler
+-(void)buildHamburgerButton{
+    UIButton *hamburgerButton = [[UIButton alloc] init];
+    [hamburgerButton setTitle:@"Burg" forState:UIControlStateNormal];
+    [hamburgerButton addTarget:self action:@selector(hamburgerButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:hamburgerButton];
+    hamburgerButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [hamburgerButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+    [hamburgerButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
+    [hamburgerButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.10].active = YES;
+    self.hamburgerButton = hamburgerButton;
+}
+
+-(void)hamburgerButtonTouched:(UIButton *)hamburgerButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
+    self.swipeRight.enabled = NO;
+}
+
+#pragma mark - Swipe Gestures
+-(void)addSwipeRightGesture{
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRightOccurred:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRight];
+    self.swipeRight = swipeRight;
+}
+
+-(void)swipeRightOccurred:(UISwipeGestureRecognizer *)swipeRight{
+    NSLog(@"Swipe right occurred");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"swipeRight" object:self];
+}
+
+-(void)addTapGesture{
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOccurred:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapGesture];
+}
+
+-(void)tapOccurred:(UITapGestureRecognizer *)tapTap{
+    NSLog(@"Tap occurred");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"tapTap" object:self];
+    self.swipeRight.enabled = YES;
+}
+
+#pragma mark - Test Data
 
 -(void)buildTestData{
     self.resultsArray = @[@{QUESTION_KEY : @"How",
