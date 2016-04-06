@@ -11,6 +11,7 @@
 #import "BONChildViewController.h"
 #import "BONLoginViewController.h"
 #import "BONResultsViewController.h"
+#import "BONHowQuestionViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -50,9 +51,13 @@
 -(void)buildViewControllerArrayWithTotalOf:(NSInteger)number{
     self.childViewControllers = [[NSMutableArray alloc] init];
     for (NSInteger counter = 0; counter < number; counter++) {
-        [self.childViewControllers addObject:[[BONChildViewController alloc] init]];
+        if (counter == number - 1) {
+            [self.childViewControllers addObject:[[BONHowQuestionViewController alloc] init]];
+            [self.childViewControllers addObject:[[BONResultsViewController alloc] init]];
+        } else{
+            [self.childViewControllers addObject:[[BONChildViewController alloc] init]];
+        }
     }
-    [self.childViewControllers addObject:[[BONResultsViewController alloc] init]];
 }
 
 -(void)displayContentController:(UIViewController *)contentController{
