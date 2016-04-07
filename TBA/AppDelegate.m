@@ -28,6 +28,28 @@
     UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:notificationTypes
                                                                                              categories:nil];
     
+        //////////// FourSquare API Playground \\\\\\\\\\\\\\\
+    
+    
+    [BONFoursquareAPIClient searchForVenue:@"diginn"
+                            withCompletion:^(NSDictionary *venues) {
+                                NSArray *allVenues = venues[@"response"][@"venues"];
+                                
+                                NSLog(@"Response All Keys: %@", [venues[@"response"] allKeys]);
+                                NSLog(@"Venues%@", NSStringFromClass([venues[@"response"][@"venues"] class]));
+                                NSLog(@"%lu", [venues[@"response"][@"venues"] count]);
+                                NSLog(@"All Venues' First Object: %@", [allVenues firstObject]);
+                                NSLog(@"%@", NSStringFromClass([[allVenues firstObject] class]));
+                                NSLog(@"%@", [[allVenues firstObject] allKeys]);
+                                NSLog(@"%@", [[[allVenues firstObject] allKeys] firstObject]);
+                                NSLog(@"%@", [allVenues firstObject][@"location"]);
+                                NSLog(@"%@", NSStringFromClass([[allVenues firstObject][@"location"] class]));
+                                NSLog(@"%@", [allVenues firstObject][@"location"][@"address"]);
+                                
+                                
+                            }];
+    
+    
     [[UIApplication sharedApplication] registerUserNotificationSettings:userNotificationSettings];
     return YES;
 }
