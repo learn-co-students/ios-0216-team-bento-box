@@ -102,6 +102,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"backButtonHit" object:self];
 }
 
+#pragma mark - Hamburger Button
+
 -(void)buildHamburgerButton{
     UIButton *hamburgerButton = [[UIButton alloc] init];
     [hamburgerButton setTitle:@"Burg" forState:UIControlStateNormal];

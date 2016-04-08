@@ -42,9 +42,6 @@
                                         <rect key="frame" x="0.0" y="230" width="250" height="73"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                         <state key="normal" title="Log A Meal"/>
-                                        <connections>
-                                            <segue destination="U4h-WF-Nn5" kind="show" id="TRL-Iz-can"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -59,14 +56,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56A-wg-5f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="549" y="435"/>
-        </scene>
-        <!--mainStoryboardNavigationController-->
-        <scene sceneID="rZe-ky-T06">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="mainStoryboardNavigationController" id="U4h-WF-Nn5" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6m8-Xl-7vE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1052.5" y="435"/>
         </scene>
     </scenes>
 </document>

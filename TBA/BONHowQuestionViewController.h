@@ -7,15 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BONResultsViewController.h"
 
 @interface BONHowQuestionViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
-@property (weak, nonatomic) IBOutlet UITextField *answerTextField;
-@property (weak, nonatomic) IBOutlet UIButton *enterButton;
-@property (strong, nonatomic) IBOutlet UIPickerView *overallFeelingPicker;
-
-@property (strong, nonatomic) NSArray *sentimentScale;
 
 @end
