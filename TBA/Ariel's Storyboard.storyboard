@@ -42,9 +42,6 @@
                                         <rect key="frame" x="0.0" y="231" width="250" height="73"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                         <state key="normal" title="Log A Meal"/>
-                                        <connections>
-                                            <segue destination="U4h-WF-Nn5" kind="show" id="TRL-Iz-can"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

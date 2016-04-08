@@ -21,7 +21,6 @@
 		E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AC08371CB45C6D003A6997 /* BONDataStore.m */; };
 		E2EF25BA1CAB0A0700C5190E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25B91CAB0A0700C5190E /* main.m */; };
 		E2EF25BD1CAB0A0700C5190E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */; };
-		E2EF25C31CAB0A0700C5190E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C11CAB0A0700C5190E /* Main.storyboard */; };
 		E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C41CAB0A0700C5190E /* Assets.xcassets */; };
 		E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */; };
 		E2EF25D31CAB0A0700C5190E /* TBATests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25D21CAB0A0700C5190E /* TBATests.m */; };
@@ -32,6 +31,11 @@
 		F613E4E51CB54DC3001FD82F /* BONLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4E41CB54DC3001FD82F /* BONLoginViewController.m */; };
 		F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */; };
 		F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */; };
+		F65C25221CB6EFA900B469FF /* BONGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65C251A1CB6EFA900B469FF /* BONGameViewController.m */; };
+		F65C25231CB6EFA900B469FF /* broccoliMan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F65C251B1CB6EFA900B469FF /* broccoliMan.jpg */; };
+		F65C25241CB6EFA900B469FF /* BONStatusIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F65C251D1CB6EFA900B469FF /* BONStatusIndicatorLabel.m */; };
+		F65C25251CB6EFA900B469FF /* BONButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F65C251F1CB6EFA900B469FF /* BONButton.m */; };
+		F65C25261CB6EFA900B469FF /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = F65C25211CB6EFA900B469FF /* Common.m */; };
 		F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */; };
 		F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */; };
 		F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */; };
@@ -83,7 +87,6 @@
 		E2EF25B91CAB0A0700C5190E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E2EF25C21CAB0A0700C5190E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2EF25C41CAB0A0700C5190E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2EF25C71CAB0A0700C5190E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2EF25C91CAB0A0700C5190E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +108,15 @@
 		F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BONResultsStoryboard.storyboard; path = TBA/BONResultsStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		F616E2D11CAC2D5800624B25 /* BONResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BONResultsViewController.h; path = TBA/BONResultsViewController.h; sourceTree = SOURCE_ROOT; };
 		F616E2D21CAC2D5800624B25 /* BONResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BONResultsViewController.m; path = TBA/BONResultsViewController.m; sourceTree = SOURCE_ROOT; };
+		F65C25191CB6EFA900B469FF /* BONGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONGameViewController.h; sourceTree = "<group>"; };
+		F65C251A1CB6EFA900B469FF /* BONGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONGameViewController.m; sourceTree = "<group>"; };
+		F65C251B1CB6EFA900B469FF /* broccoliMan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = broccoliMan.jpg; sourceTree = "<group>"; };
+		F65C251C1CB6EFA900B469FF /* BONStatusIndicatorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONStatusIndicatorLabel.h; sourceTree = "<group>"; };
+		F65C251D1CB6EFA900B469FF /* BONStatusIndicatorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONStatusIndicatorLabel.m; sourceTree = "<group>"; };
+		F65C251E1CB6EFA900B469FF /* BONButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONButton.h; sourceTree = "<group>"; };
+		F65C251F1CB6EFA900B469FF /* BONButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONButton.m; sourceTree = "<group>"; };
+		F65C25201CB6EFA900B469FF /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		F65C25211CB6EFA900B469FF /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONContainer.storyboard; sourceTree = "<group>"; };
 		F6A4B37A1CAC3EA900D8656F /* BONResultsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONResultsConstants.h; sourceTree = "<group>"; };
 		F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONResultsConstants.m; sourceTree = "<group>"; };
@@ -186,7 +198,6 @@
 				E2EF25EB1CAB0B7400C5190E /* Secrets.h */,
 				E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */,
 				E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */,
-				E2EF25C11CAB0A0700C5190E /* Main.storyboard */,
 				B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
 				F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */,
@@ -219,6 +230,15 @@
 				B0FE93991CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m */,
 				B0FE939B1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.h */,
 				B0FE939C1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.m */,
+				F65C25191CB6EFA900B469FF /* BONGameViewController.h */,
+				F65C251A1CB6EFA900B469FF /* BONGameViewController.m */,
+				F65C251B1CB6EFA900B469FF /* broccoliMan.jpg */,
+				F65C251C1CB6EFA900B469FF /* BONStatusIndicatorLabel.h */,
+				F65C251D1CB6EFA900B469FF /* BONStatusIndicatorLabel.m */,
+				F65C251E1CB6EFA900B469FF /* BONButton.h */,
+				F65C251F1CB6EFA900B469FF /* BONButton.m */,
+				F65C25201CB6EFA900B469FF /* Common.h */,
+				F65C25211CB6EFA900B469FF /* Common.m */,
 				E2EF25C41CAB0A0700C5190E /* Assets.xcassets */,
 				E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */,
 				E2EF25C91CAB0A0700C5190E /* Info.plist */,
@@ -374,8 +394,8 @@
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,
 				3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */,
 				E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */,
-				E2EF25C31CAB0A0700C5190E /* Main.storyboard in Resources */,
 				B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */,
+				F65C25231CB6EFA900B469FF /* broccoliMan.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65C25221CB6EFA900B469FF /* BONGameViewController.m in Sources */,
 				F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */,
 				E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */,
 				E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */,
@@ -455,8 +476,11 @@
 				E2AC08351CB45979003A6997 /* Meal.m in Sources */,
 				F613E4DC1CB54CD7001FD82F /* BONContainerViewController.m in Sources */,
 				E2EF25BD1CAB0A0700C5190E /* AppDelegate.m in Sources */,
+				F65C25241CB6EFA900B469FF /* BONStatusIndicatorLabel.m in Sources */,
 				B0A0D69E1CB2DFEA0069C037 /* BONWelcomeViewController.m in Sources */,
 				F6A6F9171CAC93DD00838A72 /* BONSettingsViewController.m in Sources */,
+				F65C25251CB6EFA900B469FF /* BONButton.m in Sources */,
+				F65C25261CB6EFA900B469FF /* Common.m in Sources */,
 				F613E4E21CB54D09001FD82F /* BONHamburgerViewController.m in Sources */,
 				F613E4E51CB54DC3001FD82F /* BONLoginViewController.m in Sources */,
 				F613E4DF1CB54CF1001FD82F /* BONChildViewController.m in Sources */,
@@ -502,14 +526,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E2EF25C11CAB0A0700C5190E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2EF25C21CAB0A0700C5190E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
