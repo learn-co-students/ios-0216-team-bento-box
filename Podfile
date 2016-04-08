@@ -7,6 +7,7 @@ target 'TBA' do
 
 pod 'Masonry', '~> 0.6'
 pod 'AFNetworking', '~> 3.0'
+pod "HNKGooglePlacesAutocomplete", "~> 1.2"
 
 end
 

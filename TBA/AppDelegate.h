@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BONFoursquareAPIClient.h"
+#import "BONGooglePlacesAPIClient.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
