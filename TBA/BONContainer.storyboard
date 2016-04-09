@@ -8,7 +8,7 @@
         <!--Container View Controller-->
         <scene sceneID="ItO-nu-wRx">
             <objects>
-                <viewController id="M7R-Ar-SfU" customClass="BONContainerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="containerViewController" id="M7R-Ar-SfU" customClass="BONContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EYh-ej-Szh"/>
                         <viewControllerLayoutGuide type="bottom" id="CK5-Z5-JR2"/>

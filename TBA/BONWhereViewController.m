@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"%@", NSStringFromClass([self class]));
+    
+    self.view.backgroundColor =  [UIColor whiteColor];
+    
     self.searchBar.delegate = self;
     self.searchResultsTableView.delegate = self;
     self.searchResultsTableView.dataSource = self;
@@ -85,6 +89,20 @@
     
     NSLog(@"Tapped Place: %@", placeAtSelectedRow.name);
 }
+
+//-(instancetype)init {
+//    
+//    self = [super init];
+//    if (self) {
+//        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, 600, 44)];
+//        _searchResultsTableView = [UITableView new];
+//        _searchResults = [NSArray new];
+//    }
+//    [_searchBar.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+//    [_searchBar.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+//    
+//    return self;
+//}
 
 /*
 #pragma mark - Navigation

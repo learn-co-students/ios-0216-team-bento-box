@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    
+
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 //    
 //    BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
@@ -32,6 +32,7 @@
     [HNKGooglePlacesAutocompleteQuery setupSharedQueryWithAPIKey:googlePlacesAPIBrowserKey];
     
     [[UIApplication sharedApplication] registerUserNotificationSettings:userNotificationSettings];
+    
     return YES;
 }
 

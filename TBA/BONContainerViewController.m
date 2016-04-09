@@ -13,6 +13,7 @@
 #import "BONResultsViewController.h"
 #import "BONHowQuestionViewController.h"
 #import "BONGameViewController.h"
+#import "BONWhereViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -53,10 +54,16 @@
 #pragma mark - Container View Controller Handlers
 
 -(void)buildViewControllerArrayWithTotalOf:(NSInteger)number{
+    
+    UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+                                                              bundle:nil];
+    BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
+    
     self.childViewControllers = [[NSMutableArray alloc] init];
     for (NSInteger counter = 0; counter < number; counter++) {
         if (counter == number - 1) {
             [self.childViewControllers addObject:[[BONGameViewController alloc] init]];
+            [self.childViewControllers addObject:whereViewController];
             [self.childViewControllers addObject:[[BONHowQuestionViewController alloc] init]];
             [self.childViewControllers addObject:[[BONResultsViewController alloc] init]];
         } else{

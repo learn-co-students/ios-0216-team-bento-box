@@ -11,10 +11,12 @@
 
 @interface BONWhereViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UITableView *searchResultsTableView;
 
 @property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (strong, nonatomic) NSArray *searchResults;
+
+//-(instancetype)init;
 
 @end
