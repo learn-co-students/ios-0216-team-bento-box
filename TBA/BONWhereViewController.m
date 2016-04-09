@@ -17,9 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@", NSStringFromClass([self class]));
+    NSLog(@"View Did Load");
     
     self.view.backgroundColor =  [UIColor whiteColor];
+    
+    [self configureAndShowAlertController];
     
     self.searchBar.delegate = self;
     self.searchResultsTableView.delegate = self;
@@ -30,11 +32,12 @@
 
 #pragma mark - SearchBar Delegate
 
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    [searchBar setShowsCancelButton:YES animated:YES];
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [searchBar setShowsCancelButton:YES
+                           animated:YES];
 }
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if(searchText.length > 0)
     {
@@ -52,7 +55,7 @@
     }
 }
 
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     
     searchBar.text = @"";
     [searchBar setShowsCancelButton:NO
@@ -79,30 +82,66 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.searchBar setShowsCancelButton:NO
                                 animated:YES];
+    
     [self.searchBar resignFirstResponder];
     
     HNKGooglePlacesAutocompletePlace *placeAtSelectedRow = self.searchResults[indexPath.row];
     
     NSLog(@"Tapped Place: %@", placeAtSelectedRow.name);
+    
+    [self.parentContainerViewController submitButtonHit:nil];
 }
 
-//-(instancetype)init {
-//    
-//    self = [super init];
-//    if (self) {
-//        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 20, 600, 44)];
-//        _searchResultsTableView = [UITableView new];
-//        _searchResults = [NSArray new];
-//    }
-//    [_searchBar.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-//    [_searchBar.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
-//    
-//    return self;
-//}
+#pragma mark - Helper Methods
+
+- (void)configureAndShowAlertController {
+    
+    self.parentContainerViewController = (BONContainerViewController *)self.parentViewController;
+    
+    self.alertController = [UIAlertController alertControllerWithTitle:@"Where'd you eat?"
+                                                               message:@"Search for where you ate"
+                                                        preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *home = [UIAlertAction actionWithTitle:@"Home"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction *action) {
+                                                     NSLog(@"I ate at home");
+                                                     [self.parentContainerViewController submitButtonHit:nil];
+                                                 }];
+    
+    UIAlertAction *school = [UIAlertAction actionWithTitle:@"School"
+                                                     style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction *action) {
+                                                       NSLog(@"I ate at school");
+                                                       [self.parentContainerViewController submitButtonHit:nil];
+                                                   }];
+    
+    UIAlertAction *work = [UIAlertAction actionWithTitle:@"Work"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction *action) {
+                                                     NSLog(@"I ate at work");
+                                                     [self.parentContainerViewController submitButtonHit:nil];
+                                                 }];
+    
+    UIAlertAction *search = [UIAlertAction actionWithTitle:@"Search"
+                                                     style:UIAlertActionStyleCancel
+                                                   handler:^(UIAlertAction *action) {
+                                                       nil;
+                                                   }];
+    
+    [self.alertController addAction:home];
+    [self.alertController addAction:school];
+    [self.alertController addAction:work];
+    [self.alertController addAction:search];
+    
+    [self presentViewController:self.alertController
+                       animated:YES
+                     completion:nil];
+}
 
 /*
 #pragma mark - Navigation

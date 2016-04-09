@@ -60,10 +60,10 @@
     BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
     
     self.childViewControllers = [[NSMutableArray alloc] init];
-    for (NSInteger counter = 0; counter < number; counter++) {
+    for (NSInteger counter = -1; counter < number; counter++) {
         if (counter == number - 1) {
-            [self.childViewControllers addObject:[[BONGameViewController alloc] init]];
             [self.childViewControllers addObject:whereViewController];
+            [self.childViewControllers addObject:[[BONGameViewController alloc] init]];
             [self.childViewControllers addObject:[[BONHowQuestionViewController alloc] init]];
             [self.childViewControllers addObject:[[BONResultsViewController alloc] init]];
         } else{

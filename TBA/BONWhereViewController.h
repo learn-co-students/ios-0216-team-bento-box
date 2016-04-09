@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BONGooglePlacesAPIClient.h"
+#import "BONContainerViewController.h"
 
 @interface BONWhereViewController : UIViewController
 
@@ -16,7 +17,11 @@
 
 @property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (strong, nonatomic) NSArray *searchResults;
+@property (strong, nonatomic) UIAlertController *alertController;
+@property (strong, nonatomic) BONContainerViewController *parentContainerViewController;
 
-//-(instancetype)init;
+#pragma mark - Helper Methods
+
+- (void)configureAndShowAlertController;
 
 @end
