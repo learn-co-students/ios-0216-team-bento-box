@@ -10,4 +10,6 @@
 
 @interface BONContainerViewController : UIViewController
 
+-(void)submitButtonHit:(id)sender;
+
 @end

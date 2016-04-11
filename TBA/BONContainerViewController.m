@@ -13,6 +13,8 @@
 #import "BONResultsViewController.h"
 #import "BONHowQuestionViewController.h"
 #import "BONDataStore.h"
+#import "BONGameViewController.h"
+#import "BONWhereViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -23,6 +25,7 @@
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
 
+@property (nonatomic,assign)NSInteger viewCounter;
 
 @end
 
@@ -60,27 +63,31 @@
         [self displayContentController:loginViewController];
     }
     
-    //    Meal *DoesItPersist = self.localDataStore.userMeals.lastObject;
     
     for(Meal *DoesItPersist in self.localDataStore.userMeals) {
     
         NSLog(@"DOES THE DATA PERSIST? TEST:\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@",DoesItPersist.whenWasItEaten, DoesItPersist.whatWasEaten, DoesItPersist.whereWasItEaten, DoesItPersist.howUserFelt);
     }
 
-    
-
+    self.viewCounter = 0;
 }
 
 #pragma mark - Container View Controller Handlers
 
 -(void)buildViewControllerArrayWithTotalOf:(NSInteger)number{
+    
+    UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+                                                              bundle:nil];
+    BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
+    
     self.childViewControllers = [[NSMutableArray alloc] init];
-
     
     [self.localDataStore fetchData];
     
-    for (NSInteger counter = 0; counter < number; counter++) {
+    for (NSInteger counter = -1; counter < number; counter++) {
         if (counter == number - 1) {
+            [self.childViewControllers addObject:whereViewController];
+            [self.childViewControllers addObject:[[BONGameViewController alloc] init]];
             [self.childViewControllers addObject:[[BONHowQuestionViewController alloc] init]];
             
             BONResultsViewController *resultsVC = [[BONResultsViewController alloc] init];
@@ -128,9 +135,6 @@
     NSLog(@"Enter Button Hit");
     UIViewController *oldController = self.fromViewController;
     
-//    NSLog(@"FACE MY QUESTIONS: %@",question );
-    
-    
     if (self.fromViewController == self.childViewControllers[0]) {
         BONChildViewController *newController = self.childViewControllers[1];
         [self cycleFromViewController:oldController toViewController:newController];
@@ -165,25 +169,24 @@
     
     NSLog(@"\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@", self.userMeal.whenWasItEaten, self.userMeal.whatWasEaten, self.userMeal.whereWasItEaten, self.userMeal.howUserFelt);
 
+    self.viewCounter++;
+    BONChildViewController *newController = self.childViewControllers[self.viewCounter];
+    [self cycleFromViewController:oldController toViewController:newController];
+    self.fromViewController = newController;
+    
 }
 
 -(void)backButtonHit:(id)sender{
     NSLog(@"Back Button Hit");
     UIViewController *oldController = self.fromViewController;
     
-    if(self.fromViewController == self.childViewControllers[3]){
-        BONChildViewController *newController = self.childViewControllers[2];
-        [self cycleFromViewController:oldController toViewController:newController];
-        self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[2]) {
-        BONChildViewController *newController = self.childViewControllers[1];
-        [self cycleFromViewController:oldController toViewController:newController];
-        self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[1]){
-        BONChildViewController *newController = self.childViewControllers[0];
+    if (self.viewCounter) {
+        self.viewCounter--;
+        BONChildViewController *newController = self.childViewControllers[self.viewCounter];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
+    
 }
 
 -(void)loginButtonHit:(id)sender{
@@ -196,34 +199,21 @@
 -(void)swipeRightOccurred:(id)sender{
     UIViewController *oldController = self.fromViewController;
     
-    if (self.fromViewController == self.childViewControllers[3]) {
-        BONChildViewController *newController = self.childViewControllers[2];
-        [self cycleFromViewController:oldController toViewController:newController];
-        self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[2]){
-        BONChildViewController *newController = self.childViewControllers[1];
-        [self cycleFromViewController:oldController toViewController:newController];
-        self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[1]){
-        BONChildViewController *newController = self.childViewControllers[0];
+    if (self.viewCounter) {
+        self.viewCounter--;
+        BONChildViewController *newController = self.childViewControllers[self.viewCounter];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
+    
 }
 
 -(void)swipeLeftOccurred:(id)sender{
     UIViewController *oldController = self.fromViewController;
     
-    if (self.fromViewController == self.childViewControllers[0]) {
-        BONChildViewController *newController = self.childViewControllers[1];
-        [self cycleFromViewController:oldController toViewController:newController];
-        self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[1]){
-        BONChildViewController *newController = self.childViewControllers[2];
-        [self cycleFromViewController:oldController toViewController:newController];
-        self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[2]){
-        BONChildViewController *newController = self.childViewControllers[3];
+    if (self.viewCounter != [self.childViewControllers count]-1) {
+        self.viewCounter++;
+        BONChildViewController *newController = self.childViewControllers[self.viewCounter];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
