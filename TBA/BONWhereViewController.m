@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"View Did Load");
+    self.sharedDataStore = [BONDataStore sharedDataStore];
     
     self.view.backgroundColor =  [UIColor whiteColor];
     
@@ -91,7 +91,7 @@
     
     HNKGooglePlacesAutocompletePlace *placeAtSelectedRow = self.searchResults[indexPath.row];
     
-    NSLog(@"Tapped Place: %@", placeAtSelectedRow.name);
+    self.sharedDataStore.whereWasEatenString = placeAtSelectedRow.name;
     
     [self.parentContainerViewController submitButtonHit:nil];
 }

@@ -82,8 +82,6 @@
     
     self.childViewControllers = [[NSMutableArray alloc] init];
     
-    [self.localDataStore fetchData];
-    
     for (NSInteger counter = -1; counter < number; counter++) {
         if (counter == number - 1) {
             [self.childViewControllers addObject:whereViewController];
@@ -251,7 +249,8 @@
         self.userMeal.whatWasEaten = userAnswer;
     }
     if ([isRightQuestion containsString:@"Where"]) {
-        self.userMeal.whereWasItEaten = userAnswer;
+        self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
+        
     }
     if ([isRightQuestion containsString:@"How"]) {
         self.userMeal.howUserFelt = userAnswer;

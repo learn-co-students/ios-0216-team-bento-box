@@ -13,6 +13,7 @@
 @interface BONDataStore : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSString *whereWasEatenString;
 
 + (instancetype) sharedDataStore;
 - (void) saveContext;
