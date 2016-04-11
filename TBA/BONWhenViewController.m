@@ -6,9 +6,9 @@
 //  Copyright © 2016 Daniel Adeyanju. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "BONWhenViewController.h"
 
-@interface ViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface BONWhenViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *mealTypePicker;
 

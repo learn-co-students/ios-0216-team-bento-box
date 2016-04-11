@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		371ADA171CBC343D00CAF73F /* BONWhenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA141CBC343D00CAF73F /* BONWhenView.m */; };
+		371ADA171CBC343D00CAF73F /* BONWhenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA141CBC343D00CAF73F /* BONWhenViewController.m */; };
 		371ADA181CBC343D00CAF73F /* BONNotificationsSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */; };
 		371ADA1A1CBC35C100CAF73F /* BONWhenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */; };
 		3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799AE541CAD5B9500408129 /* HowQuestion.storyboard */; };
@@ -65,8 +65,8 @@
 
 /* Begin PBXFileReference section */
 		0F4F1923C9AA3925F32DECF2 /* Pods-TBA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBA.release.xcconfig"; path = "Pods/Target Support Files/Pods-TBA/Pods-TBA.release.xcconfig"; sourceTree = "<group>"; };
-		371ADA131CBC343D00CAF73F /* BONWhenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWhenView.h; sourceTree = "<group>"; };
-		371ADA141CBC343D00CAF73F /* BONWhenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWhenView.m; sourceTree = "<group>"; };
+		371ADA131CBC343D00CAF73F /* BONWhenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWhenViewController.h; sourceTree = "<group>"; };
+		371ADA141CBC343D00CAF73F /* BONWhenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWhenViewController.m; sourceTree = "<group>"; };
 		371ADA151CBC343D00CAF73F /* BONNotificationsSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONNotificationsSettings.h; sourceTree = "<group>"; };
 		371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONNotificationsSettings.m; sourceTree = "<group>"; };
 		371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONWhenView.storyboard; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 				E2EF25C41CAB0A0700C5190E /* Assets.xcassets */,
 				E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */,
 				E2EF25C91CAB0A0700C5190E /* Info.plist */,
-				371ADA131CBC343D00CAF73F /* BONWhenView.h */,
-				371ADA141CBC343D00CAF73F /* BONWhenView.m */,
+				371ADA131CBC343D00CAF73F /* BONWhenViewController.h */,
+				371ADA141CBC343D00CAF73F /* BONWhenViewController.m */,
 				371ADA151CBC343D00CAF73F /* BONNotificationsSettings.h */,
 				371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */,
 				371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */,
@@ -494,7 +494,7 @@
 				B0A0D69E1CB2DFEA0069C037 /* BONWelcomeViewController.m in Sources */,
 				F6A6F9171CAC93DD00838A72 /* BONSettingsViewController.m in Sources */,
 				F65C25251CB6EFA900B469FF /* BONButton.m in Sources */,
-				371ADA171CBC343D00CAF73F /* BONWhenView.m in Sources */,
+				371ADA171CBC343D00CAF73F /* BONWhenViewController.m in Sources */,
 				371ADA181CBC343D00CAF73F /* BONNotificationsSettings.m in Sources */,
 				F65C25261CB6EFA900B469FF /* Common.m in Sources */,
 				F613E4E21CB54D09001FD82F /* BONHamburgerViewController.m in Sources */,
