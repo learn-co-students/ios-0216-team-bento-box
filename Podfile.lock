@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - ASHorizontalScrollViewForObjectiveC (1.1)
   - HNKGooglePlacesAutocomplete (1.2.0):
     - AFNetworking (~> 3.0)
     - Mantle (~> 2.0)
@@ -24,11 +25,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - ASHorizontalScrollViewForObjectiveC (~> 1.0)
   - HNKGooglePlacesAutocomplete (~> 1.2)
   - Masonry (~> 0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  ASHorizontalScrollViewForObjectiveC: 1a0b0677f27ae2780a10b7dc40cce66b511deb94
   HNKGooglePlacesAutocomplete: 1977cf89b41080aba06ff0e934eb72c01efb8e03
   Mantle: 299966b00759634931699f69cb6a30b9239b944d
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
