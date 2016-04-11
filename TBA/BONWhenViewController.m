@@ -16,7 +16,7 @@
 
 @end
 
-@implementation ViewController
+@implementation BONWhenViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
