@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Meal.h"
 
 @interface BONResultsViewController : UIViewController
+
+@property (nonatomic, strong) Meal *resultMeal;
 
 @end

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface BONChildViewController : UIViewController
+@property (nonatomic,strong)UILabel *questionLabel;
+@property (nonatomic,strong)UITextField *answerTextField;
+
 
 @end

@@ -13,8 +13,6 @@
 @property (nonatomic,strong)NSArray *questionArray;
 @property (nonatomic,strong)NSArray *answerArray;
 @property (nonatomic,strong)NSArray *colorArray;
-@property (nonatomic,strong)UILabel *questionLabel;
-@property (nonatomic,strong)UITextField *answerTextField;
 @property (nonatomic,strong)UIButton *submitButton;
 @property (nonatomic,strong)UIButton *backButton;
 @property (nonatomic,strong)UIButton *hamburgerButton;
@@ -26,7 +24,7 @@
 @implementation BONChildViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+    [super viewDidLoad];                        
     
     [self getQuestionLabel];
     [self buildAnswerTextField];
@@ -80,6 +78,7 @@
     [submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     [submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.05].active = YES;
     self.submitButton = submitButton;
+    
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
@@ -164,9 +163,9 @@
 
 #pragma mark - Test Data Builder
 -(NSString *)randomQuestion{
-    self.questionArray = @[@"YOU TALKIN' TO ME?",
-                           @"ARE YOU ASKING ME?",
-                           @"HMMMM, TRY AGAIN?"];
+    self.questionArray = @[@"When did you eat?",
+                           @"What did you eat?",
+                           @"Where did you eat?"];
     
     return self.questionArray[arc4random_uniform(3)];
 }

@@ -33,15 +33,16 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-    }
+    } 
 }
 
 - (void)fetchData
 {
     //     perform a fetch request to fill an array property on your datastore
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Meal"];
+    NSFetchRequest *mealFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Meal"];
+    mealFetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES] ];
     BONDataStore *dataStore = [BONDataStore sharedDataStore];
-    dataStore.userMeal = [dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    dataStore.userMeals = [dataStore.managedObjectContext executeFetchRequest:mealFetchRequest error:nil];
 }
 
 #pragma mark - Core Data Stack

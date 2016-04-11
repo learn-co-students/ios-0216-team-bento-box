@@ -12,6 +12,10 @@
 		9FA8A87A32B057EE0248FFA5 /* libPods-TBA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E218A2E5BB176F9536CF811 /* libPods-TBA.a */; };
 		B0A0D69E1CB2DFEA0069C037 /* BONWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0D69D1CB2DFEA0069C037 /* BONWelcomeViewController.m */; };
 		B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */; };
+		E2A36B2A1CB5998E00DDAF27 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */; };
+		E2A36B2B1CB5998E00DDAF27 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B291CB5998E00DDAF27 /* User.m */; };
+		E2A36B2D1CB59A2A00DDAF27 /* coreDataTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A36B2C1CB59A2A00DDAF27 /* coreDataTest.storyboard */; };
+		E2A36B301CB59ADF00DDAF27 /* coreDataTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B2F1CB59ADF00DDAF27 /* coreDataTestViewController.m */; };
 		E2AC082F1CB4586B003A6997 /* BONCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2AC082D1CB4586B003A6997 /* BONCoreData.xcdatamodeld */; };
 		E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AC08311CB45979003A6997 /* Meal+CoreDataProperties.m */; };
 		E2AC08351CB45979003A6997 /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AC08331CB45979003A6997 /* Meal.m */; };
@@ -62,6 +66,13 @@
 		B0A0D69D1CB2DFEA0069C037 /* BONWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWelcomeViewController.m; sourceTree = "<group>"; };
 		B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Ariel's Storyboard.storyboard"; sourceTree = "<group>"; };
 		D1632F90A11D79E4C076CFC3 /* Pods-TBA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TBA/Pods-TBA.debug.xcconfig"; sourceTree = "<group>"; };
+		E2A36B261CB5998E00DDAF27 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E2A36B281CB5998E00DDAF27 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E2A36B291CB5998E00DDAF27 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E2A36B2C1CB59A2A00DDAF27 /* coreDataTest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = coreDataTest.storyboard; sourceTree = "<group>"; };
+		E2A36B2E1CB59ADF00DDAF27 /* coreDataTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coreDataTestViewController.h; sourceTree = "<group>"; };
+		E2A36B2F1CB59ADF00DDAF27 /* coreDataTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = coreDataTestViewController.m; sourceTree = "<group>"; };
 		E2AC082E1CB4586B003A6997 /* BONCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BONCoreData.xcdatamodel; sourceTree = "<group>"; };
 		E2AC08301CB45979003A6997 /* Meal+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Meal+CoreDataProperties.h"; sourceTree = "<group>"; };
 		E2AC08311CB45979003A6997 /* Meal+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Meal+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -178,6 +189,9 @@
 				B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
 				F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */,
+				E2A36B2C1CB59A2A00DDAF27 /* coreDataTest.storyboard */,
+				E2A36B2E1CB59ADF00DDAF27 /* coreDataTestViewController.h */,
+				E2A36B2F1CB59ADF00DDAF27 /* coreDataTestViewController.m */,
 				F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */,
 				F613E4DA1CB54CD7001FD82F /* BONContainerViewController.h */,
 				F613E4DB1CB54CD7001FD82F /* BONContainerViewController.m */,
@@ -213,6 +227,10 @@
 		E2EF25B81CAB0A0700C5190E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E2A36B261CB5998E00DDAF27 /* User+CoreDataProperties.h */,
+				E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */,
+				E2A36B281CB5998E00DDAF27 /* User.h */,
+				E2A36B291CB5998E00DDAF27 /* User.m */,
 				E2AC08301CB45979003A6997 /* Meal+CoreDataProperties.h */,
 				E2AC08311CB45979003A6997 /* Meal+CoreDataProperties.m */,
 				E2AC08321CB45979003A6997 /* Meal.h */,
@@ -311,7 +329,7 @@
 				TargetAttributes = {
 					E2EF25B41CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KAPZEUH558;
+						DevelopmentTeam = 87H88Y5GU7;
 					};
 					E2EF25CD1CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
@@ -351,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */,
+				E2A36B2D1CB59A2A00DDAF27 /* coreDataTest.storyboard in Resources */,
 				F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */,
 				E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */,
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,
@@ -431,7 +450,9 @@
 			files = (
 				F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */,
 				E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */,
+				E2A36B2B1CB5998E00DDAF27 /* User.m in Sources */,
 				E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */,
+				E2A36B301CB59ADF00DDAF27 /* coreDataTestViewController.m in Sources */,
 				E2AC082F1CB4586B003A6997 /* BONCoreData.xcdatamodeld in Sources */,
 				E2AC08351CB45979003A6997 /* Meal.m in Sources */,
 				F613E4DC1CB54CD7001FD82F /* BONContainerViewController.m in Sources */,
@@ -442,6 +463,7 @@
 				F613E4E51CB54DC3001FD82F /* BONLoginViewController.m in Sources */,
 				F613E4DF1CB54CF1001FD82F /* BONChildViewController.m in Sources */,
 				F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */,
+				E2A36B2A1CB5998E00DDAF27 /* User+CoreDataProperties.m in Sources */,
 				E2EF25BA1CAB0A0700C5190E /* main.m in Sources */,
 				F6A6F91A1CAC9E5700838A72 /* BONSettingsConstants.m in Sources */,
 				3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */,
@@ -579,10 +601,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TBA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School.TBA";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -592,10 +616,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TBA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School.TBA";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

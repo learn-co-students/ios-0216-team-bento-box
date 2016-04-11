@@ -10,4 +10,7 @@
 
 @interface BONHowQuestionViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (nonatomic, readonly) NSString *answer;
+@property (nonatomic,strong)UILabel *questionLabel;
+
 @end

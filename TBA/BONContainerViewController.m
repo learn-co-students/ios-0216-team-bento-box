@@ -12,18 +12,33 @@
 #import "BONLoginViewController.h"
 #import "BONResultsViewController.h"
 #import "BONHowQuestionViewController.h"
+#import "BONDataStore.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
 @property (nonatomic,strong)NSMutableArray *childViewControllers;
 @property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
+@property (nonatomic,strong)BONDataStore *localDataStore;
+@property (nonatomic,strong)Meal *userMeal;
+
+-(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
+
 
 @end
 
 @implementation BONContainerViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    // Instantiating dataStore
+    
+    self.localDataStore = [BONDataStore sharedDataStore];
+    [self.localDataStore fetchData];
+    self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:self.localDataStore.managedObjectContext];
+    self.userMeal.createdAt = [NSDate date];
+
     self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
     self.fromViewController = self.childViewControllers[0];
@@ -44,16 +59,40 @@
         BONLoginViewController *loginViewController = [[BONLoginViewController alloc] init];
         [self displayContentController:loginViewController];
     }
+    
+    //    Meal *DoesItPersist = self.localDataStore.userMeals.lastObject;
+    
+    for(Meal *DoesItPersist in self.localDataStore.userMeals) {
+    
+        NSLog(@"DOES THE DATA PERSIST? TEST:\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@",DoesItPersist.whenWasItEaten, DoesItPersist.whatWasEaten, DoesItPersist.whereWasItEaten, DoesItPersist.howUserFelt);
+    }
+
+    
+
 }
 
 #pragma mark - Container View Controller Handlers
 
 -(void)buildViewControllerArrayWithTotalOf:(NSInteger)number{
     self.childViewControllers = [[NSMutableArray alloc] init];
+
+    
+    [self.localDataStore fetchData];
+    
     for (NSInteger counter = 0; counter < number; counter++) {
         if (counter == number - 1) {
             [self.childViewControllers addObject:[[BONHowQuestionViewController alloc] init]];
-            [self.childViewControllers addObject:[[BONResultsViewController alloc] init]];
+            
+            BONResultsViewController *resultsVC = [[BONResultsViewController alloc] init];
+            
+            resultsVC.resultMeal = self.userMeal;
+            
+            NSLog(@"\n\n\n\nresultsVS.resultMeal is: %@", resultsVC.resultMeal);
+            
+            NSLog(@"\n\n\n***self.localDataStore.userMeals is:%@", self.localDataStore.userMeals);
+            
+            [self.childViewControllers addObject:resultsVC];
+            
         } else{
             [self.childViewControllers addObject:[[BONChildViewController alloc] init]];
         }
@@ -89,6 +128,9 @@
     NSLog(@"Enter Button Hit");
     UIViewController *oldController = self.fromViewController;
     
+//    NSLog(@"FACE MY QUESTIONS: %@",question );
+    
+    
     if (self.fromViewController == self.childViewControllers[0]) {
         BONChildViewController *newController = self.childViewControllers[1];
         [self cycleFromViewController:oldController toViewController:newController];
@@ -102,6 +144,27 @@
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
+    
+    NSString *question;
+    NSString *answer;
+    
+    if([oldController isKindOfClass:[BONChildViewController class]]) {
+        BONChildViewController *childVC = (BONChildViewController *)oldController;
+        question = childVC.questionLabel.text;
+        answer = childVC.answerTextField.text;
+    }
+    else if([oldController isKindOfClass:[BONHowQuestionViewController class]]) {
+        BONHowQuestionViewController *howVC = (BONHowQuestionViewController *)oldController;
+        question = howVC.questionLabel.text;
+        answer = howVC.answer;
+    }
+    
+    [self answerSubmittedToDataStore:question questionAndAnswer:answer];
+    [self.localDataStore saveContext];
+    [self.localDataStore fetchData];
+    
+    NSLog(@"\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@", self.userMeal.whenWasItEaten, self.userMeal.whatWasEaten, self.userMeal.whereWasItEaten, self.userMeal.howUserFelt);
+
 }
 
 -(void)backButtonHit:(id)sender{
@@ -175,6 +238,7 @@
 #pragma mark - Transition Animation
 
 -(void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC{
+
     [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC];
     
@@ -188,8 +252,29 @@
     }];
 }
 
+-(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
+    
+    if ([isRightQuestion containsString:@"When"]) {
+        self.userMeal.whenWasItEaten = userAnswer;
+    }
+    if ([isRightQuestion containsString:@"What"]) {
+        self.userMeal.whatWasEaten = userAnswer;
+    }
+    if ([isRightQuestion containsString:@"Where"]) {
+        self.userMeal.whereWasItEaten = userAnswer;
+    }
+    if ([isRightQuestion containsString:@"How"]) {
+        self.userMeal.howUserFelt = userAnswer;
+    }
+    
+    
+}
+
+
+
 /*
 #pragma mark - Navigation
+ 
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

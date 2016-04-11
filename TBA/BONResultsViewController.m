@@ -8,6 +8,7 @@
 
 #import "BONResultsViewController.h"
 #import "BONResultsConstants.h"
+#import "BONDataStore.h"
 
 @interface BONResultsViewController ()
 @property (nonatomic,strong) UILabel *thanksLabel;
@@ -15,6 +16,7 @@
 @property (nonatomic,strong) NSArray *resultsArray;
 @property (nonatomic,strong)UIButton *hamburgerButton;
 @property (nonatomic,strong)UISwipeGestureRecognizer *swipeRight;
+@property (nonatomic,strong) BONDataStore *resultDataStore;
 
 @end
 
@@ -29,6 +31,7 @@
     [self addSwipeRightGesture];
     [self addTapGesture];
     [self buildHamburgerButton];
+
 }
 
 -(void)viewDidLayoutSubviews{
@@ -98,6 +101,7 @@
     [self.resultsView insertSubview:leftLabel aboveSubview:label];
     [self.resultsView insertSubview:rightLabel aboveSubview:label];
     
+    // Add a dictionary with the questions and answers to the lines below. Replace [Question_Key] and [Answer Key]
     NSDictionary *resultDictionary = self.resultsArray[rowCount];
     leftLabel.text = resultDictionary[QUESTION_KEY];
     rightLabel.text = resultDictionary[ANSWER_KEY];
@@ -160,6 +164,11 @@
 #pragma mark - Test Data
 
 -(void)buildTestData{
+    
+    [self.resultDataStore fetchData];
+    Meal *currentMeal = self.resultMeal;
+    
+    NSLog(@"\n\n\n\nWhat is currentMeal:%@", currentMeal);
     self.resultsArray = @[@{QUESTION_KEY : @"How",
                             ANSWER_KEY : @"Like a boss"},
                           @{QUESTION_KEY : @"Where",

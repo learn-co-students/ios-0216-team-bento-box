@@ -1,5 +1,5 @@
 //
-//  Meal+CoreDataProperties.m
+//  User+CoreDataProperties.m
 //  TBA
 //
 //  Created by Bao Tran on 4/6/16.
@@ -9,14 +9,11 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Meal+CoreDataProperties.h"
+#import "User+CoreDataProperties.h"
 
-@implementation Meal (CoreDataProperties)
+@implementation User (CoreDataProperties)
 
-@dynamic createdAt;
-@dynamic howUserFelt;
-@dynamic whatWasEaten;
-@dynamic whenWasItEaten;
-@dynamic whereWasItEaten;
+@dynamic firstName;
+@dynamic meals;
 
 @end

@@ -7,7 +7,12 @@
         <attribute name="whenWasItEaten" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="whereWasItEaten" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meals" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Meal" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Meal" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Meal" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="User" positionX="-306" positionY="36" width="128" height="73"/>
     </elements>
 </model>

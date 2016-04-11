@@ -18,6 +18,7 @@
 - (void) saveContext;
 - (void) fetchData;
 
-@property (nonatomic, strong) NSArray *userMeal;
+@property (nonatomic, strong) NSArray *userMeals;
+
 
 @end

@@ -12,14 +12,13 @@
 
 @interface BONHowQuestionViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (nonatomic,strong)NSArray *questionArray;
-@property (nonatomic,strong)UILabel *questionLabel;
-@property (strong, nonatomic) UIPickerView *pickerView;
 @property (nonatomic,strong)UIButton *submitButton;
 @property (nonatomic,strong)UIButton *backButton;
 @property (nonatomic,strong)UIButton *hamburgerButton;
 @property (nonatomic,strong)UISwipeGestureRecognizer *swipeLeft;
 @property (nonatomic,strong)UISwipeGestureRecognizer *swipeRight;
 @property (strong, nonatomic) NSArray *sentimentScale;
+@property (strong, nonatomic) UIPickerView *pickerView;
 @property(strong, nonatomic) Meal *thisMeal;
 
 @end
@@ -51,6 +50,11 @@
     [self addSwipeLeftGesture];
     [self addTapGesture];
     [self buildHamburgerButton];
+}
+
+-(NSString *)answer
+{
+    return self.sentimentScale[[self.pickerView selectedRowInComponent:0]];
 }
 
 
@@ -200,9 +204,9 @@
 
 #pragma mark - Test Data Builder
 -(NSString *)randomQuestion{
-    self.questionArray = @[@"HOW MUCH IS TOO MUCH?",
-                           @"HOW MUCH DO YOU DISKLIKE GITHUB RIGHT NOW?",
-                           @"HMMMM, MOAAAAAAR?"];
+    self.questionArray = @[@"How MUCH IS TOO MUCH?",
+                           @"How MUCH DO YOU DISKLIKE GITHUB RIGHT NOW?",
+                           @"How HMMMM, MOAAAAAAR?"];
     
     return self.questionArray[arc4random_uniform(3)];
 }
