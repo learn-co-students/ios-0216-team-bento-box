@@ -31,6 +31,8 @@
     [self addSwipeRightGesture];
     [self addTapGesture];
     [self buildHamburgerButton];
+    
+    [self showResultsOfLastMealLogged:nil];
 
 }
 
@@ -101,7 +103,6 @@
     [self.resultsView insertSubview:leftLabel aboveSubview:label];
     [self.resultsView insertSubview:rightLabel aboveSubview:label];
     
-    // Add a dictionary with the questions and answers to the lines below. Replace [Question_Key] and [Answer Key]
     NSDictionary *resultDictionary = self.resultsArray[rowCount];
     leftLabel.text = resultDictionary[QUESTION_KEY];
     rightLabel.text = resultDictionary[ANSWER_KEY];
@@ -165,24 +166,49 @@
 
 -(void)buildTestData{
     
-    [self.resultDataStore fetchData];
-    Meal *currentMeal = self.resultMeal;
-    
-    NSLog(@"\n\n\n\nWhat is currentMeal:%@", currentMeal);
-    self.resultsArray = @[@{QUESTION_KEY : @"How",
-                            ANSWER_KEY : @"Like a boss"},
-                          @{QUESTION_KEY : @"Where",
-                            ANSWER_KEY : @"At your mom's house"},
-                          @{QUESTION_KEY : @"When",
-                            ANSWER_KEY : @"Earlier I think"},
-                          @{QUESTION_KEY : @"What",
-                            ANSWER_KEY : @"Giraffe Soup"},
-                          @{QUESTION_KEY : @"Who",
-                            ANSWER_KEY : @"Who are you? Who who? Who Who?"},
-                          @{QUESTION_KEY : @"Why",
-                            ANSWER_KEY : @"Survival of the fittest"}
+    self.resultsArray = @[
+                          [@{QUESTION_KEY : @"How",
+                            ANSWER_KEY : @"Like a boss"} mutableCopy],
+                          
+                          [@{QUESTION_KEY : @"Where",
+                            ANSWER_KEY : @"At your mom's house"} mutableCopy],
+                          
+                          [@{QUESTION_KEY : @"When",
+                            ANSWER_KEY : @"Earlier I think"} mutableCopy],
+                          
+                          [@{QUESTION_KEY : @"What",
+                            ANSWER_KEY : @"Giraffe Soup"} mutableCopy],
                           ];
 }
+
+#pragma mark - Helper Method
+
+-(void)showResultsOfLastMealLogged:(Meal *)meal{
+    
+    self.resultDataStore = [BONDataStore sharedDataStore];
+    [self.resultDataStore fetchData];
+    Meal *mostRecentMeal = self.resultDataStore.userMeals.lastObject;
+
+    
+    for (NSMutableDictionary *dictionary in self.resultsArray) {
+        if ([[dictionary objectForKey:QUESTION_KEY] isEqualToString:@"How"]) {
+            dictionary[ANSWER_KEY] = mostRecentMeal.howUserFelt;
+        }
+        if ([[dictionary objectForKey:QUESTION_KEY] isEqualToString:@"Where"]) {
+            dictionary[ANSWER_KEY] = mostRecentMeal.whereWasItEaten;
+        }
+        if ([[dictionary objectForKey:QUESTION_KEY] isEqualToString:@"When"]) {
+            dictionary[ANSWER_KEY] = mostRecentMeal.whenWasItEaten;
+        }
+        if ([[dictionary objectForKey:QUESTION_KEY] isEqualToString:@"What"]) {
+            dictionary[ANSWER_KEY] = mostRecentMeal.whatWasEaten;
+        }
+    }
+    
+    
+}
+
+
 
 /*
 #pragma mark - Navigation

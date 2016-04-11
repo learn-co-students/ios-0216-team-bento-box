@@ -26,7 +26,6 @@
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
 -(void)formatDate;
 
-
 @property (nonatomic,assign)NSInteger viewCounter;
 
 @end

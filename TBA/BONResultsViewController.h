@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) Meal *resultMeal;
 
+-(void)showResultsOfLastMealLogged:(Meal *)meal;
+
 @end
