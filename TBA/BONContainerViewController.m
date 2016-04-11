@@ -24,6 +24,8 @@
 @property (nonatomic,strong)Meal *userMeal;
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
+-(void)formatDate;
+
 
 @property (nonatomic,assign)NSInteger viewCounter;
 
@@ -66,9 +68,9 @@
     }
     
     
-    for(Meal *DoesItPersist in self.localDataStore.userMeals) {
+    for(Meal *doesItPersist in self.localDataStore.userMeals) {
     
-        NSLog(@"DOES THE DATA PERSIST? TEST:\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@",DoesItPersist.whenWasItEaten, DoesItPersist.whatWasEaten, DoesItPersist.whereWasItEaten, DoesItPersist.howUserFelt);
+        NSLog(@"DOES THE DATA PERSIST? TEST:\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@ \n\ncreatedAt:%@",doesItPersist.whenWasItEaten, doesItPersist.whatWasEaten, doesItPersist.whereWasItEaten, doesItPersist.howUserFelt,doesItPersist.createdAt);
     }
 
     self.viewCounter = 0;
@@ -242,6 +244,15 @@
     }];
 }
 
+# pragma mark - Helper Methods
+
+-(void)formatDate {
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+}
+
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
     
     if ([isRightQuestion containsString:@"When"]) {
@@ -257,6 +268,7 @@
     self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
     }
 }
+
 
 
 

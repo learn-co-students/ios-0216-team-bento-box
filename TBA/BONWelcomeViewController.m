@@ -16,12 +16,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self updateWelcomeWithMostRecentMeal];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Helper Methods
+
+-(void)updateWelcomeWithMostRecentMeal {
+    
+    self.sharedDataStore = [BONDataStore sharedDataStore];
+    [self.sharedDataStore fetchData];
+    
+    if (self.sharedDataStore.userMeals.count == 0) {
+        self.lastMealTimeLabel.hidden = YES;
+        self.lastMealLoggedLabel.hidden = YES;
+        self.welcomeBackNameLabel.text = @"Welcome!";
+    }
+    
+    Meal *mostRecentMeal = self.sharedDataStore.userMeals.lastObject;
+    
+    NSDate *mostRecentMealDate = mostRecentMeal.createdAt;
+    
+    NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
+    
+    self.lastMealTimeLabel.text = mostRecentMealDateString;
 }
 
 /*

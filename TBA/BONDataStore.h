@@ -14,12 +14,13 @@
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSString *whereWasEatenString;
-
-+ (instancetype) sharedDataStore;
-- (void) saveContext;
-- (void) fetchData;
-
 @property (nonatomic, strong) NSArray *userMeals;
+
++(instancetype)sharedDataStore;
++(NSString *)formatDate:(NSDate *)date;
+
+-(void)saveContext;
+-(void)fetchData;
 
 
 @end

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BONDataStore.h"
+#import "Meal.h"
 
 @interface BONWelcomeViewController : UIViewController
+
+@property (strong, nonatomic) BONDataStore *sharedDataStore;
+
+@property (weak, nonatomic) IBOutlet UILabel *welcomeBackNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastMealTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastMealLoggedLabel;
 
 @end
