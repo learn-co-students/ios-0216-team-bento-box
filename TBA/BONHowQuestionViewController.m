@@ -20,7 +20,6 @@
 @property (nonatomic,strong)UISwipeGestureRecognizer *swipeRight;
 @property (strong, nonatomic) NSArray *sentimentScale;
 @property (strong, nonatomic) UIPickerView *pickerView;
-@property(strong, nonatomic) Meal *thisMeal;
 
 @end
 
@@ -31,8 +30,6 @@
     [self buildPickerView];
     self.pickerView.delegate = self;
     self.pickerView.dataSource = self;
-    self.thisMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:[BONDataStore sharedDataStore].managedObjectContext];
-    
     self.sentimentScale = @[@"1",
                             @"2",
                             @"3",

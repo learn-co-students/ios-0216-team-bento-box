@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BONGooglePlacesAPIClient.h"
+#import "BONDataStore.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

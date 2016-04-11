@@ -33,7 +33,8 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-    } 
+    }
+    NSLog(@"IN SAVE CONTEXT");
 }
 
 - (void)fetchData

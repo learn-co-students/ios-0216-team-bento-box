@@ -42,6 +42,8 @@
     self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:self.localDataStore.managedObjectContext];
     self.userMeal.createdAt = [NSDate date];
 
+    NSLog(@"\n\n\nself.userMeal array is\n\n\n:%@", self.localDataStore.userMeals);
+    
     self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
     self.fromViewController = self.childViewControllers[0];
@@ -248,15 +250,12 @@
     if ([isRightQuestion containsString:@"What"]) {
         self.userMeal.whatWasEaten = userAnswer;
     }
-    if ([isRightQuestion containsString:@"Where"]) {
-        self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
-        
-    }
     if ([isRightQuestion containsString:@"How"]) {
         self.userMeal.howUserFelt = userAnswer;
     }
-    
-    
+    else {
+    self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
+    }
 }
 
 
