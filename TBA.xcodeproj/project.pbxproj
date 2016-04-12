@@ -14,6 +14,9 @@
 		3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */; };
 		44FEC62C1CBC445800B1194B /* BONDanHowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */; };
 		9FA8A87A32B057EE0248FFA5 /* libPods-TBA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E218A2E5BB176F9536CF811 /* libPods-TBA.a */; };
+		B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B03344401CBD86DF00852C95 /* BONFirebaseClient.m */; };
+		B03344431CBD88D500852C95 /* FirebaseTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03344421CBD88D500852C95 /* FirebaseTest.storyboard */; };
+		B03344461CBD911300852C95 /* BONFirebaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03344451CBD911300852C95 /* BONFirebaseViewController.m */; };
 		B0A0D69E1CB2DFEA0069C037 /* BONWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0D69D1CB2DFEA0069C037 /* BONWelcomeViewController.m */; };
 		B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */; };
 		B0FE939A1CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE93991CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m */; };
@@ -79,6 +82,11 @@
 		44FEC62A1CBC445800B1194B /* BONDanHowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONDanHowViewController.h; sourceTree = "<group>"; };
 		44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONDanHowViewController.m; sourceTree = "<group>"; };
 		6E218A2E5BB176F9536CF811 /* libPods-TBA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TBA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B033443F1CBD86DF00852C95 /* BONFirebaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONFirebaseClient.h; sourceTree = "<group>"; };
+		B03344401CBD86DF00852C95 /* BONFirebaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONFirebaseClient.m; sourceTree = "<group>"; };
+		B03344421CBD88D500852C95 /* FirebaseTest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FirebaseTest.storyboard; sourceTree = "<group>"; };
+		B03344441CBD911300852C95 /* BONFirebaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONFirebaseViewController.h; sourceTree = "<group>"; };
+		B03344451CBD911300852C95 /* BONFirebaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONFirebaseViewController.m; sourceTree = "<group>"; };
 		B0A0D69C1CB2DFEA0069C037 /* BONWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWelcomeViewController.h; sourceTree = "<group>"; };
 		B0A0D69D1CB2DFEA0069C037 /* BONWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWelcomeViewController.m; sourceTree = "<group>"; };
 		B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Ariel's Storyboard.storyboard"; sourceTree = "<group>"; };
@@ -215,6 +223,7 @@
 				E2EF25EB1CAB0B7400C5190E /* Secrets.h */,
 				E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */,
 				E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */,
+				B03344421CBD88D500852C95 /* FirebaseTest.storyboard */,
 				B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
 				F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */,
@@ -243,6 +252,10 @@
 				F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */,
 				E2AC08361CB45C6D003A6997 /* BONDataStore.h */,
 				E2AC08371CB45C6D003A6997 /* BONDataStore.m */,
+				B03344441CBD911300852C95 /* BONFirebaseViewController.h */,
+				B03344451CBD911300852C95 /* BONFirebaseViewController.m */,
+				B033443F1CBD86DF00852C95 /* BONFirebaseClient.h */,
+				B03344401CBD86DF00852C95 /* BONFirebaseClient.m */,
 				B0FE93981CB7F164003B6AB0 /* BONGooglePlacesAPIClient.h */,
 				B0FE93991CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m */,
 				B0FE939B1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.h */,
@@ -417,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */,
+				B03344431CBD88D500852C95 /* FirebaseTest.storyboard in Resources */,
 				F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */,
 				E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */,
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,
@@ -500,6 +514,7 @@
 				F65C25221CB6EFA900B469FF /* BONGameViewController.m in Sources */,
 				F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */,
 				E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */,
+				B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */,
 				E2A36B2B1CB5998E00DDAF27 /* User.m in Sources */,
 				E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */,
 				E2AC082F1CB4586B003A6997 /* BONCoreData.xcdatamodeld in Sources */,
@@ -517,6 +532,7 @@
 				F613E4E21CB54D09001FD82F /* BONHamburgerViewController.m in Sources */,
 				F613E4E51CB54DC3001FD82F /* BONLoginViewController.m in Sources */,
 				F613E4DF1CB54CF1001FD82F /* BONChildViewController.m in Sources */,
+				B03344461CBD911300852C95 /* BONFirebaseViewController.m in Sources */,
 				B0FE939A1CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m in Sources */,
 				F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */,
 				E2A36B2A1CB5998E00DDAF27 /* User+CoreDataProperties.m in Sources */,
