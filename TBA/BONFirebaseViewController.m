@@ -28,13 +28,18 @@
 
 - (IBAction)addUserTapped:(id)sender {
     
-//    NSString *newUser = self.emailTextField.text;
-//    
-//    Firebase *test = [[Firebase alloc] init]
-//    
-////    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-//    Firebase *userReference = [usersReference childByAppendingPath:@"User Name Goes Here"];
-//    [userReference setValue:@{newUser : self.firebaseClient.userID}];
+    NSString *newUser = self.emailTextField.text;
+    
+    Firebase *test = [[Firebase alloc] init];
+    
+    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
+    Firebase *userReference = [usersReference childByAppendingPath:newUser];
+    [userReference setValue:self.firebaseClient.meal];
+    Firebase *baoReference = [userReference childByAppendingPath:@"bao"];
+    [baoReference setValue:@"lol"];
+    
+    
+    
 }
 
 /*
