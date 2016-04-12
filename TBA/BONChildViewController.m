@@ -38,20 +38,13 @@
 
 #pragma mark - Question and Answer
 -(void)getQuestionLabel{
-    self.view.backgroundColor = [self randomColor];
     self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    
-    UILabel *questionLabel = [[UILabel alloc] init];
-    questionLabel.text = [self randomQuestion];
-    [self.view addSubview:questionLabel];
-    UIColor *backgroundColor = [self randomColor];
-    self.view.backgroundColor = backgroundColor;
-    questionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [questionLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
-    [questionLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [questionLabel.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.25].active = YES;
-    self.questionLabel = questionLabel;
-    
+    self.questionLabel = [[UILabel alloc] init];
+    [self.view addSubview:self.questionLabel];
+    self.questionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.questionLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+    [self.questionLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [self.questionLabel.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.25].active = YES;
 }
 
 -(void)buildAnswerTextField{
@@ -164,13 +157,6 @@
 }
 
 #pragma mark - Test Data Builder
--(NSString *)randomQuestion{
-    self.questionArray = @[@"When did you eat?",
-                           @"What did you eat?",
-                           @"Where did you eat?"];
-    
-    return self.questionArray[arc4random_uniform(3)];
-}
 
 -(NSString *)randomAnswerPlaceHolder{
     self.answerArray = @[@"AnSwEr Me",

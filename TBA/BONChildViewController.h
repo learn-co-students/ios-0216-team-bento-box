@@ -12,5 +12,7 @@
 @property (nonatomic,strong)UILabel *questionLabel;
 @property (nonatomic,strong)UITextField *answerTextField;
 
+- (void)getQuestionLabel;
+
 
 @end

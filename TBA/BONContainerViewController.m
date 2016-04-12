@@ -34,20 +34,22 @@
 
 - (void)viewDidLoad {
     
+    NSLog(@"Container View Did Load");
+    
     [super viewDidLoad];
     
     // Instantiating dataStore
     
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
-    self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal" inManagedObjectContext:self.localDataStore.managedObjectContext];
+    self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                  inManagedObjectContext:self.localDataStore.managedObjectContext];
     self.userMeal.createdAt = [NSDate date];
-
-    NSLog(@"\n\n\nself.userMeal array is\n\n\n:%@", self.localDataStore.userMeals);
     
     self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
     self.fromViewController = self.childViewControllers[0];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitButtonHit:) name:@"submitButtonHit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backButtonHit:) name:@"backButtonHit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swipeRightOccurred:) name:@"swipeRight" object:nil];
@@ -66,12 +68,6 @@
         [self displayContentController:loginViewController];
     }
     
-    
-    for(Meal *doesItPersist in self.localDataStore.userMeals) {
-    
-        NSLog(@"DOES THE DATA PERSIST? TEST:\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@ \n\ncreatedAt:%@",doesItPersist.whenWasItEaten, doesItPersist.whatWasEaten, doesItPersist.whereWasItEaten, doesItPersist.howUserFelt,doesItPersist.createdAt);
-    }
-
     self.viewCounter = 0;
 }
 
@@ -79,32 +75,34 @@
 
 -(void)buildViewControllerArrayWithTotalOf:(NSInteger)number{
     
+    self.childViewControllers = [[NSMutableArray alloc] init];
+    
     UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
                                                               bundle:nil];
     BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
     
-    self.childViewControllers = [[NSMutableArray alloc] init];
+    BONChildViewController *whatViewController = [BONChildViewController new];
+    BONChildViewController *whenViewController = [BONChildViewController new];
     
-    for (NSInteger counter = -1; counter < number; counter++) {
-        if (counter == number - 1) {
-            [self.childViewControllers addObject:whereViewController];
-            [self.childViewControllers addObject:[[BONGameViewController alloc] init]];
-            [self.childViewControllers addObject:[[BONHowQuestionViewController alloc] init]];
-            
-            BONResultsViewController *resultsVC = [[BONResultsViewController alloc] init];
-            
-            resultsVC.resultMeal = self.userMeal;
-            
-            NSLog(@"\n\n\n\nresultsVS.resultMeal is: %@", resultsVC.resultMeal);
-            
-            NSLog(@"\n\n\n***self.localDataStore.userMeals is:%@", self.localDataStore.userMeals);
-            
-            [self.childViewControllers addObject:resultsVC];
-            
-        } else{
-            [self.childViewControllers addObject:[[BONChildViewController alloc] init]];
-        }
-    }
+    BONResultsViewController *resultsVC = [BONResultsViewController new];
+    
+    [whatViewController getQuestionLabel];
+    [whenViewController getQuestionLabel];
+    
+    whatViewController.questionLabel.textColor = [UIColor whiteColor];
+    whatViewController.questionLabel.text = @"What did you eat?";
+    
+    whenViewController.questionLabel.textColor = [UIColor whiteColor];
+    whenViewController.questionLabel.text = @"When did you eat?";
+    
+    [self.childViewControllers addObject:whatViewController];
+    [self.childViewControllers addObject:whenViewController];
+    [self.childViewControllers addObject:whereViewController];
+    [self.childViewControllers addObject:[BONGameViewController new]];
+    [self.childViewControllers addObject:[BONHowQuestionViewController new]];
+    [self.childViewControllers addObject:resultsVC];
+    
+    resultsVC.resultMeal = self.userMeal;
 }
 
 -(void)displayContentController:(UIViewController *)contentController{
@@ -167,8 +165,6 @@
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
-    
-    NSLog(@"\n\nWhen:%@ \n\nwhat:%@ \n\nwhere:%@ \n\nhow:%@", self.userMeal.whenWasItEaten, self.userMeal.whatWasEaten, self.userMeal.whereWasItEaten, self.userMeal.howUserFelt);
 
     self.viewCounter++;
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
