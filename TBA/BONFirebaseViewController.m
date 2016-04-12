@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.firebaseClient = [BONFirebaseClient new];
     [self.firebaseClient configureFirebase];
 }
@@ -28,13 +27,12 @@
 
 - (IBAction)addUserTapped:(id)sender {
     
-//    NSString *newUser = self.emailTextField.text;
-//    
-//    Firebase *test = [[Firebase alloc] init]
-//    
-////    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-//    Firebase *userReference = [usersReference childByAppendingPath:@"User Name Goes Here"];
-//    [userReference setValue:@{newUser : self.firebaseClient.userID}];
+    NSString *newUser = self.emailTextField.text;
+    
+    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
+    
+    Firebase *userReference = [usersReference childByAppendingPath:newUser];
+    [userReference setValue:self.firebaseClient.meal];
 }
 
 /*
