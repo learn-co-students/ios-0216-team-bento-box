@@ -48,6 +48,10 @@
     [mealReference setValue:self.firebaseClient.mealProperties];
 }
 
+# pragma mark - Firebase Helper Methods
+
+
+
 /*
 #pragma mark - Navigation
 

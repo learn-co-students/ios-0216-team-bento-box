@@ -15,16 +15,19 @@
 #import "BONDataStore.h"
 #import "BONGameViewController.h"
 #import "BONWhereViewController.h"
+#import "BONFirebaseClient.h"
 
 @interface BONContainerViewController ()
-@property (nonatomic,strong)UIViewController *fromViewController;
-@property (nonatomic,strong)NSMutableArray *childViewControllers;
-@property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
-@property (nonatomic,strong)BONDataStore *localDataStore;
-@property (nonatomic,strong)Meal *userMeal;
+@property (nonatomic,strong) UIViewController *fromViewController;
+@property (nonatomic,strong) NSMutableArray *childViewControllers;
+@property (nonatomic,strong) BONHamburgerViewController *hamburgerController;
+
+@property (nonatomic,strong) BONDataStore *localDataStore;
+@property (nonatomic,strong) Meal *userMeal;
+
+@property (strong, nonatomic) BONFirebaseClient *firebaseClient;
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
--(void)formatDate;
 
 @property (nonatomic,assign)NSInteger viewCounter;
 
@@ -34,12 +37,11 @@
 
 - (void)viewDidLoad {
     
-    NSLog(@"Container View Did Load");
-    
     [super viewDidLoad];
     
-    // Instantiating dataStore
+    self.firebaseClient = [BONFirebaseClient new];
     
+    // Instantiating dataStore
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
     self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
@@ -162,10 +164,14 @@
         answer = howVC.answer;
     }
     
+    // Saving To CoreData
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
-
+    
+    // Saving To Firebase
+    
+    
     self.viewCounter++;
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];
@@ -240,13 +246,13 @@
 }
 
 # pragma mark - Helper Methods
-
--(void)formatDate {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
-    dateFormatter.dateStyle = NSDateFormatterShortStyle;
-    dateFormatter.timeStyle = NSDateFormatterShortStyle;
-}
+//
+//-(void)formatDate {
+//    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+//    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+//    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+//    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+//}
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
     
