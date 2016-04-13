@@ -35,6 +35,19 @@
     [userReference setValue:self.firebaseClient.meal];
 }
 
+- (IBAction)addMealTapped:(id)sender {
+    
+    NSString *mealDate = self.mealDateTextField.text;
+    NSString *userName = self.emailTextField.text;
+    
+    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
+    
+    Firebase *userReference = [usersReference childByAppendingPath:userName];
+    
+    Firebase *mealReference = [userReference childByAppendingPath:mealDate];
+    [mealReference setValue:self.firebaseClient.mealProperties];
+}
+
 /*
 #pragma mark - Navigation
 
