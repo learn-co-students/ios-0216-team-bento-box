@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BONFirebaseClient.h"
+#import "BONContainerViewController.h"
 
 @interface BONFirebaseViewController : UIViewController
 

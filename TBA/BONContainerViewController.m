@@ -61,13 +61,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapOccurred:) name:@"tapTap" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginButtonHit:) name:@"login" object:nil];
     
-    // login logic
-    BOOL isLoggedIn = [[NSUserDefaults standardUserDefaults] boolForKey:@"logged_in"];
     
-    if (isLoggedIn) {
+    if ([BONFirebaseClient getUID]) {
         [self displayContentController:self.childViewControllers[0]];
+        
     } else{
-        BONLoginViewController *loginViewController = [[BONLoginViewController alloc] init];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
+        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [self displayContentController:loginViewController];
     }
     

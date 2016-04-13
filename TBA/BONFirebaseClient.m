@@ -10,39 +10,33 @@
 
 @implementation BONFirebaseClient
 
-+ (instancetype)sharedFirebaseClient {
-    static BONFirebaseClient *sharedFirebaseClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedFirebaseClient = [BONFirebaseClient new];
-    });
-    
-    return sharedFirebaseClient;
++(NSString *)getUID{
+    return [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"].authData.uid;
 }
+
 
 - (void)configureFirebase {
     
-    self.mealProperties = @{@"What Was Eaten" : @"What",
-                            @"Where Was Eaten" : @"Where",
-                            @"When Was Eaten" : @"When",
-                            @"How You Felt" : @"How"};
+    self.mealProperties = @{@"Created At" : @"Date",
+                                      @"What Was Eaten" : @"What",
+                                      @"Where Was Eaten" : @"Where",
+                                      @"When Was Eaten" : @"When",
+                                      @"How You Felt" : @"How"};
     
-    self.meal = @{@"Date Of Meal" : self.mealProperties};
+    self.meal = @{@"Meal" : self.mealProperties};
     
     self.meals = @{@"Meals" : self.meal};
     
-    self.userID = @{@"User Name Goes Here" : self.meals};
+    self.userID = @{@"User Name Goes Here2" : self.meals};
     
-    self.users = @{@"Users" : self.userID};
-  
-    self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-4725.firebaseIO.com/"];
-    [self.rootReference setValue:self.users];
-}
-
-- (void)addMealInFirebaseToUser:(NSString *)userID
-                       WithDate:(NSDate *)date {
+    NSDictionary *users = @{@"Users" : self.userID};
     
-    Firebase *usersReference = [self.rootReference]
+    self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    
+    
+    
+    self.uidRef = self.rootReference.authData.uid;
+//    [self.rootReference setValue:users];
 }
 
 @end
