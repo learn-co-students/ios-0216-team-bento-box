@@ -16,23 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.firebaseClient = [BONFirebaseClient new];
     [self.firebaseClient configureFirebase];
     
-    if (self.firebaseClient.rootReference.authData)
-    {
-        NSLog(@"user is logged in! uid:%@", self.firebaseClient.rootReference.authData.uid);
-        // user is logged in
-    } else {
-        // user is not logged in
-        NSLog(@"user is not logged in");
-    }
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (IBAction)addUserTapped:(id)sender {
@@ -41,31 +34,45 @@
     NSString *newUserPW = self.passwordTextField.text;
 
     [self.firebaseClient.rootReference createUser:newUser password:newUserPW
-withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
-    if (error) {
-        NSLog(@"Error msg: %@", error.description);
-    } else {
-        NSString *uid = [result objectForKey:@"uid"];
-        NSLog(@"Successfully created user account with uid: %@", uid);
-    }
-}];
-    
+                         withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
+        if (error) {
+            
+            NSLog(@"User not created:%@", error.description);
+            
+        } else {
+            
+            NSLog(@"Successfully created user account with uid: %@", [result objectForKey:@"uid"]);
+            
+     
+            Firebase * currentUserRef = [[self.firebaseClient.rootReference childByAppendingPath:@"Users"] childByAppendingPath:[result objectForKey:@"uid"]];
+            [currentUserRef setValue:@{@"Meals":@{@"Meal1":@"Info", @"Meal2":@"Info"}} ];
+            
+            Firebase * currentUserMealRef  = [[currentUserRef childByAppendingPath:@"Meals"] childByAppendingPath:[NSString stringWithFormat:@"%i", arc4random()]];
+            [currentUserMealRef setValue:@{@"When":@"Now", @"How":@"Good"}];
+            [self loginTapped:nil];
+            
+        }
+    }];
     
 }
 - (IBAction)loginTapped:(id)sender {
     
-    NSString *newUser = self.emailTextField.text;
-    NSString *newUserPW = self.passwordTextField.text;
+    NSString *user = self.emailTextField.text;
+    NSString *userPW = self.passwordTextField.text;
     
-    [self.firebaseClient.rootReference  authUser: newUser password:newUserPW
-withCompletionBlock:^(NSError *error, FAuthData *authData) {
-    if (error) {
-        NSLog(@"Error msg: %@", error.description);
-    } else {
-        NSLog(@"Logged in! Heres the UID: %@", [authData uid]);
-        
-    }
-}];
+    [self.firebaseClient.rootReference  authUser: user password:userPW
+                             withCompletionBlock:^(NSError *error, FAuthData *authData) {
+        if (error) {
+            NSLog(@"Login Failed: %@", error.description);
+            
+        } else {
+            NSLog(@"Logged in, UID: %@", [authData uid]);
+
+            BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
+            [self presentViewController:containerVC animated:YES completion:nil];
+            
+        }
+    }];
     
 }
 
@@ -80,21 +87,3 @@ withCompletionBlock:^(NSError *error, FAuthData *authData) {
 */
 
 @end
-
-//    Firebase *test = [[Firebase alloc] init];
-//
-//    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-//
-//
-//    NSInteger  rand = arc4random();
-//    NSString *randString = [NSString stringWithFormat:@"%li", rand];
-//    Firebase *userReference = [usersReference childByAppendingPath:randString ];
-//    [userReference setValue:@{@"email":newUser, @"password": @"lol"}];
-//
-////    Firebase *baoReference = [userReference childByAppendingPath:@"bao"];
-////    [baoReference setValue:@"lol"];
-//
-//    //add a meal
-//
-//    Firebase *mealReference = [userReference childByAppendingPath:@"Meals"];
-//    [mealReference setValue: @{@"Mea1": @"Blah"} ];

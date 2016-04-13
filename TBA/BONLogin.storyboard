@@ -8,7 +8,7 @@
         <!--Firebase View Controller-->
         <scene sceneID="p08-A9-0VY">
             <objects>
-                <viewController id="5ae-3u-lGv" customClass="BONFirebaseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5ae-3u-lGv" customClass="BONFirebaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UFa-rE-EC2"/>
                         <viewControllerLayoutGuide type="bottom" id="tKF-pG-Yu2"/>

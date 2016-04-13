@@ -17,7 +17,9 @@
 @property (strong, nonatomic) NSDictionary *meal;
 @property (strong, nonatomic) NSDictionary *meals;
 @property (strong, nonatomic) NSDictionary *userID;
+@property (strong, nonatomic) NSString *uidRef;
 
 - (void)configureFirebase;
 
++(NSString *)getUID;
 @end
