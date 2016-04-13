@@ -19,6 +19,10 @@
 @property (strong, nonatomic) NSDictionary *userID;
 @property (strong, nonatomic) NSDictionary *users;
 
++ (instancetype)sharedFirebaseClient;
+
 - (void)configureFirebase;
+- (void)addMealInFirebaseToUser:(NSString *)userID
+                       WithDate:(NSDate *)date;
 
 @end

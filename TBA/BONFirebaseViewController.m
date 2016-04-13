@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.firebaseClient = [BONFirebaseClient new];
+    self.firebaseClient = [BONFirebaseClient sharedFirebaseClient];
     [self.firebaseClient configureFirebase];
 }
 

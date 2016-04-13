@@ -39,7 +39,8 @@
     
     [super viewDidLoad];
     
-    self.firebaseClient = [BONFirebaseClient new];
+    self.firebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    [self.firebaseClient configureFirebase];
     
     // Instantiating dataStore
     self.localDataStore = [BONDataStore sharedDataStore];
@@ -269,9 +270,6 @@
     self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
     }
 }
-
-
-
 
 /*
 #pragma mark - Navigation

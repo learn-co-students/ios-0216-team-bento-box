@@ -19,6 +19,4 @@
 
 #pragma mark - Firebase Helper Methods
 
-//- (void)add
-
 @end

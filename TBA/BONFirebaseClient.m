@@ -10,6 +10,16 @@
 
 @implementation BONFirebaseClient
 
++ (instancetype)sharedFirebaseClient {
+    static BONFirebaseClient *sharedFirebaseClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedFirebaseClient = [BONFirebaseClient new];
+    });
+    
+    return sharedFirebaseClient;
+}
+
 - (void)configureFirebase {
     
     self.mealProperties = @{@"What Was Eaten" : @"What",
@@ -28,5 +38,11 @@
     self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-4725.firebaseIO.com/"];
 //    [self.rootReference setValue:self.users];
 }
+
+//- (void)addMealInFirebaseToUser:(NSString *)userID
+//                       WithDate:(NSDate *)date {
+//    
+//    Firebase *usersReference = [self.rootReference]
+//}
 
 @end
