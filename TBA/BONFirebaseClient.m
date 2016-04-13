@@ -36,13 +36,13 @@
     self.users = @{@"Users" : self.userID};
   
     self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-4725.firebaseIO.com/"];
-//    [self.rootReference setValue:self.users];
+    [self.rootReference setValue:self.users];
 }
 
-//- (void)addMealInFirebaseToUser:(NSString *)userID
-//                       WithDate:(NSDate *)date {
-//    
-//    Firebase *usersReference = [self.rootReference]
-//}
+- (void)addMealInFirebaseToUser:(NSString *)userID
+                       WithDate:(NSDate *)date {
+    
+    Firebase *usersReference = [self.rootReference]
+}
 
 @end
