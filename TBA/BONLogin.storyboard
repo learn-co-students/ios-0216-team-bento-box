@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEz-t3-Bao">
-                                <rect key="frame" x="268" y="285" width="64" height="30"/>
-                                <state key="normal" title="Add User"/>
+                                <rect key="frame" x="273" y="285" width="55" height="30"/>
+                                <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="addUserTapped:" destination="5ae-3u-lGv" eventType="touchUpInside" id="So8-lp-AWr"/>
                                 </connections>

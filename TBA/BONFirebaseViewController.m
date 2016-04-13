@@ -39,25 +39,6 @@
     
     NSString *newUser = self.emailTextField.text;
     NSString *newUserPW = self.passwordTextField.text;
-    
-//    Firebase *test = [[Firebase alloc] init];
-//    
-//    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-//    
-//    
-//    NSInteger  rand = arc4random();
-//    NSString *randString = [NSString stringWithFormat:@"%li", rand];
-//    Firebase *userReference = [usersReference childByAppendingPath:randString ];
-//    [userReference setValue:@{@"email":newUser, @"password": @"lol"}];
-//    
-////    Firebase *baoReference = [userReference childByAppendingPath:@"bao"];
-////    [baoReference setValue:@"lol"];
-//    
-//    //add a meal
-//
-//    Firebase *mealReference = [userReference childByAppendingPath:@"Meals"];
-//    [mealReference setValue: @{@"Mea1": @"Blah"} ];
-    
 
     [self.firebaseClient.rootReference createUser:newUser password:newUserPW
 withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
@@ -86,9 +67,6 @@ withCompletionBlock:^(NSError *error, FAuthData *authData) {
     }
 }];
     
-    
-    
-    
 }
 
 /*
@@ -102,3 +80,21 @@ withCompletionBlock:^(NSError *error, FAuthData *authData) {
 */
 
 @end
+
+//    Firebase *test = [[Firebase alloc] init];
+//
+//    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
+//
+//
+//    NSInteger  rand = arc4random();
+//    NSString *randString = [NSString stringWithFormat:@"%li", rand];
+//    Firebase *userReference = [usersReference childByAppendingPath:randString ];
+//    [userReference setValue:@{@"email":newUser, @"password": @"lol"}];
+//
+////    Firebase *baoReference = [userReference childByAppendingPath:@"bao"];
+////    [baoReference setValue:@"lol"];
+//
+//    //add a meal
+//
+//    Firebase *mealReference = [userReference childByAppendingPath:@"Meals"];
+//    [mealReference setValue: @{@"Mea1": @"Blah"} ];
