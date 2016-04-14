@@ -13,6 +13,7 @@
 		3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799AE541CAD5B9500408129 /* HowQuestion.storyboard */; };
 		3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */; };
 		4406864A1CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440686491CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard */; };
+		4406864C1CC0383B001E3117 /* BONWhatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4406864B1CC0383B001E3117 /* BONWhatViewController.m */; };
 		44FEC62C1CBC445800B1194B /* BONDanHowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */; };
 		9FA8A87A32B057EE0248FFA5 /* libPods-TBA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E218A2E5BB176F9536CF811 /* libPods-TBA.a */; };
 		B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B03344401CBD86DF00852C95 /* BONFirebaseClient.m */; };
@@ -81,6 +82,8 @@
 		3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowQuestionViewController.h; sourceTree = "<group>"; };
 		3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowQuestionViewController.m; sourceTree = "<group>"; };
 		440686491CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONNotificaitonsSettingsView.storyboard; sourceTree = "<group>"; };
+		4406864B1CC0383B001E3117 /* BONWhatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWhatViewController.m; sourceTree = "<group>"; };
+		4406864D1CC03863001E3117 /* BONWhatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWhatViewController.h; sourceTree = "<group>"; };
 		44FEC62A1CBC445800B1194B /* BONDanHowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONDanHowViewController.h; sourceTree = "<group>"; };
 		44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONDanHowViewController.m; sourceTree = "<group>"; };
 		6E218A2E5BB176F9536CF811 /* libPods-TBA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TBA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +279,8 @@
 				E2EF25C91CAB0A0700C5190E /* Info.plist */,
 				371ADA131CBC343D00CAF73F /* BONWhenViewController.h */,
 				371ADA141CBC343D00CAF73F /* BONWhenViewController.m */,
+				4406864D1CC03863001E3117 /* BONWhatViewController.h */,
+				4406864B1CC0383B001E3117 /* BONWhatViewController.m */,
 				371ADA151CBC343D00CAF73F /* BONNotificationsSettings.h */,
 				371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */,
 				371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */,
@@ -520,6 +525,7 @@
 				E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */,
 				B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */,
 				E2A36B2B1CB5998E00DDAF27 /* User.m in Sources */,
+				4406864C1CC0383B001E3117 /* BONWhatViewController.m in Sources */,
 				E2AC08381CB45C6D003A6997 /* BONDataStore.m in Sources */,
 				E2AC082F1CB4586B003A6997 /* BONCoreData.xcdatamodeld in Sources */,
 				E2AC08351CB45979003A6997 /* Meal.m in Sources */,

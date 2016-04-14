@@ -103,10 +103,12 @@
     whenViewController.questionLabel.textColor = [UIColor whiteColor];
     whenViewController.questionLabel.text = @"When did you eat?";
     
-    [self.childViewControllers addObject:whatViewController];
-   
     //new when vc, deleted old one
     [self.childViewControllers addObject:whenVC];
+    
+    [self.childViewControllers addObject:whatViewController];
+   
+;
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
     [self.childViewControllers addObject:[BONHowQuestionViewController new]];

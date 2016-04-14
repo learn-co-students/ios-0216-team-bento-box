@@ -25,7 +25,7 @@
                                     <action selector="submitInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DF4-s7-Ejd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="When did you eat?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-Qu-hOp">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-Qu-hOp">
                                 <rect key="frame" x="0.0" y="5" width="600" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -84,6 +84,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13" y="284"/>
+        </scene>
+        <!--What View Controller-->
+        <scene sceneID="kIH-RY-b07">
+            <objects>
+                <viewController storyboardIdentifier="what" id="vkw-Tr-7Fw" customClass="BONWhatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="69F-0i-1ZX"/>
+                        <viewControllerLayoutGuide type="bottom" id="vw7-wq-XNj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nNs-ao-RFb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
+                                <rect key="frame" x="276" y="562" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="FqG-3a-o7D"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
+                                <rect key="frame" x="0.0" y="80" width="600" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="nDA-Cn-buO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
+                                <rect key="frame" x="283" y="540" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
+                                <rect key="frame" x="75" y="200" width="450" height="160"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="uhp-G8-s6a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nN6-Xc-euN" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="MXV-YY-A3y"/>
+                            <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="8" id="W44-8x-n2u"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="4" id="XcD-hL-RuT"/>
+                            <constraint firstItem="hh1-9d-hWy" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="10" id="ZDg-G5-d06"/>
+                            <constraint firstItem="hh1-9d-hWy" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.75" id="b91-6n-lad"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" id="bWg-i5-Isj"/>
+                            <constraint firstItem="nN6-Xc-euN" firstAttribute="top" secondItem="13X-3E-CqC" secondAttribute="bottom" constant="-8" id="byO-mY-eAZ"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="gVl-wW-gIz"/>
+                            <constraint firstItem="13X-3E-CqC" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="nor-Xy-hyW"/>
+                            <constraint firstItem="hh1-9d-hWy" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="pIu-86-FGj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="answerText" destination="hh1-9d-hWy" id="MAs-Qf-Tu2"/>
+                        <outlet property="backButton" destination="13X-3E-CqC" id="O6g-fQ-uqc"/>
+                        <outlet property="submitButton" destination="nN6-Xc-euN" id="heb-Ze-MrF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGo-f2-mPp" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632" y="284"/>
         </scene>
     </scenes>
 </document>
