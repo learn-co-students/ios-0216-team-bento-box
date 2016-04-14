@@ -34,6 +34,8 @@
 		E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */; };
 		E2EF25D31CAB0A0700C5190E /* TBATests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25D21CAB0A0700C5190E /* TBATests.m */; };
 		E2EF25DE1CAB0A0700C5190E /* TBAUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF25DD1CAB0A0700C5190E /* TBAUITests.m */; };
+		E2F7A9191CBE98140032CF23 /* Bao's Keyboard Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F7A9181CBE98140032CF23 /* Bao's Keyboard Storyboard.storyboard */; };
+		E2F7A91C1CBE98710032CF23 /* KeyboardTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F7A91B1CBE98710032CF23 /* KeyboardTestViewController.m */; };
 		F613E4DC1CB54CD7001FD82F /* BONContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4DB1CB54CD7001FD82F /* BONContainerViewController.m */; };
 		F613E4DF1CB54CF1001FD82F /* BONChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4DE1CB54CF1001FD82F /* BONChildViewController.m */; };
 		F613E4E21CB54D09001FD82F /* BONHamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F613E4E11CB54D09001FD82F /* BONHamburgerViewController.m */; };
@@ -122,6 +124,9 @@
 		E2EF25DD1CAB0A0700C5190E /* TBAUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBAUITests.m; sourceTree = "<group>"; };
 		E2EF25DF1CAB0A0700C5190E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2EF25EB1CAB0B7400C5190E /* Secrets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Secrets.h; sourceTree = "<group>"; };
+		E2F7A9181CBE98140032CF23 /* Bao's Keyboard Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Bao's Keyboard Storyboard.storyboard"; sourceTree = "<group>"; };
+		E2F7A91A1CBE98710032CF23 /* KeyboardTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardTestViewController.h; sourceTree = "<group>"; };
+		E2F7A91B1CBE98710032CF23 /* KeyboardTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardTestViewController.m; sourceTree = "<group>"; };
 		F613E4DA1CB54CD7001FD82F /* BONContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONContainerViewController.h; sourceTree = "<group>"; };
 		F613E4DB1CB54CD7001FD82F /* BONContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONContainerViewController.m; sourceTree = "<group>"; };
 		F613E4DD1CB54CF1001FD82F /* BONChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONChildViewController.h; sourceTree = "<group>"; };
@@ -220,6 +225,9 @@
 		E2EF25B71CAB0A0700C5190E /* TBA */ = {
 			isa = PBXGroup;
 			children = (
+				E2F7A9181CBE98140032CF23 /* Bao's Keyboard Storyboard.storyboard */,
+				E2F7A91A1CBE98710032CF23 /* KeyboardTestViewController.h */,
+				E2F7A91B1CBE98710032CF23 /* KeyboardTestViewController.m */,
 				E2EF25EB1CAB0B7400C5190E /* Secrets.h */,
 				E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */,
 				E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */,
@@ -437,6 +445,7 @@
 				3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */,
 				E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */,
 				B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */,
+				E2F7A9191CBE98140032CF23 /* Bao's Keyboard Storyboard.storyboard in Resources */,
 				F65C25231CB6EFA900B469FF /* broccoliMan.jpg in Resources */,
 				371ADA1A1CBC35C100CAF73F /* BONWhenView.storyboard in Resources */,
 			);
@@ -512,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65C25221CB6EFA900B469FF /* BONGameViewController.m in Sources */,
+				E2F7A91C1CBE98710032CF23 /* KeyboardTestViewController.m in Sources */,
 				F6A4B37C1CAC3EA900D8656F /* BONResultsConstants.m in Sources */,
 				E2AC08341CB45979003A6997 /* Meal+CoreDataProperties.m in Sources */,
 				B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */,

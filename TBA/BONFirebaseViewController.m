@@ -9,6 +9,7 @@
 #import "BONFirebaseViewController.h"
 
 @interface BONFirebaseViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *userName;
 
 @end
 
@@ -18,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.firebaseClient = [BONFirebaseClient new];
-    [self.firebaseClient configureFirebase];
+//    [self.firebaseClient configureFirebase];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,13 +29,14 @@
 
 - (IBAction)addUserTapped:(id)sender {
     
-//    NSString *newUser = self.emailTextField.text;
-//    
-//    Firebase *test = [[Firebase alloc] init]
-//    
-////    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-//    Firebase *userReference = [usersReference childByAppendingPath:@"User Name Goes Here"];
-//    [userReference setValue:@{newUser : self.firebaseClient.userID}];
+    NSString *newUser = self.userName.text;
+    
+//    Firebase *test = [[Firebase alloc] init];
+    
+    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
+    Firebase *userReference = [usersReference childByAppendingPath:newUser];
+    [userReference setValue:self.emailTextField.text];
+   // [userReference setValue:@{newUser : self.firebaseClient.userID}];
 }
 
 /*

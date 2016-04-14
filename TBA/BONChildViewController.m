@@ -19,21 +19,32 @@
 @property (nonatomic,strong)UISwipeGestureRecognizer *swipeLeft;
 @property (nonatomic,strong)UISwipeGestureRecognizer *swipeRight;
 
+@property (nonatomic, weak)NSLayoutConstraint *backButtonConstraint;
+
+
 @end
 
 @implementation BONChildViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];                        
-    
+    [super viewDidLoad];
     [self getQuestionLabel];
-    [self buildAnswerTextField];
-    [self buildSubmitButton];
     [self buildBackButton];
+    [self buildSubmitButton];
+    [self buildAnswerTextField];
     [self addSwipeRightGesture];
     [self addSwipeLeftGesture];
     [self addTapGesture];
     [self buildHamburgerButton];
+    
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleFingerTap];
+
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
+    self.answerTextField.autocorrectionType = UITextAutocorrectionTypeNo;
 }
 
 #pragma mark - Question and Answer
@@ -45,18 +56,24 @@
     [self.questionLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
     [self.questionLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     [self.questionLabel.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.25].active = YES;
+    
 }
 
 -(void)buildAnswerTextField{
     UITextField *answerTextField = [[UITextField alloc] init];
     answerTextField.placeholder = [self randomAnswerPlaceHolder];
     answerTextField.backgroundColor = [UIColor whiteColor];
+    [answerTextField.layer setBorderWidth:2.0];
+    [answerTextField.layer setBorderColor:[[UIColor blackColor] CGColor]];
     [self.view addSubview:answerTextField];
     answerTextField.translatesAutoresizingMaskIntoConstraints = NO;
-    [answerTextField.topAnchor constraintEqualToAnchor:self.questionLabel.bottomAnchor constant:200].active = YES;
     [answerTextField.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [answerTextField.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.10].active = YES;
+    [answerTextField.heightAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.10].active = YES;
+    [answerTextField.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:20].active = YES;
+    [answerTextField.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:-20].active = YES;
+    [answerTextField.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-10].active = YES;
     self.answerTextField = answerTextField;
+    
 }
 
 #pragma mark - Submit and Back Buttons
@@ -66,12 +83,16 @@
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     [submitButton addTarget:self action:@selector(submitButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
+    [submitButton.layer setBorderWidth:2.0];
+    [submitButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
     submitButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [submitButton.topAnchor constraintEqualToAnchor:self.answerTextField.bottomAnchor constant:20].active = YES;
-    [submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.05].active = YES;
-    self.submitButton = submitButton;
     
+    [submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [submitButton.heightAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.10].active = YES;
+    [submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.20].active = YES;
+    [submitButton.bottomAnchor constraintEqualToAnchor:self.backButton.topAnchor constant:-10].active = YES;
+    
+    self.submitButton = submitButton;
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
@@ -83,10 +104,16 @@
     [backButton setTitle:@"Back" forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
+    [backButton.layer setBorderWidth:2.0];
+    [backButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    
     backButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [backButton.topAnchor constraintEqualToAnchor:self.submitButton.bottomAnchor constant:20].active = YES;
+    [backButton.heightAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.10].active = YES;
     [backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.05].active = YES;
+    [backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.20].active = YES;
+    self.backButtonConstraint = [backButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-10];
+    self.backButtonConstraint.active = YES;
+    
     self.backButton = backButton;
 }
 
@@ -176,6 +203,38 @@
                         ];
     
     return self.colorArray[arc4random_uniform(4)];
+}
+
+#pragma mark - Gesture Tap Recognizer
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+//    CGPoint location = [recognizer locationInView:[recognizer.view superview]];
+    [self.view endEditing:YES];
+}
+
+#pragma mark - Keyboard Show/Hide Methods
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *userinfo = notification.userInfo;
+    NSValue *keyboardFrameValue = userinfo[UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardFrame = keyboardFrameValue.CGRectValue;
+    CGFloat keyboardHeight = keyboardFrame.size.height;
+    NSNumber *duration = userinfo[UIKeyboardAnimationDurationUserInfoKey];
+    
+    [UIView animateWithDuration:[duration floatValue] animations:^{
+        self.backButtonConstraint.constant = -keyboardHeight - 10;
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self.view endEditing:YES];
+    
+    NSDictionary *userinfo = notification.userInfo;
+    NSNumber *duration = userinfo[UIKeyboardAnimationDurationUserInfoKey];
+    
+    [UIView animateWithDuration:[duration floatValue] animations:^{
+        self.backButtonConstraint.constant = -10;
+    }];
 }
 
 
