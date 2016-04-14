@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LgU-Qb-rt3">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Notifications Settings-->
+        <scene sceneID="lCp-6V-aI1">
+            <objects>
+                <viewController storyboardIdentifier="Notifications" id="LgU-Qb-rt3" customClass="BONNotificationsSettings" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pFO-oX-8Bd"/>
+                        <viewControllerLayoutGuide type="bottom" id="iOB-L2-sgY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v3A-fN-NbA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ixd-Uh-gAj" userLabel="All Pickers">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="z4b-n7-ukP" userLabel="Breakfast Picker and Switch">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="186"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-rM-nhH">
+                                                <rect key="frame" x="0.0" y="0.0" width="122" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-sK-WZA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="73" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFU-aN-Ggj">
+                                                        <rect key="frame" x="73" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ6-ZN-HOb">
+                                                <rect key="frame" x="0.0" y="31" width="600" height="155"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="482065200.53681999">
+                                                    <!--2016-04-11 11:00:00 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jQ6-ZN-HOb" firstAttribute="width" secondItem="z4b-n7-ukP" secondAttribute="width" id="DS4-NY-xfC"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="P73-LC-6QA" userLabel="Lunch Picker and Switch">
+                                        <rect key="frame" x="0.0" y="186" width="600" height="186"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-aE-A8D">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-wz-mbi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-fC-Cam">
+                                                        <rect key="frame" x="48" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-VP-JiZ">
+                                                <rect key="frame" x="0.0" y="31" width="600" height="155"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="482077500.53681999">
+                                                    <!--2016-04-11 14:25:00 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Edt-VP-JiZ" firstAttribute="width" secondItem="P73-LC-6QA" secondAttribute="width" id="v6c-5y-04K"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NmN-68-Igb" userLabel="Dinner Picker and Switch">
+                                        <rect key="frame" x="0.0" y="372" width="600" height="185"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-dz-ze3">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yy-i7-EkY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vD1-jJ-082">
+                                                        <rect key="frame" x="51" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Vy-0Pr">
+                                                <rect key="frame" x="0.0" y="31" width="600" height="154"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="482077500.53681999">
+                                                    <!--2016-04-11 14:25:00 +0000-->
+                                                </date>
+                                            </datePicker>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Dxm-Vy-0Pr" firstAttribute="width" secondItem="NmN-68-Igb" secondAttribute="width" id="izf-QX-DWR"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZ1-c8-Bvh">
+                                        <rect key="frame" x="0.0" y="557" width="600" height="23"/>
+                                        <state key="normal" title="Set Notification Times"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ixd-Uh-gAj" firstAttribute="centerX" secondItem="v3A-fN-NbA" secondAttribute="centerX" id="0GI-qZ-V93"/>
+                            <constraint firstItem="ixd-Uh-gAj" firstAttribute="leading" secondItem="v3A-fN-NbA" secondAttribute="leading" id="4G0-A1-DeJ"/>
+                            <constraint firstItem="ixd-Uh-gAj" firstAttribute="height" secondItem="v3A-fN-NbA" secondAttribute="height" id="RB0-09-DNn"/>
+                            <constraint firstAttribute="bottom" secondItem="ixd-Uh-gAj" secondAttribute="bottom" id="Zlb-gf-3TZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ixd-Uh-gAj" secondAttribute="trailing" id="as9-Ks-DHC"/>
+                            <constraint firstItem="ixd-Uh-gAj" firstAttribute="top" secondItem="pFO-oX-8Bd" secondAttribute="bottom" id="bSH-6u-7oc"/>
+                            <constraint firstItem="ixd-Uh-gAj" firstAttribute="width" secondItem="v3A-fN-NbA" secondAttribute="width" id="f0t-CX-DrW"/>
+                            <constraint firstItem="ixd-Uh-gAj" firstAttribute="centerY" secondItem="v3A-fN-NbA" secondAttribute="centerY" multiplier="1.1" id="u73-aX-zM3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0GI-qZ-V93"/>
+                                <exclude reference="RB0-09-DNn"/>
+                                <exclude reference="f0t-CX-DrW"/>
+                                <exclude reference="u73-aX-zM3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="breakfastNotifPicker" destination="jQ6-ZN-HOb" id="aiH-X3-dpV"/>
+                        <outlet property="dinnerNotifPicker" destination="Dxm-Vy-0Pr" id="Kle-8e-yqj"/>
+                        <outlet property="lunchNotifPicker" destination="Edt-VP-JiZ" id="Gee-ek-jOf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0SF-h8-SN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="274"/>
+        </scene>
+    </scenes>
+</document>

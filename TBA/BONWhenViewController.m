@@ -9,10 +9,9 @@
 #import "BONWhenViewController.h"
 
 @interface BONWhenViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
-@property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *mealTypePicker;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
-@property (strong, nonatomic) NSArray *mealTypes;
 
 @end
 
@@ -47,7 +46,10 @@
     
     //Change va
     [self.timePicker addTarget:self action:@selector(selectTheMealType) forControlEvents:UIControlEventValueChanged];
+    
+    [self.submitButton addTarget:self action:@selector(submitButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
 
+    [self.backButton addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -118,7 +120,19 @@
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
     
     NSLog(@"You ate %@ at %@", mealType, theTime);
+    
+    
 }
+
+-(void)submitButtonTouched:(UIButton *)submitButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
+}
+
+-(void)backButtonTouched:(UIButton *)backButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"backButtonHit" object:self];
+}
+
+
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     
@@ -134,5 +148,7 @@
     
     return self.mealTypes[row];
 }
+
+
 
 @end

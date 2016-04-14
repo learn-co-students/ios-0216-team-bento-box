@@ -16,6 +16,7 @@
 #import "BONGameViewController.h"
 #import "BONWhereViewController.h"
 #import "BONFirebaseClient.h"
+#import "BONWhenViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -83,6 +84,11 @@
                                                               bundle:nil];
     BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
     
+    //where vc
+    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView" bundle:nil];
+    
+    BONWhenViewController *whenVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"when"];
+    
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
     
@@ -98,10 +104,13 @@
     whenViewController.questionLabel.text = @"When did you eat?";
     
     [self.childViewControllers addObject:whatViewController];
-    [self.childViewControllers addObject:whenViewController];
+   
+    //new when vc, deleted old one
+    [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
     [self.childViewControllers addObject:[BONHowQuestionViewController new]];
+    
     [self.childViewControllers addObject:resultsVC];
     
     resultsVC.resultMeal = self.userMeal;
@@ -163,6 +172,20 @@
         question = howVC.questionLabel.text;
         answer = howVC.answer;
     }
+
+    //new logic for when vc
+    else if([oldController isKindOfClass:[BONWhenViewController class]]) {
+        BONWhenViewController *whenVC = (BONWhenViewController *)oldController;
+        NSString * chosenDate = [NSDateFormatter localizedStringFromDate:whenVC.timePicker.date
+                                                           dateStyle:0
+                                                           timeStyle:NSDateFormatterFullStyle];
+        
+        question = @"When did you eat";
+        answer = chosenDate;
+        
+  
+    }
+    //end
     
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
     [self.localDataStore saveContext];

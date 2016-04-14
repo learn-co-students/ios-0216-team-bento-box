@@ -12,6 +12,7 @@
 		371ADA1A1CBC35C100CAF73F /* BONWhenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */; };
 		3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799AE541CAD5B9500408129 /* HowQuestion.storyboard */; };
 		3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */; };
+		4406864A1CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440686491CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard */; };
 		44FEC62C1CBC445800B1194B /* BONDanHowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */; };
 		9FA8A87A32B057EE0248FFA5 /* libPods-TBA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E218A2E5BB176F9536CF811 /* libPods-TBA.a */; };
 		B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B03344401CBD86DF00852C95 /* BONFirebaseClient.m */; };
@@ -79,6 +80,7 @@
 		3799AE541CAD5B9500408129 /* HowQuestion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HowQuestion.storyboard; sourceTree = "<group>"; };
 		3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowQuestionViewController.h; sourceTree = "<group>"; };
 		3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowQuestionViewController.m; sourceTree = "<group>"; };
+		440686491CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONNotificaitonsSettingsView.storyboard; sourceTree = "<group>"; };
 		44FEC62A1CBC445800B1194B /* BONDanHowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONDanHowViewController.h; sourceTree = "<group>"; };
 		44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONDanHowViewController.m; sourceTree = "<group>"; };
 		6E218A2E5BB176F9536CF811 /* libPods-TBA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TBA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,6 +279,7 @@
 				371ADA151CBC343D00CAF73F /* BONNotificationsSettings.h */,
 				371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */,
 				371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */,
+				440686491CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard */,
 				3799AE541CAD5B9500408129 /* HowQuestion.storyboard */,
 				E2EF25B81CAB0A0700C5190E /* Supporting Files */,
 				44FEC62A1CBC445800B1194B /* BONDanHowViewController.h */,
@@ -432,6 +435,7 @@
 				F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */,
 				B03344431CBD88D500852C95 /* BONLogin.storyboard in Resources */,
 				F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */,
+				4406864A1CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard in Resources */,
 				E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */,
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,
 				3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */,
