@@ -104,11 +104,11 @@
     whenViewController.questionLabel.text = @"When did you eat?";
     
     //new when vc, deleted old one
-    [self.childViewControllers addObject:whenVC];
+
     
     [self.childViewControllers addObject:whatViewController];
    
-;
+    [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
     [self.childViewControllers addObject:[BONHowQuestionViewController new]];
