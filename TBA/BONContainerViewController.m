@@ -18,6 +18,7 @@
 #import "BONFirebaseClient.h"
 #import "BONWhenViewController.h"
 #import "BONWhatViewController.h"
+#import "BONWelcomeViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -92,9 +93,14 @@
     //what vc
    
     BONWhenViewController *whatVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"what"];
-    //hoe vc
+    //how vc
     
     BONWhenViewController *howVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"how"];
+    
+    //welcome vc
+    BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
+    
+    
     
 
     
@@ -116,6 +122,7 @@
 
     
     //[self.childViewControllers addObject:whatViewController];
+    [self.childViewControllers addObject:welcomeVC];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whereViewController];

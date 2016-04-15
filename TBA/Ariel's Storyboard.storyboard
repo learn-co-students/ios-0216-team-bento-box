@@ -8,7 +8,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="ceW-96-vhI">
             <objects>
-                <viewController id="72d-mP-6bV" customClass="BONWelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="welcome" id="72d-mP-6bV" customClass="BONWelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Aa-NG-pCA"/>
                         <viewControllerLayoutGuide type="bottom" id="B6Q-Pl-gAE"/>
@@ -43,7 +43,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                         <state key="normal" title="Log A Meal"/>
                                         <connections>
-                                            <segue destination="WO3-7G-uBO" kind="show" id="2WR-q2-ewl"/>
+                                            <action selector="logMealClicked:" destination="72d-mP-6bV" eventType="touchUpInside" id="4zO-zE-oXi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,14 +65,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56A-wg-5f4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1412" y="300"/>
-        </scene>
-        <!--containerViewController-->
-        <scene sceneID="kPn-ho-j8y">
-            <objects>
-                <viewControllerPlaceholder storyboardName="BONContainer" referencedIdentifier="containerViewController" id="WO3-7G-uBO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qGq-bB-N8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1839.5" y="435"/>
         </scene>
         <!--Where View Controller-->
         <scene sceneID="sDS-j4-FlD">

@@ -10,6 +10,7 @@
 
 @interface BONWelcomeViewController ()
 
+
 @end
 
 @implementation BONWelcomeViewController
@@ -46,6 +47,10 @@
     NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
     
     self.lastMealTimeLabel.text = mostRecentMealDateString;
+}
+- (IBAction)logMealClicked:(id)sender {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
 }
 
 /*
