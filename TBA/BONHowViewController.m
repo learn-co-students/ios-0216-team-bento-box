@@ -11,7 +11,12 @@
 @interface BONHowViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIImageView *emo5;
+@property (weak, nonatomic) IBOutlet UIImageView *emo4;
+@property (weak, nonatomic) IBOutlet UIImageView *emo3;
 
+@property (weak, nonatomic) IBOutlet UIImageView *emo2;
+@property (weak, nonatomic) IBOutlet UIImageView *emo1;
 
 @end
 
@@ -33,9 +38,9 @@
     
     NSTimeInterval interval = nowGMTOffset - currentGMTOffset;
     NSDate* nowDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:currentDate];
-                       
+    
     [self.timePicker setDate:nowDate animated:YES];
-   
+    
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -44,17 +49,36 @@
     self.mealTypePicker.dataSource = self;
     self.mealTypePicker.delegate = self;
     
-     [self selectTheMealType];
+    [self selectTheMealType];
     
-
+    
+    
+    [self setupAllTheGestureRecognizers];
+    
+    
+    
     
     //Change va
     [self.timePicker addTarget:self action:@selector(selectTheMealType) forControlEvents:UIControlEventValueChanged];
     
     [self.submitButton addTarget:self action:@selector(submitButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self.backButton addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
 
+- (void)setupAllTheGestureRecognizers {
+    NSArray *imageViews = @[ self.emo1, self.emo2, self.emo3, self.emo4, self.emo5];
+    
+    for (UIImageView *view in imageViews) {
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(saveNumber:)];
+        
+        [view addGestureRecognizer:tapGesture];
+        view.userInteractionEnabled = YES;
+    }
+    
 }
 
 + (BOOL)date:(NSDate*)date isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate
@@ -72,7 +96,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)pickTheTime:(id)sender {
-
+    
 }
 
 
@@ -87,10 +111,10 @@
     [df setDateFormat:@"HH"];
     
     NSString * currentHour= [df stringFromDate:now];
-   
     
-   NSInteger hourInt = [currentHour integerValue];
-
+    
+    NSInteger hourInt = [currentHour integerValue];
+    
     NSInteger predictedMealIndexInArray=0;
     
     if(hourInt>=5 && hourInt <12){
@@ -100,27 +124,27 @@
         predictedMealIndexInArray =1;
         
     } else if(hourInt>=16 && hourInt <=24){
-              predictedMealIndexInArray =2;
+        predictedMealIndexInArray =2;
         
     }
     
     
     
-     NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
+    NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
     
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
-
+    
     //[self class] date:now isBetweenDate:<#(NSDate *)#> andDate:<#(NSDate *)#>
-
+    
     
 }
 - (IBAction)submitInfo:(id)sender {
     
     
     NSString *theTime = [NSDateFormatter localizedStringFromDate:self.timePicker.date
-                                   dateStyle:0
-                                   timeStyle:NSDateFormatterFullStyle];
+                                                       dateStyle:0
+                                                       timeStyle:NSDateFormatterFullStyle];
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
     
     NSLog(@"You ate %@ at %@", mealType, theTime);
@@ -153,6 +177,21 @@
     return self.mealTypes[row];
 }
 
+-(void)addGestureRecognizers {
+    //    UIGestureRecognizer * clicked = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(saveNumber)];
+    //    [self.emo1 addGestureRecognizer:clicked];
+}
+
+-(void)saveNumber:(UITapGestureRecognizer *)sender {
+    NSArray *imageViews = @[ self.emo1, self.emo2, self.emo3, self.emo4, self.emo5];
+
+    
+    UIImageView *tappedView = (UIImageView *)sender.view;
+    NSInteger indexOfTappedView = [imageViews indexOfObject:tappedView]+1;
+
+    
+    self.howNumber = indexOfTappedView;
+}
 
 
 @end

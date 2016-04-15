@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-pk-RFb">
-                                <rect key="frame" x="252" y="543" width="98" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-pk-RFb">
+                                <rect key="frame" x="251" y="543" width="98" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -98,8 +98,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
-                                <rect key="frame" x="252" y="543" width="98" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
+                                <rect key="frame" x="251" y="543" width="98" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -173,6 +173,10 @@
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how4" translatesAutoresizingMaskIntoConstraints="NO" id="aPb-y6-b8C">
                                         <rect key="frame" x="120" y="0.0" width="120" height="80"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="HHr-Rw-SiV" appends="YES" id="110-6O-NDu"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how3" translatesAutoresizingMaskIntoConstraints="NO" id="70D-pa-IOd">
                                         <rect key="frame" x="240" y="0.0" width="120" height="80"/>
@@ -185,8 +189,8 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-bv-nLA">
-                                <rect key="frame" x="252" y="543" width="98" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-bv-nLA">
+                                <rect key="frame" x="251" y="543" width="98" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
@@ -223,10 +227,16 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="g7T-YU-9Cr" id="yHR-ic-j57"/>
+                        <outlet property="emo1" destination="1kr-TN-97X" id="Gko-4u-MjN"/>
+                        <outlet property="emo2" destination="Tt5-Wt-zBl" id="AAk-9I-VK9"/>
+                        <outlet property="emo3" destination="70D-pa-IOd" id="NH3-sN-DFM"/>
+                        <outlet property="emo4" destination="aPb-y6-b8C" id="e95-pp-ZOk"/>
+                        <outlet property="emo5" destination="94w-u7-bcV" id="XLV-Uh-vNa"/>
                         <outlet property="submitButton" destination="pEE-bv-nLA" id="1Ai-hq-BSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4b2-0X-hwI" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HHr-Rw-SiV" userLabel="Emo Tap Gesture Recognizer"/>
             </objects>
             <point key="canvasLocation" x="1263" y="276"/>
         </scene>

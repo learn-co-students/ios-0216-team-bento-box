@@ -19,6 +19,7 @@
 #import "BONWhenViewController.h"
 #import "BONWhatViewController.h"
 #import "BONWelcomeViewController.h"
+#import "BONHowViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -100,6 +101,9 @@
     //welcome vc
     BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
     
+    //notifications vc
+    UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
+    BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
     
     
 
@@ -130,7 +134,7 @@
    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
     
-    
+    [self.childViewControllers addObject:notificationsVC];
     [self.childViewControllers addObject:resultsVC];
     
     resultsVC.resultMeal = self.userMeal;
@@ -187,11 +191,12 @@
         question = childVC.questionLabel.text;
         answer = childVC.answerTextField.text;
     }
-    else if([oldController isKindOfClass:[BONHowQuestionViewController class]]) {
-        BONHowQuestionViewController *howVC = (BONHowQuestionViewController *)oldController;
-        question = howVC.questionLabel.text;
-        answer = howVC.answer;
-    }
+    else if([oldController isKindOfClass:[BONHowViewController class]]) {
+        BONHowViewController *howVC = (BONHowViewController *)oldController;
+        question = @"How do you feel?";
+        answer = [NSString stringWithFormat:@"%li",howVC.howNumber
+                  ];
+    } 
 
     //new logic for when and what vc
     else if([oldController isKindOfClass:[BONWhenViewController class]]) {
