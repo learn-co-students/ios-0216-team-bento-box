@@ -9,6 +9,7 @@
 #import "BONContainerViewController.h"
 #import "BONHamburgerViewController.h"
 #import "BONChildViewController.h"
+#import "BONWelcomeViewController.h"
 #import "BONLoginViewController.h"
 #import "BONResultsViewController.h"
 #import "BONHowQuestionViewController.h"
@@ -37,6 +38,9 @@
 
 - (void)viewDidLoad {
     
+    NSLog(@"Container View Controller View Did Load");
+    NSLog(@"User's ID: %@", self.firebaseClient.userIDReference);
+    
     [super viewDidLoad];
     
     self.firebaseClient = [BONFirebaseClient sharedFirebaseClient];
@@ -45,13 +49,14 @@
     // Instantiating dataStore
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
+    
     self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
                                                   inManagedObjectContext:self.localDataStore.managedObjectContext];
     self.userMeal.createdAt = [NSDate date];
     
     self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
-    self.fromViewController = self.childViewControllers[0];
+    self.fromViewController = self.childViewControllers.firstObject;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitButtonHit:) name:@"submitButtonHit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backButtonHit:) name:@"backButtonHit" object:nil];
@@ -62,10 +67,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginButtonHit:) name:@"login" object:nil];
     
     
-    if ([BONFirebaseClient getUID]) {
-        [self displayContentController:self.childViewControllers[0]];
-        
-    } else{
+    if (self.firebaseClient.rootReference.authData.uid) {
+//
+        NSLog(@"This user is logged in: %@", [BONFirebaseClient getUID]);
+        NSLog(@"First object in child view controller: %@", self.childViewControllers.firstObject);
+    
+        [self displayContentController:self.childViewControllers.firstObject];
+    }
+    
+//        UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+//                                                                  bundle:nil];
+//        
+//        BONWelcomeViewController *logAMealViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"LogAMealViewController"];
+//        [self displayContentController:logAMealViewController];
+//    }
+    else{
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
@@ -83,7 +99,11 @@
     
     UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
                                                               bundle:nil];
+    
     BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
+    BONWelcomeViewController *logAMealViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"LogAMealViewController"];
+    
+    [self addChildViewController:logAMealViewController];
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -99,6 +119,7 @@
     whenViewController.questionLabel.textColor = [UIColor whiteColor];
     whenViewController.questionLabel.text = @"When did you eat?";
     
+    [self.childViewControllers addObject:logAMealViewController];
     [self.childViewControllers addObject:whatViewController];
     [self.childViewControllers addObject:whenViewController];
     [self.childViewControllers addObject:whereViewController];
@@ -135,21 +156,29 @@
 #pragma mark - Buttons
 
 - (void)submitButtonHit:(id)sender {
-    NSLog(@"Enter Button Hit");
+    
+    NSLog(@"Submit button hit");
+    
+    NSLog(@"Self.ViewCounter: %li", self.viewCounter);
     UIViewController *oldController = self.fromViewController;
     
     if (self.fromViewController == self.childViewControllers[0]) {
         BONChildViewController *newController = self.childViewControllers[1];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[1]){
+        
+    } else if (self.fromViewController == self.childViewControllers[1]) {
         BONChildViewController *newController = self.childViewControllers[2];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
-    } else if (self.fromViewController == self.childViewControllers[2]){
+        
+    } else if (self.fromViewController == self.childViewControllers[2]) {
         BONChildViewController *newController = self.childViewControllers[3];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
+        
+        // Saving To Firebase
+        
     }
     
     NSString *question;
@@ -167,12 +196,12 @@
     }
     
     // Saving To CoreData
-    [self answerSubmittedToDataStore:question questionAndAnswer:answer];
+    
+    [self answerSubmittedToDataStore:question
+                   questionAndAnswer:answer];
+    
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
-    
-    // Saving To Firebase
-    
     
     self.viewCounter++;
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
@@ -210,7 +239,6 @@
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
-    
 }
 
 -(void)swipeLeftOccurred:(id)sender{
@@ -256,7 +284,8 @@
 //    dateFormatter.timeStyle = NSDateFormatterShortStyle;
 //}
 
--(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
+-(void)answerSubmittedToDataStore:(NSString *)isRightQuestion
+                questionAndAnswer:(NSString *)userAnswer {
     
     if ([isRightQuestion containsString:@"When"]) {
         self.userMeal.whenWasItEaten = userAnswer;

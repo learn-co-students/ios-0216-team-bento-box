@@ -15,66 +15,59 @@
 @implementation BONFirebaseViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Firebase View Controller View Did Load");
+    
     [super viewDidLoad];
-    self.firebaseClient = [BONFirebaseClient new];
-    [self.firebaseClient configureFirebase];
+    self.sharedFireBaseClient = [BONFirebaseClient sharedFirebaseClient];
     
+    [self.sharedFireBaseClient configureFirebase];
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
+- (IBAction)newUserSignUpTapped:(id)sender {
+    
+    [self.sharedFireBaseClient createNewUserInFirebaseWithEmail:self.emailTextField.text
+                                                       Password:self.passwordTextField.text];
+    
+//    [self loginTapped:nil];
 }
 
-- (IBAction)addUserTapped:(id)sender {
-    
-    NSString *newUser = self.emailTextField.text;
-    NSString *newUserPW = self.passwordTextField.text;
-
-    [self.firebaseClient.rootReference createUser:newUser password:newUserPW
-                         withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
-        if (error) {
-            
-            NSLog(@"User not created:%@", error.description);
-            
-        } else {
-            
-            NSLog(@"Successfully created user account with uid: %@", [result objectForKey:@"uid"]);
-            
-     
-            Firebase * currentUserRef = [[self.firebaseClient.rootReference childByAppendingPath:@"Users"] childByAppendingPath:[result objectForKey:@"uid"]];
-            [currentUserRef setValue:@{@"Meals":@{@"Meal1":@"Info", @"Meal2":@"Info"}} ];
-            
-            Firebase * currentUserMealRef  = [[currentUserRef childByAppendingPath:@"Meals"] childByAppendingPath:[NSString stringWithFormat:@"%i", arc4random()]];
-            [currentUserMealRef setValue:@{@"When":@"Now", @"How":@"Good"}];
-            [self loginTapped:nil];
-            
-        }
-    }];
-    
-}
 - (IBAction)loginTapped:(id)sender {
     
-    NSString *user = self.emailTextField.text;
-    NSString *userPW = self.passwordTextField.text;
-    
-    [self.firebaseClient.rootReference  authUser: user password:userPW
-                             withCompletionBlock:^(NSError *error, FAuthData *authData) {
-        if (error) {
-            NSLog(@"Login Failed: %@", error.description);
-            
-        } else {
-            NSLog(@"Logged in, UID: %@", [authData uid]);
-
-            BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
-            [self presentViewController:containerVC animated:YES completion:nil];
-            
-        }
-    }];
-    
+    [self.sharedFireBaseClient loginUserInFirebaseWithEmail:self.emailTextField.text
+                                                   Password:self.passwordTextField.text];
 }
+//
+//    NSString *mealDate = self.emailTextField.text;
+//    
+//    Firebase *usersReference = [self.sharedFireBaseClient.rootReference childByAppendingPath:@"Users"];
+//    
+//    Firebase *currentUserReference = [usersReference childByAppendingPath:@"01672075-b1d5-4477-b36f-fc53f6f8e5d7"];
+//    
+//    Firebase *mealReference = [currentUserReference childByAppendingPath:mealDate];
+//    
+//    [mealReference setValue:self.sharedFireBaseClient.mealProperties];
+    
+//    
+//    
+//    NSString *userEmail = self.emailTextField.text;
+//    NSString *userPassword = self.passwordTextField.text;
+//    
+//    [self.sharedFireBaseClient.rootReference  authUser:userEmail
+//                                              password:userPassword
+//                                   withCompletionBlock:^(NSError *error, FAuthData *authData) {
+//        if (error) {
+//            NSLog(@"Login Failed: %@", error.description);
+//            
+//        } else {
+//            NSLog(@"Logged in, UID: %@", authData.uid);
+//
+//            BONContainerViewController *containerVC = [BONContainerViewController new];
+//            [self presentViewController:containerVC animated:YES completion:nil];
+//        }
+//    }];
+//    
+//}
 
 /*
 #pragma mark - Navigation

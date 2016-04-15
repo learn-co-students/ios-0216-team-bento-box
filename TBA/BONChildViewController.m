@@ -178,7 +178,6 @@
     return self.colorArray[arc4random_uniform(4)];
 }
 
-
 /*
 #pragma mark - Navigation
 

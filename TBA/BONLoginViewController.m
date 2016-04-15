@@ -9,6 +9,7 @@
 #import "BONLoginViewController.h"
 
 @interface BONLoginViewController ()
+
 @property (nonatomic,strong)UIButton *loginButton;
 
 @end

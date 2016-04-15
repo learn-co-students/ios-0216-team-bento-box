@@ -17,9 +17,18 @@
 @property (strong, nonatomic) NSDictionary *meal;
 @property (strong, nonatomic) NSDictionary *meals;
 @property (strong, nonatomic) NSDictionary *userID;
-@property (strong, nonatomic) NSString *uidRef;
+@property (strong, nonatomic) NSDictionary *users;
+
+@property (strong, nonatomic) NSString *userIDReference;
+
++ (instancetype)sharedFirebaseClient;
++(NSString *)getUID;
 
 - (void)configureFirebase;
+- (void)createNewUserInFirebaseWithEmail:(NSString *)email
+                                Password:(NSString *)password;
 
-+(NSString *)getUID;
+- (void)loginUserInFirebaseWithEmail:(NSString *)email
+                            Password:(NSString *)password;
+
 @end

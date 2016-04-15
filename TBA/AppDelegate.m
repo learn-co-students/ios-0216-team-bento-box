@@ -26,9 +26,6 @@
     self.window.rootViewController = containerVC;
     [self.window makeKeyAndVisible];
     
-    
-#
-    
     UIUserNotificationType notificationTypes = (UIUserNotificationTypeBadge | UIUserNotificationTypeAlert);
     UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:notificationTypes
                                                                                              categories:nil];

@@ -15,15 +15,15 @@
 @implementation BONWelcomeViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Welcome view did load");
+    NSLog(@"Welcome's parent: %@", self.parentViewController);
+    
     [super viewDidLoad];
     
     [self updateWelcomeWithMostRecentMeal];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.parentContainerViewController = (BONContainerViewController *)self.parentViewController;
 }
 
 #pragma mark - Helper Methods
@@ -46,6 +46,13 @@
     NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
     
     self.lastMealTimeLabel.text = mostRecentMealDateString;
+}
+
+- (IBAction)logAMealTapped:(UIButton *)sender {
+    
+    NSLog(@"Log a meal tapped");
+    
+    [self.parentContainerViewController submitButtonHit:sender];
 }
 
 /*

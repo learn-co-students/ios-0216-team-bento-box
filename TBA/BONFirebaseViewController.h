@@ -8,16 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "BONFirebaseClient.h"
-#import "BONContainerViewController.h"
 
 @interface BONFirebaseViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UITextField *mealDateTextField;
 
-@property (strong, nonatomic) BONFirebaseClient *firebaseClient;
-
-#pragma mark - Firebase Helper Methods
+@property (strong, nonatomic) BONFirebaseClient *sharedFireBaseClient;
 
 @end

@@ -13,8 +13,9 @@
 @interface BONDataStore : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @property (strong, nonatomic) NSString *whereWasEatenString;
-@property (nonatomic, strong) NSArray *userMeals;
+@property (strong, nonatomic) NSArray *userMeals;
 
 +(instancetype)sharedDataStore;
 +(NSString *)formatDate:(NSDate *)date;
