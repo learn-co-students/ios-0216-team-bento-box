@@ -40,7 +40,6 @@
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
 
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
@@ -223,6 +222,7 @@
     
     [UIView animateWithDuration:[duration floatValue] animations:^{
         self.backButtonConstraint.constant = -keyboardHeight - 10;
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -234,6 +234,7 @@
     
     [UIView animateWithDuration:[duration floatValue] animations:^{
         self.backButtonConstraint.constant = -10;
+        [self.view layoutIfNeeded];
     }];
 }
 
