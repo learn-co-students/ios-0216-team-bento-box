@@ -18,12 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confettibg" translatesAutoresizingMaskIntoConstraints="NO" id="l6p-jw-6Vy">
-                                <rect key="frame" x="-51" y="5" width="574" height="490"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFk-pk-RFb">
-                                <rect key="frame" x="276" y="562" width="49" height="30"/>
+                                <rect key="frame" x="251.5" y="543" width="98" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DF4-s7-Ejd"/>
@@ -51,12 +48,12 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6A4-Hx-dtI">
-                                <rect key="frame" x="283" y="540" width="34" height="30"/>
+                                <rect key="frame" x="265.5" y="502" width="69" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-Qu-hOp">
-                                <rect key="frame" x="0.0" y="5" width="600" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="40" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5eo-Fw-DNP"/>
                                 </constraints>
@@ -73,7 +70,7 @@
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="On2-Zs-MHS"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PeI-o6-FDl"/>
                             <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a4W-Vt-7OQ"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="0.25" id="bbI-IB-7SA"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="2" id="bbI-IB-7SA"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="top" secondItem="6A4-Hx-dtI" secondAttribute="bottom" constant="-8" id="eI6-YB-k0t"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nS0-Z6-zth"/>
                         </constraints>
@@ -102,41 +99,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
-                                <rect key="frame" x="276" y="562" width="49" height="30"/>
+                                <rect key="frame" x="251.5" y="543" width="98" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="FqG-3a-o7D"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
-                                <rect key="frame" x="0.0" y="80" width="600" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="nDA-Cn-buO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
-                                <rect key="frame" x="283" y="540" width="34" height="30"/>
+                                <rect key="frame" x="265.5" y="502" width="69" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
-                                <rect key="frame" x="75" y="200" width="450" height="160"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
+                                <rect key="frame" x="75" y="260" width="450" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="0.29946120689655165" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="uhp-G8-s6a"/>
+                                    <constraint firstAttribute="height" constant="300" id="uhp-G8-s6a"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
+                                <rect key="frame" x="0.0" y="60" width="600" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="nDA-Cn-buO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hh1-9d-hWy" firstAttribute="top" secondItem="zyi-2f-VhC" secondAttribute="bottom" id="M5o-59-yvb"/>
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="MXV-YY-A3y"/>
                             <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="8" id="W44-8x-n2u"/>
-                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="4" id="XcD-hL-RuT"/>
-                            <constraint firstItem="hh1-9d-hWy" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="10" id="ZDg-G5-d06"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="3" id="XcD-hL-RuT"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.75" id="b91-6n-lad"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" id="bWg-i5-Isj"/>
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="top" secondItem="13X-3E-CqC" secondAttribute="bottom" constant="-8" id="byO-mY-eAZ"/>
@@ -155,8 +153,89 @@
             </objects>
             <point key="canvasLocation" x="632" y="284"/>
         </scene>
+        <!--How View Controller-->
+        <scene sceneID="3nP-YW-Fe6">
+            <objects>
+                <viewController storyboardIdentifier="how" id="ocg-EU-Zkb" customClass="BONHowViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mhz-JT-KH0"/>
+                        <viewControllerLayoutGuide type="bottom" id="qwi-U8-VWk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nBw-vF-bWz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YuE-FU-K0W">
+                                <rect key="frame" x="0.0" y="260" width="600" height="80"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how5" translatesAutoresizingMaskIntoConstraints="NO" id="94w-u7-bcV">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how4" translatesAutoresizingMaskIntoConstraints="NO" id="aPb-y6-b8C">
+                                        <rect key="frame" x="120" y="0.0" width="120" height="80"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how3" translatesAutoresizingMaskIntoConstraints="NO" id="70D-pa-IOd">
+                                        <rect key="frame" x="240" y="0.0" width="120" height="80"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how2" translatesAutoresizingMaskIntoConstraints="NO" id="Tt5-Wt-zBl">
+                                        <rect key="frame" x="360" y="0.0" width="120" height="80"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="how1" translatesAutoresizingMaskIntoConstraints="NO" id="1kr-TN-97X">
+                                        <rect key="frame" x="480" y="0.0" width="120" height="80"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-bv-nLA">
+                                <rect key="frame" x="251.5" y="543" width="98" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitInfo:" destination="ocg-EU-Zkb" eventType="touchUpInside" id="xdt-Vb-0Kk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7T-YU-9Cr">
+                                <rect key="frame" x="265.5" y="502" width="69" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="How did you feel?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeu-1i-ley">
+                                <rect key="frame" x="0.0" y="60" width="600" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="ys9-Ut-cQe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qwi-U8-VWk" firstAttribute="top" secondItem="pEE-bv-nLA" secondAttribute="bottom" constant="8" id="AnF-Tj-Jpj"/>
+                            <constraint firstItem="jeu-1i-ley" firstAttribute="top" secondItem="Mhz-JT-KH0" secondAttribute="bottom" multiplier="3" id="HRa-de-zCY"/>
+                            <constraint firstItem="pEE-bv-nLA" firstAttribute="centerX" secondItem="nBw-vF-bWz" secondAttribute="centerX" id="ILw-iC-lmZ"/>
+                            <constraint firstItem="YuE-FU-K0W" firstAttribute="width" secondItem="nBw-vF-bWz" secondAttribute="width" id="KmV-xo-iai"/>
+                            <constraint firstItem="g7T-YU-9Cr" firstAttribute="centerX" secondItem="nBw-vF-bWz" secondAttribute="centerX" id="LrD-Ca-DIg"/>
+                            <constraint firstItem="YuE-FU-K0W" firstAttribute="centerX" secondItem="nBw-vF-bWz" secondAttribute="centerX" id="MtM-Tb-IyX"/>
+                            <constraint firstItem="YuE-FU-K0W" firstAttribute="top" secondItem="jeu-1i-ley" secondAttribute="bottom" id="Mzj-hb-TUm"/>
+                            <constraint firstItem="jeu-1i-ley" firstAttribute="width" secondItem="nBw-vF-bWz" secondAttribute="width" id="aKU-rx-VbX"/>
+                            <constraint firstItem="pEE-bv-nLA" firstAttribute="top" secondItem="g7T-YU-9Cr" secondAttribute="bottom" constant="-8" id="jUq-9n-5Nt"/>
+                            <constraint firstItem="jeu-1i-ley" firstAttribute="centerX" secondItem="nBw-vF-bWz" secondAttribute="centerX" id="t3Y-3R-ZgM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="g7T-YU-9Cr" id="yHR-ic-j57"/>
+                        <outlet property="submitButton" destination="pEE-bv-nLA" id="1Ai-hq-BSa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4b2-0X-hwI" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1263" y="276"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="confettibg" width="1400" height="980"/>
+        <image name="how1" width="79" height="80"/>
+        <image name="how2" width="79" height="80"/>
+        <image name="how3" width="79" height="80"/>
+        <image name="how4" width="79" height="80"/>
+        <image name="how5" width="79" height="80"/>
     </resources>
 </document>

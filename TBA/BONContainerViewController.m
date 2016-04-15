@@ -17,6 +17,7 @@
 #import "BONWhereViewController.h"
 #import "BONFirebaseClient.h"
 #import "BONWhenViewController.h"
+#import "BONWhatViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -84,10 +85,18 @@
                                                               bundle:nil];
     BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
     
-    //where vc
+    //when vc
     UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView" bundle:nil];
-    
     BONWhenViewController *whenVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"when"];
+    
+    //what vc
+   
+    BONWhenViewController *whatVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"what"];
+    //hoe vc
+    
+    BONWhenViewController *howVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"how"];
+    
+
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -106,12 +115,14 @@
     //new when vc, deleted old one
 
     
-    [self.childViewControllers addObject:whatViewController];
-   
+    //[self.childViewControllers addObject:whatViewController];
+    [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
-    [self.childViewControllers addObject:[BONHowQuestionViewController new]];
+   // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
+    [self.childViewControllers addObject:howVC];
+    
     
     [self.childViewControllers addObject:resultsVC];
     
@@ -175,7 +186,7 @@
         answer = howVC.answer;
     }
 
-    //new logic for when vc
+    //new logic for when and what vc
     else if([oldController isKindOfClass:[BONWhenViewController class]]) {
         BONWhenViewController *whenVC = (BONWhenViewController *)oldController;
         NSString * chosenDate = [NSDateFormatter localizedStringFromDate:whenVC.timePicker.date
@@ -187,7 +198,14 @@
         
   
     }
-    //end
+    
+    else if([oldController isKindOfClass:[BONWhatViewController
+        class]]) {
+            BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
+        question = @"What did you eat?";
+        answer = whatVC.answerText.text;
+        
+    }
     
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
     [self.localDataStore saveContext];

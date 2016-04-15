@@ -10,6 +10,7 @@
 		371ADA171CBC343D00CAF73F /* BONWhenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA141CBC343D00CAF73F /* BONWhenViewController.m */; };
 		371ADA181CBC343D00CAF73F /* BONNotificationsSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */; };
 		371ADA1A1CBC35C100CAF73F /* BONWhenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */; };
+		371ADA1E1CC0B23A00CAF73F /* BONHowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA1D1CC0B23A00CAF73F /* BONHowViewController.m */; };
 		3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799AE541CAD5B9500408129 /* HowQuestion.storyboard */; };
 		3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */; };
 		4406864A1CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440686491CC00F5E001E3117 /* BONNotificaitonsSettingsView.storyboard */; };
@@ -78,6 +79,8 @@
 		371ADA151CBC343D00CAF73F /* BONNotificationsSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONNotificationsSettings.h; sourceTree = "<group>"; };
 		371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONNotificationsSettings.m; sourceTree = "<group>"; };
 		371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONWhenView.storyboard; sourceTree = "<group>"; };
+		371ADA1C1CC0B22500CAF73F /* BONHowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowViewController.h; sourceTree = "<group>"; };
+		371ADA1D1CC0B23A00CAF73F /* BONHowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowViewController.m; sourceTree = "<group>"; };
 		3799AE541CAD5B9500408129 /* HowQuestion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HowQuestion.storyboard; sourceTree = "<group>"; };
 		3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowQuestionViewController.h; sourceTree = "<group>"; };
 		3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowQuestionViewController.m; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				E2EF25C61CAB0A0700C5190E /* LaunchScreen.storyboard */,
 				E2EF25C91CAB0A0700C5190E /* Info.plist */,
 				371ADA131CBC343D00CAF73F /* BONWhenViewController.h */,
+				371ADA1C1CC0B22500CAF73F /* BONHowViewController.h */,
+				371ADA1D1CC0B23A00CAF73F /* BONHowViewController.m */,
 				371ADA141CBC343D00CAF73F /* BONWhenViewController.m */,
 				4406864D1CC03863001E3117 /* BONWhatViewController.h */,
 				4406864B1CC0383B001E3117 /* BONWhatViewController.m */,
@@ -549,6 +554,7 @@
 				E2EF25BA1CAB0A0700C5190E /* main.m in Sources */,
 				B0FE939D1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.m in Sources */,
 				B0FE93A01CB80F53003B6AB0 /* BONWhereViewController.m in Sources */,
+				371ADA1E1CC0B23A00CAF73F /* BONHowViewController.m in Sources */,
 				F6A6F91A1CAC9E5700838A72 /* BONSettingsConstants.m in Sources */,
 				3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */,
 			);

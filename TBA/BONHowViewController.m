@@ -6,16 +6,16 @@
 //  Copyright © 2016 Daniel Adeyanju. All rights reserved.
 //
 
-#import "BONWhenViewController.h"
+#import "BONHowViewController.h"
 
-@interface BONWhenViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface BONHowViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 
 @end
 
-@implementation BONWhenViewController
+@implementation BONHowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

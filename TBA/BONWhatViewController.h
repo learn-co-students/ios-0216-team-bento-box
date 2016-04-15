@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface BONWhatViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *mealTypePicker;
 
-@property (strong, nonatomic) NSArray *mealTypes;
-+ (BOOL)date:(NSDate*)date isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate;
+@property (weak, nonatomic) IBOutlet UITextView *answerText;
+
+
 @end
 
