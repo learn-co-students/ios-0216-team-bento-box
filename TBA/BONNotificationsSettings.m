@@ -44,6 +44,11 @@
 -(void)setMealType:(NSString *)  mealType Notification:(NSDate *)date {
     [self deleteNotification:mealType];
     UILocalNotification * breakfastNotif = [[UILocalNotification alloc] init];
+  
+   
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:mealType forKey:@"uid"];
+    breakfastNotif.userInfo = userInfo;
+   // NSLog(@"%@ Notifications dictionary%@", mealType, breakfastNotif.userInfo);
     NSString * alertBody = [NSString stringWithFormat: @"It's around %@ time, log your meal!", mealType];
     [breakfastNotif setAlertBody:alertBody];
     
@@ -52,7 +57,7 @@
     breakfastNotif.repeatInterval = NSCalendarUnitWeekday;
     NSDate * breakfastTimeFromComponents = [myCal dateFromComponents:breakfastTime];
     [breakfastNotif setFireDate: breakfastTimeFromComponents];
-    [breakfastNotif.userInfo setValue:mealType forKey:@"uid"];
+
     
     
     
@@ -86,9 +91,14 @@
 - (IBAction)submit:(id)sender {
     
     NSDate * breakfastTimePicked = self.breakfastNotifPicker.date;
+    NSDate * lunchTimePicked = self.lunchNotifPicker.date;
+    NSDate * dinnerTimePicked = self.dinnerNotifPicker.date;
     
-    //[self setBreakfastNotification:breakfastTimePicked];
+    
     [self setMealType:@"breakfast" Notification:breakfastTimePicked];
+    [self setMealType:@"lunch" Notification:lunchTimePicked];
+    [self setMealType:@"dinner" Notification:dinnerTimePicked];
+
 }
 @end
 

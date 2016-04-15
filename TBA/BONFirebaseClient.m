@@ -10,6 +10,11 @@
 
 @implementation BONFirebaseClient
 
++(NSString *)getUID{
+    return [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"].authData.uid;
+}
+
+
 - (void)configureFirebase {
     
     self.mealProperties = @{@"Created At" : @"Date",
@@ -28,6 +33,12 @@
     
     self.rootReference = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-9119.firebaseio.com"];
     [self.rootReference setValue:users];
+    self.userID = @{@"User Name Goes Here2" : self.meals};
+    
+    self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    
+    self.uidRef = self.rootReference.authData.uid;
+//    [self.rootReference setValue:users];
 }
 
 @end

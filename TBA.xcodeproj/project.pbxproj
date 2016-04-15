@@ -15,13 +15,14 @@
 		44FEC62C1CBC445800B1194B /* BONDanHowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */; };
 		9FA8A87A32B057EE0248FFA5 /* libPods-TBA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E218A2E5BB176F9536CF811 /* libPods-TBA.a */; };
 		B03344411CBD86DF00852C95 /* BONFirebaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B03344401CBD86DF00852C95 /* BONFirebaseClient.m */; };
-		B03344431CBD88D500852C95 /* FirebaseTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03344421CBD88D500852C95 /* FirebaseTest.storyboard */; };
+		B03344431CBD88D500852C95 /* BONLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03344421CBD88D500852C95 /* BONLogin.storyboard */; };
 		B03344461CBD911300852C95 /* BONFirebaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03344451CBD911300852C95 /* BONFirebaseViewController.m */; };
 		B0A0D69E1CB2DFEA0069C037 /* BONWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A0D69D1CB2DFEA0069C037 /* BONWelcomeViewController.m */; };
 		B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */; };
 		B0FE939A1CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE93991CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m */; };
 		B0FE939D1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE939C1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.m */; };
 		B0FE93A01CB80F53003B6AB0 /* BONWhereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE939F1CB80F53003B6AB0 /* BONWhereViewController.m */; };
+		E28B336B1CC16BA3009EBCDF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E28B336A1CC16BA3009EBCDF /* Default-568h@2x.png */; };
 		E2A36B2A1CB5998E00DDAF27 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */; };
 		E2A36B2B1CB5998E00DDAF27 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B291CB5998E00DDAF27 /* User.m */; };
 		E2AC082F1CB4586B003A6997 /* BONCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2AC082D1CB4586B003A6997 /* BONCoreData.xcdatamodeld */; };
@@ -84,7 +85,7 @@
 		6E218A2E5BB176F9536CF811 /* libPods-TBA.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TBA.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B033443F1CBD86DF00852C95 /* BONFirebaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONFirebaseClient.h; sourceTree = "<group>"; };
 		B03344401CBD86DF00852C95 /* BONFirebaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONFirebaseClient.m; sourceTree = "<group>"; };
-		B03344421CBD88D500852C95 /* FirebaseTest.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FirebaseTest.storyboard; sourceTree = "<group>"; };
+		B03344421CBD88D500852C95 /* BONLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONLogin.storyboard; sourceTree = "<group>"; };
 		B03344441CBD911300852C95 /* BONFirebaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONFirebaseViewController.h; sourceTree = "<group>"; };
 		B03344451CBD911300852C95 /* BONFirebaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONFirebaseViewController.m; sourceTree = "<group>"; };
 		B0A0D69C1CB2DFEA0069C037 /* BONWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWelcomeViewController.h; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		B0FE939E1CB80F53003B6AB0 /* BONWhereViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWhereViewController.h; sourceTree = "<group>"; };
 		B0FE939F1CB80F53003B6AB0 /* BONWhereViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWhereViewController.m; sourceTree = "<group>"; };
 		D1632F90A11D79E4C076CFC3 /* Pods-TBA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TBA/Pods-TBA.debug.xcconfig"; sourceTree = "<group>"; };
+		E28B336A1CC16BA3009EBCDF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E2A36B261CB5998E00DDAF27 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
 		E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E2A36B281CB5998E00DDAF27 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		E2EF25AC1CAB0A0700C5190E = {
 			isa = PBXGroup;
 			children = (
+				E28B336A1CC16BA3009EBCDF /* Default-568h@2x.png */,
 				E2EF25B71CAB0A0700C5190E /* TBA */,
 				E2EF25D11CAB0A0700C5190E /* TBATests */,
 				E2EF25DC1CAB0A0700C5190E /* TBAUITests */,
@@ -223,7 +226,7 @@
 				E2EF25EB1CAB0B7400C5190E /* Secrets.h */,
 				E2EF25BB1CAB0A0700C5190E /* AppDelegate.h */,
 				E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */,
-				B03344421CBD88D500852C95 /* FirebaseTest.storyboard */,
+				B03344421CBD88D500852C95 /* BONLogin.storyboard */,
 				B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
 				F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */,
@@ -232,6 +235,10 @@
 				F613E4DB1CB54CD7001FD82F /* BONContainerViewController.m */,
 				F613E4E31CB54DC3001FD82F /* BONLoginViewController.h */,
 				F613E4E41CB54DC3001FD82F /* BONLoginViewController.m */,
+				B03344441CBD911300852C95 /* BONFirebaseViewController.h */,
+				B03344451CBD911300852C95 /* BONFirebaseViewController.m */,
+				B033443F1CBD86DF00852C95 /* BONFirebaseClient.h */,
+				B03344401CBD86DF00852C95 /* BONFirebaseClient.m */,
 				B0FE939E1CB80F53003B6AB0 /* BONWhereViewController.h */,
 				B0FE939F1CB80F53003B6AB0 /* BONWhereViewController.m */,
 				F613E4DD1CB54CF1001FD82F /* BONChildViewController.h */,
@@ -252,10 +259,6 @@
 				F6A4B37B1CAC3EA900D8656F /* BONResultsConstants.m */,
 				E2AC08361CB45C6D003A6997 /* BONDataStore.h */,
 				E2AC08371CB45C6D003A6997 /* BONDataStore.m */,
-				B03344441CBD911300852C95 /* BONFirebaseViewController.h */,
-				B03344451CBD911300852C95 /* BONFirebaseViewController.m */,
-				B033443F1CBD86DF00852C95 /* BONFirebaseClient.h */,
-				B03344401CBD86DF00852C95 /* BONFirebaseClient.m */,
 				B0FE93981CB7F164003B6AB0 /* BONGooglePlacesAPIClient.h */,
 				B0FE93991CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m */,
 				B0FE939B1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.h */,
@@ -430,7 +433,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A6F9111CAC936500838A72 /* SettingsStoryboard.storyboard in Resources */,
-				B03344431CBD88D500852C95 /* FirebaseTest.storyboard in Resources */,
+				E28B336B1CC16BA3009EBCDF /* Default-568h@2x.png in Resources */,
+				B03344431CBD88D500852C95 /* BONLogin.storyboard in Resources */,
 				F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */,
 				E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */,
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,

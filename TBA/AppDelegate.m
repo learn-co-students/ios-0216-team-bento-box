@@ -19,11 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    
-//    BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
-//    self.window.rootViewController = containerVC;
-//    [self.window makeKeyAndVisible];
+#pragma mark - make root vc the container - comment out to change default vc
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
+    self.window.rootViewController = containerVC;
+    [self.window makeKeyAndVisible];
+    
+    
+#
     
     UIUserNotificationType notificationTypes = (UIUserNotificationTypeBadge | UIUserNotificationTypeAlert);
     UIUserNotificationSettings *userNotificationSettings = [UIUserNotificationSettings settingsForTypes:notificationTypes
