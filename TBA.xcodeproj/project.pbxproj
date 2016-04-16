@@ -22,6 +22,8 @@
 		B0FE939A1CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE93991CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m */; };
 		B0FE939D1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE939C1CB7F195003B6AB0 /* BONGooglePlacesAPIClientConstants.m */; };
 		B0FE93A01CB80F53003B6AB0 /* BONWhereViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FE939F1CB80F53003B6AB0 /* BONWhereViewController.m */; };
+		E25CFDA11CC2B7A900249845 /* LastLoggedMealScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25CFDA01CC2B7A900249845 /* LastLoggedMealScreen.storyboard */; };
+		E25CFDA41CC2B7E900249845 /* LastLoggedMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25CFDA31CC2B7E900249845 /* LastLoggedMealViewController.m */; };
 		E28B336B1CC16BA3009EBCDF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E28B336A1CC16BA3009EBCDF /* Default-568h@2x.png */; };
 		E2A36B2A1CB5998E00DDAF27 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */; };
 		E2A36B2B1CB5998E00DDAF27 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A36B291CB5998E00DDAF27 /* User.m */; };
@@ -98,6 +100,9 @@
 		B0FE939E1CB80F53003B6AB0 /* BONWhereViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWhereViewController.h; sourceTree = "<group>"; };
 		B0FE939F1CB80F53003B6AB0 /* BONWhereViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWhereViewController.m; sourceTree = "<group>"; };
 		D1632F90A11D79E4C076CFC3 /* Pods-TBA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TBA/Pods-TBA.debug.xcconfig"; sourceTree = "<group>"; };
+		E25CFDA01CC2B7A900249845 /* LastLoggedMealScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LastLoggedMealScreen.storyboard; sourceTree = "<group>"; };
+		E25CFDA21CC2B7E900249845 /* LastLoggedMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastLoggedMealViewController.h; sourceTree = "<group>"; };
+		E25CFDA31CC2B7E900249845 /* LastLoggedMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastLoggedMealViewController.m; sourceTree = "<group>"; };
 		E28B336A1CC16BA3009EBCDF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E2A36B261CB5998E00DDAF27 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
 		E2A36B271CB5998E00DDAF27 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
@@ -228,6 +233,9 @@
 				E2EF25BC1CAB0A0700C5190E /* AppDelegate.m */,
 				B03344421CBD88D500852C95 /* BONLogin.storyboard */,
 				B0B2B8F01CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard */,
+				E25CFDA01CC2B7A900249845 /* LastLoggedMealScreen.storyboard */,
+				E25CFDA21CC2B7E900249845 /* LastLoggedMealViewController.h */,
+				E25CFDA31CC2B7E900249845 /* LastLoggedMealViewController.m */,
 				F616E2CF1CAC2CB900624B25 /* BONResultsStoryboard.storyboard */,
 				F6A2A9741CAD5683004B56DA /* BONContainer.storyboard */,
 				F6A6F9101CAC936500838A72 /* SettingsStoryboard.storyboard */,
@@ -443,6 +451,7 @@
 				B0B2B8F11CAC8C9400CCFF6F /* Ariel's Storyboard.storyboard in Resources */,
 				F65C25231CB6EFA900B469FF /* broccoliMan.jpg in Resources */,
 				371ADA1A1CBC35C100CAF73F /* BONWhenView.storyboard in Resources */,
+				E25CFDA11CC2B7A900249845 /* LastLoggedMealScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +535,7 @@
 				F613E4DC1CB54CD7001FD82F /* BONContainerViewController.m in Sources */,
 				44FEC62C1CBC445800B1194B /* BONDanHowViewController.m in Sources */,
 				E2EF25BD1CAB0A0700C5190E /* AppDelegate.m in Sources */,
+				E25CFDA41CC2B7E900249845 /* LastLoggedMealViewController.m in Sources */,
 				F65C25241CB6EFA900B469FF /* BONStatusIndicatorLabel.m in Sources */,
 				B0A0D69E1CB2DFEA0069C037 /* BONWelcomeViewController.m in Sources */,
 				F6A6F9171CAC93DD00838A72 /* BONSettingsViewController.m in Sources */,
