@@ -12,8 +12,6 @@
 
 @interface BONFirebaseViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @property (strong, nonatomic) BONFirebaseClient *firebaseClient;
 

@@ -227,7 +227,6 @@
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
-    [self.view endEditing:YES];
     
     NSDictionary *userinfo = notification.userInfo;
     NSNumber *duration = userinfo[UIKeyboardAnimationDurationUserInfoKey];
