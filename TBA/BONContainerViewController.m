@@ -100,6 +100,7 @@
     
     //welcome vc
     BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
+    [self addChildViewController:welcomeVC];
     
     //notifications vc
     UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
