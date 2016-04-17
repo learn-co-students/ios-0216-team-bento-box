@@ -48,7 +48,7 @@
     [self.whatWhereHowTextLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     
     [self.nameTextLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:200].active = YES;
-    [self.lastAteTextLabel.topAnchor constraintEqualToAnchor:self.nameTextLabel.bottomAnchor constant:10].active = YES;
+    [self.lastAteTextLabel.topAnchor constraintEqualToAnchor:self.nameTextLabel.bottomAnchor constant:0].active = YES;
     [self.whatWhereHowTextLabel.topAnchor constraintEqualToAnchor:self.lastAteTextLabel.bottomAnchor constant:0].active = YES;
     
     self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
@@ -68,6 +68,9 @@
     
     [self.view.layer insertSublayer:gradientMask atIndex:0];
     
+    [self animateTextField:self.nameTextLabel duration:2];
+    [self animateTextField:self.lastAteTextLabel duration:3];
+    [self animateTextField:self.whatWhereHowTextLabel duration:4];
     
 }
 
@@ -90,10 +93,10 @@
     self.whatWhereHowTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.lastAteTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
 
-
     [self textcolor:self.nameTextLabel];
     [self textcolor:self.whatWhereHowTextLabel];
     [self textcolor:self.lastAteTextLabel];
+    
 }
 
 -(void)textcolor:(UILabel *)text {
@@ -144,6 +147,15 @@
                                                       alpha:.65f];
 
     
+}
+
+-(void)animateTextField:(UILabel *)textField duration:(CGFloat)duration {
+    
+    textField.alpha = 0;
+    textField.hidden = NO;
+    [UIView animateWithDuration:duration animations:^{
+        textField.alpha = 1;
+    }];
 }
 
 - (IBAction)nextPageButton:(id)sender {
