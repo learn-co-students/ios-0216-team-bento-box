@@ -121,6 +121,13 @@
     [self.nextButton addTarget:self action:@selector(resetButtonBackGroundColor:) forControlEvents:UIControlEventTouchUpInside];
     [self.nextButton addTarget:self action:@selector(resetButtonBackGroundColor:) forControlEvents:UIControlEventTouchUpOutside];
     [self.nextButton addTarget:self action:@selector(resetButtonBackGroundColor:) forControlEvents:UIControlEventTouchCancel];
+    
+    [self.nextButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                   green:254.0f/255.0f
+                                                    blue:245.0f/255.0f
+                                                   alpha:1.0f] forState:UIControlStateNormal];
+    
+    [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
 }
 
 -(void)resetButtonBackGroundColor:(UIButton *)nextButton {
@@ -134,22 +141,10 @@
     self.nextButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
                                                       green:254.0f/255.0f
                                                        blue:245.0f/255.0f
-                                                      alpha:1.0f];
+                                                      alpha:.65f];
 
     
 }
-
-//-(void)animateTextField:(UILabel *)textField firstDuration:(CGFloat)duration secondDuration:(CGFloat)secondDuration {
-//    
-//    [UIView animateWithDuration:0.4 animations:^{
-//        textField.alpha = 0;
-//    } completion:^(BOOL finished) {
-//        textField.text = textField;
-//        [UIView animateWithDuration:0.4 animations:^{
-//            textField.alpha = 1;
-//        }];
-//    }];
-//}
 
 - (IBAction)nextPageButton:(id)sender {
     // Go To Next Page
