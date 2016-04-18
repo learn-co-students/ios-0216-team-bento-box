@@ -36,8 +36,8 @@
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
     
 }
@@ -60,11 +60,11 @@
 //    NSString *newUser = self.emailTextField.text;
     NSString *newUserPW = self.passwordTextField.text;
 
-    [self.firebaseClient.rootReference createUser:newUser password:newUserPW
+    [self.firebaseClient.rootReference createUser:self.emailTextField.text password:newUserPW
                          withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
         if (error) {
             
-            NSLog(@"User not created:%@", error.description);
+            NSLog(@"\n\n\nUser not created:%@", error.description);
             
         } else {   
             
@@ -165,19 +165,19 @@
     [self.view endEditing:YES];
 }
 
--(void)keyboardWillShow:(NSNotification *)notification {
-    NSDictionary *userinfo = notification.userInfo;
-    
-    NSNumber *duration = userinfo[UIKeyboardAnimationDurationUserInfoKey];
-    NSValue *keyboardFrameValue = userinfo[UIKeyboardFrameEndUserInfoKey];
-    
-    CGRect keyboardFrame = keyboardFrameValue.CGRectValue;
-    CGFloat keyboardHeight = keyboardFrame.size.height;
-    
-    [UIView animateWithDuration:[duration floatValue] animations:^{
-//        self.loginButtonConstraint.constant = -keyboardHeight;
-    }];
-}
+//-(void)keyboardWillShow:(NSNotification *)notification {
+//    NSDictionary *userinfo = notification.userInfo;
+//    
+//    NSNumber *duration = userinfo[UIKeyboardAnimationDurationUserInfoKey];
+//    NSValue *keyboardFrameValue = userinfo[UIKeyboardFrameEndUserInfoKey];
+//    
+//    CGRect keyboardFrame = keyboardFrameValue.CGRectValue;
+//    CGFloat keyboardHeight = keyboardFrame.size.height;
+//    
+//    [UIView animateWithDuration:[duration floatValue] animations:^{
+////        self.loginButtonConstraint.constant = -keyboardHeight;
+//    }];
+//}
 
 -(void)keyboardWillHide:(NSNotification *)notification {
 // need to add default constraints
