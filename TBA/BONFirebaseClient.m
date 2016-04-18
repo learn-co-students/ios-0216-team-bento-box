@@ -27,13 +27,15 @@
     
     self.meals = @{@"Meals" : self.meal};
     
-    self.userID = @{@"User Name Goes Here2" : self.meals};
+    self.userID = @{@"User Name Goes Here" : self.meals};
     
     NSDictionary *users = @{@"Users" : self.userID};
     
+    self.rootReference = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-9119.firebaseio.com"];
+    [self.rootReference setValue:users];
+    self.userID = @{@"User Name Goes Here2" : self.meals};
+    
     self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
-    
-    
     
     self.uidRef = self.rootReference.authData.uid;
 //    [self.rootReference setValue:users];
