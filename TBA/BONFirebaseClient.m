@@ -51,7 +51,8 @@
 }
 
 - (void)createNewUserInFirebaseWithEmail:(NSString *)email
-                                Password:(NSString *)password {
+                                Password:(NSString *)password
+                      FromViewController:(UIViewController *)viewController{
     
     [self.rootReference createUser:email
                           password:password
@@ -71,6 +72,10 @@
                   Firebase *currentUserReference = [usersReference childByAppendingPath:self.userIDReference];
                   
                   [currentUserReference setValue:self.meal];
+                  
+                  [self loginUserInFirebaseWithEmail:email
+                                            Password:password
+                                  FromViewController:viewController];
                   
 //                  [self loginUserInFirebaseWithEmail:email
 //                                            Password:password];

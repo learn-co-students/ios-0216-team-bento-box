@@ -28,7 +28,8 @@
 
 - (void)configureFirebase;
 - (void)createNewUserInFirebaseWithEmail:(NSString *)email
-                                Password:(NSString *)password;
+                                Password:(NSString *)password
+                      FromViewController:(UIViewController *)viewController;
 
 - (void)loginUserInFirebaseWithEmail:(NSString *)email
                             Password:(NSString *)password
