@@ -18,6 +18,10 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    UIImage *bg = [UIImage imageNamed:@"confettibg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
+    [self.view setOpaque:NO];
+    [[self.view layer] setOpaque:NO];
     
 }
 
@@ -98,7 +102,12 @@
     [self setMealType:@"breakfast" Notification:breakfastTimePicked];
     [self setMealType:@"lunch" Notification:lunchTimePicked];
     [self setMealType:@"dinner" Notification:dinnerTimePicked];
+    
+       [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
 
+}
+- (IBAction)backButton:(id)sender {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"backButtonHit" object:self];
 }
 @end
 

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BONWhenViewController : UIViewController
+@interface BONHowViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *mealTypePicker;
+@property (assign, nonatomic) NSInteger howNumber;
 
 @property (strong, nonatomic) NSArray *mealTypes;
 + (BOOL)date:(NSDate*)date isBetweenDate:(NSDate*)beginDate andDate:(NSDate*)endDate;
