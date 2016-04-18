@@ -26,7 +26,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your last meal was at &lt;time&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-Oo-u6j">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your last meal was at &lt;time&gt;." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-Oo-u6j">
                                 <rect key="frame" x="185" y="183" width="225" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="pMs-YB-1b5"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You had &lt;what&gt;.....&lt;How&gt;.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Li0-MX-KZX">
-                                <rect key="frame" x="157" y="227" width="286" height="205"/>
+                                <rect key="frame" x="157" y="229" width="286" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="iDN-a0-qc7"/>
                                 </constraints>
@@ -56,9 +56,10 @@
                         <constraints>
                             <constraint firstItem="GKh-67-vt8" firstAttribute="centerX" secondItem="Li0-MX-KZX" secondAttribute="centerX" placeholder="YES" id="43r-rI-NLg"/>
                             <constraint firstItem="jB3-q8-wFa" firstAttribute="top" secondItem="Li0-MX-KZX" secondAttribute="bottom" constant="168" placeholder="YES" id="5lT-ms-JaG"/>
+                            <constraint firstItem="3gT-Oo-u6j" firstAttribute="leading" secondItem="Kf2-NC-k9C" secondAttribute="leading" constant="185" placeholder="YES" id="OQu-3I-GYh"/>
                             <constraint firstItem="GKh-67-vt8" firstAttribute="top" secondItem="eX7-5v-hg9" secondAttribute="bottom" constant="126" placeholder="YES" id="OhN-2I-CzR"/>
                             <constraint firstItem="3gT-Oo-u6j" firstAttribute="top" secondItem="GKh-67-vt8" secondAttribute="bottom" constant="16" placeholder="YES" id="Reg-al-jHg"/>
-                            <constraint firstItem="jB3-q8-wFa" firstAttribute="top" secondItem="fV8-Zv-Zg3" secondAttribute="bottom" constant="199" id="ZHq-3Q-gzp"/>
+                            <constraint firstItem="jB3-q8-wFa" firstAttribute="top" secondItem="fV8-Zv-Zg3" secondAttribute="bottom" constant="199" placeholder="YES" id="ZHq-3Q-gzp"/>
                             <constraint firstItem="fV8-Zv-Zg3" firstAttribute="centerX" secondItem="Li0-MX-KZX" secondAttribute="centerX" placeholder="YES" id="pe0-s8-2cq"/>
                             <constraint firstItem="GKh-67-vt8" firstAttribute="centerX" secondItem="Kf2-NC-k9C" secondAttribute="centerX" placeholder="YES" id="wY7-3w-XKF"/>
                             <constraint firstItem="Li0-MX-KZX" firstAttribute="top" secondItem="3gT-Oo-u6j" secondAttribute="bottom" constant="23" placeholder="YES" id="wrk-NP-AVc"/>

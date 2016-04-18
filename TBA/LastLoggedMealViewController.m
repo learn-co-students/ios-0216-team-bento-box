@@ -69,7 +69,7 @@
     [self.view.layer insertSublayer:gradientMask atIndex:0];
     
     [self animateTextField:self.nameTextLabel duration:2];
-    [self animateTextField:self.lastAteTextLabel duration:3];
+    [self animateTextField:self.lastAteTextLabel duration:3.5];
     [self animateTextField:self.whatWhereHowTextLabel duration:4];
     
 }
@@ -82,12 +82,12 @@
     NSString *yourLastMeal = [NSString stringWithFormat:@"Your last meal was at %@.", userMeal.createdAt];
     self.lastAteTextLabel.text = yourLastMeal;
     
-    NSString *whenHowWhereMeal = [NSString stringWithFormat:@"You ate %@ at %@ and you said you felt %@ afterwards.", userMeal.whatWasEaten, userMeal.whereWasItEaten, userMeal.howUserFelt];
-    self.whatWhereHowTextLabel.text = whenHowWhereMeal;
-    
+    NSString *whenHowWhereMeal = [NSString stringWithFormat:@"You ate %@ at %@ and you said you felt %@ afterwards.", userMeal.whatWasEaten, userMeal.whereWasItEaten, userMeal.howUserFelt];    
     self.whatWhereHowTextLabel.numberOfLines = 0;
     self.whatWhereHowTextLabel.text = whenHowWhereMeal;
     [self.whatWhereHowTextLabel sizeToFit];
+//    self.whatWhereHowTextLabel.textAlignment = kCAAlignmentCenter;
+
     
     self.nameTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.whatWhereHowTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
@@ -108,7 +108,7 @@
 
 -(void)createNextbutton {
     self.nextButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.nextButton.topAnchor constraintEqualToAnchor:self.whatWhereHowTextLabel.bottomAnchor constant:25].active = YES;
+    [self.nextButton.topAnchor constraintEqualToAnchor:self.whatWhereHowTextLabel.bottomAnchor constant:50].active = YES;
     [self.nextButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     [self.nextButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
     [self.nextButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.30].active = YES;
