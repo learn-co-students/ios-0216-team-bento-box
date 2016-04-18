@@ -19,7 +19,14 @@
 @property (strong, nonatomic) NSDictionary *userID;
 @property (strong, nonatomic) NSString *uidRef;
 
-- (void)configureFirebase;
++ (instancetype)sharedFirebaseClient;
++ (NSString *)getUID;
 
-+(NSString *)getUID;
+- (void)configureFirebase;
+- (void)createNewUserInFirebaseWithEmail:(NSString *)email
+                                Password:(NSString *)password;
+
+- (void)loginUserInFirebaseWithEmail:(NSString *)email
+                            Password:(NSString *)password;
+
 @end
