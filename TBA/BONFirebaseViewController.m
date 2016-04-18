@@ -36,6 +36,9 @@
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyPressed:) name:UITextFieldTextDidChangeNotification object:nil];
+    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
@@ -58,6 +61,7 @@
     [userReference setValue:self.emailTextField.text];
    // [userReference setValue:@{newUser : self.firebaseClient.userID}];
 //    NSString *newUser = self.emailTextField.text;
+    
     NSString *newUserPW = self.passwordTextField.text;
 
     [self.firebaseClient.rootReference createUser:self.emailTextField.text password:newUserPW
@@ -159,6 +163,11 @@
     [self.userName.layer setBorderColor:[[UIColor blackColor] CGColor]];
 }
 
+-(void)keyPressed:(NSNotification *)notification {
+    
+    self.passwordTextField.secureTextEntry = YES;
+   
+}
 #pragma mark - Tap gestures
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
