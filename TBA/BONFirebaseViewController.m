@@ -42,37 +42,10 @@
 
 - (IBAction)addUserTapped:(id)sender {
     
-        NSString *newUser = self.userName.text;
+    [self.firebaseClient createNewUserInFirebaseWithEmail:self.emailTextField.text
+                                                       Password:self.passwordTextField.text];
     
-//    Firebase *test = [[Firebase alloc] init];
-    
-    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-    Firebase *userReference = [usersReference childByAppendingPath:newUser];
-    [userReference setValue:self.emailTextField.text];
-   // [userReference setValue:@{newUser : self.firebaseClient.userID}];
-//    NSString *newUser = self.emailTextField.text;
-    NSString *newUserPW = self.passwordTextField.text;
-
-    [self.firebaseClient.rootReference createUser:self.emailTextField.text password:newUserPW
-                         withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
-        if (error) {
-            
-            NSLog(@"\n\n\nUser not created:%@", error.description);
-            
-        } else {   
-            
-            NSLog(@"Successfully created user account with uid: %@", [result objectForKey:@"uid"]);
-            
-            Firebase * currentUserRef = [[self.firebaseClient.rootReference childByAppendingPath:@"Users"] childByAppendingPath:[result objectForKey:@"uid"]];
-            [currentUserRef setValue:@{@"Meals":@{@"Meal1":@"Info", @"Meal2":@"Info"}} ];
-            
-            Firebase * currentUserMealRef  = [[currentUserRef childByAppendingPath:@"Meals"] childByAppendingPath:[NSString stringWithFormat:@"%i", arc4random()]];
-            [currentUserMealRef setValue:@{@"When":@"Now", @"How":@"Good"}];
-            [self loginTapped:nil];
-            
-        }
-    }];
-    
+    [self loginTapped:nil];
 }
 - (IBAction)loginTapped:(id)sender {
     
