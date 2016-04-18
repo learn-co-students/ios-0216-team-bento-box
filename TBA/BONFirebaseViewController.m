@@ -49,23 +49,8 @@
 }
 - (IBAction)loginTapped:(id)sender {
     
-    NSString *user = self.emailTextField.text;
-    NSString *userPW = self.passwordTextField.text;
-    
-    [self.firebaseClient.rootReference  authUser: user password:userPW
-                             withCompletionBlock:^(NSError *error, FAuthData *authData) {
-        if (error) {
-            NSLog(@"Login Failed: %@", error.description);
-            
-        } else {
-            NSLog(@"Logged in, UID: %@", [authData uid]);
-
-            BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
-            [self presentViewController:containerVC animated:YES completion:nil];
-            
-        }
-    }];
-
+    [self.firebaseClient loginUserInFirebaseWithEmail:self.emailTextField.text
+                                                   Password:self.passwordTextField.text];
 }
 
 #pragma mark - UIButtons and UITextfields constraints
