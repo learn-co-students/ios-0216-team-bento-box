@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Firebase/Firebase.h>
+#import <UIKit/UIKit.h>
+#import "BONContainerViewController.h"
 
 @interface BONFirebaseClient : NSObject
 
@@ -17,6 +19,8 @@
 @property (strong, nonatomic) NSDictionary *meal;
 @property (strong, nonatomic) NSDictionary *meals;
 @property (strong, nonatomic) NSDictionary *userID;
+@property (strong, nonatomic) NSDictionary *users;
+@property (strong, nonatomic) NSString *userIDReference;
 @property (strong, nonatomic) NSString *uidRef;
 
 + (instancetype)sharedFirebaseClient;
@@ -27,6 +31,7 @@
                                 Password:(NSString *)password;
 
 - (void)loginUserInFirebaseWithEmail:(NSString *)email
-                            Password:(NSString *)password;
+                            Password:(NSString *)password
+                  FromViewController:(UIViewController *)fromViewController;
 
 @end

@@ -23,6 +23,9 @@
 + (NSString *)getUID{
     
     Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    
+    NSLog(@"getUID method being run: %@", rootReference.authData.uid);
+    
     NSString *userID = rootReference.authData.uid;
     return userID;
 }
@@ -68,12 +71,16 @@
                   Firebase *currentUserReference = [usersReference childByAppendingPath:self.userIDReference];
                   
                   [currentUserReference setValue:self.meal];
+                  
+//                  [self loginUserInFirebaseWithEmail:email
+//                                            Password:password];
               }
           }];
 }
 
 - (void)loginUserInFirebaseWithEmail:(NSString *)email
-                            Password:(NSString *)password {
+                            Password:(NSString *)password
+                  FromViewController:(UIViewController *)fromViewController{
     
     [self.rootReference authUser:email
                         password:password
@@ -84,6 +91,12 @@
                  }
                  else {
                      NSLog(@"Logged in, UID: %@", authData.uid);
+                     
+                     BONContainerViewController *containerViewController = [BONContainerViewController new];
+                     
+                     [fromViewController presentViewController:containerViewController
+                                                      animated:YES
+                                                    completion:nil];
                  }
              }];
 }
