@@ -121,7 +121,7 @@
                                             <constraint firstItem="Edt-VP-JiZ" firstAttribute="width" secondItem="P73-LC-6QA" secondAttribute="width" id="v6c-5y-04K"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NmN-68-Igb" userLabel="Dinner Picker and Switch">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NmN-68-Igb" userLabel="Dinner Picker and Switch">
                                         <rect key="frame" x="0.0" y="372" width="600" height="186"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-dz-ze3">
@@ -138,7 +138,7 @@
                                                     </switch>
                                                 </subviews>
                                             </stackView>
-                                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Vy-0Pr">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Vy-0Pr">
                                                 <rect key="frame" x="0.0" y="31" width="600" height="155"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="482077500.53681999">
                                                     <!--2016-04-11 14:25:00 +0000-->

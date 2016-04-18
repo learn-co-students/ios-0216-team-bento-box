@@ -56,7 +56,7 @@
     Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
     Firebase *userReference = [usersReference childByAppendingPath:newUser];
     [userReference setValue:self.emailTextField.text];
-   // [userReference setValue:@{newUser : self.firebaseClient.userID}];
+// [userReference setValue:@{newUser : self.firebaseClient.userID}];
 //    NSString *newUser = self.emailTextField.text;
     NSString *newUserPW = self.passwordTextField.text;
 
