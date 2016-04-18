@@ -29,7 +29,7 @@
     [self.sharedFireBaseClient createNewUserInFirebaseWithEmail:self.emailTextField.text
                                                        Password:self.passwordTextField.text];
     
-//    [self loginTapped:nil];
+    [self loginTapped:nil];
 }
 
 - (IBAction)loginTapped:(id)sender {

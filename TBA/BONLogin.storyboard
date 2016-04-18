@@ -30,6 +30,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginTapped:" destination="5ae-3u-lGv" eventType="touchUpInside" id="6rV-is-SU8"/>
+                                    <segue destination="Q8f-HB-eIQ" kind="show" id="wqh-sJ-eQt"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-KW-LK0">
@@ -80,4 +81,7 @@
             <point key="canvasLocation" x="1983.5" y="435"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wqh-sJ-eQt"/>
+    </inferredMetricsTieBreakers>
 </document>
