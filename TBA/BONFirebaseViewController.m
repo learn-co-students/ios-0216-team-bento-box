@@ -36,74 +36,25 @@
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
     
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyPressed:) name:UITextFieldTextDidChangeNotification object:nil];
-    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
 }
 
 - (IBAction)addUserTapped:(id)sender {
     
-        NSString *newUser = self.userName.text;
-    
-//    Firebase *test = [[Firebase alloc] init];
-    
-    Firebase *usersReference = [self.firebaseClient.rootReference childByAppendingPath:@"Users"];
-    Firebase *userReference = [usersReference childByAppendingPath:newUser];
-    [userReference setValue:self.emailTextField.text];
-   // [userReference setValue:@{newUser : self.firebaseClient.userID}];
-//    NSString *newUser = self.emailTextField.text;
-    
-    NSString *newUserPW = self.passwordTextField.text;
-
-    [self.firebaseClient.rootReference createUser:self.emailTextField.text password:newUserPW
-                         withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
-        if (error) {
-            
-            NSLog(@"\n\n\nUser not created:%@", error.description);
-            
-        } else {   
-            
-            NSLog(@"Successfully created user account with uid: %@", [result objectForKey:@"uid"]);
-            
-            Firebase * currentUserRef = [[self.firebaseClient.rootReference childByAppendingPath:@"Users"] childByAppendingPath:[result objectForKey:@"uid"]];
-            [currentUserRef setValue:@{@"Meals":@{@"Meal1":@"Info", @"Meal2":@"Info"}} ];
-            
-            Firebase * currentUserMealRef  = [[currentUserRef childByAppendingPath:@"Meals"] childByAppendingPath:[NSString stringWithFormat:@"%i", arc4random()]];
-            [currentUserMealRef setValue:@{@"When":@"Now", @"How":@"Good"}];
-            [self loginTapped:nil];
-            
-        }
-    }];
-    
+    [self.firebaseClient createNewUserInFirebaseWithEmail:self.emailTextField.text
+                                                 Password:self.passwordTextField.text
+                                       FromViewController:self];
 }
 - (IBAction)loginTapped:(id)sender {
     
-    NSString *user = self.emailTextField.text;
-    NSString *userPW = self.passwordTextField.text;
+    NSLog(@"Log in button tapped");
     
-    [self.firebaseClient.rootReference  authUser: user password:userPW
-                             withCompletionBlock:^(NSError *error, FAuthData *authData) {
-        if (error) {
-            NSLog(@"Login Failed: %@", error.description);
-            
-        } else {
-            NSLog(@"Logged in, UID: %@", [authData uid]);
-
-            BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
-            [self presentViewController:containerVC animated:YES completion:nil];
-            
-        }
-    }];
-
+    [self.firebaseClient loginUserInFirebaseWithEmail:self.emailTextField.text
+                                             Password:self.passwordTextField.text
+                                   FromViewController:self];
+    
+    NSLog(@"User id: %@", self.firebaseClient.rootReference.authData.uid);
 }
 
 #pragma mark - UIButtons and UITextfields constraints
@@ -163,11 +114,6 @@
     [self.userName.layer setBorderColor:[[UIColor blackColor] CGColor]];
 }
 
--(void)keyPressed:(NSNotification *)notification {
-    
-    self.passwordTextField.secureTextEntry = YES;
-   
-}
 #pragma mark - Tap gestures
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)recognizer {

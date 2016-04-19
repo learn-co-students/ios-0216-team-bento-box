@@ -67,7 +67,11 @@
     if ([BONFirebaseClient getUID]) {
         [self displayContentController:self.childViewControllers[0]];
         
+        NSLog(@"In the first if statement in the Container View Controller");
+        
     } else{
+        
+        NSLog(@"In the else of the container view controller view did load");
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
