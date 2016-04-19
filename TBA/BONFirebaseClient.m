@@ -106,4 +106,10 @@
              }];
 }
 
+- (void)setMealDateAs:(NSString *)date
+              ForMeal:(Meal *)meal {
+    
+    
+}
+
 @end

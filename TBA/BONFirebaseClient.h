@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <Firebase/Firebase.h>
 #import <UIKit/UIKit.h>
+#import "BONDataStore.h"
 #import "BONContainerViewController.h"
+#import "Meal.h"
 
 @interface BONFirebaseClient : NSObject
 
@@ -34,5 +36,8 @@
 - (void)loginUserInFirebaseWithEmail:(NSString *)email
                             Password:(NSString *)password
                   FromViewController:(UIViewController *)fromViewController;
+
+- (void)setMealDateAs:(NSString *)date
+              ForMeal:(Meal *)meal;
 
 @end
