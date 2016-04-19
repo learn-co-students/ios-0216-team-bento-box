@@ -67,7 +67,9 @@
                   Firebase *usersReference = [self.rootReference childByAppendingPath:@"Users"];
                   Firebase *currentUserReference = [usersReference childByAppendingPath:self.userIDReference];
                   
-                  [currentUserReference setValue:self.meal];
+                  [currentUserReference setValue:self.userIDReference];
+                  
+//                  [currentUserReference setValue:self.meal];
                   
                   [self loginUserInFirebaseWithEmail:email
                                             Password:password
@@ -101,13 +103,12 @@
 
 - (void)createMealWithDate:(NSString *)date {
     
-    NSLog(@"Create Meal With Date being called");
+    Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    Firebase *usersReference = [rootReference childByAppendingPath:@"Users"];
+    Firebase *currentUserReference = [usersReference childByAppendingPath:rootReference.authData.uid];
+    Firebase *mealDateReference = [currentUserReference childByAppendingPath:date];
     
-    Firebase *usersReference = [self.rootReference childByAppendingPath:@"Users"];
-    Firebase *currentUserReference = [usersReference childByAppendingPath:self.userIDReference];
-    Firebase *mealByDateReference = [currentUserReference childByAppendingPath:date];
-    
-    [mealByDateReference setValue:@"Test"];
+    [mealDateReference setValue:date];
 }
 
 @end

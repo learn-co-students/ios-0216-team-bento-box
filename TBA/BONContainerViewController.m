@@ -185,7 +185,6 @@
 #pragma mark - Buttons
 
 - (void)submitButtonHit:(id)sender {
-    NSLog(@"Enter Button Hit");
     UIViewController *oldController = self.fromViewController;
     
     if (self.fromViewController == self.childViewControllers[0]) {

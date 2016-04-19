@@ -14,6 +14,7 @@
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSString *whereWasEatenString;
+@property (strong, nonatomic) NSString *userID;
 @property (nonatomic, strong) NSArray *userMeals;
 
 +(instancetype)sharedDataStore;

@@ -123,7 +123,7 @@
     
     
     NSString *theTime = [NSDateFormatter localizedStringFromDate:self.timePicker.date
-                                                       dateStyle:0
+                                                       dateStyle:NSDateFormatterMediumStyle
                                                        timeStyle:NSDateFormatterShortStyle];
     
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
