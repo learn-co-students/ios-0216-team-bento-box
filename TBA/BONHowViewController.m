@@ -44,19 +44,13 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     
-    
     self.mealTypes = @[@"Breakfast",@"Lunch", @"Dinner", @"Snack"];
     self.mealTypePicker.dataSource = self;
     self.mealTypePicker.delegate = self;
     
     [self selectTheMealType];
     
-    
-    
     [self setupAllTheGestureRecognizers];
-    
-    
-    
     
     //Change va
     [self.timePicker addTarget:self action:@selector(selectTheMealType) forControlEvents:UIControlEventValueChanged];
@@ -128,15 +122,12 @@
         
     }
     
-    
-    
     NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
     
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
     
     //[self class] date:now isBetweenDate:<#(NSDate *)#> andDate:<#(NSDate *)#>
-    
     
 }
 - (IBAction)submitInfo:(id)sender {
