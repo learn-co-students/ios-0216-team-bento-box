@@ -18,10 +18,10 @@
 - (void)configureFirebase {
     
     self.mealProperties = @{@"Created At" : @"Date",
-                                      @"What Was Eaten" : @"What",
-                                      @"Where Was Eaten" : @"Where",
-                                      @"When Was Eaten" : @"When",
-                                      @"How You Felt" : @"How"};
+                        @"What Was Eaten" : @"What",
+                        @"Where Was Eaten" : @"Where",
+                        @"When Was Eaten" : @"When",
+                        @"How You Felt" : @"How"};
     
     self.meal = @{@"Meal" : self.mealProperties};
     
@@ -31,10 +31,8 @@
     
     NSDictionary *users = @{@"Users" : self.userID};
     
-    self.rootReference = [[Firebase alloc] initWithUrl:@"https://dazzling-fire-9119.firebaseio.com"];
     [self.rootReference setValue:users];
-    self.userID = @{@"User Name Goes Here2" : self.meals};
-    
+        
     self.rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
     
     self.uidRef = self.rootReference.authData.uid;

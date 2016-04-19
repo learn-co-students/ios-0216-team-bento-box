@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
+-(UIStatusBarStyle)preferredStatusBarStyle;
+
 @end
 
 @implementation LastLoggedMealViewController
@@ -26,14 +28,18 @@
     [self editTextField];
     [self populateTextField];
     [self createNextbutton];
+    [self setNeedsStatusBarAppearanceUpdate];
     
     self.localDataStore = [BONDataStore sharedDataStore];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Text Label Constraints
@@ -77,8 +83,6 @@
 -(void)populateTextField {
     Meal *userMeal = self.localDataStore.userMeals.lastObject;
     
-    // Need to make sure user is working before adding username to hello part.
-    
     NSString *yourLastMeal = [NSString stringWithFormat:@"Your last meal was at %@.", userMeal.createdAt];
     self.lastAteTextLabel.text = yourLastMeal;
     
@@ -86,8 +90,6 @@
     self.whatWhereHowTextLabel.numberOfLines = 0;
     self.whatWhereHowTextLabel.text = whenHowWhereMeal;
     [self.whatWhereHowTextLabel sizeToFit];
-//    self.whatWhereHowTextLabel.textAlignment = kCAAlignmentCenter;
-
     
     self.nameTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.whatWhereHowTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
