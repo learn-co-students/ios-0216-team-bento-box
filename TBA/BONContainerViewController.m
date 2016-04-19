@@ -26,10 +26,11 @@
 @property (nonatomic,strong)NSMutableArray *childViewControllers;
 @property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
 @property (nonatomic,strong)BONDataStore *localDataStore;
+@property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
 @property (nonatomic,strong)Meal *userMeal;
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
--(void)formatDate;
+//-(void)formatDate;
 
 @property (nonatomic,assign)NSInteger viewCounter;
 
@@ -38,10 +39,9 @@
 @implementation BONContainerViewController
 
 - (void)viewDidLoad {
-    
-    NSLog(@"Container View Did Load");
-    
     [super viewDidLoad];
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
     // Instantiating dataStore
     
@@ -63,20 +63,34 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapOccurred:) name:@"tapTap" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginButtonHit:) name:@"login" object:nil];
     
-    
-    if ([BONFirebaseClient getUID]) {
+    if ([BONFirebaseClient getToken]) {
+        
+        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
+        
         [self displayContentController:self.childViewControllers[0]];
         
-        NSLog(@"In the first if statement in the Container View Controller");
-        
     } else{
-        
-        NSLog(@"In the else of the container view controller view did load");
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [self displayContentController:loginViewController];
     }
+    
+//    
+//    if ([BONFirebaseClient getToken] == NULL) {
+//        
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
+//        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+//        [self displayContentController:loginViewController];
+//
+//    } else{
+//        
+//        
+//        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
+//        
+//        [self displayContentController:self.childViewControllers[0]];
+//
+//    }
     
     self.viewCounter = 0;
 }
@@ -213,15 +227,14 @@
         question = @"When did you eat";
         answer = chosenDate;
         
-  
-    }
+        NSLog(@"In When View Controller");
+}
     
     else if([oldController isKindOfClass:[BONWhatViewController
         class]]) {
             BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
         question = @"What did you eat?";
         answer = whatVC.answerText.text;
-        
     }
     
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
@@ -232,7 +245,6 @@
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];
     self.fromViewController = newController;
-    
 }
 
 -(void)backButtonHit:(id)sender{
@@ -245,7 +257,6 @@
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
-    
 }
 
 -(void)loginButtonHit:(id)sender{
@@ -264,7 +275,6 @@
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
-    
 }
 
 -(void)swipeLeftOccurred:(id)sender{
@@ -303,12 +313,12 @@
 
 # pragma mark - Helper Methods
 
--(void)formatDate {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
-    dateFormatter.dateStyle = NSDateFormatterShortStyle;
-    dateFormatter.timeStyle = NSDateFormatterShortStyle;
-}
+//-(void)formatDate {
+//    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+//    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+//    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+//    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+//}
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
     

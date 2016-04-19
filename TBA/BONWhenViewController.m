@@ -9,16 +9,20 @@
 #import "BONWhenViewController.h"
 
 @interface BONWhenViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-
 
 @end
 
 @implementation BONWhenViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    
     UIImage *bg = [UIImage imageNamed:@"confettibg"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
     [self.view setOpaque:NO];
@@ -119,17 +123,20 @@
     
     
     NSString *theTime = [NSDateFormatter localizedStringFromDate:self.timePicker.date
-                                   dateStyle:0
-                                   timeStyle:NSDateFormatterFullStyle];
+                                                       dateStyle:0
+                                                       timeStyle:NSDateFormatterShortStyle];
+    
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
     
     NSLog(@"You ate %@ at %@", mealType, theTime);
     
-    
+    [self.sharedFirebaseClient createMealWithDate:theTime];
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
+    
+    NSLog(@"Submit button touched in the when picker");
 }
 
 -(void)backButtonTouched:(UIButton *)backButton{

@@ -20,14 +20,10 @@
     return sharedFireBaseClient;
 }
 
-+ (NSString *)getUID{
++ (NSString *)getToken {
     
     Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
-    
-    NSLog(@"getUID method being run: %@", rootReference.authData.uid);
-    
-    NSString *userID = rootReference.authData.uid;
-    return userID;
+    return rootReference.authData.token;
 }
 
 - (void)configureFirebase {
@@ -76,9 +72,6 @@
                   [self loginUserInFirebaseWithEmail:email
                                             Password:password
                                   FromViewController:viewController];
-                  
-//                  [self loginUserInFirebaseWithEmail:email
-//                                            Password:password];
               }
           }];
 }
@@ -95,7 +88,7 @@
                      NSLog(@"Login Failed: %@", error.description);
                  }
                  else {
-                     NSLog(@"Logged in, UID: %@", authData.uid);
+                     NSLog(@"Logged in, UID: %@ and token: %@", authData.uid, authData.token);
                      
                      BONContainerViewController *containerViewController = [BONContainerViewController new];
                      
@@ -106,10 +99,15 @@
              }];
 }
 
-- (void)setMealDateAs:(NSString *)date
-              ForMeal:(Meal *)meal {
+- (void)createMealWithDate:(NSString *)date {
     
+    NSLog(@"Create Meal With Date being called");
     
+    Firebase *usersReference = [self.rootReference childByAppendingPath:@"Users"];
+    Firebase *currentUserReference = [usersReference childByAppendingPath:self.userIDReference];
+    Firebase *mealByDateReference = [currentUserReference childByAppendingPath:date];
+    
+    [mealByDateReference setValue:@"Test"];
 }
 
 @end

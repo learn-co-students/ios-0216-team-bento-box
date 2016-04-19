@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSString *uidRef;
 
 + (instancetype)sharedFirebaseClient;
-+ (NSString *)getUID;
++ (NSString *)getToken;
 
 - (void)configureFirebase;
 - (void)createNewUserInFirebaseWithEmail:(NSString *)email
@@ -37,7 +37,18 @@
                             Password:(NSString *)password
                   FromViewController:(UIViewController *)fromViewController;
 
-- (void)setMealDateAs:(NSString *)date
-              ForMeal:(Meal *)meal;
+- (void)createMealWithDate:(NSString *)date;
+
+- (void)setWhatWasEaten:(NSString *)whatWasEaten
+                ForMeal:(Meal *)meal;
+
+- (void)setWhereUserAte:(NSString *)whereUserAte
+                ForMeal:(Meal *)meal;
+
+- (void)setWhenUserAte:(NSString *)whenUserAte
+               ForMeal:(Meal *)meal;
+
+- (void)setHowUserFelt:(NSString *)howUserFelt
+               ForMeal:(Meal *)meal;
 
 @end

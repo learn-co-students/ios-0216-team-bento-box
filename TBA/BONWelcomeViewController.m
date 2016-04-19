@@ -10,7 +10,6 @@
 
 @interface BONWelcomeViewController ()
 
-
 @end
 
 @implementation BONWelcomeViewController
@@ -18,8 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self updateWelcomeWithMostRecentMeal];
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
+    [self updateWelcomeWithMostRecentMeal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +51,12 @@
 - (IBAction)logMealClicked:(id)sender {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
+}
+
+- (IBAction)logoutTapped:(id)sender {
+    
+    Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    [rootReference unauth];
 }
 
 /*
