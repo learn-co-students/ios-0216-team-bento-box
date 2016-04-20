@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BONContainerViewController.h"
+#import "BONHistoryViewController.h"
 
 
 @interface AppDelegate ()
@@ -23,6 +24,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
+    
+//        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
+//        BONHistoryViewController *containerVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
+    self.window.rootViewController = containerVC;
+    
+
+    
+ 
     self.window.rootViewController = containerVC;
     [self.window makeKeyAndVisible];
     
