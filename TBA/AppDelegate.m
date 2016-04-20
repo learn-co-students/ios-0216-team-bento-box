@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BONContainerViewController.h"
 #import "BONHistoryViewController.h"
+#import "BONSummaryViewController.h"
 
 
 @interface AppDelegate ()
@@ -23,10 +24,13 @@
 #pragma mark - make root vc the container - comment out to change default vc
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
+//    BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
     
 //        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
 //        BONHistoryViewController *containerVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
+    
+    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView" bundle:nil];
+    BONSummaryViewController *containerVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"historyVC"];
     self.window.rootViewController = containerVC;
     
 

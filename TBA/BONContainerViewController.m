@@ -148,7 +148,7 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
     BONHistoryViewController *historyVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
-    //[self.childViewControllers addObject:historyVC];
+    [self.childViewControllers addObject:historyVC];
     [self.childViewControllers addObject:resultsVC];
 
     resultsVC.resultMeal = self.userMeal;
