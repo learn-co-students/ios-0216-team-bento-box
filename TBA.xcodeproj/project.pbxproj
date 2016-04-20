@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370EC6561CC6726400990C80 /* BONHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 370EC6551CC6726400990C80 /* BONHistoryTableViewController.m */; };
 		371ADA171CBC343D00CAF73F /* BONWhenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA141CBC343D00CAF73F /* BONWhenViewController.m */; };
 		371ADA181CBC343D00CAF73F /* BONNotificationsSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA161CBC343D00CAF73F /* BONNotificationsSettings.m */; };
 		371ADA1A1CBC35C100CAF73F /* BONWhenView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */; };
 		371ADA1E1CC0B23A00CAF73F /* BONHowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 371ADA1D1CC0B23A00CAF73F /* BONHowViewController.m */; };
+		377415BB1CC57DF700264EF1 /* BONHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 377415BA1CC57DF700264EF1 /* BONHistoryViewController.m */; };
+		377415BD1CC5888A00264EF1 /* BONHistoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 377415BC1CC5888A00264EF1 /* BONHistoryStoryboard.storyboard */; };
+		377415C01CC58B8800264EF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377415BF1CC58B8800264EF1 /* ViewController.swift */; };
 		3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3799AE541CAD5B9500408129 /* HowQuestion.storyboard */; };
 		3799AE581CAD5CC800408129 /* BONHowQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */; };
 		4406864A1CC00F5E001E3117 /* BONNotificationsSettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440686491CC00F5E001E3117 /* BONNotificationsSettingsView.storyboard */; };
@@ -77,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		0F4F1923C9AA3925F32DECF2 /* Pods-TBA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TBA.release.xcconfig"; path = "Pods/Target Support Files/Pods-TBA/Pods-TBA.release.xcconfig"; sourceTree = "<group>"; };
+		370EC6541CC6726400990C80 /* BONHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHistoryTableViewController.h; sourceTree = "<group>"; };
+		370EC6551CC6726400990C80 /* BONHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHistoryTableViewController.m; sourceTree = "<group>"; };
 		371ADA131CBC343D00CAF73F /* BONWhenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONWhenViewController.h; sourceTree = "<group>"; };
 		371ADA141CBC343D00CAF73F /* BONWhenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONWhenViewController.m; sourceTree = "<group>"; };
 		371ADA151CBC343D00CAF73F /* BONNotificationsSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONNotificationsSettings.h; sourceTree = "<group>"; };
@@ -84,6 +90,11 @@
 		371ADA191CBC35C100CAF73F /* BONWhenView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONWhenView.storyboard; sourceTree = "<group>"; };
 		371ADA1C1CC0B22500CAF73F /* BONHowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowViewController.h; sourceTree = "<group>"; };
 		371ADA1D1CC0B23A00CAF73F /* BONHowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowViewController.m; sourceTree = "<group>"; };
+		377415B91CC57DF700264EF1 /* BONHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHistoryViewController.h; sourceTree = "<group>"; };
+		377415BA1CC57DF700264EF1 /* BONHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHistoryViewController.m; sourceTree = "<group>"; };
+		377415BC1CC5888A00264EF1 /* BONHistoryStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONHistoryStoryboard.storyboard; sourceTree = "<group>"; };
+		377415BE1CC58B8700264EF1 /* TBA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TBA-Bridging-Header.h"; sourceTree = "<group>"; };
+		377415BF1CC58B8800264EF1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3799AE541CAD5B9500408129 /* HowQuestion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HowQuestion.storyboard; sourceTree = "<group>"; };
 		3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowQuestionViewController.h; sourceTree = "<group>"; };
 		3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowQuestionViewController.m; sourceTree = "<group>"; };
@@ -304,7 +315,14 @@
 				3799AE541CAD5B9500408129 /* HowQuestion.storyboard */,
 				E2EF25B81CAB0A0700C5190E /* Supporting Files */,
 				44FEC62A1CBC445800B1194B /* BONDanHowViewController.h */,
+				377415BF1CC58B8800264EF1 /* ViewController.swift */,
 				44FEC62B1CBC445800B1194B /* BONDanHowViewController.m */,
+				377415BC1CC5888A00264EF1 /* BONHistoryStoryboard.storyboard */,
+				377415B91CC57DF700264EF1 /* BONHistoryViewController.h */,
+				377415BA1CC57DF700264EF1 /* BONHistoryViewController.m */,
+				377415BE1CC58B8700264EF1 /* TBA-Bridging-Header.h */,
+				370EC6541CC6726400990C80 /* BONHistoryTableViewController.h */,
+				370EC6551CC6726400990C80 /* BONHistoryTableViewController.m */,
 			);
 			path = TBA;
 			sourceTree = "<group>";
@@ -414,7 +432,6 @@
 				TargetAttributes = {
 					E2EF25B41CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 87H88Y5GU7;
 					};
 					E2EF25CD1CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
@@ -459,6 +476,7 @@
 				F616E2D01CAC2CB900624B25 /* BONResultsStoryboard.storyboard in Resources */,
 				4406864A1CC00F5E001E3117 /* BONNotificationsSettingsView.storyboard in Resources */,
 				E2EF25C81CAB0A0700C5190E /* LaunchScreen.storyboard in Resources */,
+				377415BD1CC5888A00264EF1 /* BONHistoryStoryboard.storyboard in Resources */,
 				F6A2A9751CAD5683004B56DA /* BONContainer.storyboard in Resources */,
 				3799AE551CAD5B9500408129 /* HowQuestion.storyboard in Resources */,
 				E2EF25C51CAB0A0700C5190E /* Assets.xcassets in Resources */,
@@ -557,11 +575,14 @@
 				F65C25251CB6EFA900B469FF /* BONButton.m in Sources */,
 				371ADA171CBC343D00CAF73F /* BONWhenViewController.m in Sources */,
 				371ADA181CBC343D00CAF73F /* BONNotificationsSettings.m in Sources */,
+				377415BB1CC57DF700264EF1 /* BONHistoryViewController.m in Sources */,
 				F65C25261CB6EFA900B469FF /* Common.m in Sources */,
 				F613E4E21CB54D09001FD82F /* BONHamburgerViewController.m in Sources */,
 				F613E4E51CB54DC3001FD82F /* BONLoginViewController.m in Sources */,
 				F613E4DF1CB54CF1001FD82F /* BONChildViewController.m in Sources */,
 				B03344461CBD911300852C95 /* BONFirebaseViewController.m in Sources */,
+				377415C01CC58B8800264EF1 /* ViewController.swift in Sources */,
+				370EC6561CC6726400990C80 /* BONHistoryTableViewController.m in Sources */,
 				B0FE939A1CB7F164003B6AB0 /* BONGooglePlacesAPIClient.m in Sources */,
 				F616E2D31CAC2D5800624B25 /* BONResultsViewController.m in Sources */,
 				E2A36B2A1CB5998E00DDAF27 /* User+CoreDataProperties.m in Sources */,
@@ -704,6 +725,7 @@
 			baseConfigurationReference = D1632F90A11D79E4C076CFC3 /* Pods-TBA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TBA/Info.plist;
@@ -711,6 +733,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School.TBA";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TBA/TBA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -719,6 +743,7 @@
 			baseConfigurationReference = 0F4F1923C9AA3925F32DECF2 /* Pods-TBA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TBA/Info.plist;
@@ -726,6 +751,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School.TBA";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TBA/TBA-Bridging-Header.h";
 			};
 			name = Release;
 		};

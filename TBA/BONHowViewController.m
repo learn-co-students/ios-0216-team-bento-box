@@ -8,6 +8,7 @@
 
 #import "BONHowViewController.h"
 
+
 @interface BONHowViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
@@ -17,7 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *emo2;
 @property (weak, nonatomic) IBOutlet UIImageView *emo1;
-
+@property (strong, nonatomic) UIButton * hamburgerButton;
 @end
 
 @implementation BONHowViewController
@@ -194,4 +195,24 @@
 }
 
 
+-(void)buildHamburgerButton{
+    UIButton *hamburgerButton = [[UIButton alloc] init];
+    [hamburgerButton setTitle:@"Burg" forState:UIControlStateNormal];
+    [hamburgerButton addTarget:self action:@selector(hamburgerButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:hamburgerButton];
+    hamburgerButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [hamburgerButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+    [hamburgerButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
+    [hamburgerButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.10].active = YES;
+    self.hamburgerButton = hamburgerButton;
+}
+
+-(void)hamburgerButtonTouched:(UIButton *)hamburgerButton{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
+    self.submitButton.userInteractionEnabled = NO;
+    self.backButton.userInteractionEnabled = NO;
+//    self.swipeRight.enabled = NO;
+//    self.swipeLeft.enabled = NO;
+
+}
 @end

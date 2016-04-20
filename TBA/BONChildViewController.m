@@ -35,8 +35,7 @@
     [self addSwipeRightGesture];
     [self addSwipeLeftGesture];
     [self addTapGesture];
-    [self buildHamburgerButton];
-    
+
     UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleFingerTap];
 

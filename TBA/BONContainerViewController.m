@@ -20,6 +20,8 @@
 #import "BONWhatViewController.h"
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
+#import "TBA-Swift.h"
+#import "BONHistoryViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -107,6 +109,8 @@
     BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
     
     
+    
+    
 
     
     BONChildViewController *whatViewController = [BONChildViewController new];
@@ -128,17 +132,24 @@
     
     //[self.childViewControllers addObject:whatViewController];
     [self.childViewControllers addObject:welcomeVC];
+    ViewController * mealPic = [[ViewController alloc]init];
+    //[self.childViewControllers addObject:mealPic];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
-    
     [self.childViewControllers addObject:notificationsVC];
-    [self.childViewControllers addObject:resultsVC];
     
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
+    BONHistoryViewController *historyVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
+    //[self.childViewControllers addObject:historyVC];
+    [self.childViewControllers addObject:resultsVC];
+
     resultsVC.resultMeal = self.userMeal;
+    
+
 }
 
 -(void)displayContentController:(UIViewController *)contentController{
@@ -195,8 +206,7 @@
     else if([oldController isKindOfClass:[BONHowViewController class]]) {
         BONHowViewController *howVC = (BONHowViewController *)oldController;
         question = @"How do you feel?";
-        answer = [NSString stringWithFormat:@"%li",howVC.howNumber
-                  ];
+        answer = [NSString stringWithFormat:@"%li",howVC.howNumber];
     } 
 
     //new logic for when and what vc

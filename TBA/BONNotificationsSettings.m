@@ -26,7 +26,8 @@
 }
 
 -(void)setBreakfastNotification:(NSDate *)date {
-    [self deleteNotification:@"breakfast"];
+    [self deleteNotification
+     :@"breakfast"];
     UILocalNotification * breakfastNotif = [[UILocalNotification alloc] init];
     [breakfastNotif setAlertBody:@"It's around breakfast time, log your meal!"];
    
