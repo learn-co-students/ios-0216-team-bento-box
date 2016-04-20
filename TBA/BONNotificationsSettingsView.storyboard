@@ -152,8 +152,11 @@
                     </view>
                     <connections>
                         <outlet property="breakfastNotifPicker" destination="jQ6-ZN-HOb" id="aiH-X3-dpV"/>
+                        <outlet property="breakfastTextLabel" destination="Cj9-sK-WZA" id="HwE-hw-bFY"/>
                         <outlet property="dinnerNotifPicker" destination="Dxm-Vy-0Pr" id="Kle-8e-yqj"/>
+                        <outlet property="dinnerTextLabel" destination="4yy-i7-EkY" id="O75-o9-1hz"/>
                         <outlet property="lunchNotifPicker" destination="Edt-VP-JiZ" id="Gee-ek-jOf"/>
+                        <outlet property="lunchTextLabel" destination="DmT-wz-mbi" id="UDu-lU-ySx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SF-h8-SN7" userLabel="First Responder" sceneMemberID="firstResponder"/>

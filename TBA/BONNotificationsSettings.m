@@ -11,6 +11,9 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *breakfastNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *lunchNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dinnerNotifPicker;
+@property (weak, nonatomic) IBOutlet UILabel *breakfastTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lunchTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dinnerTextLabel;
 
 @end
 
@@ -18,11 +21,8 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    UIImage *bg = [UIImage imageNamed:@"confettibg"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
-    [self.view setOpaque:NO];
-    [[self.view layer] setOpaque:NO];
-    
+    [self setFontsStyle];
+    [self setBackgroundAndEdits];
 }
 
 -(void)setBreakfastNotification:(NSDate *)date {
@@ -109,5 +109,46 @@
 - (IBAction)backButton:(id)sender {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"backButtonHit" object:self];
 }
+
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+}
+
+- (void)setFontsStyle {
+
+//    self.lunchNotifPicker.font = [UIFont fontWithName:@"Baskerville" size:20];
+//    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+//    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    [self.lunchNotifPicker setValue:[UIColor colorWithRed:255.0f/255.0f
+                                              green:254.0f/255.0f
+                                               blue:245.0f/255.0f
+                                              alpha:1.0f] forKey:@"textColor"];
+    [self.dinnerNotifPicker setValue:[UIColor colorWithRed:255.0f/255.0f
+                                                    green:254.0f/255.0f
+                                                     blue:245.0f/255.0f
+                                                    alpha:1.0f] forKey:@"textColor"];
+    [self.breakfastNotifPicker setValue:[UIColor colorWithRed:255.0f/255.0f
+                                                    green:254.0f/255.0f
+                                                     blue:245.0f/255.0f
+                                                    alpha:1.0f] forKey:@"textColor"];
+    
+}
+
+
 @end
 
