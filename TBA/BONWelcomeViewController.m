@@ -60,6 +60,7 @@
     
     Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
     [rootReference unauth];
+}
 
 - (void)setBackgroundAndEdits {
         self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
