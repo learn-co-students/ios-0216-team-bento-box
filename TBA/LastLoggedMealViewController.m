@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
+-(UIStatusBarStyle)preferredStatusBarStyle;
+
 @end
 
 @implementation LastLoggedMealViewController
@@ -26,14 +28,18 @@
     [self editTextField];
     [self populateTextField];
     [self createNextbutton];
+    [self setNeedsStatusBarAppearanceUpdate];
     
     self.localDataStore = [BONDataStore sharedDataStore];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Text Label Constraints
@@ -51,22 +57,22 @@
     [self.lastAteTextLabel.topAnchor constraintEqualToAnchor:self.nameTextLabel.bottomAnchor constant:0].active = YES;
     [self.whatWhereHowTextLabel.topAnchor constraintEqualToAnchor:self.lastAteTextLabel.bottomAnchor constant:0].active = YES;
     
-    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
-                                                green:235.0f/255.0f
-                                                 blue:197.0f/255.0f
-                                                alpha:1.0f];
-
-    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
-                                                 green:166.0f/255.0f
-                                                  blue:122.0f/255.0f
-                                                 alpha:1.0f];
-    
-    CAGradientLayer *gradientMask = [CAGradientLayer layer];
-    gradientMask.frame = self.view.bounds;
-    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
-                            (id)[UIColor clearColor].CGColor];
-    
-    [self.view.layer insertSublayer:gradientMask atIndex:0];
+//    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+//                                                green:235.0f/255.0f
+//                                                 blue:197.0f/255.0f
+//                                                alpha:1.0f];
+//
+//    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+//                                                 green:166.0f/255.0f
+//                                                  blue:122.0f/255.0f
+//                                                 alpha:1.0f];
+//    
+//    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+//    gradientMask.frame = self.view.bounds;
+//    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+//                            (id)[UIColor clearColor].CGColor];
+//    
+//    [self.view.layer insertSublayer:gradientMask atIndex:0];
     
     [self animateTextField:self.nameTextLabel duration:2];
     [self animateTextField:self.lastAteTextLabel duration:3.5];
@@ -77,8 +83,6 @@
 -(void)populateTextField {
     Meal *userMeal = self.localDataStore.userMeals.lastObject;
     
-    // Need to make sure user is working before adding username to hello part.
-    
     NSString *yourLastMeal = [NSString stringWithFormat:@"Your last meal was at %@.", userMeal.createdAt];
     self.lastAteTextLabel.text = yourLastMeal;
     
@@ -86,8 +90,6 @@
     self.whatWhereHowTextLabel.numberOfLines = 0;
     self.whatWhereHowTextLabel.text = whenHowWhereMeal;
     [self.whatWhereHowTextLabel sizeToFit];
-//    self.whatWhereHowTextLabel.textAlignment = kCAAlignmentCenter;
-
     
     self.nameTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.whatWhereHowTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
@@ -145,7 +147,6 @@
                                                       green:254.0f/255.0f
                                                        blue:245.0f/255.0f
                                                       alpha:.65f];
-
     
 }
 
@@ -156,6 +157,7 @@
     [UIView animateWithDuration:duration animations:^{
         textField.alpha = 1;
     }];
+    
 }
 
 - (IBAction)nextPageButton:(id)sender {

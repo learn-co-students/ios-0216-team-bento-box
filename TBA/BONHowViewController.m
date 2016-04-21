@@ -8,27 +8,24 @@
 
 #import "BONHowViewController.h"
 
-
 @interface BONHowViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIImageView *emo5;
 @property (weak, nonatomic) IBOutlet UIImageView *emo4;
 @property (weak, nonatomic) IBOutlet UIImageView *emo3;
-
 @property (weak, nonatomic) IBOutlet UIImageView *emo2;
 @property (weak, nonatomic) IBOutlet UIImageView *emo1;
-@property (strong, nonatomic) UIButton * hamburgerButton;
+@property (weak, nonatomic) IBOutlet UITextView *howUserFeltTextLabel;
+
 @end
 
 @implementation BONHowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImage *bg = [UIImage imageNamed:@"confettibg"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
-    [self.view setOpaque:NO];
-    [[self.view layer] setOpaque:NO];
+    [self setBackgroundAndEdits];
+    [self setFontsStyle];
     
     NSDate* currentDate = [NSDate date];
     NSTimeZone* currentTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
@@ -45,19 +42,13 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     
-    
     self.mealTypes = @[@"Breakfast",@"Lunch", @"Dinner", @"Snack"];
     self.mealTypePicker.dataSource = self;
     self.mealTypePicker.delegate = self;
     
     [self selectTheMealType];
     
-    
-    
     [self setupAllTheGestureRecognizers];
-    
-    
-    
     
     //Change va
     [self.timePicker addTarget:self action:@selector(selectTheMealType) forControlEvents:UIControlEventValueChanged];
@@ -129,15 +120,12 @@
         
     }
     
-    
-    
     NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
     
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
     
     //[self class] date:now isBetweenDate:<#(NSDate *)#> andDate:<#(NSDate *)#>
-    
     
 }
 - (IBAction)submitInfo:(id)sender {
@@ -194,25 +182,36 @@
     self.howNumber = indexOfTappedView;
 }
 
-
--(void)buildHamburgerButton{
-    UIButton *hamburgerButton = [[UIButton alloc] init];
-    [hamburgerButton setTitle:@"Burg" forState:UIControlStateNormal];
-    [hamburgerButton addTarget:self action:@selector(hamburgerButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:hamburgerButton];
-    hamburgerButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [hamburgerButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
-    [hamburgerButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
-    [hamburgerButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.10].active = YES;
-    self.hamburgerButton = hamburgerButton;
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
 }
 
--(void)hamburgerButtonTouched:(UIButton *)hamburgerButton{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
-    self.submitButton.userInteractionEnabled = NO;
-    self.backButton.userInteractionEnabled = NO;
-//    self.swipeRight.enabled = NO;
-//    self.swipeLeft.enabled = NO;
-
+- (void)setFontsStyle {
+    
+    self.howUserFeltTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    [self.timePicker setValue:[UIColor colorWithRed:255.0f/255.0f
+                                              green:254.0f/255.0f
+                                               blue:245.0f/255.0f
+                                              alpha:1.0f] forKey:@"textColor"];
 }
+
+
+
 @end

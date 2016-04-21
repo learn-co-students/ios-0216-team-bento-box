@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LgU-Qb-rt3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LgU-Qb-rt3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -22,16 +22,16 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Your Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaS-bw-i7g">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z4b-n7-ukP" userLabel="Breakfast Picker and Switch">
-                                        <rect key="frame" x="0.0" y="30" width="600" height="162"/>
+                                        <rect key="frame" x="0.0" y="29" width="600" height="163"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-rM-nhH">
-                                                <rect key="frame" x="239" y="0.0" width="122" height="31"/>
+                                                <rect key="frame" x="240" y="0.0" width="122" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-sK-WZA">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="31"/>
@@ -45,7 +45,7 @@
                                                 </subviews>
                                             </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ6-ZN-HOb">
-                                                <rect key="frame" x="0.0" y="31" width="600" height="131"/>
+                                                <rect key="frame" x="0.0" y="31" width="600" height="132"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="482065200.53681999">
                                                     <!--2016-04-11 11:00:00 +0000-->
                                                 </date>
@@ -87,7 +87,7 @@
                                         <rect key="frame" x="0.0" y="354" width="600" height="162"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-dz-ze3">
-                                                <rect key="frame" x="250" y="0.0" width="100" height="31"/>
+                                                <rect key="frame" x="251" y="0.0" width="100" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yy-i7-EkY">
                                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
@@ -112,7 +112,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTy-H9-n4u">
-                                        <rect key="frame" x="0.0" y="516" width="600" height="32"/>
+                                        <rect key="frame" x="0.0" y="516" width="600" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
@@ -152,8 +152,11 @@
                     </view>
                     <connections>
                         <outlet property="breakfastNotifPicker" destination="jQ6-ZN-HOb" id="aiH-X3-dpV"/>
+                        <outlet property="breakfastTextLabel" destination="Cj9-sK-WZA" id="HwE-hw-bFY"/>
                         <outlet property="dinnerNotifPicker" destination="Dxm-Vy-0Pr" id="Kle-8e-yqj"/>
+                        <outlet property="dinnerTextLabel" destination="4yy-i7-EkY" id="O75-o9-1hz"/>
                         <outlet property="lunchNotifPicker" destination="Edt-VP-JiZ" id="Gee-ek-jOf"/>
+                        <outlet property="lunchTextLabel" destination="DmT-wz-mbi" id="UDu-lU-ySx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SF-h8-SN7" userLabel="First Responder" sceneMemberID="firstResponder"/>

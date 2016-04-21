@@ -16,10 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBackgroundAndEdits];
     
     self.sharedDataStore = [BONDataStore sharedDataStore];
-    
-    self.view.backgroundColor =  [UIColor whiteColor];
+    self.searchResultsTableView.backgroundColor = [UIColor clearColor];
     
     [self configureAndShowAlertController];
     
@@ -102,7 +102,7 @@
     
     self.parentContainerViewController = (BONContainerViewController *)self.parentViewController;
     
-    self.alertController = [UIAlertController alertControllerWithTitle:@"Where'd you eat?"
+    self.alertController = [UIAlertController alertControllerWithTitle:@"Where did you eat?"
                                                                message:@"Search for where you ate"
                                                         preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -142,6 +142,26 @@
                        animated:YES
                      completion:nil];
 }
+
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+}
+
 
 /*
 #pragma mark - Navigation
