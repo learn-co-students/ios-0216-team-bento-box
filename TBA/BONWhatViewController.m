@@ -19,21 +19,14 @@
 @implementation BONWhatViewController
 
 - (void)viewDidLoad {
-    
     self.sharedDataStore = [BONDataStore sharedDataStore];
     
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
  
-    UIImage *bg = [UIImage imageNamed:@"confettibg"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
-    [self.view setOpaque:NO];
-    [[self.view layer] setOpaque:NO];
-    
     [self setFontsStyle];
     [self setBackgroundAndEdits];
  
     [self.submitButton addTarget:self action:@selector(submitButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-    
     [self.backButton addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -41,10 +34,8 @@
 
 }
 
-
 - (IBAction)submitInfo:(id)sender {
     //nothing here right now
-    
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
@@ -81,8 +72,61 @@
     
     self.whatDidYouEatTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.DescriptionTextBox.font = [UIFont fontWithName:@"Baskerville" size:20];
-    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
-    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    
+    [self.backButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                            green:254.0f/255.0f
+                                                             blue:245.0f/255.0f
+                                                            alpha:1.0] forState:UIControlStateNormal];
+    [self.submitButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                            green:254.0f/255.0f
+                                                             blue:245.0f/255.0f
+                                                            alpha:1.0] forState:UIControlStateNormal];
+    
+    self.whatDidYouEatTextLabel.textColor = [UIColor colorWithRed:255.0f/255.0f
+                                                            green:254.0f/255.0f
+                                                             blue:245.0f/255.0f
+                                                            alpha:1.0];
+    self.DescriptionTextBox.textColor = [UIColor colorWithRed:255.0f/255.0f
+                                                            green:254.0f/255.0f
+                                                             blue:245.0f/255.0f
+                                                            alpha:1.0];
+    
+    self.backButton.layer.cornerRadius = 12;
+    self.backButton.clipsToBounds = YES;
+    
+    self.submitButton.layer.cornerRadius = 12;
+    self.submitButton.clipsToBounds = YES;
+    
+    [self.backButton.layer setBorderWidth:1];
+    self.backButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    [self.submitButton.layer setBorderWidth:1];
+    self.submitButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+   
+    self.backButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.backButton.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-20].active = YES;
+    [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+    [self.backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+    [self.backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    
+    self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
+    [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+    [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+    [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+
+    self.backButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                         green:254.0f/255.0f
+                                                          blue:245.0f/255.0f
+                                                         alpha:0.25f];
+
+    self.submitButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                         green:254.0f/255.0f
+                                                          blue:245.0f/255.0f
+                                                         alpha:0.25f];
+
 }
 
 

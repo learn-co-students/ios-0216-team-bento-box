@@ -36,7 +36,8 @@
     [self addSwipeRightGesture];
     [self addTapGesture];
     [self buildHamburgerButton];
-    
+    [self setBackgroundAndEdits];
+    [self setFontsStyle];
     [self showResultsOfLastMealLogged:nil];
 
 }
@@ -47,7 +48,7 @@
 
 -(void)createThanksLabel{
     self.thanksLabel = [[UILabel alloc] init];
-    NSString *thanksMessage = @"Thanks, bruh. You are what you eat. You are therefore a cannibal.";
+    NSString *thanksMessage = @"Thanks! Here are your results.";
     self.thanksLabel.text = thanksMessage;
     [self.view addSubview:self.thanksLabel];
     [self formatThanksLabel];
@@ -193,7 +194,6 @@
     self.resultDataStore = [BONDataStore sharedDataStore];
     [self.resultDataStore fetchData];
     Meal *mostRecentMeal = self.resultDataStore.userMeals.lastObject;
-
     
     for (NSMutableDictionary *dictionary in self.resultsArray) {
         if ([[dictionary objectForKey:QUESTION_KEY] isEqualToString:@"How"]) {
@@ -210,10 +210,34 @@
         }
     }
     
-    
 }
 
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+}
 
+- (void)setFontsStyle {
+    
+       [self.thanksLabel setValue:[UIColor colorWithRed:255.0f/255.0f
+                                                    green:254.0f/255.0f
+                                                     blue:245.0f/255.0f
+                                                    alpha:1.0f] forKey:@"textColor"];
+}
 
 /*
 #pragma mark - Navigation
