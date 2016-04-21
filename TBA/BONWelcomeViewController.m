@@ -80,8 +80,37 @@
     self.welcomeBackNameLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.lastMealTimeLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.lastMealLoggedLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
-    self.logAMealButtonLabel.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    self.logAMealButtonLabel.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    
+    self.welcomeBackNameLabel.textColor = [UIColor colorWithRed:255.0f/255.0f
+                                                          green:254.0f/255.0f
+                                                           blue:245.0f/255.0f
+                                                          alpha:1.0];
+    self.lastMealTimeLabel.textColor = [UIColor colorWithRed:255.0f/255.0f
+                                                          green:254.0f/255.0f
+                                                           blue:245.0f/255.0f
+                                                          alpha:1.0];
+    self.lastMealLoggedLabel.textColor = [UIColor colorWithRed:255.0f/255.0f
+                                                          green:254.0f/255.0f
+                                                           blue:245.0f/255.0f
+                                                          alpha:1.0];
+    [self.logAMealButtonLabel setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                            green:254.0f/255.0f
+                                                             blue:245.0f/255.0f
+                                                            alpha:1.0] forState:UIControlStateNormal];
+    self.logAMealButtonLabel.layer.cornerRadius = 12;
+    self.logAMealButtonLabel.clipsToBounds = NO;
+    self.logAMealButtonLabel.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                                green:254.0f/255.0f
+                                                                 blue:245.0f/255.0f
+                                                                alpha:.55];
+    
+    self.logAMealButtonLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.logAMealButtonLabel.layer.borderWidth = 1;
+
 }
+
+
 
 /*
 #pragma mark - Navigation

@@ -89,6 +89,16 @@
     [self.passwordTextField.widthAnchor constraintEqualToAnchor:self.addUserButton.widthAnchor multiplier:2].active = YES;
     [self.passwordTextField.heightAnchor constraintEqualToAnchor:self.loginButton.heightAnchor].active = YES;
     [self.passwordTextField.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    
+//    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+//    animation.keyPath = @"position.x";
+//    animation.values = @[@0, @20, @-20, @20, @0];
+//    animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
+//    animation.duration = 1;
+//    animation.additive = YES;
+//    
+//    [self.passwordTextField.layer addAnimation:animation forKey:@"shake"];
+    
 }
 
 -(void)loadEmailTextField {
@@ -105,7 +115,7 @@
     [self.userName.widthAnchor constraintEqualToAnchor:self.emailTextField.widthAnchor].active = YES;
     [self.userName.heightAnchor constraintEqualToAnchor:self.loginButton.heightAnchor].active = YES;
     [self.userName.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    }
+}
 
 #pragma mark - Background and Font
 
@@ -150,6 +160,16 @@
     
     self.addUserButton.layer.cornerRadius = 12;
     self.addUserButton.clipsToBounds = YES;
+    
+    [self.passwordTextField.layer setBorderWidth:1];
+    self.passwordTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    [self.userName.layer setBorderWidth:1];
+    self.userName.layer.borderColor = [[UIColor whiteColor] CGColor];
+
+    [self.emailTextField.layer setBorderWidth:1];
+    self.emailTextField.layer.borderColor = [[UIColor whiteColor] CGColor];
+
     
     [self.loginButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
                                                    green:254.0f/255.0f

@@ -122,10 +122,28 @@
     [submitButton addTarget:self action:@selector(submitButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:submitButton];
     submitButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
     [submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:50].active = YES;
+    
+    [submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
+    [submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:70].active = YES;
     [submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.05].active = YES;
+
+
     self.submitButton = submitButton;
+    
+    self.submitButton.layer.cornerRadius = 12;
+    self.submitButton.clipsToBounds = YES;
+    
+    [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.30].active = YES;
+
+    
+    [self.submitButton.layer setBorderWidth:1];
+    self.submitButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.submitButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                      green:254.0f/255.0f
+                                                       blue:245.0f/255.0f
+                                                      alpha:.65f];
+
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
@@ -139,9 +157,25 @@
     [self.view addSubview:backButton];
     backButton.translatesAutoresizingMaskIntoConstraints = NO;
     [backButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
-    [backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:-50].active = YES;
+    [backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor constant:-70].active = YES;
     [backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:0.05].active = YES;
+    
     self.backButton = backButton;
+    
+    self.backButton.layer.cornerRadius = 12;
+    self.backButton.clipsToBounds = YES;
+    
+    [self.backButton.layer setBorderWidth:1];
+    self.backButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+    [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.30].active = YES;
+
+    
+    self.backButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                      green:254.0f/255.0f
+                                                       blue:245.0f/255.0f
+                                                      alpha:.65f];
+
 }
 
 -(void)backButtonTouched:(UIButton *)backButton{
@@ -275,8 +309,8 @@
     self.timerLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.button.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.statusLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
-    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
-    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     
 }
 

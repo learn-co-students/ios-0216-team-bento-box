@@ -102,6 +102,7 @@
 }
 
 -(void)textcolor:(UILabel *)text {
+    
     text.textColor = [UIColor colorWithRed:255.0f/255.0f
                                      green:254.0f/255.0f
                                       blue:245.0f/255.0f
