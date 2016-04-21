@@ -16,41 +16,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"In View Did Load, meals.count: %lu", self.sharedDataStore.userMeals.count);
+    
+    self.sharedDataStore = [BONDataStore sharedDataStore];
+    [self.sharedDataStore fetchData];
+    
+    
+    
+    NSLog(@"In View Did Load, after fetch Data, meals.count: %lu", self.sharedDataStore.userMeals.count);
+    NSLog(@"Meals array: %@", self.sharedDataStore.userMeals);
+    
+    [self updateWelcomeWithMostRecentMeal];
     [self setBackgroundAndEdits];
     [self setFontsStyle];
     
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
-    
-    [self updateWelcomeWithMostRecentMeal];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Helper Methods
 
 -(void)updateWelcomeWithMostRecentMeal {
     
-    self.sharedDataStore = [BONDataStore sharedDataStore];
-    [self.sharedDataStore fetchData];
+    NSLog(@"In update welcome with most recent meal");
+    NSLog(@"Shared Data Store's meal count: %lu", self.sharedDataStore.userMeals.count);
     
     if (self.sharedDataStore.userMeals.count == 0) {
+        
+        NSLog(@"In the if of update welcome");
+        
         self.lastMealTimeLabel.hidden = YES;
         self.lastMealLoggedLabel.hidden = YES;
         self.welcomeBackNameLabel.text = @"Welcome!";
     }
+    else {
+        
+        NSLog(@"In the else of update welcome");
     
     Meal *mostRecentMeal = self.sharedDataStore.userMeals.lastObject;
-    
     NSDate *mostRecentMealDate = mostRecentMeal.createdAt;
-    
     NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
-    
     self.lastMealTimeLabel.text = mostRecentMealDateString;
-    
+    }
 }
+
 - (IBAction)logMealClicked:(id)sender {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];

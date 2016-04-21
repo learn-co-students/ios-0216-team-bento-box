@@ -41,15 +41,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLog(@"Container view did load");
+    
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
     // Instantiating dataStore
     
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
-    self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
-                                                  inManagedObjectContext:self.localDataStore.managedObjectContext];
-    self.userMeal.createdAt = [NSDate date];
     
     self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
@@ -66,6 +65,9 @@
     if ([BONFirebaseClient getToken]) {
         
         [self displayContentController:self.childViewControllers[0]];
+        self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                      inManagedObjectContext:self.localDataStore.managedObjectContext];
+        self.userMeal.createdAt = [NSDate date];
         
     } else{
         
@@ -73,23 +75,6 @@
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [self displayContentController:loginViewController];
     }
-    
-//    
-//    if ([BONFirebaseClient getToken] == NULL) {
-//        
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
-//        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-//        [self displayContentController:loginViewController];
-//
-//    } else{
-//        
-//        
-//        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
-//        
-//        [self displayContentController:self.childViewControllers[0]];
-//
-//    }
-    
     self.viewCounter = 0;
 }
 
