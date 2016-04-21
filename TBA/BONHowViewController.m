@@ -23,6 +23,7 @@
 @implementation BONHowViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     [self setBackgroundAndEdits];
     [self setFontsStyle];
@@ -135,10 +136,6 @@
                                                        dateStyle:0
                                                        timeStyle:NSDateFormatterFullStyle];
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
-    
-    NSLog(@"You ate %@ at %@", mealType, theTime);
-    
-    
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
@@ -172,12 +169,11 @@
 }
 
 -(void)saveNumber:(UITapGestureRecognizer *)sender {
+    
     NSArray *imageViews = @[ self.emo1, self.emo2, self.emo3, self.emo4, self.emo5];
-
     
     UIImageView *tappedView = (UIImageView *)sender.view;
     NSInteger indexOfTappedView = [imageViews indexOfObject:tappedView]+1;
-
     
     self.howNumber = indexOfTappedView;
 }

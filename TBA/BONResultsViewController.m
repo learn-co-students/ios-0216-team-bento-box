@@ -24,6 +24,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    
+    [self.sharedFirebaseClient saveCurrentMealWithData];
+    
     // Do any additional setup after loading the view.
     [self buildTestData];
     [self createThanksLabel];

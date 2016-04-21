@@ -9,17 +9,26 @@
 #import "BONWhenViewController.h"
 
 @interface BONWhenViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITextView *whenDidYouEatQuestionLabel;
-
 
 @end
 
 @implementation BONWhenViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    self.sharedDataStore = [BONDataStore sharedDataStore];
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    
+    UIImage *bg = [UIImage imageNamed:@"confettibg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
+    [self.view setOpaque:NO];
+    [[self.view layer] setOpaque:NO];
     [self setFontsStyle];
     [self setBackgroundAndEdits];
     
@@ -101,10 +110,6 @@
         
     }
     
-    
-    
-     NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
-    
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
 
@@ -116,13 +121,12 @@
     
     
     NSString *theTime = [NSDateFormatter localizedStringFromDate:self.timePicker.date
-                                   dateStyle:0
-                                   timeStyle:NSDateFormatterFullStyle];
-    NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
+                                                       dateStyle:NSDateFormatterMediumStyle
+                                                       timeStyle:NSDateFormatterShortStyle];
     
-    NSLog(@"You ate %@ at %@", mealType, theTime);
+    self.sharedDataStore.mealDate = theTime;
     
-    
+    [self.sharedFirebaseClient createMealWithDate:theTime];
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
