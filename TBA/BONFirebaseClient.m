@@ -117,7 +117,7 @@
     
     NSDictionary *mealData = @{@"What" : self.sharedDateStore.whatWasEaten,
                                @"Where" : self.sharedDateStore.whereWasEatenString,
-                               @"How You Felt" : @"This is filler"};
+                               @"How You Felt" : [NSString stringWithFormat:@"%@ out of 5", self.sharedDateStore.howUserFelt]};
     
     Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
     Firebase *usersReference = [rootReference childByAppendingPath:@"Users"];
