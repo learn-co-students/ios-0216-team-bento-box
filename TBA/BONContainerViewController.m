@@ -20,6 +20,7 @@
 #import "BONWhatViewController.h"
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
+#import "BONHistoryTableViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -75,6 +76,22 @@
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [self displayContentController:loginViewController];
     }
+    
+    //
+    //    if ([BONFirebaseClient getToken] == NULL) {
+    //
+    //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
+    //        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+    //        [self displayContentController:loginViewController];
+    //
+    //    } else{
+    //
+    //
+    //        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
+    //
+    //        [self displayContentController:self.childViewControllers[0]];
+    //
+    //    }
     self.viewCounter = 0;
 }
 
@@ -93,7 +110,7 @@
     BONWhenViewController *whenVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"when"];
     
     //what vc
-   
+    
     BONWhenViewController *whatVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"what"];
     //how vc
     
@@ -108,7 +125,7 @@
     BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
     
     
-
+    
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -124,19 +141,21 @@
     whenViewController.questionLabel.textColor = [UIColor whiteColor];
     whenViewController.questionLabel.text = @"When did you eat?";
     
-    //new when vc, deleted old one
-
-    
-    //[self.childViewControllers addObject:whatViewController];
+;
     [self.childViewControllers addObject:welcomeVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
-   // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
+    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
     
     [self.childViewControllers addObject:notificationsVC];
+    
+    UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
+    BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
+    [self addChildViewController:historyVC];
+    [self.childViewControllers addObject:historyVC];
     [self.childViewControllers addObject:resultsVC];
     
     resultsVC.resultMeal = self.userMeal;
@@ -195,25 +214,24 @@
     else if([oldController isKindOfClass:[BONHowViewController class]]) {
         BONHowViewController *howVC = (BONHowViewController *)oldController;
         question = @"How do you feel?";
-        answer = [NSString stringWithFormat:@"%li",howVC.howNumber];
-        
-        self.localDataStore.howUserFelt = answer;
-    } 
-
+        answer = [NSString stringWithFormat:@"%li",howVC.howNumber
+                  ];
+    }
+    
     //new logic for when and what vc
     else if([oldController isKindOfClass:[BONWhenViewController class]]) {
         BONWhenViewController *whenVC = (BONWhenViewController *)oldController;
         NSString * chosenDate = [NSDateFormatter localizedStringFromDate:whenVC.timePicker.date
-                                                           dateStyle:0
-                                                           timeStyle:NSDateFormatterFullStyle];
+                                                               dateStyle:0
+                                                               timeStyle:NSDateFormatterFullStyle];
         
         question = @"When did you eat";
         answer = chosenDate;
-}
+    }
     
     else if([oldController isKindOfClass:[BONWhatViewController
-        class]]) {
-            BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
+                                          class]]) {
+        BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
         question = @"What did you eat?";
         answer = whatVC.answerText.text;
     }
@@ -221,7 +239,7 @@
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
-
+    
     self.viewCounter++;
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];
@@ -278,7 +296,7 @@
 #pragma mark - Transition Animation
 
 -(void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC{
-
+    
     [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC];
     
@@ -313,19 +331,19 @@
         self.userMeal.howUserFelt = userAnswer;
     }
     else {
-    self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
+        self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
     }
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
  
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

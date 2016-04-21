@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "BONContainerViewController.h"
+#import "BONHistoryTableViewController.h"
+#import "BONSummaryViewController.h"
 
 
 @interface AppDelegate ()
@@ -22,7 +24,19 @@
 #pragma mark - make root vc the container - comment out to change default vc
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    
+//Comment this out to see normal flow of app
     BONContainerViewController *containerVC = [[BONContainerViewController alloc] init];
+    
+// Comment this out to see history table vc
+//        UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
+//        BONHistoryViewController *containerVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
+    
+//  Disregard this view
+//    UIStoryboard *resultsVC = [UIStoryboard storyboardWithName:@"BONWhenView" bundle:nil];
+//    BONSummaryViewController *containerVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"resultsVC"];
+    
+    
     self.window.rootViewController = containerVC;
     [self.window makeKeyAndVisible];
     
