@@ -21,7 +21,7 @@
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
 #import "TBA-Swift.h"
-#import "BONHistoryViewController.h"
+//#import "BONHistoryViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -147,8 +147,8 @@
     [self.childViewControllers addObject:notificationsVC];
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
-    BONHistoryViewController *historyVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
-    [self.childViewControllers addObject:historyVC];
+//    BONHistoryTableViewController *historyVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
+//    [self.childViewControllers addObject:historyVC];
     [self.childViewControllers addObject:resultsVC];
 
     resultsVC.resultMeal = self.userMeal;

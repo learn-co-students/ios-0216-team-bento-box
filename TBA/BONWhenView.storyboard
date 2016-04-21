@@ -243,7 +243,7 @@
         <!--Summary View Controller-->
         <scene sceneID="r1L-dx-rBT">
             <objects>
-                <viewController storyboardIdentifier="historyVC" id="DaC-xv-kLt" customClass="BONSummaryViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="summaryVC" id="DaC-xv-kLt" customClass="BONSummaryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JUH-qf-uFZ"/>
                         <viewControllerLayoutGuide type="bottom" id="AN6-rH-qMA"/>

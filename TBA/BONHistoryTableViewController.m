@@ -39,12 +39,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return [self.allMeals.userMeals count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 1;
+    return [self.allMeals.userMeals count];
 }
 
 
@@ -57,11 +57,11 @@
   
     UIImageView * how = [cell.contentView.subviews objectAtIndex:1];
     how.image = [self getImageFromSentimentNumber:currentMeal.howUserFelt];
-    NSLog(@"%@", currentMeal.howUserFelt);
     
     UILabel * what = [cell.contentView.subviews objectAtIndex:2];
     what.text = currentMeal.whatWasEaten;
-    
+    NSLog(@"current index path: %li", indexPath.row);
+
 
     
     return cell;
@@ -101,6 +101,12 @@
     }
     return img = [UIImage imageNamed:imageName];
 }
+- (IBAction)addMeal:(id)sender {
+    
+    
+}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
