@@ -29,6 +29,8 @@
     [self loadPasswordTextField];
     [self loadEmailTextField];
     [self loadUserNameTextField];
+    [self setBackgroundAndEdits];
+    [self setFontsStyle];
     
     self.firebaseClient = [BONFirebaseClient new];
     [self.firebaseClient configureFirebase];
@@ -67,7 +69,7 @@
     [self.addUserButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     
     [self.addUserButton.layer setBorderWidth:1];
-    [self.addUserButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.addUserButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
 }
 
 -(void)loadLoginButton {
@@ -78,7 +80,7 @@
     [self.loginButton.centerXAnchor constraintEqualToAnchor:self.addUserButton.centerXAnchor ].active = YES;
     
     [self.loginButton.layer setBorderWidth:1];
-    [self.loginButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.loginButton.layer setBorderColor:[[UIColor whiteColor] CGColor]];
 }
 
 -(void)loadPasswordTextField {
@@ -87,9 +89,6 @@
     [self.passwordTextField.widthAnchor constraintEqualToAnchor:self.addUserButton.widthAnchor multiplier:2].active = YES;
     [self.passwordTextField.heightAnchor constraintEqualToAnchor:self.loginButton.heightAnchor].active = YES;
     [self.passwordTextField.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    
-    [self.passwordTextField.layer setBorderWidth:1];
-    [self.passwordTextField.layer setBorderColor:[[UIColor blackColor] CGColor]];
 }
 
 -(void)loadEmailTextField {
@@ -98,9 +97,6 @@
     [self.emailTextField.widthAnchor constraintEqualToAnchor:self.passwordTextField.widthAnchor].active = YES;
     [self.emailTextField.heightAnchor constraintEqualToAnchor:self.loginButton.heightAnchor].active = YES;
     [self.emailTextField.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    
-    [self.emailTextField.layer setBorderWidth:1];
-    [self.emailTextField.layer setBorderColor:[[UIColor blackColor] CGColor]];
 }
 
 -(void)loadUserNameTextField {
@@ -109,9 +105,89 @@
     [self.userName.widthAnchor constraintEqualToAnchor:self.emailTextField.widthAnchor].active = YES;
     [self.userName.heightAnchor constraintEqualToAnchor:self.loginButton.heightAnchor].active = YES;
     [self.userName.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    }
+
+#pragma mark - Background and Font
+
+- (void)setBackgroundAndEdits {
     
-    [self.userName.layer setBorderWidth:1];
-    [self.userName.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    self.emailTextField.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                          green:235.0f/255.0f
+                                                           blue:197.0f/255.0f
+                                                          alpha:1.0f];
+    
+    self.passwordTextField.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                          green:235.0f/255.0f
+                                                           blue:197.0f/255.0f
+                                                          alpha:1.0f];
+    
+    self.userName.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                          green:235.0f/255.0f
+                                                           blue:197.0f/255.0f
+                                                          alpha:1.0f];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+    
+    self.loginButton.layer.cornerRadius = 12;
+    self.loginButton.clipsToBounds = YES;
+    
+    self.addUserButton.layer.cornerRadius = 12;
+    self.addUserButton.clipsToBounds = YES;
+    
+    [self.loginButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                   green:254.0f/255.0f
+                                                    blue:245.0f/255.0f
+                                                   alpha:1.0f] forState:UIControlStateNormal];
+    
+    [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
+    
+    self.loginButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                      green:254.0f/255.0f
+                                                       blue:245.0f/255.0f
+                                                      alpha:0.25f];
+
+    
+    [self.addUserButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                   green:254.0f/255.0f
+                                                    blue:245.0f/255.0f
+                                                   alpha:1.0f] forState:UIControlStateNormal];
+    
+    [self.addUserButton setTitle:@"Sign up" forState:UIControlStateNormal];
+    
+    self.addUserButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                      green:254.0f/255.0f
+                                                       blue:245.0f/255.0f
+                                                      alpha:0.25f];
+
+
+
+}
+
+- (void)setFontsStyle {
+    
+    self.emailTextField.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.userName.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.passwordTextField.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.addUserButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.loginButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+
 }
 
 #pragma mark - Tap gestures

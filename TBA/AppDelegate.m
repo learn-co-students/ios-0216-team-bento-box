@@ -35,6 +35,9 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:userNotificationSettings];
     
     return YES;
+    
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

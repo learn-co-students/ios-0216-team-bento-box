@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UITextView *whenDidYouEatQuestionLabel;
 
 @end
 
@@ -28,6 +29,8 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
     [self.view setOpaque:NO];
     [[self.view layer] setOpaque:NO];
+    [self setFontsStyle];
+    [self setBackgroundAndEdits];
     
     NSDate* currentDate = [NSDate date];
     NSTimeZone* currentTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
@@ -49,7 +52,7 @@
     self.mealTypePicker.dataSource = self;
     self.mealTypePicker.delegate = self;
     
-     [self selectTheMealType];
+    [self selectTheMealType];
     
 
     
@@ -153,6 +156,34 @@
     return self.mealTypes[row];
 }
 
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+}
 
+- (void)setFontsStyle {
+    
+    self.whenDidYouEatQuestionLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    [self.timePicker setValue:[UIColor colorWithRed:255.0f/255.0f
+                                              green:254.0f/255.0f
+                                               blue:245.0f/255.0f
+                                              alpha:1.0f] forKey:@"textColor"];
+}
 
 @end

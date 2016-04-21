@@ -14,9 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *emo5;
 @property (weak, nonatomic) IBOutlet UIImageView *emo4;
 @property (weak, nonatomic) IBOutlet UIImageView *emo3;
-
 @property (weak, nonatomic) IBOutlet UIImageView *emo2;
 @property (weak, nonatomic) IBOutlet UIImageView *emo1;
+@property (weak, nonatomic) IBOutlet UITextView *howUserFeltTextLabel;
 
 @end
 
@@ -24,10 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImage *bg = [UIImage imageNamed:@"confettibg"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
-    [self.view setOpaque:NO];
-    [[self.view layer] setOpaque:NO];
+    [self setBackgroundAndEdits];
+    [self setFontsStyle];
     
     NSDate* currentDate = [NSDate date];
     NSTimeZone* currentTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
@@ -44,19 +42,13 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     
-    
     self.mealTypes = @[@"Breakfast",@"Lunch", @"Dinner", @"Snack"];
     self.mealTypePicker.dataSource = self;
     self.mealTypePicker.delegate = self;
     
     [self selectTheMealType];
     
-    
-    
     [self setupAllTheGestureRecognizers];
-    
-    
-    
     
     //Change va
     [self.timePicker addTarget:self action:@selector(selectTheMealType) forControlEvents:UIControlEventValueChanged];
@@ -128,11 +120,12 @@
         
     }
     
+    NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
+    
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
     
     //[self class] date:now isBetweenDate:<#(NSDate *)#> andDate:<#(NSDate *)#>
-    
     
 }
 - (IBAction)submitInfo:(id)sender {
@@ -184,6 +177,37 @@
     
     self.howNumber = indexOfTappedView;
 }
+
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+}
+
+- (void)setFontsStyle {
+    
+    self.howUserFeltTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+    [self.timePicker setValue:[UIColor colorWithRed:255.0f/255.0f
+                                              green:254.0f/255.0f
+                                               blue:245.0f/255.0f
+                                              alpha:1.0f] forKey:@"textColor"];
+}
+
 
 
 @end

@@ -12,6 +12,7 @@
 #import "Meal.h"
 #import "BONContainerViewController.h"
 #import "BONChildViewController.h"
+#
 
 @interface BONWelcomeViewController : UIViewController
 
@@ -21,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcomeBackNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastMealTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastMealLoggedLabel;
+<<<<<<< HEAD
+=======
+@property (strong, nonatomic) BONChildViewController * nextVC;
+@property (weak, nonatomic) IBOutlet UIButton *logAMealButtonLabel;
+>>>>>>> master
 
 @property (strong, nonatomic) BONChildViewController * nextVC;
 

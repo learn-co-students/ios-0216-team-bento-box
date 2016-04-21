@@ -26,8 +26,8 @@
                                     <action selector="submitInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DF4-s7-Ejd"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-N7-u7P">
-                                <rect key="frame" x="0.0" y="84" width="600" height="432"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-N7-u7P">
+                                <rect key="frame" x="0.0" y="84" width="600" height="216"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tmS-y2-AxT">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
@@ -38,12 +38,8 @@
                                             <action selector="pickTheTime:" destination="BYZ-38-t0r" eventType="valueChanged" id="myO-dN-J3o"/>
                                         </connections>
                                     </datePicker>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iau-1i-Fhm">
-                                        <rect key="frame" x="0.0" y="216" width="600" height="216"/>
-                                    </pickerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="iau-1i-Fhm" firstAttribute="width" secondItem="tmS-y2-AxT" secondAttribute="width" id="JZ9-eC-aER"/>
                                     <constraint firstItem="tmS-y2-AxT" firstAttribute="width" secondItem="pBe-N7-u7P" secondAttribute="width" id="rob-Ar-L00"/>
                                 </constraints>
                             </stackView>
@@ -77,9 +73,9 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="6A4-Hx-dtI" id="3x2-jz-wm7"/>
-                        <outlet property="mealTypePicker" destination="iau-1i-Fhm" id="boh-PP-KpR"/>
                         <outlet property="submitButton" destination="aFk-pk-RFb" id="cbE-ji-jnq"/>
                         <outlet property="timePicker" destination="tmS-y2-AxT" id="vBO-ce-F3r"/>
+                        <outlet property="whenDidYouEatQuestionLabel" destination="2Oh-Qu-hOp" id="glq-dt-IC6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -111,21 +107,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
-                                <rect key="frame" x="75" y="260" width="450" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="0.29946120689655165" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="uhp-G8-s6a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
                                 <rect key="frame" x="0.0" y="60" width="600" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="nDA-Cn-buO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
+                                <rect key="frame" x="75" y="260" width="450" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="uhp-G8-s6a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -144,9 +139,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="DescriptionTextBox" destination="hh1-9d-hWy" id="QMX-7R-ZaF"/>
                         <outlet property="answerText" destination="hh1-9d-hWy" id="MAs-Qf-Tu2"/>
                         <outlet property="backButton" destination="13X-3E-CqC" id="O6g-fQ-uqc"/>
                         <outlet property="submitButton" destination="nN6-Xc-euN" id="heb-Ze-MrF"/>
+                        <outlet property="whatDidYouEatTextLabel" destination="zyi-2f-VhC" id="aAL-hP-eZl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGo-f2-mPp" sceneMemberID="firstResponder"/>
@@ -232,6 +229,7 @@
                         <outlet property="emo3" destination="70D-pa-IOd" id="NH3-sN-DFM"/>
                         <outlet property="emo4" destination="aPb-y6-b8C" id="e95-pp-ZOk"/>
                         <outlet property="emo5" destination="94w-u7-bcV" id="XLV-Uh-vNa"/>
+                        <outlet property="howUserFeltTextLabel" destination="jeu-1i-ley" id="cAG-cd-MdG"/>
                         <outlet property="submitButton" destination="pEE-bv-nLA" id="1Ai-hq-BSa"/>
                     </connections>
                 </viewController>
