@@ -210,8 +210,9 @@
     else if([oldController isKindOfClass:[BONHowViewController class]]) {
         BONHowViewController *howVC = (BONHowViewController *)oldController;
         question = @"How do you feel?";
-        answer = [NSString stringWithFormat:@"%li",howVC.howNumber
-                  ];
+        answer = [NSString stringWithFormat:@"%li",howVC.howNumber];
+        
+        self.localDataStore.howUserFelt = answer;
     } 
 
     //new logic for when and what vc

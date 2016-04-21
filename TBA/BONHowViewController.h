@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BONHowViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *mealTypePicker;
 @property (assign, nonatomic) NSInteger howNumber;
