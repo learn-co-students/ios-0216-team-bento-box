@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *whatText;
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
 @property (weak, nonatomic) IBOutlet UIImageView *howImage;
+@property (weak, nonatomic) BONDataStore * resultDataStore;
 @end
 
 @implementation BONSummaryViewController
@@ -55,8 +56,8 @@
     [self.resultDataStore fetchData];
     Meal *mostRecentMeal = self.resultDataStore.userMeals.lastObject;
     
-    self.whereText =mostRecentMeal.whereWasItEaten;
-    self.whatText = mostRecentMeal.whatWasEaten;
+    self.whereText.text =mostRecentMeal.whereWasItEaten;
+    self.whatText.text = mostRecentMeal.whatWasEaten;
 }
 
 
