@@ -20,6 +20,7 @@
 #import "BONWhatViewController.h"
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
+#import "BONHistoryTableViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -139,10 +140,7 @@
     whenViewController.questionLabel.textColor = [UIColor whiteColor];
     whenViewController.questionLabel.text = @"When did you eat?";
     
-    //new when vc, deleted old one
-    
-    
-    //[self.childViewControllers addObject:whatViewController];
+;
     [self.childViewControllers addObject:welcomeVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
@@ -152,6 +150,11 @@
     [self.childViewControllers addObject:howVC];
     
     [self.childViewControllers addObject:notificationsVC];
+    
+    UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
+    BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
+    [self addChildViewController:historyVC];
+    [self.childViewControllers addObject:historyVC];
     [self.childViewControllers addObject:resultsVC];
     
     resultsVC.resultMeal = self.userMeal;

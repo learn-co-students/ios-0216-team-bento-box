@@ -37,13 +37,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="History" id="QNU-VK-q07">
-                                    <barButtonItem key="rightBarButtonItem" title="New Meal" id="InF-Sw-8en">
-                                        <connections>
-                                            <action selector="addMeal:" destination="2iV-YH-OHz" id="0Ul-6p-zLI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
+                                <navigationItem title="History" id="QNU-VK-q07"/>
                             </items>
                         </navigationBar>
                         <prototypes>
@@ -83,10 +77,6 @@
                             <outlet property="delegate" destination="2iV-YH-OHz" id="WO6-Fl-lwK"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="addMeal" destination="InF-Sw-8en" id="czr-7C-N8Y"/>
-                        <outlet property="newMeal" destination="InF-Sw-8en" id="Px5-Cw-Rt8"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOn-5A-oxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

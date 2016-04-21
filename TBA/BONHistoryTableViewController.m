@@ -50,7 +50,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"loggedMeal" forIndexPath:indexPath];
-    Meal * currentMeal = [self.allMeals.userMeals objectAtIndex:indexPath.row];
+    Meal * currentMeal = [self.allMeals.userMeals objectAtIndex:[self.allMeals.userMeals count]-indexPath.row-1];
     
     UILabel * when = [cell.contentView.subviews objectAtIndex:0];
     when.text = currentMeal.whenWasItEaten;
@@ -101,10 +101,7 @@
     }
     return img = [UIImage imageNamed:imageName];
 }
-- (IBAction)addMeal:(id)sender {
-    
-    
-}
+
 
 
 /*
