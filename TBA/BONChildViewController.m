@@ -27,6 +27,9 @@
 @implementation BONChildViewController
 
 - (void)viewDidLoad {
+    
+    NSLog(@"Child View Controller view did load");
+    
     [super viewDidLoad];
     [self getQuestionLabel];
     [self buildBackButton];

@@ -17,17 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"In View Did Load, meals.count: %lu", self.sharedDataStore.userMeals.count);
-    
     self.sharedDataStore = [BONDataStore sharedDataStore];
     [self.sharedDataStore fetchData];
     
-    
-    
-    NSLog(@"In View Did Load, after fetch Data, meals.count: %lu", self.sharedDataStore.userMeals.count);
-    NSLog(@"Meals array: %@", self.sharedDataStore.userMeals);
-    
     [self updateWelcomeWithMostRecentMeal];
+    
+    [self buildNextArrows];
     [self setBackgroundAndEdits];
     [self setFontsStyle];
     
@@ -38,12 +33,7 @@
 
 -(void)updateWelcomeWithMostRecentMeal {
     
-    NSLog(@"In update welcome with most recent meal");
-    NSLog(@"Shared Data Store's meal count: %lu", self.sharedDataStore.userMeals.count);
-    
     if (self.sharedDataStore.userMeals.count == 0) {
-        
-        NSLog(@"In the if of update welcome");
         
         self.lastMealTimeLabel.hidden = YES;
         self.lastMealLoggedLabel.hidden = YES;
@@ -51,8 +41,6 @@
     }
     else {
         
-        NSLog(@"In the else of update welcome");
-    
     Meal *mostRecentMeal = self.sharedDataStore.userMeals.lastObject;
     NSDate *mostRecentMealDate = mostRecentMeal.createdAt;
     NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
@@ -96,6 +84,21 @@
     self.lastMealTimeLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.lastMealLoggedLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.logAMealButtonLabel.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:35];
+}
+
+- (void)buildNextArrows {
+    
+    UIImageView *nextArrowsImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width * .9, self.view.frame.size.height / 2, 20, 20)];
+    nextArrowsImageView.image = [UIImage imageNamed:@"Next Arrows"];
+    [self.view addSubview:nextArrowsImageView];
+    
+    [UIView animateWithDuration:0.75
+                          delay:0
+                        options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
+                     animations:^{
+                         nextArrowsImageView.alpha = 0;
+                     }
+                     completion:nil];
 }
 
 /*
