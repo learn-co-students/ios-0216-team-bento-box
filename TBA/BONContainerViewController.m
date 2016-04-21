@@ -20,18 +20,17 @@
 #import "BONWhatViewController.h"
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
-#import "TBA-Swift.h"
-//#import "BONHistoryViewController.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
 @property (nonatomic,strong)NSMutableArray *childViewControllers;
 @property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
 @property (nonatomic,strong)BONDataStore *localDataStore;
+@property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
 @property (nonatomic,strong)Meal *userMeal;
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
--(void)formatDate;
+//-(void)formatDate;
 
 @property (nonatomic,assign)NSInteger viewCounter;
 
@@ -40,10 +39,9 @@
 @implementation BONContainerViewController
 
 - (void)viewDidLoad {
-    
-    NSLog(@"Container View Did Load");
-    
     [super viewDidLoad];
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
     // Instantiating dataStore
     
@@ -65,20 +63,32 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapOccurred:) name:@"tapTap" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginButtonHit:) name:@"login" object:nil];
     
-    
-    if ([BONFirebaseClient getUID]) {
+    if ([BONFirebaseClient getToken]) {
+        
         [self displayContentController:self.childViewControllers[0]];
         
-        NSLog(@"In the first if statement in the Container View Controller");
-        
     } else{
-        
-        NSLog(@"In the else of the container view controller view did load");
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [self displayContentController:loginViewController];
     }
+    
+    //
+    //    if ([BONFirebaseClient getToken] == NULL) {
+    //
+    //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
+    //        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+    //        [self displayContentController:loginViewController];
+    //
+    //    } else{
+    //
+    //
+    //        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
+    //
+    //        [self displayContentController:self.childViewControllers[0]];
+    //
+    //    }
     
     self.viewCounter = 0;
 }
@@ -98,7 +108,7 @@
     BONWhenViewController *whenVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"when"];
     
     //what vc
-   
+    
     BONWhenViewController *whatVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"what"];
     //how vc
     
@@ -115,8 +125,6 @@
     
     
     
-
-    
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
     
@@ -132,28 +140,21 @@
     whenViewController.questionLabel.text = @"When did you eat?";
     
     //new when vc, deleted old one
-
+    
     
     //[self.childViewControllers addObject:whatViewController];
     [self.childViewControllers addObject:welcomeVC];
-    ViewController * mealPic = [[ViewController alloc]init];
-    //[self.childViewControllers addObject:mealPic];
-    [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whenVC];
+    [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
-   // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
+    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
+    
     [self.childViewControllers addObject:notificationsVC];
-    
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
-//    BONHistoryTableViewController *historyVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"historyTableVC"];
-//    [self.childViewControllers addObject:historyVC];
     [self.childViewControllers addObject:resultsVC];
-
-    resultsVC.resultMeal = self.userMeal;
     
-
+    resultsVC.resultMeal = self.userMeal;
 }
 
 -(void)displayContentController:(UIViewController *)contentController{
@@ -182,7 +183,6 @@
 #pragma mark - Buttons
 
 - (void)submitButtonHit:(id)sender {
-    NSLog(@"Enter Button Hit");
     UIViewController *oldController = self.fromViewController;
     
     if (self.fromViewController == self.childViewControllers[0]) {
@@ -210,39 +210,36 @@
     else if([oldController isKindOfClass:[BONHowViewController class]]) {
         BONHowViewController *howVC = (BONHowViewController *)oldController;
         question = @"How do you feel?";
-        answer = [NSString stringWithFormat:@"%li",howVC.howNumber];
-    } 
-
+        answer = [NSString stringWithFormat:@"%li",howVC.howNumber
+                  ];
+    }
+    
     //new logic for when and what vc
     else if([oldController isKindOfClass:[BONWhenViewController class]]) {
         BONWhenViewController *whenVC = (BONWhenViewController *)oldController;
         NSString * chosenDate = [NSDateFormatter localizedStringFromDate:whenVC.timePicker.date
-                                                           dateStyle:0
-                                                           timeStyle:NSDateFormatterFullStyle];
+                                                               dateStyle:0
+                                                               timeStyle:NSDateFormatterFullStyle];
         
         question = @"When did you eat";
         answer = chosenDate;
-        
-  
     }
     
     else if([oldController isKindOfClass:[BONWhatViewController
-        class]]) {
-            BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
+                                          class]]) {
+        BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
         question = @"What did you eat?";
         answer = whatVC.answerText.text;
-        
     }
     
     [self answerSubmittedToDataStore:question questionAndAnswer:answer];
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
-
+    
     self.viewCounter++;
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];
     self.fromViewController = newController;
-    
 }
 
 -(void)backButtonHit:(id)sender{
@@ -255,7 +252,6 @@
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
-    
 }
 
 -(void)loginButtonHit:(id)sender{
@@ -274,7 +270,6 @@
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
     }
-    
 }
 
 -(void)swipeLeftOccurred:(id)sender{
@@ -297,7 +292,7 @@
 #pragma mark - Transition Animation
 
 -(void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC{
-
+    
     [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC];
     
@@ -313,12 +308,12 @@
 
 # pragma mark - Helper Methods
 
--(void)formatDate {
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
-    dateFormatter.dateStyle = NSDateFormatterShortStyle;
-    dateFormatter.timeStyle = NSDateFormatterShortStyle;
-}
+//-(void)formatDate {
+//    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+//    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
+//    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+//    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+//}
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
     
@@ -332,19 +327,19 @@
         self.userMeal.howUserFelt = userAnswer;
     }
     else {
-    self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
+        self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
     }
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
  
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
