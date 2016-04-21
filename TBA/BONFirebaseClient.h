@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) Firebase *rootReference;
 
+@property (strong, nonatomic) BONDataStore *sharedDateStore;
+
 @property (strong, nonatomic) NSDictionary *mealProperties;
 @property (strong, nonatomic) NSDictionary *meal;
 @property (strong, nonatomic) NSDictionary *meals;
@@ -26,7 +28,7 @@
 @property (strong, nonatomic) NSString *uidRef;
 
 + (instancetype)sharedFirebaseClient;
-+ (NSString *)getUID;
++ (NSString *)getToken;
 
 - (void)configureFirebase;
 - (void)createNewUserInFirebaseWithEmail:(NSString *)email
@@ -37,7 +39,8 @@
                             Password:(NSString *)password
                   FromViewController:(UIViewController *)fromViewController;
 
-- (void)setMealDateAs:(NSString *)date
-              ForMeal:(Meal *)meal;
+- (void)createMealWithDate:(NSString *)date;
+
+- (void)saveCurrentMealWithData;
 
 @end

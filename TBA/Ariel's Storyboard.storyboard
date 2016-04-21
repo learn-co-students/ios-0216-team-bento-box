@@ -17,7 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-Rd-FOA">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-Rd-FOA">
+                                <rect key="frame" x="175" y="148" width="250" height="304"/>
                                 <rect key="frame" x="175" y="148" width="250" height="303"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome back, Name!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-cv-r9x">
@@ -32,13 +33,15 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12:00 yesterday." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0O-K1-QqT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 yesterday." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0O-K1-QqT">
+                                        <rect key="frame" x="0.0" y="154" width="250" height="21"/>
                                         <rect key="frame" x="0.0" y="153" width="250" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-hz-tuz">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-hz-tuz">
+                                        <rect key="frame" x="0.0" y="231" width="250" height="73"/>
                                         <rect key="frame" x="0.0" y="230" width="250" height="73"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                         <state key="normal" title="Log A Meal"/>
@@ -48,10 +51,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiF-EW-UT1">
+                                <rect key="frame" x="273" y="508" width="55" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="72d-mP-6bV" eventType="touchUpInside" id="C56-yr-y6g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="EiF-EW-UT1" firstAttribute="centerX" secondItem="Fpk-Rd-FOA" secondAttribute="centerX" id="ahh-IM-uIv"/>
                             <constraint firstItem="Fpk-Rd-FOA" firstAttribute="centerY" secondItem="YDy-cS-I79" secondAttribute="centerY" id="ch9-1F-mig"/>
+                            <constraint firstItem="EiF-EW-UT1" firstAttribute="top" secondItem="Fpk-Rd-FOA" secondAttribute="bottom" constant="56" id="eK8-dc-0Lu"/>
                             <constraint firstItem="Fpk-Rd-FOA" firstAttribute="centerX" secondItem="YDy-cS-I79" secondAttribute="centerX" id="fny-s0-cUY"/>
                         </constraints>
                     </view>

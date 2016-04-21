@@ -67,7 +67,6 @@
 #pragma mark - TableView Data Source And Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.searchResults.count;
 }
 
@@ -110,6 +109,7 @@
                                                    style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction *action) {
                                                      NSLog(@"I ate at home");
+                                                     self.sharedDataStore.whereWasEatenString = @"Home";
                                                      [self.parentContainerViewController submitButtonHit:nil];
                                                  }];
     
@@ -117,6 +117,7 @@
                                                      style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction *action) {
                                                        NSLog(@"I ate at school");
+                                                       self.sharedDataStore.whereWasEatenString = @"School";
                                                        [self.parentContainerViewController submitButtonHit:nil];
                                                    }];
     
@@ -124,6 +125,7 @@
                                                    style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction *action) {
                                                      NSLog(@"I ate at work");
+                                                     self.sharedDataStore.whereWasEatenString = @"Work";
                                                      [self.parentContainerViewController submitButtonHit:nil];
                                                  }];
     

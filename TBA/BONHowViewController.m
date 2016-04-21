@@ -135,10 +135,6 @@
                                                        dateStyle:0
                                                        timeStyle:NSDateFormatterFullStyle];
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
-    
-    NSLog(@"You ate %@ at %@", mealType, theTime);
-    
-    
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{

@@ -34,7 +34,6 @@
             abort();
         }
     }
-    NSLog(@"IN SAVE CONTEXT");
 }
 
 - (void)fetchData
