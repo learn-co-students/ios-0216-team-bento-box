@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BONDataStore.h"
+#import "BONFirebaseClient.h"
 
 @interface BONWhatViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextView *answerText;
-
+@property (strong, nonatomic) BONDataStore *sharedDataStore;
+@property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
 
 @end
 

@@ -65,8 +65,6 @@
     
     if ([BONFirebaseClient getToken]) {
         
-        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
-        
         [self displayContentController:self.childViewControllers[0]];
         
     } else{
@@ -146,8 +144,8 @@
     
     //[self.childViewControllers addObject:whatViewController];
     [self.childViewControllers addObject:welcomeVC];
-    [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whenVC];
+    [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
     [self.childViewControllers addObject:[BONGameViewController new]];
    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
@@ -225,8 +223,6 @@
         
         question = @"When did you eat";
         answer = chosenDate;
-        
-        NSLog(@"In When View Controller");
 }
     
     else if([oldController isKindOfClass:[BONWhatViewController

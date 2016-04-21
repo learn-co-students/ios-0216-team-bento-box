@@ -17,6 +17,8 @@
 
 @property (strong, nonatomic) Firebase *rootReference;
 
+@property (strong, nonatomic) BONDataStore *sharedDateStore;
+
 @property (strong, nonatomic) NSDictionary *mealProperties;
 @property (strong, nonatomic) NSDictionary *meal;
 @property (strong, nonatomic) NSDictionary *meals;
@@ -39,16 +41,6 @@
 
 - (void)createMealWithDate:(NSString *)date;
 
-- (void)setWhatWasEaten:(NSString *)whatWasEaten
-                ForMeal:(Meal *)meal;
-
-- (void)setWhereUserAte:(NSString *)whereUserAte
-                ForMeal:(Meal *)meal;
-
-- (void)setWhenUserAte:(NSString *)whenUserAte
-               ForMeal:(Meal *)meal;
-
-- (void)setHowUserFelt:(NSString *)howUserFelt
-               ForMeal:(Meal *)meal;
+- (void)saveCurrentMealWithData;
 
 @end

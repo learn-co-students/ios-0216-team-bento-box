@@ -128,10 +128,6 @@
         
     }
     
-    
-    
-    NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
-    
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
     
@@ -146,10 +142,6 @@
                                                        dateStyle:0
                                                        timeStyle:NSDateFormatterFullStyle];
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
-    
-    NSLog(@"You ate %@ at %@", mealType, theTime);
-    
-    
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{

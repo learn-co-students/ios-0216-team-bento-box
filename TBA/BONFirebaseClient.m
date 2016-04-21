@@ -111,4 +111,29 @@
     [mealDateReference setValue:date];
 }
 
+- (void)saveCurrentMealWithData {
+    
+    self.sharedDateStore = [BONDataStore sharedDataStore];
+    
+    NSDictionary *mealData = @{@"What" : self.sharedDateStore.whatWasEaten,
+                               @"Where" : self.sharedDateStore.whereWasEatenString,
+                               @"How You Felt" : @"This is filler"};
+    
+    Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    Firebase *usersReference = [rootReference childByAppendingPath:@"Users"];
+    Firebase *currentUserReference = [usersReference childByAppendingPath:rootReference.authData.uid];
+    Firebase *mealDateReference = [currentUserReference childByAppendingPath:self.sharedDateStore.mealDate];
+    
+    [mealDateReference setValue:mealData];
+}
+
+
+//    Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+//    Firebase *usersReference = [rootReference childByAppendingPath:@"Users"];
+//    Firebase *currentUserReference = [usersReference childByAppendingPath:rootReference.authData.uid];
+//    Firebase *mealDateReference = [currentUserReference childByAppendingPath:self.sharedDateStore.mealDate];
+//    Firebase *whatWasEatenReference = [mealDateReference childByAppendingPath:@"What Was Eaten"];
+//    
+//    [whatWasEatenReference setValue:@{@"What Was Eaten" : whatWhatEaten}];
+
 @end

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Meal.h"
+#import "BONFirebaseClient.h"
 
 @interface BONResultsViewController : UIViewController
 
 @property (nonatomic, strong) Meal *resultMeal;
+@property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
 
 -(void)showResultsOfLastMealLogged:(Meal *)meal;
 

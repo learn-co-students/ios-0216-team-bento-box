@@ -21,6 +21,7 @@
     
     [super viewDidLoad];
     
+    self.sharedDataStore = [BONDataStore sharedDataStore];
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
     UIImage *bg = [UIImage imageNamed:@"confettibg"];
@@ -108,10 +109,6 @@
         
     }
     
-    
-    
-     NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
-    
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
 
@@ -128,15 +125,13 @@
     
     NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
     
-    NSLog(@"You ate %@ at %@", mealType, theTime);
+    self.sharedDataStore.mealDate = theTime;
     
     [self.sharedFirebaseClient createMealWithDate:theTime];
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
-    
-    NSLog(@"Submit button touched in the when picker");
 }
 
 -(void)backButtonTouched:(UIButton *)backButton{

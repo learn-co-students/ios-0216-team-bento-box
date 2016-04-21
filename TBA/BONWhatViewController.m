@@ -19,6 +19,10 @@
 @implementation BONWhatViewController
 
 - (void)viewDidLoad {
+    
+    self.sharedDataStore = [BONDataStore sharedDataStore];
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
  
     UIImage *bg = [UIImage imageNamed:@"confettibg"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
@@ -35,11 +39,6 @@
 
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)pickTheTime:(id)sender {
 
 }
@@ -52,6 +51,9 @@
 }
 
 -(void)submitButtonTouched:(UIButton *)submitButton{
+    
+    self.sharedDataStore.whatWasEaten = self.answerText.text;
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
 }
 
