@@ -92,11 +92,13 @@
     nextArrowsImageView.image = [UIImage imageNamed:@"Next Arrows"];
     [self.view addSubview:nextArrowsImageView];
     
-    [UIView animateWithDuration:0.75
+    nextArrowsImageView.alpha = 0;
+    
+    [UIView animateWithDuration:0.6
                           delay:0
                         options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat
                      animations:^{
-                         nextArrowsImageView.alpha = 0;
+                         nextArrowsImageView.alpha = 1;
                      }
                      completion:nil];
 }
