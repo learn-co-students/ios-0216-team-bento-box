@@ -123,8 +123,6 @@
                                                        dateStyle:NSDateFormatterMediumStyle
                                                        timeStyle:NSDateFormatterShortStyle];
     
-    NSString *mealType = self.mealTypes[[self.mealTypePicker selectedRowInComponent:0]];
-    
     self.sharedDataStore.mealDate = theTime;
     
     [self.sharedFirebaseClient createMealWithDate:theTime];
