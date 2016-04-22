@@ -20,6 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sharedDataStore = [BONDataStore sharedDataStore];
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    
+    [self.sharedFirebaseClient saveCurrentMealWithData];
+    
     self.allMeals = [BONDataStore sharedDataStore];
     [self.allMeals fetchData];
     

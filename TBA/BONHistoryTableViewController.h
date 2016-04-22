@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BONFirebaseClient.h"
 
 @interface BONHistoryTableViewController : UITableViewController
+
+@property (strong, nonatomic) BONDataStore *sharedDataStore;
+@property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
 
 @end

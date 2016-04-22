@@ -80,6 +80,10 @@
 
 - (void)setFontsStyle {
     
+    self.welcomeBackNameLabel.textAlignment = NSTextAlignmentCenter;
+    self.lastMealLoggedLabel.textAlignment = NSTextAlignmentCenter;
+    self.lastMealTimeLabel.textAlignment = NSTextAlignmentCenter;
+    
     self.welcomeBackNameLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.lastMealTimeLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.lastMealLoggedLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
