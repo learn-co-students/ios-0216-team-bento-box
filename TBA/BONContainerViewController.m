@@ -146,11 +146,9 @@
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
-    [self.childViewControllers addObject:[BONGameViewController new]];
-    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
     
-    [self.childViewControllers addObject:notificationsVC];
+//    [self.childViewControllers addObject:notificationsVC];
     
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
