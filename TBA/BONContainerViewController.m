@@ -21,6 +21,7 @@
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
 #import "BONHistoryTableViewController.h"
+#import "TBA-Swift.h"
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -33,6 +34,7 @@
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
 //-(void)formatDate;
 
+
 @property (nonatomic,assign)NSInteger viewCounter;
 
 @end
@@ -41,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     
     NSLog(@"Container view did load");
     
@@ -108,6 +111,8 @@
     //when vc
     UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView" bundle:nil];
     BONWhenViewController *whenVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"when"];
+
+    
     
     //what vc
     
@@ -124,6 +129,8 @@
     UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
     BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
     
+    
+    ViewController *mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
     
     
     
@@ -143,6 +150,7 @@
     
 ;
     [self.childViewControllers addObject:welcomeVC];
+    [self.childViewControllers addObject:mealPic];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
