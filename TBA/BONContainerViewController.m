@@ -21,6 +21,7 @@
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
 #import "BONHistoryTableViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface BONContainerViewController ()
 @property (nonatomic,strong)UIViewController *fromViewController;
@@ -29,6 +30,8 @@
 @property (nonatomic,strong)BONDataStore *localDataStore;
 @property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
 @property (nonatomic,strong)Meal *userMeal;
+@property (nonatomic, strong)UIVisualEffectView* effectView;
+@property (nonatomic, strong)UIButton * hamburgerButton;
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
 //-(void)formatDate;
@@ -46,6 +49,8 @@
     
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
+    
+    
     // Instantiating dataStore
     
     self.localDataStore = [BONDataStore sharedDataStore];
@@ -62,6 +67,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hamburgerButtonHit:) name:@"hamburgerButtonHit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapOccurred:) name:@"tapTap" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginButtonHit:) name:@"login" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeMenu:) name:@"closeMenu" object:nil];
     
     if ([BONFirebaseClient getToken]) {
         
@@ -93,6 +99,21 @@
     //
     //    }
     self.viewCounter = 0;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    [self.hamburgerButton addTarget:self action:@selector(hamburgerButtonHit:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.hamburgerButton];
+    
+    self.hamburgerButton.backgroundColor = [UIColor greenColor];
+    [self.hamburgerButton setTitle:@"☰" forState:UIControlStateNormal] ;
+    self.hamburgerButton.titleLabel.textColor = [UIColor whiteColor];
+    //self.hamburgerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.hamburgerButton.titleLabel.font = [UIFont systemFontOfSize:30];
+    
+    
 }
 
 #pragma mark - Container View Controller Handlers
@@ -141,7 +162,7 @@
     whenViewController.questionLabel.textColor = [UIColor whiteColor];
     whenViewController.questionLabel.text = @"When did you eat?";
     
-;
+
     [self.childViewControllers addObject:welcomeVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
@@ -175,13 +196,52 @@
 -(void)hamburgerButtonHit:(id)sender{
     NSLog(@"Hamburger hit");
     BONHamburgerViewController *hamburgerController = [[BONHamburgerViewController alloc] init];
-    hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
+    //hamburgerController.view.frame = CGRectMake(0, 0, 0,0);
+   // hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
+    hamburgerController.view.frame = CGRectMake(-(self.view.frame.size.width*0.25), 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
+
     hamburgerController.view.backgroundColor = [UIColor whiteColor];
+    hamburgerController.view.alpha = 1; //put back to 0 to renanimate
+
+    
+
+    [UIView animateWithDuration:1 animations:^{
+    //hamburgerController.view.alpha = 1;
+//        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.25, 0, 0, self.view.frame.size.height);
+        
+
+
+        hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
+        
+        //self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+        self.hamburgerButton.frame = CGRectMake(100,0,60,60);
+        [self.hamburgerButton addTarget:self action:@selector(closeMenu:) forControlEvents:UIControlEventTouchUpInside]; //set action to close
+        self.effectView.alpha = 0.75;
+    
+    }];
+    
+
     
     [self addChildViewController:hamburgerController];
     [self.view addSubview:hamburgerController.view];
     [hamburgerController didMoveToParentViewController:self];
     self.hamburgerController = hamburgerController;
+    
+    
+    
+}
+
+-(void)closeMenu:(id)sender{
+    //self.hamburgerController.view.frame=CGRectMake(0,0,0,0);
+    NSLog(@"closing menu");
+    [UIView animateWithDuration:0.8 animations:^{
+        //self.hamburgerController.view.alpha = 0.0; put bak to fadeout
+        self.hamburgerController.view.frame=CGRectMake(-(self.view.frame.size.width*0.25),0,self.view.frame.size.width*0.25,self.view.frame.size.height);
+         self.effectView.alpha = 0;
+        self.hamburgerButton.frame = CGRectMake(0, 0, 60, 60);
+    }];
+    
+    [self.hamburgerButton addTarget:self action:@selector(hamburgerButtonHit:) forControlEvents:UIControlEventTouchUpInside]; //set action back to pen
 }
 
 #pragma mark - Buttons
@@ -255,6 +315,7 @@
         BONChildViewController *newController = self.childViewControllers[self.viewCounter];
         [self cycleFromViewController:oldController toViewController:newController];
         self.fromViewController = newController;
+        
     }
 }
 
@@ -308,6 +369,17 @@
         [oldVC removeFromParentViewController];
         [newVC didMoveToParentViewController:self];
     }];
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
+    self.effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
+    [self.view addSubview:self.effectView];
+    self.effectView.frame = self.view.frame;
+    self.effectView.alpha =0;
+    for (UIView *view in [self.view subviews]) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            [self.view bringSubviewToFront:view];
+        }
+    }
 }
 
 # pragma mark - Helper Methods
@@ -345,5 +417,7 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+
 
 @end

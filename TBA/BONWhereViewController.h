@@ -15,7 +15,6 @@
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UITableView *searchResultsTableView;
-
 @property (strong, nonatomic) HNKGooglePlacesAutocompleteQuery *searchQuery;
 @property (strong, nonatomic) NSArray *searchResults;
 @property (strong, nonatomic) UIAlertController *alertController;

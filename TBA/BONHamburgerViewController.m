@@ -9,14 +9,34 @@
 #import "BONHamburgerViewController.h"
 
 @interface BONHamburgerViewController ()
-
+@property (nonatomic, strong)NSArray * arr;
+@property (nonatomic, strong)UIButton * closeButton;
 @end
 
 @implementation BONHamburgerViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.arr = @[@"1",@"2"];
+   //  Do any additional setup after loading the view.
+//    UITableView *tableView = [[UITableView alloc] init];
+//    tableView.translatesAutoresizingMaskIntoConstraints=NO;
+//    [self.view addSubview: tableView];
+//    [tableView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:100].active=YES;
+//    [tableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+//    [tableView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-10].active = YES;
+//    [tableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active=YES;
+//  
+//
+//    
+//    tableView.delegate = self;
+//    tableView.dataSource = self;
+//    [tableView reloadData];
+    
+
+    [self buildCloseButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +44,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.arr count];
+}
+
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *MyIdentifier = @"MyReuseIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+    }
+
+    cell.textLabel.text = [self.arr objectAtIndex:indexPath.row];
+    return cell;
+}
+
+-(void)buildCloseButton{
+    UIButton *closeButton = [[UIButton alloc] init];
+    [closeButton setTitle:@"X" forState:UIControlStateNormal];
+    [closeButton setBackgroundColor:[UIColor greenColor]];
+    [closeButton addTarget:self action:@selector(closeButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
+    closeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [closeButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+    [closeButton.rightAnchor constraintEqualToAnchor:self.view.leftAnchor constant:100].active = YES;
+    [closeButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.30].active = YES;
+    self.closeButton = closeButton;
+}
+
+-(void)closeButtonTouched:(UIButton *)closeButton{
+
+    NSLog(@"close");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeMenu" object:self];
+    //self.swipeRight.enabled = NO;
+}
 /*
 #pragma mark - Navigation
 

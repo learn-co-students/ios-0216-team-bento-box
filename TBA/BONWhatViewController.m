@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITextView *whatDidYouEatTextLabel;
 @property (weak, nonatomic) IBOutlet UITextView *DescriptionTextBox;
+@property (nonatomic,strong)UIButton *closeButton;
 
 @end
 
@@ -41,8 +42,8 @@
 -(void)submitButtonTouched:(UIButton *)submitButton{
     
     self.sharedDataStore.whatWasEaten = self.answerText.text;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
 }
 
 -(void)backButtonTouched:(UIButton *)backButton{
@@ -129,6 +130,25 @@
 
 }
 
+-(void)buildCloseButton{
+    UIButton *closeButton = [[UIButton alloc] init];
+    [closeButton setTitle:@"X" forState:UIControlStateNormal];
+    [closeButton setBackgroundColor:[UIColor blackColor]];
+    [closeButton addTarget:self action:@selector(closeButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:closeButton];
+    closeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [closeButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+    [closeButton.rightAnchor constraintEqualToAnchor:self.view.leftAnchor constant:100].active = YES;
+    [closeButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.05].active = YES;
+    self.closeButton = closeButton;
+}
+
+-(void)closeButtonTouched:(UIButton *)closeButton{
+    
+    NSLog(@"close");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeMenu" object:self];
+    //self.swipeRight.enabled = NO;
+}
 
 
 

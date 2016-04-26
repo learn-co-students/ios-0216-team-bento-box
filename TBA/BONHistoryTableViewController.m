@@ -9,6 +9,7 @@
 #import "BONHistoryTableViewController.h"
 #import "BONDataStore.h"
 #import "Meal.h"
+#import "BONContainerViewController.h"
 
 @interface BONHistoryTableViewController ()
 @property(nonatomic, strong) NSArray * pastMeals;
@@ -100,6 +101,13 @@
             break;
     }
     return img = [UIImage imageNamed:imageName];
+}
+- (IBAction)createNewMeal:(id)sender {
+//    UIViewController * old = self.view;
+//    BONContainerViewController * container = self.parentViewController;
+//    container cycleFromViewController:old toViewController:new;
+   
+    
 }
 
 

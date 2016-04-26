@@ -11,5 +11,8 @@
 @interface BONContainerViewController : UIViewController
 
 -(void)submitButtonHit:(id)sender;
+-(void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC;
 
 @end
+
+

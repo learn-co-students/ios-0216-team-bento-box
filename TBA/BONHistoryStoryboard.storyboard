@@ -37,7 +37,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="History" id="QNU-VK-q07"/>
+                                <navigationItem title="History" id="QNU-VK-q07">
+                                    <barButtonItem key="rightBarButtonItem" title="New Meal" id="PMN-zc-p21">
+                                        <connections>
+                                            <action selector="createNewMeal:" destination="2iV-YH-OHz" id="1Ln-Am-wBd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
