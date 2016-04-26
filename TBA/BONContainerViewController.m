@@ -23,15 +23,22 @@
 #import "BONHistoryTableViewController.h"
 
 @interface BONContainerViewController ()
+
 @property (nonatomic,strong)UIViewController *fromViewController;
 @property (nonatomic,strong)NSMutableArray *childViewControllers;
 @property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
 @property (nonatomic,strong)BONDataStore *localDataStore;
 @property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
+@property (nonatomic, strong) UIScrollView *viewControllersScrollView;
 @property (nonatomic,strong)Meal *userMeal;
 
+@property (strong, nonatomic) BONWelcomeViewController *welcomeViewController;
+@property (strong, nonatomic) BONWhenViewController *whenViewController;
+@property (strong, nonatomic) BONWhatViewController *whatViewController;
+@property (strong, nonatomic) BONWhereViewController *whereViewController;
+@property (strong, nonatomic) BONHowViewController *howViewController;
+
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
-//-(void)formatDate;
 
 @property (nonatomic,assign)NSInteger viewCounter;
 
@@ -51,9 +58,10 @@
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
     
-    self.view.backgroundColor = [UIColor blueColor];
-    [self buildViewControllerArrayWithTotalOf:3];
+    [self configureScrollView];
     self.fromViewController = self.childViewControllers[0];
+    
+    /*
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(submitButtonHit:) name:@"submitButtonHit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backButtonHit:) name:@"backButtonHit" object:nil];
@@ -62,6 +70,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hamburgerButtonHit:) name:@"hamburgerButtonHit" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tapOccurred:) name:@"tapTap" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginButtonHit:) name:@"login" object:nil];
+    
+    */
     
     if ([BONFirebaseClient getToken]) {
         
@@ -77,55 +87,29 @@
         [self displayContentController:loginViewController];
     }
     
-    //
-    //    if ([BONFirebaseClient getToken] == NULL) {
-    //
-    //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
-    //        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-    //        [self displayContentController:loginViewController];
-    //
-    //    } else{
-    //
-    //
-    //        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
-    //
-    //        [self displayContentController:self.childViewControllers[0]];
-    //
-    //    }
     self.viewCounter = 0;
 }
 
 #pragma mark - Container View Controller Handlers
 
--(void)buildViewControllerArrayWithTotalOf:(NSInteger)number{
+-(void)configureScrollView {
     
     self.childViewControllers = [[NSMutableArray alloc] init];
     
     UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
                                                               bundle:nil];
-    BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
     
-    //when vc
-    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView" bundle:nil];
+    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView"
+                                                             bundle:nil];
+    
+    BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
     BONWhenViewController *whenVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"when"];
-    
-    //what vc
-    
     BONWhenViewController *whatVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"what"];
-    //how vc
-    
+    BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
     BONWhenViewController *howVC= [whenStoryboard instantiateViewControllerWithIdentifier:@"how"];
     
     //welcome vc
-    BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
     [self addChildViewController:welcomeVC];
-    
-    //notifications vc
-    UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
-    BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
-    
-    
-    
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -141,16 +125,11 @@
     whenViewController.questionLabel.textColor = [UIColor whiteColor];
     whenViewController.questionLabel.text = @"When did you eat?";
     
-;
     [self.childViewControllers addObject:welcomeVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
-    [self.childViewControllers addObject:[BONGameViewController new]];
-    // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
-    
-    [self.childViewControllers addObject:notificationsVC];
     
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
@@ -165,7 +144,7 @@
     CGRect newFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     contentController.view.frame = newFrame;
     
-    [self addChildViewController:contentController];
+    // [self addChildViewController:contentController];
     [self.view addSubview:contentController.view];
     [contentController didMoveToParentViewController:self];
 }
@@ -312,13 +291,6 @@
 
 # pragma mark - Helper Methods
 
-//-(void)formatDate {
-//    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-//    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"EST"];
-//    dateFormatter.dateStyle = NSDateFormatterShortStyle;
-//    dateFormatter.timeStyle = NSDateFormatterShortStyle;
-//}
-
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer {
     
     if ([isRightQuestion containsString:@"When"]) {
@@ -333,6 +305,23 @@
     else {
         self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
     }
+}
+
+- (void)buildScrollViewOfViewControllers {
+    
+    self.viewControllersScrollView = [UIScrollView new];
+    [self.view addSubview:self.viewControllersScrollView];
+    
+    UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+                                                              bundle:nil];
+    BONWelcomeViewController * welcomeViewController =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
+    BONWhereViewController *whereViewController = [arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"];
+    
+    NSArray *viewsArray = [[NSArray alloc] initWithObjects:welcomeViewController.view, whereViewController.view, nil];
+
+    UIStackView *viewsStackView = [[UIStackView alloc] initWithArrangedSubviews:viewsArray];
+    
+    [self.viewControllersScrollView addSubview:viewsStackView];
 }
 
 /*
