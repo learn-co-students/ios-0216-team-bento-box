@@ -42,8 +42,8 @@
 -(void)submitButtonTouched:(UIButton *)submitButton{
     
     self.sharedDataStore.whatWasEaten = self.answerText.text;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
+       // [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
 }
 
 -(void)backButtonTouched:(UIButton *)backButton{
