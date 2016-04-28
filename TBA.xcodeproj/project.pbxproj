@@ -89,7 +89,6 @@
 		371ADA1C1CC0B22500CAF73F /* BONHowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowViewController.h; sourceTree = "<group>"; };
 		371ADA1D1CC0B23A00CAF73F /* BONHowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowViewController.m; sourceTree = "<group>"; };
 		377415BC1CC5888A00264EF1 /* BONHistoryStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BONHistoryStoryboard.storyboard; sourceTree = "<group>"; };
-		377415BE1CC58B8700264EF1 /* TBA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TBA-Bridging-Header.h"; sourceTree = "<group>"; };
 		377415BF1CC58B8800264EF1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3799AE561CAD5CC800408129 /* BONHowQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BONHowQuestionViewController.h; sourceTree = "<group>"; };
 		3799AE571CAD5CC800408129 /* BONHowQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BONHowQuestionViewController.m; sourceTree = "<group>"; };
@@ -204,7 +203,6 @@
 			children = (
 				440686501CC7C6BA001E3117 /* BONSummaryViewController.h */,
 				4406864E1CC7C69E001E3117 /* BONSummaryViewController.m */,
-				377415BE1CC58B8700264EF1 /* TBA-Bridging-Header.h */,
 				377415BF1CC58B8800264EF1 /* ViewController.swift */,
 			);
 			name = Dan;
@@ -440,6 +438,7 @@
 				TargetAttributes = {
 					E2EF25B41CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = JQRV5766HA;
 					};
 					E2EF25CD1CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;

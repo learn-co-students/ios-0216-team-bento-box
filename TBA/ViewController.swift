@@ -5,59 +5,37 @@ import MobileCoreServices
 @objc class ViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    /* We will use this variable to determine if the viewDidAppear:
-     method of our view controller is already called or not. If not, we will
-     display the camera view */
+    
     var beenHereBefore = false
     var controller: UIImagePickerController?
     
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String: AnyObject]){
-        
-//        if let mediaType = info[UIImagePickerControllerMediaType] as? String {
-//            if mediaType == kUTTypeImage {
-//                /* Let's get the metadata. This is only for images. Not videos */
-//                let metadata = info[UIImagePickerControllerMediaMetadata]
-//                    as? NSDictionary
-//                if let theMetaData = metadata{
-//                    let image = info[UIImagePickerControllerOriginalImage]
-//                        as? UIImage
-//                    if let theImage = image{
-//                        print("Image Metadata = \(theMetaData)")
-//                        print("Image = \(theImage)")
-//                        // Define the specific path, image name
-//                        
-//                        let imagePath = fileInDocumentsDirectory("dd")
-//                        saveImage(image!, path: imagePath)
-//                        loadImageFromPath(imagePath)
-//                    }
-//                }
-//            }
-//        }
-//        
-//        picker.dismissViewControllerAnimated(true, completion: nil);
-//        
-//        
-//        let imagePath = fileInDocumentsDirectory("dd")
-//        var pic = loadImageFromPath(imagePath)
-        
-        
-        
-        
-
-        
-        
-        
-        //let width = UIScreen.mainScreen().bounds.size.width
-        //let height = UIScreen.mainScreen().bounds.size.height
-//        let height = self.view.frame.size.height
-//        let width = self.view.frame.size.width
+        // Saving an opening pics; Want to use the time stamp to name pics with unique id
+        //                let metadata = info[UIImagePickerControllerMediaMetadata]
+        //                    as? NSDictionary
+        //                if let theMetaData = metadata{
+        //                    let image = info[UIImagePickerControllerOriginalImage]
+        //                        as? UIImage
+        //                    if let theImage = image{
+        //                        print("Image Metadata = \(theMetaData)")
+        //                        print("Image = \(theImage)")
+        //                        // Define the specific path, image name
+        //
+        //                        let imagePath = fileInDocumentsDirectory("dd")
+        //                        saveImage(image!, path: imagePath)
+        //                        loadImageFromPath(imagePath)
+        //
+        //
+        //
+        //        let imagePath = fileInDocumentsDirectory("dd")
+        //        var pic = loadImageFromPath(imagePath)
         
         
         //var picView:UIImageView = UIImageView(image: pic)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            //        var picView = UIImageView(frame: CGRectMake(0, 0, width, height))
+            
             let picView = UIImageView(image: image)
             self.view.addSubview(picView)
             picView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,10 +44,23 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
             picView.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.5).active = true
             picView.widthAnchor.constraintEqualToAnchor(picView.heightAnchor).active = true
             picView.contentMode = .ScaleAspectFit
+            
+            let submitButton = UIButton();
+            self.view.addSubview(submitButton);
+            submitButton.translatesAutoresizingMaskIntoConstraints = false
+            submitButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor , constant:20).active = true
+            submitButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+            submitButton.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.1).active = true
+            submitButton.widthAnchor.constraintEqualToAnchor(picView.heightAnchor).active = true
+            submitButton.backgroundColor = UIColor.redColor()
+            submitButton.setTitle("Submit", forState: .Normal)
+            let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
+            
+            submitButton.addGestureRecognizer(gr);
             //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
             
             //        picView.image = pic
-
+            
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -77,65 +68,30 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("Picker was cancelled")
         picker.dismissViewControllerAnimated(true, completion: nil)
+        [submitButtonTapped()];
     }
     
-    func isCameraAvailable() -> Bool{
-        return UIImagePickerController.isSourceTypeAvailable(.Camera)
-    }
     
-    func cameraSupportsMedia(mediaType: String,
-                             sourceType: UIImagePickerControllerSourceType) -> Bool{
-        
-        let availableMediaTypes =
-            UIImagePickerController.availableMediaTypesForSourceType(sourceType) as
-                [String]?
-        
-        if let types = availableMediaTypes{
-            for type in types{
-                if type == mediaType{
-                    return true
-                }
-            }
-        }
-        
-        return false
-    }
-    
-    func doesCameraSupportTakingPhotos() -> Bool{
-        return cameraSupportsMedia(kUTTypeImage as String, sourceType: .Camera)
-    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         if beenHereBefore{
-        
+            
             return;
         } else {
             beenHereBefore = true
         }
+        controller = UIImagePickerController()
+        controller!.sourceType = .Camera
+        controller!.allowsEditing = false
+        controller!.delegate = self
+        presentViewController(controller!, animated: true, completion: nil)
         
-        if isCameraAvailable() && doesCameraSupportTakingPhotos(){
-            
-            controller = UIImagePickerController()
-            
-            if let theController = controller{
-                theController.sourceType = .Camera
-                
-//                theController.mediaTypes = [kUTTypeImage as String]
-                
-                theController.allowsEditing = false
-                theController.delegate = self
-                
-                presentViewController(theController, animated: true, completion: nil)
-            }
-            
-        } else {
-            print("Camera is not available")
-        }
+        
         
     }
-
+    
     //Writing to and reading from the documents folder
     func saveImage (image: UIImage, path: String ) -> Bool{
         
@@ -147,7 +103,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     }
     
     
-
+    
     func getDocumentsURL() -> NSURL {
         let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         return documentsURL
@@ -168,17 +124,18 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
             
             print("missing image at: \(path)")
         }
-        print("Loading image from path: \(path)") // this is just for you to see the path in case you want to go to the directory, using Finder.
+        print("Loading image from path: \(path)") 
         return image
         
     }
     
-
+    
+    func submitButtonTapped() -> Void {
+        NSNotificationCenter.defaultCenter().postNotificationName("submitButtonHit", object:self)
+    }
     
     
     
-
     
-   
 }
 
