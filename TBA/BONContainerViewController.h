@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BONContainerViewController : UIViewController
-
+@property (nonatomic,strong)UIViewController *fromViewController;
 -(void)submitButtonHit:(id)sender;
 -(void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC;
 

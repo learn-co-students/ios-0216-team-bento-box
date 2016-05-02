@@ -24,7 +24,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BONContainerViewController ()
-@property (nonatomic,strong)UIViewController *fromViewController;
+
 @property (nonatomic,strong)NSMutableArray *childViewControllers;
 @property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
 @property (nonatomic,strong)BONDataStore *localDataStore;
@@ -32,6 +32,7 @@
 @property (nonatomic,strong)Meal *userMeal;
 @property (nonatomic, strong)UIVisualEffectView* effectView;
 @property (nonatomic, strong)UIButton * hamburgerButton;
+@property (nonatomic) NSInteger  hamburgerControllerWidth;
 
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
 //-(void)formatDate;
@@ -199,21 +200,22 @@
     NSLog(@"Hamburger hit");
     BONHamburgerViewController *hamburgerController = [[BONHamburgerViewController alloc] init];
     //hamburgerController.view.frame = CGRectMake(0, 0, 0,0);
-   // hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
-    hamburgerController.view.frame = CGRectMake(-(self.view.frame.size.width*0.25), 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
+   // hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.60, self.view.frame.size.height);
+    self.hamburgerControllerWidth = self.view.frame.size.width*0.60;
+    hamburgerController.view.frame = CGRectMake(-self.hamburgerControllerWidth, 0, self.view.frame.size.width*0.60, self.view.frame.size.height);
 
-    hamburgerController.view.backgroundColor = [UIColor whiteColor];
+    hamburgerController.view.backgroundColor = [UIColor darkGrayColor];
     hamburgerController.view.alpha = 1; //put back to 0 to renanimate
 
     
 
     [UIView animateWithDuration:1 animations:^{
     //hamburgerController.view.alpha = 1;
-//        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.25, 0, 0, self.view.frame.size.height);
+//        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.60, 0, 0, self.view.frame.size.height);
         
 
 
-        hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
+        hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.60, self.view.frame.size.height);
         
         //self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
       //  self.hamburgerButton.frame = CGRectMake(100,0,60,60);
@@ -242,7 +244,7 @@
     NSLog(@"closing menu");
     [UIView animateWithDuration:0.8 animations:^{
         //self.hamburgerController.view.alpha = 0.0; put bak to fadeout
-        self.hamburgerController.view.frame=CGRectMake(-(self.view.frame.size.width*0.25),0,self.view.frame.size.width*0.25,self.view.frame.size.height);
+        self.hamburgerController.view.frame=CGRectMake(-(self.view.frame.size.width*0.60),0,self.view.frame.size.width*0.60,self.view.frame.size.height);
          self.effectView.alpha = 0;
         //self.hamburgerButton.frame = CGRectMake(0, 0, 60, 60);
     }];
