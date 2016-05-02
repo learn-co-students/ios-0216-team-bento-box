@@ -17,12 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"In View Did Load, meals.count: %lu", self.sharedDataStore.userMeals.count);
-    
     self.sharedDataStore = [BONDataStore sharedDataStore];
     [self.sharedDataStore fetchData];
-    
-    NSLog(@"In View Did Load, after fetch Data, meals.count: %lu", self.sharedDataStore.userMeals.count);
     
     [self updateWelcomeWithMostRecentMeal];
     [self setBackgroundAndEdits];
@@ -34,8 +30,6 @@
 #pragma mark - Helper Methods
 
 -(void)updateWelcomeWithMostRecentMeal {
-    
-    NSLog(@"In update welcome with most recent meal");
     
     if (self.sharedDataStore.userMeals.count == 0) {
         

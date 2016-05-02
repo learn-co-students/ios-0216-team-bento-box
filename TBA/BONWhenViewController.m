@@ -86,7 +86,6 @@
     
     //using the selected time determine what type of meal it is
     //6-12 - breakfast; 12-4 - lunch; 1-12 dinner
-    NSLog(@"Select the meal type hit");
     NSDate *now = self.timePicker.date;
     
     NSDateFormatter * df = [[NSDateFormatter alloc] init];

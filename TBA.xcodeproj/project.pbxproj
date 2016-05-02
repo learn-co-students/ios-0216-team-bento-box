@@ -438,7 +438,7 @@
 				TargetAttributes = {
 					E2EF25B41CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = JQRV5766HA;
+						DevelopmentTeam = 7LA77DS2EA;
 					};
 					E2EF25CD1CAB0A0700C5190E = {
 						CreatedOnToolsVersion = 7.3;
@@ -735,7 +735,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TBA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TBA/TBA-Bridging-Header.h";
@@ -753,7 +753,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TBA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flatiron-School-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TBA/TBA-Bridging-Header.h";

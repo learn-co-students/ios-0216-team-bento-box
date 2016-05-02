@@ -110,14 +110,22 @@
 //    UIViewController * old = self.view;
 //    BONContainerViewController * container = self.parentViewController;
 //    container cycleFromViewController:old toViewController:new;
-   UIStoryboard *containerViewStoryboard = [UIStoryboard storyboardWithName:@"BONContainer"
-                                                                     bundle:nil];
+//   UIStoryboard *containerViewStoryboard = [UIStoryboard storyboardWithName:@"BONContainer"
+//                                                                     bundle:nil];
+//    
+//    BONContainerViewController *containerViewController = [containerViewStoryboard instantiateViewControllerWithIdentifier:@"containerViewController"];
     
-    BONContainerViewController *containerViewController = [containerViewStoryboard instantiateViewControllerWithIdentifier:@"containerViewController"];
+    NSLog(@"Just created a new container view controller. The parent is: %@", self.parentViewController);
     
-    [self presentViewController:containerViewController
-                       animated:YES
-                     completion:nil];
+    BONContainerViewController *parentViewController = (BONContainerViewController *)self.parentViewController;
+    
+    parentViewController.viewCounter = 0;
+    
+    [parentViewController displayContentController:parentViewController.childViewControllers.firstObject];
+    
+//    [self presentViewController:containerViewController
+//                       animated:YES
+//                     completion:nil];
 }
 
 

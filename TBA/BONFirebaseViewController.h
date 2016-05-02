@@ -12,7 +12,6 @@
 
 @interface BONFirebaseViewController : UIViewController
 
-
 @property (strong, nonatomic) BONFirebaseClient *firebaseClient;
 
 @end

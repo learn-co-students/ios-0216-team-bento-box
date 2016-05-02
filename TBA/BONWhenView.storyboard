@@ -26,8 +26,8 @@
                                     <action selector="submitInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DF4-s7-Ejd"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-N7-u7P">
-                                <rect key="frame" x="0.0" y="84" width="600" height="216"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="pBe-N7-u7P">
+                                <rect key="frame" x="0.0" y="192" width="600" height="216"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tmS-y2-AxT">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
@@ -63,11 +63,13 @@
                             <constraint firstItem="6A4-Hx-dtI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="6uG-Wa-6pY"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="INO-IG-wZU"/>
                             <constraint firstItem="2Oh-Qu-hOp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="O8W-ms-EvW"/>
+                            <constraint firstItem="tmS-y2-AxT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ONJ-vU-8Kn"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="On2-Zs-MHS"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="PeI-o6-FDl"/>
                             <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="a4W-Vt-7OQ"/>
                             <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="2" placeholder="YES" id="bbI-IB-7SA"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="top" secondItem="6A4-Hx-dtI" secondAttribute="bottom" constant="-8" placeholder="YES" id="eI6-YB-k0t"/>
+                            <constraint firstItem="tmS-y2-AxT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="klY-2s-c2c"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" placeholder="YES" id="nS0-Z6-zth"/>
                         </constraints>
                     </view>
@@ -94,7 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
                                 <rect key="frame" x="251" y="543" width="98" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
@@ -102,7 +104,7 @@
                                     <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="FqG-3a-o7D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
                                 <rect key="frame" x="266" y="502" width="69" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
@@ -139,11 +141,16 @@
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="3" id="XcD-hL-RuT"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.75" id="b91-6n-lad"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" id="bWg-i5-Isj"/>
-                            <constraint firstItem="nN6-Xc-euN" firstAttribute="top" secondItem="13X-3E-CqC" secondAttribute="bottom" constant="-8" id="byO-mY-eAZ"/>
+                            <constraint firstItem="nN6-Xc-euN" firstAttribute="top" secondItem="13X-3E-CqC" secondAttribute="bottom" constant="-8" placeholder="YES" id="byO-mY-eAZ"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="gVl-wW-gIz"/>
                             <constraint firstItem="13X-3E-CqC" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="nor-Xy-hyW"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="pIu-86-FGj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="W44-8x-n2u"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="DescriptionTextBox" destination="hh1-9d-hWy" id="QMX-7R-ZaF"/>

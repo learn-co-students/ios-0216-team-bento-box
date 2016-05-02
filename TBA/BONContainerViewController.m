@@ -36,8 +36,6 @@
 -(void)answerSubmittedToDataStore:(NSString *)isRightQuestion questionAndAnswer:(NSString *)userAnswer;
 //-(void)formatDate;
 
-@property (nonatomic,assign)NSInteger viewCounter;
-
 @end
 
 @implementation BONContainerViewController
@@ -45,11 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Container view did load");
+    NSLog(@"Container view controller description: %@", self.description);
+    
+    NSLog(@"Container view did load, selv.viewCounter: %li", self.viewCounter);
     
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
-    
-    
     
     // Instantiating dataStore
     
@@ -84,6 +82,7 @@
     }
     
     self.viewCounter = 0;
+    NSLog(@"End of viewdidload Self.ViewCounter: %li", self.viewCounter);
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -152,12 +151,12 @@
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
     [self addChildViewController:historyVC];
     [self.childViewControllers addObject:historyVC];
-    [self.childViewControllers addObject:resultsVC];
+    [self.childViewControllers addObject:resultsVC]; 
     
     resultsVC.resultMeal = self.userMeal;
 }
 
--(void)displayContentController:(UIViewController *)contentController{
+-(void)displayContentController:(UIViewController *)contentController {
     CGRect newFrame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     contentController.view.frame = newFrame;
     
@@ -195,15 +194,10 @@
     
     }];
     
-
-    
     [self addChildViewController:hamburgerController];
     [self.view addSubview:hamburgerController.view];
     [hamburgerController didMoveToParentViewController:self];
     self.hamburgerController = hamburgerController;
-    
-    
-    
 }
 
 -(void)closeMenu:(id)sender{
@@ -222,6 +216,7 @@
 #pragma mark - Buttons
 
 - (void)submitButtonHit:(id)sender {
+    
     UIViewController *oldController = self.fromViewController;
     
     if (self.fromViewController == self.childViewControllers[0]) {
@@ -249,8 +244,7 @@
     else if([oldController isKindOfClass:[BONHowViewController class]]) {
         BONHowViewController *howVC = (BONHowViewController *)oldController;
         question = @"How do you feel?";
-        answer = [NSString stringWithFormat:@"%li",howVC.howNumber
-                  ];
+        answer = [NSString stringWithFormat:@"%li",howVC.howNumber];
     }
     
     //new logic for when and what vc
@@ -264,8 +258,7 @@
         answer = chosenDate;
     }
     
-    else if([oldController isKindOfClass:[BONWhatViewController
-                                          class]]) {
+    else if([oldController isKindOfClass:[BONWhatViewController class]]) {
         BONWhatViewController *whatVC = (BONWhatViewController *)oldController;
         question = @"What did you eat?";
         answer = whatVC.answerText.text;
@@ -275,11 +268,9 @@
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
     
-    NSLog(@"Increasing the view counter in 'submit button hit'");
-    
     self.viewCounter++;
     
-    NSLog(@"Self.viewCounter: %li", self.viewCounter);
+    NSLog(@"self.description: %@ self.viewCounter: %li", self.description, self.viewCounter);
     
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];

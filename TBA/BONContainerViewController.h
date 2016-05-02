@@ -10,8 +10,11 @@
 
 @interface BONContainerViewController : UIViewController
 
--(void)submitButtonHit:(id)sender;
--(void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC;
+@property (nonatomic,assign)NSInteger viewCounter;
+
+- (void)submitButtonHit:(id)sender;
+- (void)cycleFromViewController:(UIViewController *)oldVC toViewController:(UIViewController *)newVC;
+- (void)displayContentController:(UIViewController *)contentController;
 
 @end
 
