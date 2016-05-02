@@ -103,7 +103,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    
+   
     self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     [self.hamburgerButton addTarget:self action:@selector(hamburgerButtonHit:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.hamburgerButton];
@@ -114,7 +114,11 @@
     //self.hamburgerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.hamburgerButton.titleLabel.font = [UIFont systemFontOfSize:30];
     
-
+    if (![BONFirebaseClient getToken]) {
+        
+        self.hamburgerButton.alpha=0;
+        
+    }
 
     
 }
@@ -170,16 +174,14 @@
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
     [self.childViewControllers addObject:whereViewController];
-    [self.childViewControllers addObject:[BONGameViewController new]];
     // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
-    
-    [self.childViewControllers addObject:notificationsVC];
     
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
     [self addChildViewController:historyVC];
     [self.childViewControllers addObject:historyVC];
+    [self.childViewControllers addObject:notificationsVC];
     [self.childViewControllers addObject:resultsVC];
     
     resultsVC.resultMeal = self.userMeal;

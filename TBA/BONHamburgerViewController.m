@@ -8,6 +8,7 @@
 
 #import "BONHamburgerViewController.h"
 #import "BONContainerViewController.h"
+#import "BONFirebaseClient.h"
 
 @interface BONHamburgerViewController ()
 @property (nonatomic, strong)NSArray * arr;
@@ -85,6 +86,7 @@
     [logoutButton.topAnchor constraintEqualToAnchor:insightsButton.bottomAnchor].active=YES;
     [logoutButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active=YES;
     [logoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(goToVC:) forControlEvents:UIControlEventTouchUpInside];
 
  
 }
@@ -93,12 +95,20 @@
     BONContainerViewController * parent= [self parentViewController];
     UIViewController *newController;
     if ([button.titleLabel.text isEqual:@"Notifications"]) {
-        newController = parent.childViewControllers[2];
-    } if ([button.titleLabel.text isEqual:@"Past Meals"]) {
-        newController = parent.childViewControllers[2];
-    } if ([button.titleLabel.text isEqual:@"Insights"]) {
-        newController = parent.childViewControllers[2];
-    } 
+        newController = parent.childViewControllers[6];
+    } else if ([button.titleLabel.text isEqual:@"Past Meals"]) {
+        newController = parent.childViewControllers[5];
+    } else if ([button.titleLabel.text isEqual:@"Insights"]) {
+        newController = parent.childViewControllers[5];
+    } else if ([button.titleLabel.text isEqual:@"Logout"]) {
+        newController = parent.childViewControllers[1];
+        [self logOutButtonHit];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
+        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        [parent displayContentController:loginViewController];
+        return;
+        
+    }
 
 
     UIViewController *oldController = parent.fromViewController;
@@ -106,6 +116,11 @@
     parent.fromViewController = newController;
     [self closeButtonTouched:nil];
     
+}
+
+-(void)logOutButtonHit {
+    Firebase *rootReference = [[Firebase alloc] initWithUrl:@"https://crackling-fire-2900.firebaseio.com"];
+    [rootReference unauth];
 }
 
 @end
