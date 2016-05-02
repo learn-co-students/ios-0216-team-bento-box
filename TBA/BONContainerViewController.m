@@ -104,7 +104,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
    
-    self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 10, 60, 60)];
     [self.hamburgerButton addTarget:self action:@selector(hamburgerButtonHit:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.hamburgerButton];
     

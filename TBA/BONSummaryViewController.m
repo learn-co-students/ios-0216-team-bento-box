@@ -14,16 +14,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
 @property (weak, nonatomic) IBOutlet UIImageView *howImage;
 @property (weak, nonatomic) BONDataStore * resultDataStore;
+@property (nonatomic) NSUInteger  mealIndex;
 @end
 
 @implementation BONSummaryViewController
 
+-(instancetype)initWithMealIndex: (NSUInteger) index{
+    self = [super init];
+    if(self){
+        _mealIndex = index;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
- 
-    UIImage *bg = [UIImage imageNamed:@"confettibg"];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
-    [self.view setOpaque:NO];
-    [[self.view layer] setOpaque:NO];
+
     
    
  
@@ -50,14 +56,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"backButtonHit" object:self];
 }
 
--(void)setResultsFields {
+-(void)setResultsFields: (NSUInteger) mealIndex {
     
     self.resultDataStore = [BONDataStore sharedDataStore];
     [self.resultDataStore fetchData];
-    Meal *mostRecentMeal = self.resultDataStore.userMeals.lastObject;
+    Meal *currentMeal = self.resultDataStore.userMeals[mealIndex];
     
-    self.whereText.text =mostRecentMeal.whereWasItEaten;
-    self.whatText.text = mostRecentMeal.whatWasEaten;
+    self.whereText.text =currentMeal.whereWasItEaten;
+    self.whatText.text = currentMeal.whatWasEaten;
 }
 
 

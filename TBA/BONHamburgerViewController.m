@@ -71,6 +71,7 @@
     [pastMealsButton.topAnchor constraintEqualToAnchor:notificationsButton.bottomAnchor].active=YES;
     [pastMealsButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active=YES;
     [pastMealsButton setTitle:@"Past Meals" forState:UIControlStateNormal];
+    [pastMealsButton addTarget:self action:@selector(goToVC:) forControlEvents:UIControlEventTouchUpInside];
 
 
     UIButton * insightsButton = [[UIButton alloc]init];
