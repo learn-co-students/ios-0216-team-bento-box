@@ -14,6 +14,7 @@
 @interface BONHistoryTableViewController ()
 @property(nonatomic, strong) NSArray * pastMeals;
 @property(nonatomic,strong) BONDataStore * allMeals;
+@property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
 
 @end
 
@@ -23,6 +24,9 @@
     [super viewDidLoad];
     self.allMeals = [BONDataStore sharedDataStore];
     [self.allMeals fetchData];
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    [self.sharedFirebaseClient saveCurrentMealWithData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

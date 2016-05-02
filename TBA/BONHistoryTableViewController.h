@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BONFirebaseClient.h"
 
 @interface BONHistoryTableViewController : UITableViewController
 
