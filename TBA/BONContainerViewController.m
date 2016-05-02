@@ -24,12 +24,12 @@
 #import <UIKit/UIKit.h>
 
 @interface BONContainerViewController ()
-@property (nonatomic,strong)UIViewController *fromViewController;
-@property (nonatomic,strong)NSMutableArray *childViewControllers;
-@property (nonatomic,strong)BONHamburgerViewController *hamburgerController;
-@property (nonatomic,strong)BONDataStore *localDataStore;
+@property (nonatomic, strong)UIViewController *fromViewController;
+@property (nonatomic, strong)NSMutableArray *childViewControllers;
+@property (nonatomic, strong)BONHamburgerViewController *hamburgerController;
+@property (nonatomic, strong)BONDataStore *localDataStore;
 @property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
-@property (nonatomic,strong)Meal *userMeal;
+@property (nonatomic, strong)Meal *userMeal;
 @property (nonatomic, strong)UIVisualEffectView* effectView;
 @property (nonatomic, strong)UIButton * hamburgerButton;
 
@@ -56,7 +56,7 @@
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
     
-    self.view.backgroundColor = [UIColor blueColor];
+//    self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
     self.fromViewController = self.childViewControllers[0];
     
@@ -76,28 +76,13 @@
                                                       inManagedObjectContext:self.localDataStore.managedObjectContext];
         self.userMeal.createdAt = [NSDate date];
         
-    } else{
+    } else {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [self displayContentController:loginViewController];
     }
     
-    //
-    //    if ([BONFirebaseClient getToken] == NULL) {
-    //
-    //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
-    //        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
-    //        [self displayContentController:loginViewController];
-    //
-    //    } else{
-    //
-    //
-    //        NSLog(@"Token: %@", self.sharedFirebaseClient.rootReference.authData.token);
-    //
-    //        [self displayContentController:self.childViewControllers[0]];
-    //
-    //    }
     self.viewCounter = 0;
 }
 
@@ -140,13 +125,6 @@
     //welcome vc
     BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
     [self addChildViewController:welcomeVC];
-    
-    //notifications vc
-    UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
-    BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
-    
-    
-    
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -297,7 +275,12 @@
     [self.localDataStore saveContext];
     [self.localDataStore fetchData];
     
+    NSLog(@"Increasing the view counter in 'submit button hit'");
+    
     self.viewCounter++;
+    
+    NSLog(@"Self.viewCounter: %li", self.viewCounter);
+    
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];
     self.fromViewController = newController;
@@ -338,6 +321,9 @@
     UIViewController *oldController = self.fromViewController;
     
     if (self.viewCounter != [self.childViewControllers count]-1) {
+        
+        NSLog(@"Increasing the view counter in 'swipeLeftOccurred");
+        
         self.viewCounter++;
         BONChildViewController *newController = self.childViewControllers[self.viewCounter];
         [self cycleFromViewController:oldController toViewController:newController];

@@ -22,10 +22,7 @@
     self.sharedDataStore = [BONDataStore sharedDataStore];
     [self.sharedDataStore fetchData];
     
-    
-    
     NSLog(@"In View Did Load, after fetch Data, meals.count: %lu", self.sharedDataStore.userMeals.count);
-    NSLog(@"Meals array: %@", self.sharedDataStore.userMeals);
     
     [self updateWelcomeWithMostRecentMeal];
     [self setBackgroundAndEdits];
@@ -39,7 +36,6 @@
 -(void)updateWelcomeWithMostRecentMeal {
     
     NSLog(@"In update welcome with most recent meal");
-    NSLog(@"Shared Data Store's meal count: %lu", self.sharedDataStore.userMeals.count);
     
     if (self.sharedDataStore.userMeals.count == 0) {
         
@@ -50,8 +46,6 @@
         self.welcomeBackNameLabel.text = @"Welcome!";
     }
     else {
-        
-        NSLog(@"In the else of update welcome");
     
     Meal *mostRecentMeal = self.sharedDataStore.userMeals.lastObject;
     NSDate *mostRecentMealDate = mostRecentMeal.createdAt;

@@ -88,7 +88,7 @@
     [submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
     [submitButton.heightAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.10].active = YES;
     [submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.20].active = YES;
-    [submitButton.bottomAnchor constraintEqualToAnchor:self.backButton.topAnchor constant:-10].active = YES;
+    [submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-20].active = YES;
     
     self.submitButton = submitButton;
 }
@@ -121,17 +121,17 @@
 
 #pragma mark - Hamburger Button
 
--(void)buildHamburgerButton{
-    UIButton *hamburgerButton = [[UIButton alloc] init];
-    [hamburgerButton setTitle:@"Burg" forState:UIControlStateNormal];
-    [hamburgerButton addTarget:self action:@selector(hamburgerButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:hamburgerButton];
-    hamburgerButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [hamburgerButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
-    [hamburgerButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
-    [hamburgerButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.10].active = YES;
-    self.hamburgerButton = hamburgerButton;
-}
+//-(void)buildHamburgerButton{
+//    UIButton *hamburgerButton = [[UIButton alloc] init];
+//    [hamburgerButton setTitle:@"Burg" forState:UIControlStateNormal];
+//    [hamburgerButton addTarget:self action:@selector(hamburgerButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:hamburgerButton];
+//    hamburgerButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    [hamburgerButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
+//    [hamburgerButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
+//    [hamburgerButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.10].active = YES;
+//    self.hamburgerButton = hamburgerButton;
+//}
 
 -(void)hamburgerButtonTouched:(UIButton *)hamburgerButton{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"hamburgerButtonHit" object:self];
