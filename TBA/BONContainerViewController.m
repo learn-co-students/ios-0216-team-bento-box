@@ -107,12 +107,14 @@
     [self.hamburgerButton addTarget:self action:@selector(hamburgerButtonHit:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.hamburgerButton];
     
-    self.hamburgerButton.backgroundColor = [UIColor greenColor];
+    //self.hamburgerButton.backgroundColor = [UIColor greenColor];
     [self.hamburgerButton setTitle:@"☰" forState:UIControlStateNormal] ;
     self.hamburgerButton.titleLabel.textColor = [UIColor whiteColor];
     //self.hamburgerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.hamburgerButton.titleLabel.font = [UIFont systemFontOfSize:30];
     
+
+
     
 }
 
@@ -214,9 +216,13 @@
         hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.25, self.view.frame.size.height);
         
         //self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
-        self.hamburgerButton.frame = CGRectMake(100,0,60,60);
+      //  self.hamburgerButton.frame = CGRectMake(100,0,60,60);
         [self.hamburgerButton addTarget:self action:@selector(closeMenu:) forControlEvents:UIControlEventTouchUpInside]; //set action to close
         self.effectView.alpha = 0.75;
+        
+        
+        [self.effectView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeMenu:)]];
+        
     
     }];
     
@@ -238,7 +244,7 @@
         //self.hamburgerController.view.alpha = 0.0; put bak to fadeout
         self.hamburgerController.view.frame=CGRectMake(-(self.view.frame.size.width*0.25),0,self.view.frame.size.width*0.25,self.view.frame.size.height);
          self.effectView.alpha = 0;
-        self.hamburgerButton.frame = CGRectMake(0, 0, 60, 60);
+        //self.hamburgerButton.frame = CGRectMake(0, 0, 60, 60);
     }];
     
     [self.hamburgerButton addTarget:self action:@selector(hamburgerButtonHit:) forControlEvents:UIControlEventTouchUpInside]; //set action back to pen
@@ -369,6 +375,7 @@
         [oldVC removeFromParentViewController];
         [newVC didMoveToParentViewController:self];
     }];
+    
     UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     
     self.effectView = [[UIVisualEffectView alloc]initWithEffect:blur];
@@ -380,6 +387,7 @@
             [self.view bringSubviewToFront:view];
         }
     }
+
 }
 
 # pragma mark - Helper Methods

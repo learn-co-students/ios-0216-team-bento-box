@@ -74,7 +74,7 @@
     [self.view addSubview:closeButton];
     closeButton.translatesAutoresizingMaskIntoConstraints = NO;
     [closeButton.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:20].active = YES;
-    [closeButton.rightAnchor constraintEqualToAnchor:self.view.leftAnchor constant:100].active = YES;
+    [closeButton.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
     [closeButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.30].active = YES;
     self.closeButton = closeButton;
 }
@@ -94,5 +94,15 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)buildNavbar {
+    UIButton * notificationsButton = [[UIButton alloc]init];
+    [self.view addSubview:notificationsButton];
+    notificationsButton.translatesAutoresizingMaskIntoConstraints=false;
+    [notificationsButton.topAnchor constraintEqualToAnchor:self.closeButton.bottomAnchor].active=true;
+    [notificationsButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active=true;
+    [notificationsButton setTitle:@"Notifications" forState:UIControlStateNormal];
+    [notificationsButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.3].active=true;
+}
 
 @end
