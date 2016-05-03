@@ -13,22 +13,35 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UITextView *whatDidYouEatTextLabel;
 @property (weak, nonatomic) IBOutlet UITextView *DescriptionTextBox;
-@property (nonatomic,strong)UIButton *closeButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *submitButtonBottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *backButtonBottomConstraint;
+
+@property (assign, nonatomic) CGFloat initialSubmitButtonBottomConstraintConstant;
+@property (assign, nonatomic) CGFloat initialBackButtonBottomConstraintConstant;
+
+@property (nonatomic, strong)UIButton *closeButton;
 
 @end
 
 @implementation BONWhatViewController
 
 - (void)viewDidLoad {
-    self.sharedDataStore = [BONDataStore sharedDataStore];
     
+    self.sharedDataStore = [BONDataStore sharedDataStore];
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
- 
+    
+    [self setButtonAndTextViewConstraintConstants];
     [self setFontsStyle];
     [self setBackgroundAndEdits];
  
     [self.submitButton addTarget:self action:@selector(submitButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
     [self.backButton addTarget:self action:@selector(backButtonTouched:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
 }
 
 - (IBAction)pickTheTime:(id)sender {
@@ -106,17 +119,17 @@
     [self.submitButton.layer setBorderWidth:1];
     self.submitButton.layer.borderColor = [[UIColor whiteColor] CGColor];
    
-    self.backButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.backButton.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-20].active = YES;
-    [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
-    [self.backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-    [self.backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    
-    self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
-    [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
-    [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-    [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+//    self.backButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.backButton.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-20].active = YES;
+//    [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+//    [self.backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+//    [self.backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+//    
+//    self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
+//    [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+//    [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+//    [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
 
     self.backButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
                                                          green:254.0f/255.0f
@@ -150,8 +163,26 @@
     //self.swipeRight.enabled = NO;
 }
 
+- (void)keyboardWillShow:(NSNotification *)notification {
+    
+    NSLog(@"Keyboard will show is called");
+    
+    NSDictionary *userInformation = notification.userInfo;
+    NSValue *keyboardFrameValue = userInformation[UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardFrame = keyboardFrameValue.CGRectValue;
+    CGFloat keyboardHeight = keyboardFrame.size.height;
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.submitButtonBottomConstraint.constant = self.initialSubmitButtonBottomConstraintConstant + keyboardHeight;
+//                         self.backButtonBottomConstraint.constant = self.initialBackButtonBottomConstraintConstant + keyboardHeight;
+                         [self.view layoutIfNeeded];
+                     }];
+}
 
-
-
+- (void)setButtonAndTextViewConstraintConstants {
+    self.initialSubmitButtonBottomConstraintConstant = self.submitButtonBottomConstraint.constant;
+    self.initialBackButtonBottomConstraintConstant = self.backButtonBottomConstraint.constant;
+}
 
 @end

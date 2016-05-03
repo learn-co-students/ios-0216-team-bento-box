@@ -96,31 +96,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
-                                <rect key="frame" x="251" y="543" width="98" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
+                                <rect key="frame" x="225" y="530" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="FqG-3a-o7D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
-                                <rect key="frame" x="266" y="502" width="69" height="49"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
+                                <rect key="frame" x="226" y="480" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
-                                <rect key="frame" x="0.0" y="60" width="600" height="200"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="nDA-Cn-buO"/>
+                                    <constraint firstAttribute="height" constant="100" id="nDA-Cn-buO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
-                                <rect key="frame" x="75" y="260" width="450" height="300"/>
+                                <rect key="frame" x="75" y="130" width="450" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="uhp-G8-s6a"/>
+                                    <constraint firstAttribute="height" constant="120" id="uhp-G8-s6a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -128,13 +128,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hh1-9d-hWy" firstAttribute="top" secondItem="zyi-2f-VhC" secondAttribute="bottom" id="M5o-59-yvb"/>
+                            <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="40" id="46d-ee-Z6a"/>
+                            <constraint firstItem="13X-3E-CqC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.25" id="G7W-jv-ppG"/>
+                            <constraint firstItem="nN6-Xc-euN" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.25" id="Gkd-Ze-Efb"/>
+                            <constraint firstItem="hh1-9d-hWy" firstAttribute="top" secondItem="zyi-2f-VhC" secondAttribute="bottom" constant="10" id="M5o-59-yvb"/>
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="MXV-YY-A3y"/>
+                            <constraint firstItem="nN6-Xc-euN" firstAttribute="height" secondItem="nNs-ao-RFb" secondAttribute="height" multiplier="0.05" id="U0l-Gn-hqv"/>
                             <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="8" id="W44-8x-n2u"/>
-                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="3" id="XcD-hL-RuT"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" id="XcD-hL-RuT"/>
+                            <constraint firstItem="13X-3E-CqC" firstAttribute="height" secondItem="nNs-ao-RFb" secondAttribute="height" multiplier="0.05" id="Xnw-SJ-9zK"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.75" id="b91-6n-lad"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" id="bWg-i5-Isj"/>
-                            <constraint firstItem="nN6-Xc-euN" firstAttribute="top" secondItem="13X-3E-CqC" secondAttribute="bottom" constant="-8" placeholder="YES" id="byO-mY-eAZ"/>
+                            <constraint firstItem="nN6-Xc-euN" firstAttribute="top" secondItem="13X-3E-CqC" secondAttribute="bottom" constant="20" id="byO-mY-eAZ"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="gVl-wW-gIz"/>
                             <constraint firstItem="13X-3E-CqC" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="nor-Xy-hyW"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="pIu-86-FGj"/>
@@ -149,7 +154,9 @@
                         <outlet property="DescriptionTextBox" destination="hh1-9d-hWy" id="QMX-7R-ZaF"/>
                         <outlet property="answerText" destination="hh1-9d-hWy" id="MAs-Qf-Tu2"/>
                         <outlet property="backButton" destination="13X-3E-CqC" id="O6g-fQ-uqc"/>
+                        <outlet property="backButtonBottomConstraint" destination="byO-mY-eAZ" id="SBI-fU-SHG"/>
                         <outlet property="submitButton" destination="nN6-Xc-euN" id="heb-Ze-MrF"/>
+                        <outlet property="submitButtonBottomConstraint" destination="46d-ee-Z6a" id="pDE-D6-iJd"/>
                         <outlet property="whatDidYouEatTextLabel" destination="zyi-2f-VhC" id="aAL-hP-eZl"/>
                     </connections>
                 </viewController>
