@@ -17,13 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-Rd-FOA">
                                 <rect key="frame" x="175" y="148" width="250" height="304"/>
-=======
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-Rd-FOA">
-                                <rect key="frame" x="175" y="148" width="250" height="303"/>
->>>>>>> master
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome back!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-cv-r9x">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="21"/>
