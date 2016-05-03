@@ -158,12 +158,7 @@
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
     [self addChildViewController:historyVC];
     [self.childViewControllers addObject:historyVC];
-<<<<<<< HEAD
-    [self.childViewControllers addObject:resultsVC]; 
-=======
-    [self.childViewControllers addObject:notificationsVC];
     [self.childViewControllers addObject:resultsVC];
->>>>>>> master
     
     resultsVC.resultMeal = self.userMeal;
 }
