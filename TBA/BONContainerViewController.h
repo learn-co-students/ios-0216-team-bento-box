@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BONDataStore.h"
+#import "Meal.h"
 
 @interface BONContainerViewController : UIViewController
+
+@property (nonatomic, strong) BONDataStore *localDataStore;
+@property (nonatomic, strong) Meal *userMeal;
+@property (nonatomic, strong)NSMutableArray *childViewControllers;
 
 @property (nonatomic, assign) NSInteger viewCounter;
 @property (nonatomic, strong) UIViewController *fromViewController;

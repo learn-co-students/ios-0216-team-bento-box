@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BONFirebaseClient.h"
+#import "BONWhereViewController.h"
+#import "BONWhenViewController.h"
+#import "BONWelcomeViewController.h"
+#import "BONChildViewController.h"
+#import "BONResultsViewController.h"
 
 @class BONContainerViewController;
 

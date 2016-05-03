@@ -65,9 +65,6 @@
     
     UILabel * what = [cell.contentView.subviews objectAtIndex:2];
     what.text = currentMeal.whatWasEaten;
-    NSLog(@"current index path: %li", indexPath.row);
-
-
     
     return cell;
 }
@@ -106,10 +103,45 @@
     }
     return img = [UIImage imageNamed:imageName];
 }
+
 - (IBAction)createNewMeal:(id)sender {
     
     BONContainerViewController *parentViewController = (BONContainerViewController *)self.parentViewController;
+    
+    parentViewController.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                  inManagedObjectContext:parentViewController.localDataStore.managedObjectContext];
+    
+    parentViewController.userMeal.createdAt = [NSDate date];
+    
     parentViewController.viewCounter = 0;
+    [parentViewController.childViewControllers removeAllObjects];
+    
+    UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+                                                              bundle:nil];
+    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView"
+                                                             bundle:nil];
+    UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
+                                                     bundle:nil];
+    
+    BONChildViewController *whatViewController = [BONChildViewController new];
+    BONChildViewController *whenViewController = [BONChildViewController new];
+    
+    [whatViewController getQuestionLabel];
+    [whenViewController getQuestionLabel];
+    
+    whatViewController.questionLabel.textColor = [UIColor whiteColor];
+    whatViewController.questionLabel.text = @"What did you eat?";
+    
+    whenViewController.questionLabel.textColor = [UIColor whiteColor];
+    whenViewController.questionLabel.text = @"When did you eat?";
+    
+    [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"when"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"what"]];
+    [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
+    [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
+    
     [parentViewController displayContentController:parentViewController.childViewControllers.firstObject];
 }
 

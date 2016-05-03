@@ -120,8 +120,6 @@
         
     }
     
-    NSLog(@"Current HH in military: %@. It's %@", currentHour, self.mealTypes[predictedMealIndexInArray]);
-    
     [self.mealTypePicker selectRow:predictedMealIndexInArray inComponent:0 animated:YES];
     
     

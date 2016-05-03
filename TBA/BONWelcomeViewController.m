@@ -33,8 +33,6 @@
     
     if (self.sharedDataStore.userMeals.count == 0) {
         
-        NSLog(@"In the if of update welcome");
-        
         self.lastMealTimeLabel.hidden = YES;
         self.lastMealLoggedLabel.hidden = YES;
         self.welcomeBackNameLabel.text = @"Welcome!";

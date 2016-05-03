@@ -165,8 +165,6 @@
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     
-    NSLog(@"Keyboard will show is called");
-    
     NSDictionary *userInformation = notification.userInfo;
     NSValue *keyboardFrameValue = userInformation[UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrame = keyboardFrameValue.CGRectValue;

@@ -25,11 +25,8 @@
 
 @interface BONContainerViewController ()
 
-@property (nonatomic, strong)NSMutableArray *childViewControllers;
 @property (nonatomic, strong)BONHamburgerViewController *hamburgerController;
-@property (nonatomic, strong)BONDataStore *localDataStore;
 @property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
-@property (nonatomic, strong)Meal *userMeal;
 @property (nonatomic, strong)UIVisualEffectView* effectView;
 @property (nonatomic, strong)UIButton * hamburgerButton;
 @property (nonatomic) NSInteger  hamburgerControllerWidth;
@@ -45,8 +42,6 @@
     [super viewDidLoad];
     
     NSLog(@"Container view controller description: %@", self.description);
-    
-    NSLog(@"Container view did load, selv.viewCounter: %li", self.viewCounter);
     
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
@@ -103,8 +98,6 @@
         self.hamburgerButton.alpha=0;
         
     }
-
-    
 }
 
 #pragma mark - Container View Controller Handlers

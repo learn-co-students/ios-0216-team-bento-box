@@ -97,15 +97,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN6-Xc-euN">
-                                <rect key="frame" x="225" y="530" width="150" height="30"/>
+                                <rect key="frame" x="225" y="545" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="FqG-3a-o7D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
-                                <rect key="frame" x="226" y="480" width="150" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
+                                <rect key="frame" x="225" y="495" width="150" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
@@ -128,7 +128,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="40" id="46d-ee-Z6a"/>
+                            <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="25" id="46d-ee-Z6a"/>
                             <constraint firstItem="13X-3E-CqC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.25" id="G7W-jv-ppG"/>
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.25" id="Gkd-Ze-Efb"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="top" secondItem="zyi-2f-VhC" secondAttribute="bottom" constant="10" id="M5o-59-yvb"/>
