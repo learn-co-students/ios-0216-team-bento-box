@@ -7,6 +7,8 @@
 //
 
 #import "BONNotificationsSettings.h"
+#import "BONContainerViewController.h"
+
 @interface BONNotificationsSettings()
 @property (weak, nonatomic) IBOutlet UIDatePicker *breakfastNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *lunchNotifPicker;
@@ -14,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *breakfastTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lunchTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dinnerTextLabel;
+
 
 @end
 
@@ -104,7 +107,7 @@
     [self setMealType:@"lunch" Notification:lunchTimePicked];
     [self setMealType:@"dinner" Notification:dinnerTimePicked];
     
-       [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
+       //[[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
 
 }
 - (IBAction)backButton:(id)sender {
@@ -149,6 +152,19 @@
                                                     alpha:1.0f] forKey:@"textColor"];
     
 }
+
+-(void)goToVC: (UIButton *)button{
+    BONContainerViewController * parent= [self parentViewController];
+    UIViewController *oldController = parent.fromViewController;
+    
+    UIViewController * newController = parent.childViewControllers[0];
+
+    [parent cycleFromViewController:oldController toViewController:newController];
+    parent.fromViewController = newController;
+   
+    
+}
+
 
 
 @end
