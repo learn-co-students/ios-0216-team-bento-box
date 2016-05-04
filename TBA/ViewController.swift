@@ -12,27 +12,29 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String: AnyObject]){
         // Saving an opening pics; Want to use the time stamp to name pics with unique id
-        //                let metadata = info[UIImagePickerControllerMediaMetadata]
-        //                    as? NSDictionary
-        //                if let theMetaData = metadata{
-        //                    let image = info[UIImagePickerControllerOriginalImage]
-        //                        as? UIImage
-        //                    if let theImage = image{
-        //                        print("Image Metadata = \(theMetaData)")
-        //                        print("Image = \(theImage)")
-        //                        // Define the specific path, image name
-        //
-        //                        let imagePath = fileInDocumentsDirectory("dd")
-        //                        saveImage(image!, path: imagePath)
-        //                        loadImageFromPath(imagePath)
-        //
-        //
-        //
-        //        let imagePath = fileInDocumentsDirectory("dd")
-        //        var pic = loadImageFromPath(imagePath)
+//                        let metadata = info[UIImagePickerControllerMediaMetadata]
+//                            as? NSDictionary
+//                        if let theMetaData = metadata{
+//                            let image = info[UIImagePickerControllerOriginalImage]
+//                                as? UIImage
+//                            if let theImage = image{
+//                                print("Image Metadata = \(theMetaData)")
+//                                print("Image = \(theImage)")
+//                                // Define the specific path, image name
+//        
+//                                let imagePath = fileInDocumentsDirectory("dd")
+//                                saveImage(image!, path: imagePath)
+//                                loadImageFromPath(imagePath)
+//        
+//        
+//        
+//                let imagePath = fileInDocumentsDirectory("dd")
+//                var pic = loadImageFromPath(imagePath)
         
         
         //var picView:UIImageView = UIImageView(image: pic)
+        
+        //end of comment
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
             
@@ -138,4 +140,3 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
 }
-
