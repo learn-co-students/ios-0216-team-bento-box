@@ -28,6 +28,8 @@
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     [self.sharedFirebaseClient saveCurrentMealWithData];
     
+    UIEdgeInsets inset = UIEdgeInsetsMake(20, 0, 0, 0);
+    self.tableView.contentInset = inset;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
