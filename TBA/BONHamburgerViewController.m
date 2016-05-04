@@ -104,14 +104,28 @@
 
 -(void)goToVC: (UIButton *)button{
     BONContainerViewController * parent= [self parentViewController];
+    UIViewController *oldController = parent.fromViewController;
+    
     UIViewController *newController;
     if ([button.titleLabel.text isEqual:@"Notifications"]) {
         newController = parent.childViewControllers[6];
-//    } else if ([button.titleLabel.text isEqual:@"Past Meals"]) {
-//        newController = parent.childViewControllers[5];
-//    } else if ([button.titleLabel.text isEqual:@"Insights"]) {
-//        newController = parent.childViewControllers[5];
-//    } else if ([button.titleLabel.text isEqual:@"Logout"]) {
+        if([self isFromController:oldController EqualToNewController:newController]){
+            [self closeButtonTouched:nil];
+            return;
+        }
+    } else if ([button.titleLabel.text isEqual:@"Past Meals"]) {
+        newController = parent.childViewControllers[5];
+        if([self isFromController:oldController EqualToNewController:newController]){
+            [self closeButtonTouched:nil];
+            return;
+        }
+    } else if ([button.titleLabel.text isEqual:@"Insights"]) {
+        newController = parent.childViewControllers[5];
+        if([self isFromController:oldController EqualToNewController:newController]){
+            [self closeButtonTouched:nil];
+            return;
+        }
+    } else if ([button.titleLabel.text isEqual:@"Logout"]) {
         newController = parent.childViewControllers[1];
         [self logOutButtonHit];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
@@ -120,13 +134,17 @@
         return;
         
     }
-
-
-    UIViewController *oldController = parent.fromViewController;
+    
+    
     [parent cycleFromViewController:oldController toViewController:newController];
     parent.fromViewController = newController;
     [self closeButtonTouched:nil];
     
+}
+
+-(BOOL)isFromController: (UIViewController *) fromController EqualToNewController: (UIViewController *)newController{
+    
+    return fromController==newController;
 }
 
 -(void)logOutButtonHit {

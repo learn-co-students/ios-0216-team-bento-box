@@ -125,6 +125,12 @@
     BONWelcomeViewController * welcomeVC =[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"];
     [self addChildViewController:welcomeVC];
     
+    //notifications vc
+    UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
+    BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
+    
+   
+    
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
     
@@ -151,6 +157,7 @@
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
     [self addChildViewController:historyVC];
     [self.childViewControllers addObject:historyVC];
+    [self.childViewControllers addObject:notificationsVC];
     [self.childViewControllers addObject:resultsVC];
     
     resultsVC.resultMeal = self.userMeal;
