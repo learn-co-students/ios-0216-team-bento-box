@@ -42,8 +42,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         //end of comment
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            
-            picView = UIImageView(image: image)
+
+            picView.image =  image
             
         }
         self.dismissViewControllerAnimated(true, completion: nil)
