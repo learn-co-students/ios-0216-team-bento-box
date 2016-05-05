@@ -5,9 +5,14 @@ import MobileCoreServices
 @objc class ViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    var picView = UIImageView(image:UIImage(named:"default"))
     
     var beenHereBefore = false
     var controller: UIImagePickerController?
+    
+    
+    
+    
     
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String: AnyObject]){
@@ -38,30 +43,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
             
-            let picView = UIImageView(image: image)
-            self.view.addSubview(picView)
-            picView.translatesAutoresizingMaskIntoConstraints = false
-            picView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-            picView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-            picView.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.5).active = true
-            picView.widthAnchor.constraintEqualToAnchor(picView.heightAnchor).active = true
-            picView.contentMode = .ScaleAspectFit
-            
-            let submitButton = UIButton();
-            self.view.addSubview(submitButton);
-            submitButton.translatesAutoresizingMaskIntoConstraints = false
-            submitButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor , constant:20).active = true
-            submitButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-            submitButton.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.1).active = true
-            submitButton.widthAnchor.constraintEqualToAnchor(picView.heightAnchor).active = true
-            submitButton.backgroundColor = UIColor.redColor()
-            submitButton.setTitle("Submit", forState: .Normal)
-            let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
-            
-            submitButton.addGestureRecognizer(gr);
-            //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
-            
-            //        picView.image = pic
+            picView = UIImageView(image: image)
             
         }
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -73,23 +55,50 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         [submitButtonTapped()];
     }
     
+    func createImageView()
+    {
+        self.view.addSubview(picView)
+        picView.translatesAutoresizingMaskIntoConstraints = false
+        picView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        picView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
+        picView.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.5).active = true
+        picView.widthAnchor.constraintEqualToAnchor(picView.heightAnchor).active = true
+        picView.contentMode = .ScaleAspectFit
+        
+        picView.userInteractionEnabled = true;
+        let picGR = UITapGestureRecognizer(target: self, action:#selector(picTapped));
+        picView.addGestureRecognizer(picGR);
+        let submitButton = UIButton();
+        self.view.addSubview(submitButton);
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        submitButton.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor , constant:20).active = true
+        submitButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        submitButton.heightAnchor.constraintEqualToAnchor(view.heightAnchor, multiplier: 0.1).active = true
+        submitButton.widthAnchor.constraintEqualToAnchor(picView.heightAnchor).active = true
+        submitButton.backgroundColor = UIColor.redColor()
+        submitButton.setTitle("Submit", forState: .Normal)
+        let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
+        
+        submitButton.addGestureRecognizer(gr);
+        //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
+        
+        //        picView.image = pic
+
+    }
+    
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if beenHereBefore{
-            
-            return;
-        } else {
-            beenHereBefore = true
-        }
-        controller = UIImagePickerController()
-        controller!.sourceType = .Camera
-        controller!.allowsEditing = false
-        controller!.delegate = self
-        presentViewController(controller!, animated: true, completion: nil)
-        
+//        if beenHereBefore{
+//            
+//            return;
+//        } else {
+//            beenHereBefore = true
+//        }
+
+        createImageView()
         
         
     }
@@ -134,6 +143,14 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func submitButtonTapped() -> Void {
         NSNotificationCenter.defaultCenter().postNotificationName("submitButtonHit", object:self)
+    }
+    
+    func picTapped() -> Void {
+        controller = UIImagePickerController()
+        controller!.sourceType = .Camera
+        controller!.allowsEditing = false
+        controller!.delegate = self
+        presentViewController(controller!, animated: true, completion: nil)
     }
     
     
