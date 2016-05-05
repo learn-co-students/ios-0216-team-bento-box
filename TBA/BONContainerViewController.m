@@ -128,7 +128,8 @@
     //notifications vc
     UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
     BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
-    
+    //mealPicVC
+    ViewController *mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
    
     
     BONChildViewController *whatViewController = [BONChildViewController new];
@@ -149,6 +150,7 @@
     [self.childViewControllers addObject:welcomeVC];
     [self.childViewControllers addObject:whenVC];
     [self.childViewControllers addObject:whatVC];
+    [self.childViewControllers addObject:mealPic];
     [self.childViewControllers addObject:whereViewController];
     // [self.childViewControllers addObject:[BONHowQuestionViewController new]];
     [self.childViewControllers addObject:howVC];
