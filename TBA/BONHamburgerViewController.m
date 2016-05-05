@@ -108,19 +108,19 @@
     
     UIViewController *newController;
     if ([button.titleLabel.text isEqual:@"Notifications"]) {
-        newController = parent.childViewControllers[6];
+        newController = parent.childViewControllers[7];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
         }
     } else if ([button.titleLabel.text isEqual:@"Past Meals"]) {
-        newController = parent.childViewControllers[5];
+        newController = parent.childViewControllers[6];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
         }
     } else if ([button.titleLabel.text isEqual:@"Insights"]) {
-        newController = parent.childViewControllers[5];
+        newController = parent.childViewControllers[6];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
