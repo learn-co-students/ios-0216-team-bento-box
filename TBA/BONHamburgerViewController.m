@@ -11,6 +11,7 @@
 #import "BONFirebaseClient.h"
 #import "BONWhenViewController.h"
 #import "BONChildViewController.h"
+#import "TBA-Swift.h"
 
 @interface BONHamburgerViewController ()
 @property (nonatomic, strong)NSArray * arr;
@@ -170,6 +171,7 @@
                                                              bundle:nil];
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
                                                      bundle:nil];
+    ViewController * mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -187,6 +189,7 @@
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"when"]];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"what"]];
     [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
+    [parentViewController.childViewControllers addObject:mealPic];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
     [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
     

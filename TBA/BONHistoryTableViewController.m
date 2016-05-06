@@ -10,6 +10,7 @@
 #import "BONDataStore.h"
 #import "Meal.h"
 #import "BONContainerViewController.h"
+#import "TBA-Swift.h"
 
 @interface BONHistoryTableViewController ()
 @property(nonatomic, strong) NSArray * pastMeals;
@@ -124,6 +125,7 @@
                                                              bundle:nil];
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
                                                      bundle:nil];
+    ViewController *mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -140,6 +142,7 @@
     [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"]];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"when"]];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"what"]];
+    [parentViewController.childViewControllers addObject:mealPic];
     [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
     [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
