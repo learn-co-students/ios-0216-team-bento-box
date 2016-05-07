@@ -243,6 +243,7 @@
                         <outlet property="emo3" destination="70D-pa-IOd" id="NH3-sN-DFM"/>
                         <outlet property="emo4" destination="aPb-y6-b8C" id="e95-pp-ZOk"/>
                         <outlet property="emo5" destination="94w-u7-bcV" id="XLV-Uh-vNa"/>
+                        <outlet property="howQuestionTextLabel" destination="jeu-1i-ley" id="mDy-nQ-LV6"/>
                         <outlet property="howUserFeltTextLabel" destination="jeu-1i-ley" id="cAG-cd-MdG"/>
                         <outlet property="submitButton" destination="pEE-bv-nLA" id="1Ai-hq-BSa"/>
                     </connections>
