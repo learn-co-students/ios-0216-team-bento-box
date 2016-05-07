@@ -66,6 +66,88 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         picView.contentMode = .ScaleAspectFit
         
         picView.userInteractionEnabled = true;
+
+        //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
+        
+        //        picView.image = pic
+
+    }
+    
+    func buildNavButtons() -> Void {
+//        - (void)setFontsStyle {
+//            
+
+        let backButton = UIButton()
+        let submitButton = UIButton()
+        
+        backButton.setTitle("Back", forState: .Normal)
+        submitButton.setTitle("Submit", forState: .Normal)
+        
+        
+
+        self.view.addSubview(submitButton);
+        self.view.addSubview(backButton);
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        submitButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        //            [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
+        
+        submitButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -40).active=true
+        //            [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+        submitButton.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier:0.25).active=true
+
+        
+        //            [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+        
+        
+        submitButton.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.05).active=true
+        //            [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+        submitButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+
+//            [self.backButton.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-20].active = YES;
+        
+            backButton.bottomAnchor.constraintEqualToAnchor(submitButton.topAnchor, constant: -20).active = true
+//            [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+            backButton.widthAnchor .constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.25).active = true
+//            [self.backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+            backButton.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.05).active = true
+//            [self.backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+            backButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        
+        //            self.howQuestionTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+        
+        //
+            submitButton.titleLabel!.font = UIFont(name: "Baskerville", size:20)
+            backButton.titleLabel!.font = UIFont(name:"Baskerville", size:20)
+        
+        let buttonTitleColor = UIColor(red:255/255,green:254/255,blue:245.0/255.0, alpha:1)
+        backButton.setTitleColor(buttonTitleColor, forState: .Normal)
+        submitButton.setTitleColor(buttonTitleColor, forState: .Normal)
+     
+        
+                    backButton.layer.cornerRadius = 12
+                    backButton.clipsToBounds = true
+        
+                    submitButton.layer.cornerRadius = 12
+                    submitButton.clipsToBounds = true
+                    backButton.layer.borderWidth = 1
+                    backButton.layer.borderColor = UIColor.whiteColor().CGColor
+                    submitButton.layer.borderWidth = 1
+                    submitButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+
+        let buttonBGColor = UIColor(red: 255/255, green: 254/255, blue: 245/255, alpha: 0.25)
+        backButton.backgroundColor = buttonBGColor
+        submitButton.backgroundColor = buttonBGColor
+        
+        let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
+        submitButton.addGestureRecognizer(gr);
+
+    }
+    
+    
+    func buildRedSubmitButton(){
         let picGR = UITapGestureRecognizer(target: self, action:#selector(picTapped));
         picView.addGestureRecognizer(picGR);
         let submitButton = UIButton();
@@ -80,25 +162,35 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
         
         submitButton.addGestureRecognizer(gr);
-        //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
-        
-        //        picView.image = pic
-
     }
     
-    
-    
+    func makeBackground() {
+
+        self.view.backgroundColor = UIColor(red: 127/255, green: 235/255, blue: 197/255, alpha:1)
+        
+
+
+        let gradientMaskLayer = UIColor(red: 41/255,green:166/255,blue:122/255, alpha:1.0)
+        
+let gradientMask = CAGradientLayer();
+gradientMask.frame = self.view.bounds;
+gradientMask.colors = [gradientMaskLayer.CGColor,UIColor.clearColor().CGColor]
+self.view.layer.insertSublayer(gradientMask, atIndex:0);
+
+    }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
 //        if beenHereBefore{
-//            
+//
 //            return;
 //        } else {
 //            beenHereBefore = true
 //        }
-
+        makeBackground()
         createImageView()
+        buildNavButtons()
+        
         
         
     }
