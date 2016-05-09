@@ -17,24 +17,24 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String: AnyObject]){
         // Saving an opening pics; Want to use the time stamp to name pics with unique id
-//                        let metadata = info[UIImagePickerControllerMediaMetadata]
-//                            as? NSDictionary
-//                        if let theMetaData = metadata{
-//                            let image = info[UIImagePickerControllerOriginalImage]
-//                                as? UIImage
-//                            if let theImage = image{
-//                                print("Image Metadata = \(theMetaData)")
-//                                print("Image = \(theImage)")
-//                                // Define the specific path, image name
-//        
-//                                let imagePath = fileInDocumentsDirectory("dd")
-//                                saveImage(image!, path: imagePath)
-//                                loadImageFromPath(imagePath)
-//        
-//        
-//        
-//                let imagePath = fileInDocumentsDirectory("dd")
-//                var pic = loadImageFromPath(imagePath)
+        //                        let metadata = info[UIImagePickerControllerMediaMetadata]
+        //                            as? NSDictionary
+        //                        if let theMetaData = metadata{
+        //                            let image = info[UIImagePickerControllerOriginalImage]
+        //                                as? UIImage
+        //                            if let theImage = image{
+        //                                print("Image Metadata = \(theMetaData)")
+        //                                print("Image = \(theImage)")
+        //                                // Define the specific path, image name
+        //
+        //                                let imagePath = fileInDocumentsDirectory("dd")
+        //                                saveImage(image!, path: imagePath)
+        //                                loadImageFromPath(imagePath)
+        //
+        //
+        //
+        //                let imagePath = fileInDocumentsDirectory("dd")
+        //                var pic = loadImageFromPath(imagePath)
         
         
         //var picView:UIImageView = UIImageView(image: pic)
@@ -42,7 +42,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         //end of comment
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-
+            
             picView.image =  image
             
         }
@@ -66,17 +66,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         picView.contentMode = .ScaleAspectFit
         
         picView.userInteractionEnabled = true;
-
+        let picGR = UITapGestureRecognizer(target: self, action:#selector(picTapped));
+        picView.addGestureRecognizer(picGR);
         //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
         
         //        picView.image = pic
-
+        
     }
     
     func buildNavButtons() -> Void {
-//        - (void)setFontsStyle {
-//            
-
         let backButton = UIButton()
         let submitButton = UIButton()
         
@@ -84,72 +82,61 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         submitButton.setTitle("Submit", forState: .Normal)
         
         
-
+        
         self.view.addSubview(submitButton);
         self.view.addSubview(backButton);
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         
-        //            [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
-        
         submitButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: -40).active=true
-        //            [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+        
         submitButton.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier:0.25).active=true
-
-        
-        //            [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-        
         
         submitButton.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.05).active=true
-        //            [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+        
         submitButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-
-//            [self.backButton.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-20].active = YES;
         
-            backButton.bottomAnchor.constraintEqualToAnchor(submitButton.topAnchor, constant: -20).active = true
-//            [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
-            backButton.widthAnchor .constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.25).active = true
-//            [self.backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-            backButton.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.05).active = true
-//            [self.backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-            backButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        backButton.bottomAnchor.constraintEqualToAnchor(submitButton.topAnchor, constant: -20).active = true
         
-        //            self.howQuestionTextLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+        backButton.widthAnchor .constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.25).active = true
         
-        //
-            submitButton.titleLabel!.font = UIFont(name: "Baskerville", size:20)
-            backButton.titleLabel!.font = UIFont(name:"Baskerville", size:20)
+        backButton.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.05).active = true
+        
+        backButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        
+        submitButton.titleLabel!.font = UIFont(name: "Baskerville", size:20)
+        
+        backButton.titleLabel!.font = UIFont(name:"Baskerville", size:20)
         
         let buttonTitleColor = UIColor(red:255/255,green:254/255,blue:245.0/255.0, alpha:1)
         backButton.setTitleColor(buttonTitleColor, forState: .Normal)
         submitButton.setTitleColor(buttonTitleColor, forState: .Normal)
-     
         
-                    backButton.layer.cornerRadius = 12
-                    backButton.clipsToBounds = true
         
-                    submitButton.layer.cornerRadius = 12
-                    submitButton.clipsToBounds = true
-                    backButton.layer.borderWidth = 1
-                    backButton.layer.borderColor = UIColor.whiteColor().CGColor
-                    submitButton.layer.borderWidth = 1
-                    submitButton.layer.borderColor = UIColor.whiteColor().CGColor
+        backButton.layer.cornerRadius = 12
+        backButton.clipsToBounds = true
         
-
+        submitButton.layer.cornerRadius = 12
+        submitButton.clipsToBounds = true
+        backButton.layer.borderWidth = 1
+        backButton.layer.borderColor = UIColor.whiteColor().CGColor
+        submitButton.layer.borderWidth = 1
+        submitButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        
         let buttonBGColor = UIColor(red: 255/255, green: 254/255, blue: 245/255, alpha: 0.25)
         backButton.backgroundColor = buttonBGColor
         submitButton.backgroundColor = buttonBGColor
         
         let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
         submitButton.addGestureRecognizer(gr);
-
+        
     }
     
     
     func buildRedSubmitButton(){
-        let picGR = UITapGestureRecognizer(target: self, action:#selector(picTapped));
-        picView.addGestureRecognizer(picGR);
+        
         let submitButton = UIButton();
         self.view.addSubview(submitButton);
         submitButton.translatesAutoresizingMaskIntoConstraints = false
@@ -160,36 +147,50 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         submitButton.backgroundColor = UIColor.redColor()
         submitButton.setTitle("Submit", forState: .Normal)
         let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
-        
         submitButton.addGestureRecognizer(gr);
     }
     
+    func buildTitleLabel(){
+        let titleLabel = UILabel();
+        titleLabel.text = "Take a picture of your meal"
+        view.addSubview(titleLabel);
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .Center
+        titleLabel.topAnchor.constraintEqualToAnchor(view.topAnchor, constant: 60).active = true
+        titleLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+        titleLabel.widthAnchor.constraintEqualToAnchor(view.widthAnchor).active = true
+        titleLabel.font = UIFont(name:"Baskerville", size:20)
+        let titleColor = UIColor(red:255/255,green:254/255,blue:245.0/255.0, alpha:1)
+        titleLabel.textColor = titleColor
+  
+    }
+    
     func makeBackground() {
-
+        
         self.view.backgroundColor = UIColor(red: 127/255, green: 235/255, blue: 197/255, alpha:1)
         
-
-
         let gradientMaskLayer = UIColor(red: 41/255,green:166/255,blue:122/255, alpha:1.0)
         
-let gradientMask = CAGradientLayer();
-gradientMask.frame = self.view.bounds;
-gradientMask.colors = [gradientMaskLayer.CGColor,UIColor.clearColor().CGColor]
-self.view.layer.insertSublayer(gradientMask, atIndex:0);
-
+        let gradientMask = CAGradientLayer();
+        gradientMask.frame = self.view.bounds;
+        gradientMask.colors = [gradientMaskLayer.CGColor,UIColor.clearColor().CGColor]
+        self.view.layer.insertSublayer(gradientMask, atIndex:0);
+        
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-//        if beenHereBefore{
-//
-//            return;
-//        } else {
-//            beenHereBefore = true
-//        }
+        if beenHereBefore{
+            
+            return;
+        } else {
+            beenHereBefore = true
+        }
+        
         makeBackground()
         createImageView()
         buildNavButtons()
+        buildTitleLabel()
         
         
         
@@ -227,7 +228,7 @@ self.view.layer.insertSublayer(gradientMask, atIndex:0);
             
             print("missing image at: \(path)")
         }
-        print("Loading image from path: \(path)") 
+        print("Loading image from path: \(path)")
         return image
         
     }
