@@ -76,7 +76,6 @@
     [pastMealsButton setTitle:@"Past Meals" forState:UIControlStateNormal];
     [pastMealsButton addTarget:self action:@selector(goToVC:) forControlEvents:UIControlEventTouchUpInside];
 
-
     UIButton * insightsButton = [[UIButton alloc]init];
     [self.view addSubview:insightsButton];
     insightsButton.translatesAutoresizingMaskIntoConstraints=NO;
@@ -109,7 +108,7 @@
     
     UIViewController *newController;
     if ([button.titleLabel.text isEqual:@"Notifications"]) {
-        newController = parent.childViewControllers[6];
+        newController = parent.childViewControllers[7];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
