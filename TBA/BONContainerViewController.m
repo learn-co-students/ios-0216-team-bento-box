@@ -21,7 +21,9 @@
 #import "BONWelcomeViewController.h"
 #import "BONHowViewController.h"
 #import "BONHistoryTableViewController.h"
+#import "BONSummaryViewController.h"
 #import <UIKit/UIKit.h>
+
 #import "TBA-Swift.h"
 
 @interface BONContainerViewController ()
@@ -131,6 +133,9 @@
     BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
     //mealPicVC
     ViewController *mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
+    
+    //summaryVC
+    BONSummaryViewController *summaryVC = [whenStoryboard instantiateViewControllerWithIdentifier:@"summaryVC"];
    
     
     BONChildViewController *whatViewController = [BONChildViewController new];
@@ -159,6 +164,7 @@
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard" bundle:nil];
     BONHistoryTableViewController *historyVC = [history instantiateViewControllerWithIdentifier:@"historyTableVC"];
     [self addChildViewController:historyVC];
+    [self.childViewControllers addObject:summaryVC];
     [self.childViewControllers addObject:historyVC];
     [self.childViewControllers addObject:notificationsVC];
     [self.childViewControllers addObject:resultsVC];
