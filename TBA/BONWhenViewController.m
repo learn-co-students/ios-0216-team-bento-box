@@ -220,6 +220,13 @@
 - (void)setFontsStyle {
     
     self.whenDidYouEatQuestionLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    self.whenDidYouEatQuestionLabel.textAlignment = NSTextAlignmentCenter;
+
+//    self.whenDidYouEatQuestionLabel.translatesAutoresizingMaskIntoConstraints=NO;
+//    [self.whenDidYouEatQuestionLabel.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:60].active = YES;
+//    [self.whenDidYouEatQuestionLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+//    [self.whenDidYouEatQuestionLabel.widthAnchor constraintEqualToAnchor: self.view.widthAnchor].active = YES;
+    
     self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     self.backButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
     [self.timePicker setValue:[UIColor colorWithRed:255.0f/255.0f

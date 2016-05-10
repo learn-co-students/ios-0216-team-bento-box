@@ -49,7 +49,7 @@
                                 <state key="normal" title="Back"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-Qu-hOp">
-                                <rect key="frame" x="0.0" y="60" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="80" width="600" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" placeholder="YES" id="5eo-Fw-DNP"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="On2-Zs-MHS"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="PeI-o6-FDl"/>
                             <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="a4W-Vt-7OQ"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" multiplier="3" placeholder="YES" id="bbI-IB-7SA"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" placeholder="YES" id="bbI-IB-7SA"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="top" secondItem="6A4-Hx-dtI" secondAttribute="bottom" constant="-8" placeholder="YES" id="eI6-YB-k0t"/>
                             <constraint firstItem="tmS-y2-AxT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="klY-2s-c2c"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" placeholder="YES" id="nS0-Z6-zth"/>
@@ -268,7 +268,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V9u-Wz-ZkS">
                                 <rect key="frame" x="150" y="75" width="300" height="450"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="What you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-iZ-nMw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-iZ-nMw">
                                         <rect key="frame" x="73" y="0.0" width="154" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -281,7 +281,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Where you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02e-5p-fTg">
-                                        <rect key="frame" x="67" y="158" width="168" height="30"/>
+                                        <rect key="frame" x="66" y="158" width="168" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -293,12 +293,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How you felt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-OK-NFT">
-                                        <rect key="frame" x="78" y="316" width="146" height="30"/>
+                                        <rect key="frame" x="77" y="316" width="146" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OgG-AV-QMk">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OgG-AV-QMk">
                                         <rect key="frame" x="125" y="400" width="50" height="50"/>
                                     </imageView>
                                 </subviews>
