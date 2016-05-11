@@ -9,6 +9,8 @@
 #import "BONSummaryViewController.h"
 #import "Meal.h"
 #import "BONDataStore.h"
+#import "BONContainerViewController.h"
+#import "TBA-Swift.h"
 @interface BONSummaryViewController()
 @property (weak, nonatomic) IBOutlet UILabel *whatText;
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
@@ -99,6 +101,47 @@
     
     [self.view.layer insertSublayer:gradientMask atIndex:0];
     
+}
+- (IBAction)historyTapped:(id)sender {
+    BONContainerViewController * parent= [self parentViewController];
+    UIViewController *oldController = parent.fromViewController;
+    UIViewController * newController = parent.childViewControllers[7];
+     [parent cycleFromViewController:oldController toViewController:newController];
+}
+- (IBAction)newMealButton:(id)sender {
+    BONContainerViewController *parentViewController = (BONContainerViewController *)self.parentViewController;
+    
+    parentViewController.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                                  inManagedObjectContext:parentViewController.localDataStore.managedObjectContext];
+    
+    parentViewController.userMeal.createdAt = [NSDate date];
+    
+    parentViewController.viewCounter = 0;
+    [parentViewController.childViewControllers removeAllObjects];
+    
+    UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+                                                              bundle:nil];
+    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView"
+                                                             bundle:nil];
+    UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
+                                                     bundle:nil];
+    ViewController * mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
+    
+
+
+    
+    [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"when"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"what"]];
+    [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
+    [parentViewController.childViewControllers addObject:mealPic];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"summaryVC"]];
+    [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
+    
+    [parentViewController displayContentController:parentViewController.childViewControllers.firstObject];
+    
+
 }
 
 
