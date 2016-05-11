@@ -92,11 +92,11 @@
                  else {
                      NSLog(@"Logged in, UID: %@ and token: %@", authData.uid, authData.token);
                      
-                     BONContainerViewController *containerViewController = [BONContainerViewController new];
-                     
-                     [fromViewController presentViewController:containerViewController
-                                                      animated:YES
-                                                    completion:nil];
+//                     BONContainerViewController *containerViewController = [BONContainerViewController new];
+//                     
+//                     [fromViewController presentViewController:containerViewController
+//                                                      animated:YES
+//                                                    completion:nil];
                  }
              }];
 }

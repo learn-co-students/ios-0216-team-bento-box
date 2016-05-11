@@ -23,6 +23,9 @@
 @implementation BONFirebaseViewController
 
 - (void)viewDidLoad {
+    
+    
+    
     [super viewDidLoad];
     [self loadAddUserButton];
     [self loadLoginButton];
@@ -47,6 +50,8 @@
     [self.firebaseClient createNewUserInFirebaseWithEmail:self.emailTextField.text
                                                  Password:self.passwordTextField.text
                                        FromViewController:self];
+    
+    [self.delegate didLoginUserWithFirebaseViewController:self];
 }
 - (IBAction)loginTapped:(id)sender {
     

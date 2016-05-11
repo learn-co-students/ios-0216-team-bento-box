@@ -38,6 +38,9 @@
     
     
     self.window.rootViewController = containerVC;
+    
+    NSLog(@"Root VC description: %@", containerVC.description);
+    
     [self.window makeKeyAndVisible];
     
     UIUserNotificationType notificationTypes = (UIUserNotificationTypeBadge | UIUserNotificationTypeAlert);

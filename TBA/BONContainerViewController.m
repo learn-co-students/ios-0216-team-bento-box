@@ -15,6 +15,7 @@
 #import "BONDataStore.h"
 #import "BONGameViewController.h"
 #import "BONWhereViewController.h"
+#import "BONFirebaseViewController.h"
 #import "BONFirebaseClient.h"
 #import "BONWhenViewController.h"
 #import "BONWhatViewController.h"
@@ -24,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #import "TBA-Swift.h"
 
-@interface BONContainerViewController ()
+@interface BONContainerViewController () <BONFirebaseViewControllerDelegate>
 
 @property (nonatomic, strong)BONHamburgerViewController *hamburgerController;
 @property (nonatomic, strong)BONFirebaseClient *sharedFirebaseClient;
@@ -74,7 +75,8 @@
     } else {
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
-        UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        BONFirebaseViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        loginViewController.delegate = self;
         [self displayContentController:loginViewController];
     }
     
@@ -396,6 +398,15 @@
     else {
         self.userMeal.whereWasItEaten = self.localDataStore.whereWasEatenString;
     }
+}
+
+- (void)didLoginUserWithFirebaseViewController:(BONFirebaseViewController *)firebaseViewController {
+    
+    NSLog(@"We just logged a user in in the Firbase View Controller");
+    [self displayContentController:self.childViewControllers[0]];
+    self.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                  inManagedObjectContext:self.localDataStore.managedObjectContext];
+    self.userMeal.createdAt = [NSDate date];
 }
 
 /*

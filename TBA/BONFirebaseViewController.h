@@ -10,8 +10,19 @@
 #import "BONFirebaseClient.h"
 #import "BONContainerViewController.h"
 
+@class BONFirebaseViewController;
+
+@protocol BONFirebaseViewControllerDelegate <NSObject>
+
+@required
+
+- (void)didLoginUserWithFirebaseViewController:(BONFirebaseViewController *)firebaseViewController;
+
+@end
+
 @interface BONFirebaseViewController : UIViewController
 
+@property (weak, nonatomic) id<BONFirebaseViewControllerDelegate> delegate;
 @property (strong, nonatomic) BONFirebaseClient *firebaseClient;
 
 @end
