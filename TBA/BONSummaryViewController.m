@@ -9,6 +9,8 @@
 #import "BONSummaryViewController.h"
 #import "Meal.h"
 #import "BONDataStore.h"
+#import "BONContainerViewController.h"
+#import "TBA-Swift.h"
 @interface BONSummaryViewController()
 @property (weak, nonatomic) IBOutlet UILabel *whatText;
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
@@ -30,8 +32,9 @@
 
 - (void)viewDidLoad {
 
-    
-   
+    NSUInteger  size = [self.resultDataStore.userMeals count];
+    [self setResultsFieldsWithLastObject];
+    [self setBackgroundAndEdits];
  
 
     
@@ -66,6 +69,80 @@
     self.whatText.text = currentMeal.whatWasEaten;
 }
 
+-(void)setResultsFieldsWithLastObject {
+    
+    self.resultDataStore = [BONDataStore sharedDataStore];
+    [self.resultDataStore fetchData];
+    Meal *currentMeal = self.resultDataStore.userMeals.lastObject;
+    
+    self.whereText.text =currentMeal.whereWasItEaten;
+    self.whatText.text = currentMeal.whatWasEaten;
+    NSLog(@"%@", currentMeal.howUserFelt);
+    NSString * imageName = [NSString stringWithFormat:@"how%@", currentMeal.howUserFelt];
+    self.howImage.image= [UIImage imageNamed:imageName];
+    [self.howImage setContentMode:UIViewContentModeScaleAspectFit];
+}
+
+- (void)setBackgroundAndEdits {
+    self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
+                                                green:235.0f/255.0f
+                                                 blue:197.0f/255.0f
+                                                alpha:1.0f];
+    
+    UIColor *gradientMaskLayer = [UIColor colorWithRed:41.0f/255.0f
+                                                 green:166.0f/255.0f
+                                                  blue:122.0f/255.0f
+                                                 alpha:1.0f];
+    
+    CAGradientLayer *gradientMask = [CAGradientLayer layer];
+    gradientMask.frame = self.view.bounds;
+    gradientMask.colors = @[(id)gradientMaskLayer.CGColor,
+                            (id)[UIColor clearColor].CGColor];
+    
+    [self.view.layer insertSublayer:gradientMask atIndex:0];
+    
+}
+- (IBAction)historyTapped:(id)sender {
+    BONContainerViewController * parent= [self parentViewController];
+    UIViewController *oldController = parent.fromViewController;
+    UIViewController * newController = parent.childViewControllers[7];
+     [parent cycleFromViewController:oldController toViewController:newController];
+}
+- (IBAction)newMealButton:(id)sender {
+    BONContainerViewController *parentViewController = (BONContainerViewController *)self.parentViewController;
+    
+    parentViewController.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                                  inManagedObjectContext:parentViewController.localDataStore.managedObjectContext];
+    
+    parentViewController.userMeal.createdAt = [NSDate date];
+    
+    parentViewController.viewCounter = 0;
+    [parentViewController.childViewControllers removeAllObjects];
+    
+    UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
+                                                              bundle:nil];
+    UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView"
+                                                             bundle:nil];
+    UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
+                                                     bundle:nil];
+    ViewController * mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
+    
+
+
+    
+    [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"welcome"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"when"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"what"]];
+    [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
+    [parentViewController.childViewControllers addObject:mealPic];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"summaryVC"]];
+    [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
+    
+    [parentViewController displayContentController:parentViewController.childViewControllers.firstObject];
+    
+
+}
 
 
 

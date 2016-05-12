@@ -122,10 +122,13 @@
     UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
                                                               bundle:nil];
     UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView"
+                                    
+    
                                                              bundle:nil];
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
                                                      bundle:nil];
     ViewController *mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
+
     
     BONChildViewController *whatViewController = [BONChildViewController new];
     BONChildViewController *whenViewController = [BONChildViewController new];
@@ -145,6 +148,7 @@
     [parentViewController.childViewControllers addObject:mealPic];
     [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"summaryVC"]];
     [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
     
     [parentViewController displayContentController:parentViewController.childViewControllers.firstObject];

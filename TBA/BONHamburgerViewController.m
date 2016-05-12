@@ -108,13 +108,13 @@
     
     UIViewController *newController;
     if ([button.titleLabel.text isEqual:@"Notifications"]) {
-        newController = parent.childViewControllers[7];
+        newController = parent.childViewControllers[8];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
         }
     } else if ([button.titleLabel.text isEqual:@"Past Meals"]) {
-        newController = parent.childViewControllers[6];
+        newController = parent.childViewControllers[7];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
@@ -190,6 +190,7 @@
     [parentViewController.childViewControllers addObject:[arielStoryboard instantiateViewControllerWithIdentifier:@"whereViewController"]];
     [parentViewController.childViewControllers addObject:mealPic];
     [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"how"]];
+    [parentViewController.childViewControllers addObject:[whenStoryboard instantiateViewControllerWithIdentifier:@"summaryVC"]];
     [parentViewController.childViewControllers addObject:[history instantiateViewControllerWithIdentifier:@"historyTableVC"]];
     
     [parentViewController displayContentController:parentViewController.childViewControllers.firstObject];
