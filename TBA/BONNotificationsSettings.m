@@ -8,6 +8,7 @@
 
 #import "BONNotificationsSettings.h"
 @interface BONNotificationsSettings()
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *breakfastNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *lunchNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dinnerNotifPicker;
@@ -22,6 +23,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self setFontsStyle];
+    [self setSubmitButtonStyle];
     [self setBackgroundAndEdits];
 }
 
@@ -104,11 +106,6 @@
     [self setMealType:@"lunch" Notification:lunchTimePicked];
     [self setMealType:@"dinner" Notification:dinnerTimePicked];
     
-       [[NSNotificationCenter defaultCenter] postNotificationName:@"submitButtonHit" object:self];
-
-}
-- (IBAction)backButton:(id)sender {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"backButtonHit" object:self];
 }
 
 - (void)setBackgroundAndEdits {
@@ -149,6 +146,43 @@
                                                     alpha:1.0f] forKey:@"textColor"];
     
 }
+
+- (void)setSubmitButtonStyle {
+
+    self.submitButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+
+    
+
+    [self.submitButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                     green:254.0f/255.0f
+                                                      blue:245.0f/255.0f
+                                                     alpha:1.0] forState:UIControlStateNormal];
+    
+
+
+    self.submitButton.layer.cornerRadius = 12;
+    self.submitButton.clipsToBounds = YES;
+    
+
+    
+    [self.submitButton.layer setBorderWidth:1];
+    self.submitButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    
+        self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
+    //    [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
+        [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
+    //    [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
+    //    [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+
+    
+    self.submitButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                        green:254.0f/255.0f
+                                                         blue:245.0f/255.0f
+                                                        alpha:0.25f];
+    
+}
+
+
 
 
 @end

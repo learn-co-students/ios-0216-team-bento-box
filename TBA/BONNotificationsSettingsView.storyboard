@@ -18,34 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ixd-Uh-gAj" userLabel="All Pickers">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ixd-Uh-gAj" userLabel="All Pickers">
                                 <rect key="frame" x="0.0" y="50" width="600" height="550"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Your Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LaS-bw-i7g">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="23"/>
+                                        <rect key="frame" x="157" y="0.0" width="286" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z4b-n7-ukP" userLabel="Breakfast Picker and Switch">
-                                        <rect key="frame" x="0.0" y="23" width="600" height="155"/>
+                                        <rect key="frame" x="140" y="24" width="320" height="165"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-rM-nhH">
-                                                <rect key="frame" x="239" y="0.0" width="122" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Gh-rM-nhH">
+                                                <rect key="frame" x="100" y="0.0" width="122" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-sK-WZA">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Breakfast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj9-sK-WZA">
                                                         <rect key="frame" x="0.0" y="0.0" width="73" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFU-aN-Ggj">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFU-aN-Ggj">
                                                         <rect key="frame" x="73" y="0.0" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQ6-ZN-HOb">
-                                                <rect key="frame" x="0.0" y="31" width="600" height="124"/>
+                                                <rect key="frame" x="0.0" y="31" width="320" height="134"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="482065200.53681999">
                                                     <!--2016-04-11 11:00:00 +0000-->
                                                 </date>
@@ -56,24 +56,24 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P73-LC-6QA" userLabel="Lunch Picker and Switch">
-                                        <rect key="frame" x="0.0" y="178" width="600" height="155"/>
+                                        <rect key="frame" x="140" y="189" width="320" height="165"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-aE-A8D">
-                                                <rect key="frame" x="252" y="0.0" width="97" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7lr-aE-A8D">
+                                                <rect key="frame" x="112" y="0.0" width="97" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-wz-mbi">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lunch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-wz-mbi">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-fC-Cam">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DNT-fC-Cam">
                                                         <rect key="frame" x="48" y="0.0" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-VP-JiZ">
-                                                <rect key="frame" x="0.0" y="31" width="600" height="124"/>
+                                                <rect key="frame" x="0.0" y="31" width="320" height="134"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="482083200.53681999">
                                                     <!--2016-04-11 16:00:00 +0000-->
                                                 </date>
@@ -84,24 +84,24 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NmN-68-Igb" userLabel="Dinner Picker and Switch">
-                                        <rect key="frame" x="0.0" y="333" width="600" height="155"/>
+                                        <rect key="frame" x="140" y="353" width="320" height="165"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-dz-ze3">
-                                                <rect key="frame" x="250" y="0.0" width="100" height="31"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ute-dz-ze3">
+                                                <rect key="frame" x="111" y="0.0" width="100" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yy-i7-EkY">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dinner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yy-i7-EkY">
                                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vD1-jJ-082">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vD1-jJ-082">
                                                         <rect key="frame" x="51" y="0.0" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-Vy-0Pr">
-                                                <rect key="frame" x="0.0" y="31" width="600" height="124"/>
+                                                <rect key="frame" x="0.0" y="31" width="320" height="134"/>
                                                 <date key="date" timeIntervalSinceReferenceDate="482101200.53681999">
                                                     <!--2016-04-11 21:00:00 +0000-->
                                                 </date>
@@ -111,18 +111,10 @@
                                             <constraint firstItem="Dxm-Vy-0Pr" firstAttribute="width" secondItem="NmN-68-Igb" secondAttribute="width" id="izf-QX-DWR"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTy-H9-n4u">
-                                        <rect key="frame" x="0.0" y="488" width="600" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="LgU-Qb-rt3" eventType="touchUpInside" id="qFW-Li-McG"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5b-oo-wxr">
-                                        <rect key="frame" x="0.0" y="519" width="600" height="31"/>
+                                        <rect key="frame" x="266" y="518" width="68" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                        <state key="normal" title="Submit"/>
+                                        <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="submit:" destination="LgU-Qb-rt3" eventType="touchUpInside" id="d3P-f5-rwY"/>
                                         </connections>
@@ -157,11 +149,30 @@
                         <outlet property="dinnerTextLabel" destination="4yy-i7-EkY" id="O75-o9-1hz"/>
                         <outlet property="lunchNotifPicker" destination="Edt-VP-JiZ" id="Gee-ek-jOf"/>
                         <outlet property="lunchTextLabel" destination="DmT-wz-mbi" id="UDu-lU-ySx"/>
+                        <outlet property="submitButton" destination="J5b-oo-wxr" id="yNy-hl-r9O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SF-h8-SN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980" y="274"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4ZG-jr-bIy">
+            <objects>
+                <viewController id="nQs-LI-43Q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QIS-Km-Efb"/>
+                        <viewControllerLayoutGuide type="bottom" id="gJQ-ZB-R0m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EF9-m4-2sa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFh-BC-Pta" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1643" y="206"/>
         </scene>
     </scenes>
 </document>
