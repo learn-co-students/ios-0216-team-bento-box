@@ -67,7 +67,7 @@
                   Firebase *usersReference = [self.rootReference childByAppendingPath:@"Users"];
                   Firebase *currentUserReference = [usersReference childByAppendingPath:self.userIDReference];
                   
-                  [currentUserReference setValue:self.userIDReference];
+                  [currentUserReference setValue:email];
                   
 //                  [currentUserReference setValue:self.meal];
                   

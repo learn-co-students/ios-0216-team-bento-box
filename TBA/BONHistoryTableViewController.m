@@ -25,10 +25,7 @@
     [super viewDidLoad];
     self.allMeals = [BONDataStore sharedDataStore];
     [self.allMeals fetchData];
-    
-    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
-    [self.sharedFirebaseClient saveCurrentMealWithData];
-    
+        
     UIEdgeInsets inset = UIEdgeInsetsMake(20, 0, 0, 0);
     self.tableView.contentInset = inset;
     // Uncomment the following line to preserve selection between presentations.
