@@ -24,9 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  
-
-    
 
     [self buildCloseButton];
     [self buildNavbar];
@@ -36,8 +33,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 -(void)buildCloseButton{
     UIButton *closeButton = [[UIButton alloc] init];

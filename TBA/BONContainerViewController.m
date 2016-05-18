@@ -198,7 +198,7 @@
 
     
 
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:0.8 animations:^{
     //hamburgerController.view.alpha = 1;
 //        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.60, 0, 0, self.view.frame.size.height);
         
