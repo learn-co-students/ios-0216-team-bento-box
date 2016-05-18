@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -52,7 +53,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-Qu-hOp">
                                 <rect key="frame" x="0.0" y="80" width="600" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" placeholder="YES" id="5eo-Fw-DNP"/>
+                                    <constraint firstAttribute="width" secondItem="2Oh-Qu-hOp" secondAttribute="height" multiplier="6:1" id="uQc-2Q-o2x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -61,17 +62,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aFk-pk-RFb" secondAttribute="bottom" constant="8" placeholder="YES" id="1Jf-8m-CnP"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Sb-cc-A1l"/>
                             <constraint firstItem="6A4-Hx-dtI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="6uG-Wa-6pY"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="INO-IG-wZU"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="O8W-ms-EvW"/>
                             <constraint firstItem="tmS-y2-AxT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ONJ-vU-8Kn"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="On2-Zs-MHS"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="PeI-o6-FDl"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="a4W-Vt-7OQ"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" placeholder="YES" id="bbI-IB-7SA"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="d08-z4-R4F"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="top" secondItem="6A4-Hx-dtI" secondAttribute="bottom" constant="-8" placeholder="YES" id="eI6-YB-k0t"/>
                             <constraint firstItem="tmS-y2-AxT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="klY-2s-c2c"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" placeholder="YES" id="nS0-Z6-zth"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="sD5-q7-GqY"/>
                         </constraints>
                     </view>
                     <connections>
