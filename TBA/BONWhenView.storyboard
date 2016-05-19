@@ -111,20 +111,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
-                                <rect key="frame" x="0.0" y="60" width="600" height="100"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
+                                <rect key="frame" x="75" y="99" width="450" height="102"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="nDA-Cn-buO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
-                                <rect key="frame" x="75" y="170" width="450" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="uhp-G8-s6a"/>
+                                    <constraint firstAttribute="height" constant="102" id="uhp-G8-s6a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
+                                <rect key="frame" x="0.0" y="30" width="600" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="nDA-Cn-buO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -137,7 +137,7 @@
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="MXV-YY-A3y"/>
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="height" secondItem="nNs-ao-RFb" secondAttribute="height" multiplier="0.05" id="U0l-Gn-hqv"/>
                             <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="8" id="W44-8x-n2u"/>
-                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="3" id="XcD-hL-RuT"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" constant="10" id="XcD-hL-RuT"/>
                             <constraint firstItem="13X-3E-CqC" firstAttribute="height" secondItem="nNs-ao-RFb" secondAttribute="height" multiplier="0.05" id="Xnw-SJ-9zK"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.75" id="b91-6n-lad"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" id="bWg-i5-Isj"/>
@@ -155,6 +155,7 @@
                     <connections>
                         <outlet property="DescriptionTextBox" destination="hh1-9d-hWy" id="QMX-7R-ZaF"/>
                         <outlet property="answerText" destination="hh1-9d-hWy" id="MAs-Qf-Tu2"/>
+                        <outlet property="answerTextViewHeightConstraint" destination="uhp-G8-s6a" id="CiR-bM-uuZ"/>
                         <outlet property="backButton" destination="13X-3E-CqC" id="O6g-fQ-uqc"/>
                         <outlet property="backButtonBottomConstraint" destination="byO-mY-eAZ" id="SBI-fU-SHG"/>
                         <outlet property="submitButton" destination="nN6-Xc-euN" id="heb-Ze-MrF"/>
