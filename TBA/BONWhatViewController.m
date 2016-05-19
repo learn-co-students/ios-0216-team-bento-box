@@ -123,6 +123,8 @@
 
 }
 
+- (IBAction)submitInfo:(id)sender {
+}
 
 
 - (void)keyboardWillShow:(NSNotification *)notification {

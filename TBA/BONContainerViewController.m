@@ -198,7 +198,7 @@
 
     
 
-    [UIView animateWithDuration:0.8 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
     //hamburgerController.view.alpha = 1;
 //        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.60, 0, 0, self.view.frame.size.height);
         
@@ -226,7 +226,7 @@
 -(void)closeMenu:(id)sender{
     //self.hamburgerController.view.frame=CGRectMake(0,0,0,0);
     NSLog(@"closing menu");
-    [UIView animateWithDuration:0.8 animations:^{
+    [UIView animateWithDuration:0.4 animations:^{
         //self.hamburgerController.view.alpha = 0.0; put bak to fadeout
         self.hamburgerController.view.frame=CGRectMake(-(self.view.frame.size.width*0.60),0,self.view.frame.size.width*0.60,self.view.frame.size.height);
          self.effectView.alpha = 0;
