@@ -12,6 +12,7 @@
 #import "BONLoginViewController.h"
 #import "BONResultsViewController.h"
 #import "BONHowQuestionViewController.h"
+#import "BONNotificationsSettings.h"
 #import "BONDataStore.h"
 #import "BONGameViewController.h"
 #import "BONWhereViewController.h"
@@ -129,7 +130,7 @@
     
     //notifications vc
     UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
-    BONWhenViewController *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
+    BONNotificationsSettings *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
     //mealPicVC
     ViewController *mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
     

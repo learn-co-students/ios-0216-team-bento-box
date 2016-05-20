@@ -11,6 +11,7 @@
 #import "BONFirebaseClient.h"
 #import "BONWhenViewController.h"
 #import "BONChildViewController.h"
+#import "BONNotificationsSettings.h"
 #import "TBA-Swift.h"
 
 @interface BONHamburgerViewController ()
@@ -19,8 +20,6 @@
 @end
 
 @implementation BONHamburgerViewController
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -91,24 +90,27 @@
 }
 
 -(void)goToVC: (UIButton *)button{
-    BONContainerViewController * parent= [self parentViewController];
+    BONContainerViewController *parent= (BONContainerViewController *)[self parentViewController];
     UIViewController *oldController = parent.fromViewController;
     
     UIViewController *newController;
     if ([button.titleLabel.text isEqual:@"Notifications"]) {
-        newController = parent.childViewControllers[8];
-        if([self isFromController:oldController EqualToNewController:newController]){
-            [self closeButtonTouched:nil];
-            return;
-        }
+        
+        UIStoryboard *notificationsStoryboard = [UIStoryboard storyboardWithName:@"BONNotificationsSettingsView" bundle:nil];
+        BONNotificationsSettings *notificationsVC= [notificationsStoryboard instantiateViewControllerWithIdentifier:@"notifications"];
+        
+        [self presentViewController:notificationsVC
+                           animated:YES
+                         completion:nil];
+        return;
+        
+//        newController = parent.childViewControllers[8];
+//        if([self isFromController:oldController EqualToNewController:newController]){
+//            [self closeButtonTouched:nil];
+//            return;
+//        }
     } else if ([button.titleLabel.text isEqual:@"Past Meals"]) {
         newController = parent.childViewControllers[7];
-        if([self isFromController:oldController EqualToNewController:newController]){
-            [self closeButtonTouched:nil];
-            return;
-        }
-    } else if ([button.titleLabel.text isEqual:@"Insights"]) {
-        newController = parent.childViewControllers[5];
         if([self isFromController:oldController EqualToNewController:newController]){
             [self closeButtonTouched:nil];
             return;
@@ -120,14 +122,11 @@
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [parent displayContentController:loginViewController];
         return;
-        
     }
-    
     
     [parent cycleFromViewController:oldController toViewController:newController];
     parent.fromViewController = newController;
     [self closeButtonTouched:nil];
-    
 }
 
 -(BOOL)isFromController: (UIViewController *) fromController EqualToNewController: (UIViewController *)newController{
@@ -154,10 +153,13 @@
     
     UIStoryboard *arielStoryboard = [UIStoryboard storyboardWithName:@"Ariel's Storyboard"
                                                               bundle:nil];
+    
     UIStoryboard *whenStoryboard = [UIStoryboard storyboardWithName:@"BONWhenView"
                                                              bundle:nil];
+    
     UIStoryboard *history= [UIStoryboard storyboardWithName:@"BONHistoryStoryboard"
                                                      bundle:nil];
+    
     ViewController * mealPic = [whenStoryboard instantiateViewControllerWithIdentifier:@"mealPic"];
     
     BONChildViewController *whatViewController = [BONChildViewController new];

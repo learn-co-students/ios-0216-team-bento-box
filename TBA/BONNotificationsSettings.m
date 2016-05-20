@@ -40,18 +40,13 @@
     [breakfastNotif setFireDate: breakfastTimeFromComponents];
     [breakfastNotif.userInfo setValue:@"breakfast" forKey:@"uid"];
     
-    
-    
     [[UIApplication sharedApplication] scheduleLocalNotification:breakfastNotif];
-
-    
 }
 
 
 -(void)setMealType:(NSString *)  mealType Notification:(NSDate *)date {
     [self deleteNotification:mealType];
     UILocalNotification * breakfastNotif = [[UILocalNotification alloc] init];
-  
    
     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:mealType forKey:@"uid"];
     breakfastNotif.userInfo = userInfo;
@@ -64,15 +59,9 @@
     breakfastNotif.repeatInterval = NSCalendarUnitWeekday;
     NSDate * breakfastTimeFromComponents = [myCal dateFromComponents:breakfastTime];
     [breakfastNotif setFireDate: breakfastTimeFromComponents];
-
-    
-    
     
     [[UIApplication sharedApplication] scheduleLocalNotification:breakfastNotif];
-    
-    
 }
-
 
 //helper method for setNotification, deletes existing notification for mealtype
 -(void)deleteNotification: (NSString *) uidtodelete {
@@ -95,7 +84,18 @@
         }
     }
 }
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
+
 - (IBAction)submit:(id)sender {
+    
+    NSLog(@"Save button in notifications VC");
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
     
     NSDate * breakfastTimePicked = self.breakfastNotifPicker.date;
     NSDate * lunchTimePicked = self.lunchNotifPicker.date;
@@ -162,19 +162,8 @@
 
     self.submitButton.layer.cornerRadius = 12;
     self.submitButton.clipsToBounds = YES;
-    
-
-    
     [self.submitButton.layer setBorderWidth:1];
     self.submitButton.layer.borderColor = [[UIColor whiteColor] CGColor];
-    
-        self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
-    //    [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
-        [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
-    //    [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-    //    [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-
-    
     self.submitButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
                                                         green:254.0f/255.0f
                                                          blue:245.0f/255.0f
