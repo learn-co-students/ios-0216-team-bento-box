@@ -70,18 +70,11 @@
     [pastMealsButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active=YES;
     [pastMealsButton setTitle:@"Past Meals" forState:UIControlStateNormal];
     [pastMealsButton addTarget:self action:@selector(goToVC:) forControlEvents:UIControlEventTouchUpInside];
-
-    UIButton * insightsButton = [[UIButton alloc]init];
-    [self.view addSubview:insightsButton];
-    insightsButton.translatesAutoresizingMaskIntoConstraints=NO;
-    [insightsButton.topAnchor constraintEqualToAnchor:pastMealsButton.bottomAnchor].active=YES;
-    [insightsButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active=YES;
-    [insightsButton setTitle:@"Insights" forState:UIControlStateNormal];
     
     UIButton * newMealButton = [[UIButton alloc]init];
     [self.view addSubview:newMealButton];
     newMealButton.translatesAutoresizingMaskIntoConstraints=NO;
-    [newMealButton.topAnchor constraintEqualToAnchor:insightsButton.bottomAnchor].active=YES;
+    [newMealButton.topAnchor constraintEqualToAnchor:pastMealsButton.bottomAnchor].active=YES;
     [newMealButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active=YES;
     [newMealButton setTitle:@"New Meal" forState:UIControlStateNormal];
     [newMealButton addTarget:self action:@selector(newMeal) forControlEvents:UIControlEventTouchUpInside];
