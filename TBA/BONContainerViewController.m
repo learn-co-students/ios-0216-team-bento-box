@@ -45,8 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Container view controller description: %@", self.description);
-    
     self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
     
     // Instantiating dataStore
@@ -83,7 +81,6 @@
     }
     
     self.viewCounter = 0;
-    NSLog(@"End of viewdidload Self.ViewCounter: %li", self.viewCounter);
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -198,7 +195,7 @@
 
     
 
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
     //hamburgerController.view.alpha = 1;
 //        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.60, 0, 0, self.view.frame.size.height);
         
@@ -226,7 +223,7 @@
 -(void)closeMenu:(id)sender{
     //self.hamburgerController.view.frame=CGRectMake(0,0,0,0);
     NSLog(@"closing menu");
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         //self.hamburgerController.view.alpha = 0.0; put bak to fadeout
         self.hamburgerController.view.frame=CGRectMake(-(self.view.frame.size.width*0.60),0,self.view.frame.size.width*0.60,self.view.frame.size.height);
          self.effectView.alpha = 0;
@@ -292,8 +289,6 @@
     [self.localDataStore fetchData];
     
     self.viewCounter++;
-    
-    NSLog(@"self.description: %@ self.viewCounter: %li", self.description, self.viewCounter);
     
     BONChildViewController *newController = self.childViewControllers[self.viewCounter];
     [self cycleFromViewController:oldController toViewController:newController];
