@@ -9,9 +9,12 @@
 #import "BONNotificationsSettings.h"
 @interface BONNotificationsSettings()
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *breakfastNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *lunchNotifPicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *dinnerNotifPicker;
+
 @property (weak, nonatomic) IBOutlet UILabel *breakfastTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lunchTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dinnerTextLabel;
@@ -24,6 +27,7 @@
     [super viewDidLoad];
     [self setFontsStyle];
     [self setSubmitButtonStyle];
+    [self setCancelButtonStyle];
     [self setBackgroundAndEdits];
 }
 
@@ -158,8 +162,6 @@
                                                       blue:245.0f/255.0f
                                                      alpha:1.0] forState:UIControlStateNormal];
     
-
-
     self.submitButton.layer.cornerRadius = 12;
     self.submitButton.clipsToBounds = YES;
     [self.submitButton.layer setBorderWidth:1];
@@ -168,11 +170,28 @@
                                                         green:254.0f/255.0f
                                                          blue:245.0f/255.0f
                                                         alpha:0.25f];
-    
 }
 
-
-
+- (void)setCancelButtonStyle {
+    
+    self.cancelButton.titleLabel.font = [UIFont fontWithName:@"Baskerville" size:20];
+    
+    
+    
+    [self.cancelButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f
+                                                     green:254.0f/255.0f
+                                                      blue:245.0f/255.0f
+                                                     alpha:1.0] forState:UIControlStateNormal];
+    
+    self.cancelButton.layer.cornerRadius = 12;
+    self.cancelButton.clipsToBounds = YES;
+    [self.cancelButton.layer setBorderWidth:1];
+    self.cancelButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.cancelButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
+                                                        green:254.0f/255.0f
+                                                         blue:245.0f/255.0f
+                                                        alpha:0.25f];
+}
 
 @end
 

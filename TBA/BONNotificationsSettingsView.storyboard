@@ -112,23 +112,31 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="kGi-z5-kWC">
-                                        <rect key="frame" x="193" y="517" width="214" height="33"/>
+                                        <rect key="frame" x="125" y="517" width="350" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQr-fG-3p4">
-                                                <rect key="frame" x="0.0" y="0.0" width="68" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="33"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="98" id="Tu1-zy-tyt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                                <state key="normal" title="Save">
-                                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Submit">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Tu1-zy-tyt"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <action selector="submit:" destination="LgU-Qb-rt3" eventType="touchUpInside" id="uiT-Ba-pG0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zca-d8-ysy">
-                                                <rect key="frame" x="118" y="0.0" width="96" height="33"/>
+                                                <rect key="frame" x="200" y="0.0" width="150" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonTapped:" destination="LgU-Qb-rt3" eventType="touchUpInside" id="PSW-vw-e8I"/>
@@ -137,13 +145,23 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="zca-d8-ysy" firstAttribute="width" secondItem="ixd-Uh-gAj" secondAttribute="width" id="alk-kR-i4c"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="alk-kR-i4c"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ixd-Uh-gAj" firstAttribute="centerX" secondItem="v3A-fN-NbA" secondAttribute="centerX" id="0GI-qZ-V93"/>
+                            <constraint firstItem="aQr-fG-3p4" firstAttribute="width" secondItem="v3A-fN-NbA" secondAttribute="width" multiplier="0.25" id="1p7-F2-ZuB"/>
                             <constraint firstItem="ixd-Uh-gAj" firstAttribute="leading" secondItem="v3A-fN-NbA" secondAttribute="leading" id="4G0-A1-DeJ"/>
                             <constraint firstItem="ixd-Uh-gAj" firstAttribute="height" secondItem="v3A-fN-NbA" secondAttribute="height" id="RB0-09-DNn"/>
+                            <constraint firstItem="zca-d8-ysy" firstAttribute="width" secondItem="v3A-fN-NbA" secondAttribute="width" multiplier="0.25" id="WnX-Iu-PgV"/>
                             <constraint firstAttribute="bottom" secondItem="ixd-Uh-gAj" secondAttribute="bottom" id="Zlb-gf-3TZ"/>
                             <constraint firstAttribute="trailing" secondItem="ixd-Uh-gAj" secondAttribute="trailing" id="as9-Ks-DHC"/>
                             <constraint firstItem="ixd-Uh-gAj" firstAttribute="top" secondItem="pFO-oX-8Bd" secondAttribute="bottom" constant="30" id="bSH-6u-7oc"/>
@@ -162,10 +180,12 @@
                     <connections>
                         <outlet property="breakfastNotifPicker" destination="jQ6-ZN-HOb" id="aiH-X3-dpV"/>
                         <outlet property="breakfastTextLabel" destination="Cj9-sK-WZA" id="HwE-hw-bFY"/>
+                        <outlet property="cancelButton" destination="zca-d8-ysy" id="htF-Ah-o9d"/>
                         <outlet property="dinnerNotifPicker" destination="Dxm-Vy-0Pr" id="Kle-8e-yqj"/>
                         <outlet property="dinnerTextLabel" destination="4yy-i7-EkY" id="O75-o9-1hz"/>
                         <outlet property="lunchNotifPicker" destination="Edt-VP-JiZ" id="Gee-ek-jOf"/>
                         <outlet property="lunchTextLabel" destination="DmT-wz-mbi" id="UDu-lU-ySx"/>
+                        <outlet property="submitButton" destination="aQr-fG-3p4" id="xBm-D1-vs7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SF-h8-SN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
