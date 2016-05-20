@@ -17,14 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ftm-G1-35q">
-                                <rect key="frame" x="252" y="106" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" placeholder="YES" id="yg7-Mm-dOl"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eVa-RE-r9O" userLabel="Password">
                                 <rect key="frame" x="228" y="213" width="145" height="30"/>
                                 <constraints>
@@ -60,14 +52,12 @@
                         <constraints>
                             <constraint firstItem="eVa-RE-r9O" firstAttribute="centerX" secondItem="mEz-t3-Bao" secondAttribute="centerX" placeholder="YES" id="3wK-7a-vfz"/>
                             <constraint firstItem="BfK-Gb-esB" firstAttribute="top" secondItem="mEz-t3-Bao" secondAttribute="bottom" constant="-2" placeholder="YES" id="4sr-0o-1lZ"/>
-                            <constraint firstItem="cLO-KW-LK0" firstAttribute="top" secondItem="Ftm-G1-35q" secondAttribute="bottom" constant="25" placeholder="YES" id="6Vb-8a-afe"/>
                             <constraint firstItem="mEz-t3-Bao" firstAttribute="centerX" secondItem="tmx-qJ-zAr" secondAttribute="centerX" placeholder="YES" id="8t0-5j-xvG"/>
                             <constraint firstItem="mEz-t3-Bao" firstAttribute="top" secondItem="eVa-RE-r9O" secondAttribute="bottom" constant="42" placeholder="YES" id="DS0-AV-UzG"/>
                             <constraint firstItem="mEz-t3-Bao" firstAttribute="centerY" secondItem="tmx-qJ-zAr" secondAttribute="centerY" placeholder="YES" id="GuJ-E6-S7f"/>
                             <constraint firstItem="mEz-t3-Bao" firstAttribute="top" secondItem="cLO-KW-LK0" secondAttribute="bottom" constant="94" placeholder="YES" id="UnA-4T-bho"/>
                             <constraint firstItem="BfK-Gb-esB" firstAttribute="centerX" secondItem="mEz-t3-Bao" secondAttribute="centerX" placeholder="YES" id="b7Q-sg-n1B"/>
                             <constraint firstItem="cLO-KW-LK0" firstAttribute="centerX" secondItem="mEz-t3-Bao" secondAttribute="centerX" placeholder="YES" id="uj9-GA-n1b"/>
-                            <constraint firstItem="Ftm-G1-35q" firstAttribute="centerX" secondItem="cLO-KW-LK0" secondAttribute="centerX" placeholder="YES" id="wCL-hX-Tdz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uLe-Ag-mlw"/>
@@ -76,7 +66,6 @@
                         <outlet property="emailTextField" destination="cLO-KW-LK0" id="SQ3-Mj-ZVH"/>
                         <outlet property="loginButton" destination="BfK-Gb-esB" id="vXx-et-B0W"/>
                         <outlet property="passwordTextField" destination="eVa-RE-r9O" id="hjv-ju-r8c"/>
-                        <outlet property="userName" destination="Ftm-G1-35q" id="cqC-EI-Dfz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ac-nU-5u1" userLabel="First Responder" sceneMemberID="firstResponder"/>
