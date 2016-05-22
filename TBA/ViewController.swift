@@ -2,6 +2,7 @@
 import UIKit
 import MobileCoreServices
 
+
 @objc class ViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -9,6 +10,9 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var beenHereBefore = false
     var controller: UIImagePickerController?
+    var timestamp = "d";
+    var sharedDataStore = BONDataStore.sharedDataStore()
+
     
     
     
@@ -246,7 +250,17 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         presentViewController(controller!, animated: true, completion: nil)
     }
     
-    
+    override func viewDidLoad() {
+        sharedDataStore.fetchData();
+        var mostRecentMeal: Meal? {
+            let userMeals: Meal = (sharedDataStore.userMeals.last as? Meal)!
+            return userMeals
+    }
+        
+        let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
+        let dateString = mostRecentMealDate  as? String
+        NSLog("lol", mostRecentMealDate)
+    }
     
     
 }
