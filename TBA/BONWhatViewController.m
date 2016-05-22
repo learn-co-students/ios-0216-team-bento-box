@@ -44,14 +44,6 @@
                                                object:nil];
 }
 
-- (IBAction)pickTheTime:(id)sender {
-
-}
-
-- (IBAction)submitInfo:(id)sender {
-    //nothing here right now
-}
-
 -(void)submitButtonTouched:(UIButton *)submitButton{
     
     self.sharedDataStore.whatWasEaten = self.answerText.text;
@@ -119,18 +111,6 @@
     [self.submitButton.layer setBorderWidth:1];
     self.submitButton.layer.borderColor = [[UIColor whiteColor] CGColor];
    
-//    self.backButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.backButton.bottomAnchor constraintEqualToAnchor:self.submitButton.topAnchor constant:-20].active = YES;
-//    [self.backButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
-//    [self.backButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-//    [self.backButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-//    
-//    self.submitButton.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.submitButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:-40].active = YES;
-//    [self.submitButton.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:.25].active = YES;
-//    [self.submitButton.heightAnchor constraintEqualToAnchor:self.view.heightAnchor multiplier:.05].active = YES;
-//    [self.submitButton.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-
     self.backButton.backgroundColor = [UIColor colorWithRed:255.0f/255.0f
                                                          green:254.0f/255.0f
                                                           blue:245.0f/255.0f
@@ -143,6 +123,8 @@
 
 }
 
+- (IBAction)submitInfo:(id)sender {
+}
 
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -155,7 +137,6 @@
     [UIView animateWithDuration:0.25
                      animations:^{
                          self.submitButtonBottomConstraint.constant = self.initialSubmitButtonBottomConstraintConstant + keyboardHeight;
-//                         self.backButtonBottomConstraint.constant = self.initialBackButtonBottomConstraintConstant + keyboardHeight;
                          [self.view layoutIfNeeded];
                      }];
 }

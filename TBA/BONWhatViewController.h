@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *answerText;
 @property (strong, nonatomic) BONDataStore *sharedDataStore;
 @property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *answerTextViewHeightConstraint;
 
 @end
 

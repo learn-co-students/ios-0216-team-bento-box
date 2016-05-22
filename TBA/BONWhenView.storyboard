@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -52,7 +53,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="When did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Oh-Qu-hOp">
                                 <rect key="frame" x="0.0" y="80" width="600" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" placeholder="YES" id="5eo-Fw-DNP"/>
+                                    <constraint firstAttribute="width" secondItem="2Oh-Qu-hOp" secondAttribute="height" multiplier="6:1" id="uQc-2Q-o2x"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -61,17 +62,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aFk-pk-RFb" secondAttribute="bottom" constant="8" placeholder="YES" id="1Jf-8m-CnP"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Sb-cc-A1l"/>
                             <constraint firstItem="6A4-Hx-dtI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="6uG-Wa-6pY"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="INO-IG-wZU"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="O8W-ms-EvW"/>
                             <constraint firstItem="tmS-y2-AxT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ONJ-vU-8Kn"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" placeholder="YES" id="On2-Zs-MHS"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="PeI-o6-FDl"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" placeholder="YES" id="a4W-Vt-7OQ"/>
-                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" placeholder="YES" id="bbI-IB-7SA"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="d08-z4-R4F"/>
                             <constraint firstItem="aFk-pk-RFb" firstAttribute="top" secondItem="6A4-Hx-dtI" secondAttribute="bottom" constant="-8" placeholder="YES" id="eI6-YB-k0t"/>
                             <constraint firstItem="tmS-y2-AxT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="klY-2s-c2c"/>
                             <constraint firstItem="pBe-N7-u7P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" placeholder="YES" id="nS0-Z6-zth"/>
+                            <constraint firstItem="2Oh-Qu-hOp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="sD5-q7-GqY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -102,7 +103,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="FqG-3a-o7D"/>
+                                    <action selector="submitInfo:" destination="vkw-Tr-7Fw" eventType="touchUpInside" id="VcU-Kk-msT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13X-3E-CqC">
@@ -110,20 +111,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="Back"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
-                                <rect key="frame" x="0.0" y="60" width="600" height="100"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
+                                <rect key="frame" x="75" y="99" width="450" height="102"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="nDA-Cn-buO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe your meal here in as few or as many words as you'd like" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh1-9d-hWy" userLabel="InputTextView">
-                                <rect key="frame" x="75" y="170" width="450" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="uhp-G8-s6a"/>
+                                    <constraint firstAttribute="height" constant="102" id="uhp-G8-s6a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What did you eat?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyi-2f-VhC">
+                                <rect key="frame" x="0.0" y="30" width="600" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="nDA-Cn-buO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -136,7 +137,7 @@
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="centerX" secondItem="nNs-ao-RFb" secondAttribute="centerX" id="MXV-YY-A3y"/>
                             <constraint firstItem="nN6-Xc-euN" firstAttribute="height" secondItem="nNs-ao-RFb" secondAttribute="height" multiplier="0.05" id="U0l-Gn-hqv"/>
                             <constraint firstItem="vw7-wq-XNj" firstAttribute="top" secondItem="nN6-Xc-euN" secondAttribute="bottom" constant="8" id="W44-8x-n2u"/>
-                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" multiplier="3" id="XcD-hL-RuT"/>
+                            <constraint firstItem="zyi-2f-VhC" firstAttribute="top" secondItem="69F-0i-1ZX" secondAttribute="bottom" constant="10" id="XcD-hL-RuT"/>
                             <constraint firstItem="13X-3E-CqC" firstAttribute="height" secondItem="nNs-ao-RFb" secondAttribute="height" multiplier="0.05" id="Xnw-SJ-9zK"/>
                             <constraint firstItem="hh1-9d-hWy" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" multiplier="0.75" id="b91-6n-lad"/>
                             <constraint firstItem="zyi-2f-VhC" firstAttribute="width" secondItem="nNs-ao-RFb" secondAttribute="width" id="bWg-i5-Isj"/>
@@ -154,6 +155,7 @@
                     <connections>
                         <outlet property="DescriptionTextBox" destination="hh1-9d-hWy" id="QMX-7R-ZaF"/>
                         <outlet property="answerText" destination="hh1-9d-hWy" id="MAs-Qf-Tu2"/>
+                        <outlet property="answerTextViewHeightConstraint" destination="uhp-G8-s6a" id="CiR-bM-uuZ"/>
                         <outlet property="backButton" destination="13X-3E-CqC" id="O6g-fQ-uqc"/>
                         <outlet property="backButtonBottomConstraint" destination="byO-mY-eAZ" id="SBI-fU-SHG"/>
                         <outlet property="submitButton" destination="nN6-Xc-euN" id="heb-Ze-MrF"/>
@@ -269,32 +271,32 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V9u-Wz-ZkS">
                                 <rect key="frame" x="150" y="75" width="300" height="450"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="What you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-iZ-nMw">
-                                        <rect key="frame" x="73" y="0.0" width="154" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-iZ-nMw">
+                                        <rect key="frame" x="73" y="0.0" width="154" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="KRQ-aB-dhp">
-                                        <rect key="frame" x="52" y="83" width="196" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="KRQ-aB-dhp">
+                                        <rect key="frame" x="52" y="82" width="196" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Where you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02e-5p-fTg">
-                                        <rect key="frame" x="67" y="158" width="168" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Where you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02e-5p-fTg">
+                                        <rect key="frame" x="66" y="157" width="168" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xw-ui-Rnb">
-                                        <rect key="frame" x="52" y="242" width="196" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xw-ui-Rnb">
+                                        <rect key="frame" x="52" y="241" width="196" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="How you felt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-OK-NFT">
-                                        <rect key="frame" x="78" y="316" width="146" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How you felt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-OK-NFT">
+                                        <rect key="frame" x="77" y="316" width="146" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

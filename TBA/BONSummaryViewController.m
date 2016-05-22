@@ -11,12 +11,17 @@
 #import "BONDataStore.h"
 #import "BONContainerViewController.h"
 #import "TBA-Swift.h"
+#import "BONFirebaseClient.h"
+
 @interface BONSummaryViewController()
+
 @property (weak, nonatomic) IBOutlet UILabel *whatText;
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
 @property (weak, nonatomic) IBOutlet UIImageView *howImage;
 @property (weak, nonatomic) BONDataStore * resultDataStore;
 @property (nonatomic) NSUInteger  mealIndex;
+@property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
+
 @end
 
 @implementation BONSummaryViewController
@@ -31,6 +36,9 @@
 
 
 - (void)viewDidLoad {
+    
+    self.sharedFirebaseClient = [BONFirebaseClient sharedFirebaseClient];
+    [self.sharedFirebaseClient saveCurrentMealWithData];
 
     NSUInteger  size = [self.resultDataStore.userMeals count];
     [self setResultsFieldsWithLastObject];

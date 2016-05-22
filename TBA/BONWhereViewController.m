@@ -21,13 +21,15 @@
     self.sharedDataStore = [BONDataStore sharedDataStore];
     self.searchResultsTableView.backgroundColor = [UIColor clearColor];
     
-    [self configureAndShowAlertController];
-    
     self.searchBar.delegate = self;
     self.searchResultsTableView.delegate = self;
     self.searchResultsTableView.dataSource = self;
     
     self.searchQuery = [HNKGooglePlacesAutocompleteQuery sharedQuery];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self configureAndShowAlertController];
 }
 
 #pragma mark - SearchBar Delegate
@@ -102,8 +104,8 @@
     self.parentContainerViewController = (BONContainerViewController *)self.parentViewController;
     
     self.alertController = [UIAlertController alertControllerWithTitle:@"Where did you eat?"
-                                                               message:@"Search for where you ate"
-                                                        preferredStyle:UIAlertControllerStyleActionSheet];
+                                                               message:nil
+                                                        preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *home = [UIAlertAction actionWithTitle:@"Home"
                                                    style:UIAlertActionStyleDefault
@@ -135,10 +137,17 @@
                                                        nil;
                                                    }];
     
+    UIAlertAction *goBack = [UIAlertAction actionWithTitle:@"Back"
+                                                     style:UIAlertActionStyleDestructive
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                                                       [self.parentContainerViewController backButtonHit:nil];
+                                                   }];
+    
     [self.alertController addAction:home];
     [self.alertController addAction:school];
     [self.alertController addAction:work];
     [self.alertController addAction:search];
+    [self.alertController addAction:goBack];
     
     [self presentViewController:self.alertController
                        animated:YES

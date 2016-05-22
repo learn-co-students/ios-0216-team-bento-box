@@ -35,6 +35,7 @@
         
         self.lastMealTimeLabel.hidden = YES;
         self.lastMealLoggedLabel.hidden = YES;
+        self.welcomeBackNameLabel.textAlignment = NSTextAlignmentCenter;
         self.welcomeBackNameLabel.text = @"Welcome!";
     }
     else {
