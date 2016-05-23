@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *whatText;
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
 @property (weak, nonatomic) IBOutlet UIImageView *howImage;
+@property (weak, nonatomic) IBOutlet UIImageView *mealPic;
 @property (weak, nonatomic) BONDataStore * resultDataStore;
 @property (nonatomic) NSUInteger  mealIndex;
 @property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
@@ -89,7 +90,28 @@
     NSString * imageName = [NSString stringWithFormat:@"how%@", currentMeal.howUserFelt];
     self.howImage.image= [UIImage imageNamed:imageName];
     [self.howImage setContentMode:UIViewContentModeScaleAspectFit];
+    
+    NSDate * date = currentMeal.createdAt;
+    NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy:MM:dd:hh:mm:ss"];
+    NSString * dateStringForFilePath = [formatter stringFromDate:date];
+    
+    if([UIImage imageWithContentsOfFile:dateStringForFilePath]){self.mealPic.image = [UIImage imageWithContentsOfFile:dateStringForFilePath];
+    }
+//    let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
+//    let dateFormatter = NSDateFormatter()
+//    dateFormatter.dateFormat = "yyyy:MM:dd:hh:mm:ss" //format style. Browse online to get a format that fits your needs.
+//    let dateString = dateFormatter.stringFromDate(mostRecentMealDate)
+//    
+//    //let dateString = mostRecentMeal!.whereWasItEaten
+//    
+//    print("ok \(dateString)")
+    
+
+    
 }
+
+
 
 - (void)setBackgroundAndEdits {
     self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f

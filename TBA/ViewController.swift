@@ -6,11 +6,10 @@ import MobileCoreServices
 @objc class ViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    var picView = UIImageView(image:UIImage(named:"default"))
+    var picView = UIImageView(image:UIImage(named:"default_img"))
     
     var beenHereBefore = false
     var controller: UIImagePickerController?
-    var timestamp = "d";
     var sharedDataStore = BONDataStore.sharedDataStore()
 
     
@@ -44,12 +43,18 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         //var picView:UIImageView = UIImageView(image: pic)
         
         //end of comment
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
-            
+        
+        let image = info[UIImagePickerControllerOriginalImage]
+            as? UIImage
+        
+        
+        let imagePath = fileInDocumentsDirectory(picURLfromTimeStamp())
+        saveImage(image!, path: imagePath)
+        loadImageFromPath(imagePath)
+  
             picView.image =  image
             
-        }
+    
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -135,6 +140,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
         submitButton.addGestureRecognizer(gr);
+        let bGr = UITapGestureRecognizer.init(target:self, action:#selector(backButtonTapped))
+        backButton.addGestureRecognizer(bGr);
         
     }
     
@@ -242,6 +249,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         NSNotificationCenter.defaultCenter().postNotificationName("submitButtonHit", object:self)
     }
     
+    
+    func backButtonTapped() -> Void {
+        NSNotificationCenter.defaultCenter().postNotificationName("backButtonHit", object:self)
+    }
+    
     func picTapped() -> Void {
         controller = UIImagePickerController()
         controller!.sourceType = .Camera
@@ -251,16 +263,32 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     }
     
     override func viewDidLoad() {
-        sharedDataStore.fetchData();
-        var mostRecentMeal: Meal? {
-            let userMeals: Meal = (sharedDataStore.userMeals.last as? Meal)!
-            return userMeals
-    }
+
         
-        let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
-        let dateString = mostRecentMealDate  as? String
-        NSLog("lol", mostRecentMealDate)
+
     }
     
+    func picURLfromTimeStamp() -> String {
+        
+        sharedDataStore.fetchData();
+        var mostRecentMeal: Meal? {
+            let userMeals: Meal = (sharedDataStore.userMeals[sharedDataStore.userMeals.count-2] as? Meal)!
+            return userMeals
+        }
+        
+        //NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
+        
+        
+        let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy:MM:dd:hh:mm:ss" //format style. Browse online to get a format that fits your needs.
+        let dateString = dateFormatter.stringFromDate(mostRecentMealDate)
+        
+        //let dateString = mostRecentMeal!.whereWasItEaten
+        
+        print("ok \(dateString)")
+    
+    return dateString
+    }
     
 }
