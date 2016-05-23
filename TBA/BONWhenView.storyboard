@@ -268,64 +268,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V9u-Wz-ZkS">
-                                <rect key="frame" x="150" y="75" width="300" height="450"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-iZ-nMw">
-                                        <rect key="frame" x="73" y="0.0" width="154" height="88"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="KRQ-aB-dhp">
-                                        <rect key="frame" x="52" y="98" width="196" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_img" translatesAutoresizingMaskIntoConstraints="NO" id="EMU-gu-Ndw">
-                                        <rect key="frame" x="50" y="129" width="200" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="kVk-Gt-lSh"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="n2D-nN-eFv"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where you ate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKS-Ut-Ebj" userLabel="Where you ate:">
-                                        <rect key="frame" x="70" y="289" width="161" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xw-ui-Rnb">
-                                        <rect key="frame" x="52" y="329" width="196" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How you felt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-OK-NFT">
-                                        <rect key="frame" x="77" y="360" width="146" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OgG-AV-QMk">
-                                        <rect key="frame" x="125" y="400" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="IrQ-2e-gE0"/>
-                                            <constraint firstAttribute="width" constant="50" id="Ph3-wD-vpj"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="default_img" translatesAutoresizingMaskIntoConstraints="NO" id="EMU-gu-Ndw">
+                                <rect key="frame" x="0.0" y="-98" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What you ate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHV-iZ-nMw">
+                                <rect key="frame" x="223" y="139" width="154" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="249" translatesAutoresizingMaskIntoConstraints="NO" id="KRQ-aB-dhp">
+                                <rect key="frame" x="202" y="179" width="196" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where you ate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKS-Ut-Ebj" userLabel="Where you ate:">
+                                <rect key="frame" x="220" y="68" width="161" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You didn't enter anything!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xw-ui-Rnb">
+                                <rect key="frame" x="202" y="108" width="196" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How you felt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8I-OK-NFT">
+                                <rect key="frame" x="227" y="-40" width="146" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OgG-AV-QMk">
+                                <rect key="frame" x="275" y="0.0" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstItem="KKS-Ut-Ebj" firstAttribute="top" secondItem="EMU-gu-Ndw" secondAttribute="bottom" constant="10" id="5af-Du-gTL"/>
-                                    <constraint firstItem="jHV-iZ-nMw" firstAttribute="top" secondItem="V9u-Wz-ZkS" secondAttribute="top" id="9if-Fv-I4y"/>
-                                    <constraint firstItem="KRQ-aB-dhp" firstAttribute="top" secondItem="jHV-iZ-nMw" secondAttribute="bottom" constant="10" id="PVk-C1-ans"/>
-                                    <constraint firstItem="d8I-OK-NFT" firstAttribute="top" secondItem="4xw-ui-Rnb" secondAttribute="bottom" constant="10" id="YrK-AO-fMx"/>
-                                    <constraint firstItem="OgG-AV-QMk" firstAttribute="top" secondItem="d8I-OK-NFT" secondAttribute="bottom" constant="10" id="aZl-3F-Tq9"/>
-                                    <constraint firstItem="4xw-ui-Rnb" firstAttribute="top" secondItem="KKS-Ut-Ebj" secondAttribute="bottom" constant="10" id="qX8-jg-cLx"/>
-                                    <constraint firstItem="EMU-gu-Ndw" firstAttribute="top" secondItem="KRQ-aB-dhp" secondAttribute="bottom" constant="10" id="tlP-JW-bUN"/>
+                                    <constraint firstAttribute="height" constant="50" id="IrQ-2e-gE0"/>
+                                    <constraint firstAttribute="width" constant="50" id="Ph3-wD-vpj"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-Vo-iPi">
                                 <rect key="frame" x="442" y="28" width="50" height="30"/>
                                 <state key="normal" title="History">
@@ -347,14 +329,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="1" blue="0.96257095723508224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="4xw-ui-Rnb" firstAttribute="top" secondItem="KKS-Ut-Ebj" secondAttribute="bottom" constant="10" id="1Js-Ks-9KT"/>
+                            <constraint firstItem="OgG-AV-QMk" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="3CG-yT-eGN"/>
+                            <constraint firstItem="KKS-Ut-Ebj" firstAttribute="top" secondItem="a9v-Vo-iPi" secondAttribute="bottom" constant="10" id="4eC-tX-7QK"/>
+                            <constraint firstItem="KKS-Ut-Ebj" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="7Ns-cb-Nz9"/>
+                            <constraint firstItem="EMU-gu-Ndw" firstAttribute="height" secondItem="Avg-nu-sOb" secondAttribute="height" id="998-Dk-Vsm"/>
+                            <constraint firstItem="KRQ-aB-dhp" firstAttribute="top" secondItem="d8I-OK-NFT" secondAttribute="bottom" constant="189" id="9BJ-oC-vQs"/>
+                            <constraint firstItem="4xw-ui-Rnb" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="9tQ-Md-TlR"/>
+                            <constraint firstItem="EMU-gu-Ndw" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="BBH-dI-nCQ"/>
+                            <constraint firstItem="KRQ-aB-dhp" firstAttribute="top" secondItem="jHV-iZ-nMw" secondAttribute="bottom" constant="10" id="FD7-aR-pqh"/>
                             <constraint firstItem="a9v-Vo-iPi" firstAttribute="top" secondItem="JUH-qf-uFZ" secondAttribute="bottom" constant="8" id="HS2-HB-fFx"/>
-                            <constraint firstItem="V9u-Wz-ZkS" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="KJ7-HR-3Uz"/>
-                            <constraint firstItem="V9u-Wz-ZkS" firstAttribute="height" secondItem="Avg-nu-sOb" secondAttribute="height" multiplier="0.75" id="bOl-8x-hfN"/>
+                            <constraint firstItem="OgG-AV-QMk" firstAttribute="top" secondItem="d8I-OK-NFT" secondAttribute="bottom" constant="10" id="P5x-Bf-xgI"/>
+                            <constraint firstItem="jHV-iZ-nMw" firstAttribute="top" secondItem="4xw-ui-Rnb" secondAttribute="bottom" constant="10" id="YpK-yp-70e"/>
+                            <constraint firstItem="d8I-OK-NFT" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="dIU-rn-VLA"/>
+                            <constraint firstItem="KRQ-aB-dhp" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="dM2-kw-ke1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oOF-Au-gFA" secondAttribute="trailing" id="eHe-ag-NJc"/>
-                            <constraint firstItem="V9u-Wz-ZkS" firstAttribute="width" secondItem="Avg-nu-sOb" secondAttribute="width" multiplier="0.5" id="jcv-3N-4KS"/>
+                            <constraint firstItem="EMU-gu-Ndw" firstAttribute="width" secondItem="Avg-nu-sOb" secondAttribute="width" id="eb8-6E-oOR"/>
                             <constraint firstItem="oOF-Au-gFA" firstAttribute="top" secondItem="JUH-qf-uFZ" secondAttribute="bottom" constant="8" id="jdX-tT-Ei9"/>
                             <constraint firstItem="oOF-Au-gFA" firstAttribute="leading" secondItem="a9v-Vo-iPi" secondAttribute="trailing" constant="20" id="qPh-Y4-xnf"/>
-                            <constraint firstItem="V9u-Wz-ZkS" firstAttribute="centerY" secondItem="Avg-nu-sOb" secondAttribute="centerY" id="ys5-hx-O7P"/>
+                            <constraint firstItem="jHV-iZ-nMw" firstAttribute="centerX" secondItem="Avg-nu-sOb" secondAttribute="centerX" id="s0l-DZ-1BD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -366,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vms-Z3-u4o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="268"/>
+            <point key="canvasLocation" x="1838" y="399"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Hbf-la-Mkx">
