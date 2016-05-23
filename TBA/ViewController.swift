@@ -52,7 +52,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         saveImage(image!, path: imagePath)
         loadImageFromPath(imagePath)
   
-            picView.image =  image
+            picView.image =  loadImageFromPath(imagePath)
             
     
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -212,7 +212,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         let pngImageData = UIImagePNGRepresentation(image)
         let result = pngImageData!.writeToFile(path, atomically: true)
-        
+        NSLog("Saved to:%@", path)
         return result
         
     }
@@ -281,7 +281,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy:MM:dd:hh:mm:ss" //format style. Browse online to get a format that fits your needs.
+        dateFormatter.dateFormat = "yyyy:MM:dd:hh:mm"
         let dateString = dateFormatter.stringFromDate(mostRecentMealDate)
         
         //let dateString = mostRecentMeal!.whereWasItEaten

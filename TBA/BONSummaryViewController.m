@@ -93,24 +93,35 @@
     
     NSDate * date = currentMeal.createdAt;
     NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy:MM:dd:hh:mm:ss"];
+    [formatter setDateFormat:@"yyyy:MM:dd:hh:mm"];
     NSString * dateStringForFilePath = [formatter stringFromDate:date];
+    NSString * imagePath = [self fileInDocumentsDirectory:dateStringForFilePath];
     
-    if([UIImage imageWithContentsOfFile:dateStringForFilePath]){self.mealPic.image = [UIImage imageWithContentsOfFile:dateStringForFilePath];
-    }
-//    let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
-//    let dateFormatter = NSDateFormatter()
-//    dateFormatter.dateFormat = "yyyy:MM:dd:hh:mm:ss" //format style. Browse online to get a format that fits your needs.
-//    let dateString = dateFormatter.stringFromDate(mostRecentMealDate)
-//    
-//    //let dateString = mostRecentMeal!.whereWasItEaten
-//    
-//    print("ok \(dateString)")
     
+    if([UIImage imageWithContentsOfFile:imagePath]){
+        self.mealPic.image = [UIImage imageWithContentsOfFile:imagePath];
 
+    } else{
+        NSLog(@"no image found");
+    }
+    
+    NSLog(@"path string: %@",imagePath);
+    
+//
+}
+
+-(NSString *) fileInDocumentsDirectory: (NSString *) directory {
+    
+    NSURL * fileURL= [[self getDocumentsURL] URLByAppendingPathComponent: directory];
+    return fileURL.path;
     
 }
 
+-(NSURL *) getDocumentsURL {
+    NSURL *documentsURL = [[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
+    
+    return documentsURL;
+}
 
 
 - (void)setBackgroundAndEdits {
