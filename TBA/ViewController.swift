@@ -281,7 +281,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy:MM:dd:hh:mm"
+        dateFormatter.dateFormat = "yyyy:MM:dd:hh"
         let dateString = dateFormatter.stringFromDate(mostRecentMealDate)
         
         //let dateString = mostRecentMeal!.whereWasItEaten

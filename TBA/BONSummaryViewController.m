@@ -93,7 +93,7 @@
     
     NSDate * date = currentMeal.createdAt;
     NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy:MM:dd:hh:mm"];
+    [formatter setDateFormat:@"yyyy:MM:dd:hh"];
     NSString * dateStringForFilePath = [formatter stringFromDate:date];
     NSString * imagePath = [self fileInDocumentsDirectory:dateStringForFilePath];
     
@@ -155,7 +155,7 @@
     parentViewController.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
                                                                   inManagedObjectContext:parentViewController.localDataStore.managedObjectContext];
     
-    parentViewController.userMeal.createdAt = [NSDate date];
+    //parentViewController.userMeal.createdAt = [NSDate date];
     
     parentViewController.viewCounter = 0;
     [parentViewController.childViewControllers removeAllObjects];
