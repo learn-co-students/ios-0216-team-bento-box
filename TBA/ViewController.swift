@@ -52,7 +52,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         saveImage(image!, path: imagePath)
         loadImageFromPath(imagePath)
   
-            picView.image =  loadImageFromPath(imagePath)
+        let pic = UIImage(CGImage: (loadImageFromPath(imagePath)?.CGImage!)!, scale: 1, orientation: .Right)
+        
+        picView.image = pic;
+            //picView.image =  loadImageFromPath(imagePath)
+        
             
     
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -77,9 +81,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         picView.userInteractionEnabled = true;
         let picGR = UITapGestureRecognizer(target: self, action:#selector(picTapped));
         picView.addGestureRecognizer(picGR);
-        //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
-        
-        //        picView.image = pic
+ 
         
     }
     

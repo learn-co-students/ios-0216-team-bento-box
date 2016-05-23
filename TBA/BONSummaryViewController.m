@@ -99,7 +99,10 @@
     
     
     if([UIImage imageWithContentsOfFile:imagePath]){
-        self.mealPic.image = [UIImage imageWithContentsOfFile:imagePath];
+        UIImage * pic = [UIImage imageWithCGImage:[UIImage imageWithContentsOfFile:imagePath].CGImage scale:1 orientation:UIImageOrientationRight];
+        
+        
+        self.mealPic.image = pic;
 
     } else{
         NSLog(@"no image found");
