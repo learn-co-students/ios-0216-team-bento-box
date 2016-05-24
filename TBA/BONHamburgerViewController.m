@@ -150,7 +150,7 @@
     parentViewController.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
                                                                   inManagedObjectContext:parentViewController.localDataStore.managedObjectContext];
     
-    parentViewController.userMeal.createdAt = [NSDate date];
+    //parentViewController.userMeal.createdAt = [NSDate date];
     
     parentViewController.viewCounter = 0;
     [parentViewController.childViewControllers removeAllObjects];

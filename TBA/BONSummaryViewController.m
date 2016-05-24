@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *whatText;
 @property (weak, nonatomic) IBOutlet UILabel *whereText;
 @property (weak, nonatomic) IBOutlet UIImageView *howImage;
+@property (weak, nonatomic) IBOutlet UIImageView *mealPic;
 @property (weak, nonatomic) BONDataStore * resultDataStore;
 @property (nonatomic) NSUInteger  mealIndex;
 @property (strong, nonatomic) BONFirebaseClient *sharedFirebaseClient;
@@ -89,7 +90,42 @@
     NSString * imageName = [NSString stringWithFormat:@"how%@", currentMeal.howUserFelt];
     self.howImage.image= [UIImage imageNamed:imageName];
     [self.howImage setContentMode:UIViewContentModeScaleAspectFit];
+    
+    NSDate * date = currentMeal.createdAt;
+    NSDateFormatter * formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy:MM:dd:hh"];
+    NSString * dateStringForFilePath = [formatter stringFromDate:date];
+    NSString * imagePath = [self fileInDocumentsDirectory:dateStringForFilePath];
+    
+    
+    if([UIImage imageWithContentsOfFile:imagePath]){
+        UIImage * pic = [UIImage imageWithCGImage:[UIImage imageWithContentsOfFile:imagePath].CGImage scale:1 orientation:UIImageOrientationRight];
+        
+        
+        self.mealPic.image = pic;
+
+    } else{
+        NSLog(@"no image found");
+    }
+    
+    NSLog(@"path string: %@",imagePath);
+    
+//
 }
+
+-(NSString *) fileInDocumentsDirectory: (NSString *) directory {
+    
+    NSURL * fileURL= [[self getDocumentsURL] URLByAppendingPathComponent: directory];
+    return fileURL.path;
+    
+}
+
+-(NSURL *) getDocumentsURL {
+    NSURL *documentsURL = [[NSFileManager defaultManager]URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
+    
+    return documentsURL;
+}
+
 
 - (void)setBackgroundAndEdits {
     self.view.backgroundColor = [UIColor colorWithRed:127.0f/255.0f
@@ -122,7 +158,7 @@
     parentViewController.userMeal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
                                                                   inManagedObjectContext:parentViewController.localDataStore.managedObjectContext];
     
-    parentViewController.userMeal.createdAt = [NSDate date];
+    //parentViewController.userMeal.createdAt = [NSDate date];
     
     parentViewController.viewCounter = 0;
     [parentViewController.childViewControllers removeAllObjects];

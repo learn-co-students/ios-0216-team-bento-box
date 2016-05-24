@@ -2,13 +2,16 @@
 import UIKit
 import MobileCoreServices
 
+
 @objc class ViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    var picView = UIImageView(image:UIImage(named:"default"))
+    var picView = UIImageView(image:UIImage(named:"default_img"))
     
     var beenHereBefore = false
     var controller: UIImagePickerController?
+    var sharedDataStore = BONDataStore.sharedDataStore()
+
     
     
     
@@ -40,12 +43,22 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         //var picView:UIImageView = UIImageView(image: pic)
         
         //end of comment
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        
+        let image = info[UIImagePickerControllerOriginalImage]
+            as? UIImage
+        
+        
+        let imagePath = fileInDocumentsDirectory(picURLfromTimeStamp())
+        saveImage(image!, path: imagePath)
+        loadImageFromPath(imagePath)
+  
+        let pic = UIImage(CGImage: (loadImageFromPath(imagePath)?.CGImage!)!, scale: 1, orientation: .Right)
+        
+        picView.image = pic;
+            //picView.image =  loadImageFromPath(imagePath)
+        
             
-            
-            picView.image =  image
-            
-        }
+    
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -68,9 +81,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         picView.userInteractionEnabled = true;
         let picGR = UITapGestureRecognizer(target: self, action:#selector(picTapped));
         picView.addGestureRecognizer(picGR);
-        //pic = UIImage(CGImage: pic!.CGImage!, scale: 1, orientation: .Up)
-        
-        //        picView.image = pic
+ 
         
     }
     
@@ -131,6 +142,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         let gr = UITapGestureRecognizer.init(target:self, action:#selector(submitButtonTapped))
         submitButton.addGestureRecognizer(gr);
+        let bGr = UITapGestureRecognizer.init(target:self, action:#selector(backButtonTapped))
+        backButton.addGestureRecognizer(bGr);
         
     }
     
@@ -201,7 +214,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         
         let pngImageData = UIImagePNGRepresentation(image)
         let result = pngImageData!.writeToFile(path, atomically: true)
-        
+        NSLog("Saved to:%@", path)
         return result
         
     }
@@ -238,6 +251,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         NSNotificationCenter.defaultCenter().postNotificationName("submitButtonHit", object:self)
     }
     
+    
+    func backButtonTapped() -> Void {
+        NSNotificationCenter.defaultCenter().postNotificationName("backButtonHit", object:self)
+    }
+    
     func picTapped() -> Void {
         controller = UIImagePickerController()
         controller!.sourceType = .Camera
@@ -246,7 +264,33 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         presentViewController(controller!, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+
+        
+
+    }
     
+    func picURLfromTimeStamp() -> String {
+        
+        sharedDataStore.fetchData();
+        var mostRecentMeal: Meal? {
+            let userMeals: Meal = (sharedDataStore.userMeals[sharedDataStore.userMeals.count-2] as? Meal)!
+            return userMeals
+        }
+        
+        //NSString *mostRecentMealDateString = [BONDataStore formatDate:mostRecentMealDate];
+        
+        
+        let mostRecentMealDate:NSDate = mostRecentMeal!.createdAt!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy:MM:dd:hh"
+        let dateString = dateFormatter.stringFromDate(mostRecentMealDate)
+        
+        //let dateString = mostRecentMeal!.whereWasItEaten
+        
+        print("ok \(dateString)")
     
+    return dateString
+    }
     
 }
