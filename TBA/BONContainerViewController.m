@@ -53,7 +53,6 @@
     self.localDataStore = [BONDataStore sharedDataStore];
     [self.localDataStore fetchData];
     
-//    self.view.backgroundColor = [UIColor blueColor];
     [self buildViewControllerArrayWithTotalOf:3];
     self.fromViewController = self.childViewControllers[0];
     
@@ -75,8 +74,13 @@
         
     } else {
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin"
+                                                             bundle:nil];
+        
         BONFirebaseViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+        
+        NSLog(@"Login View Controller in Container view upon app start: %@", loginViewController);
+        
         loginViewController.delegate = self;
         [self displayContentController:loginViewController];
     }
@@ -96,11 +100,13 @@
     //self.hamburgerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.hamburgerButton.titleLabel.font = [UIFont systemFontOfSize:30];
     
-    if (![BONFirebaseClient getToken]) {
-        
-        self.hamburgerButton.alpha=0;
-        
-    }
+//    if (![BONFirebaseClient getToken]) {
+//        
+//        NSLog(@"In container view's view will appear 'if'");
+//        
+//        self.hamburgerButton.alpha=0;
+//        
+//    }
 }
 
 #pragma mark - Container View Controller Handlers
@@ -200,8 +206,6 @@
     //hamburgerController.view.alpha = 1;
 //        hamburgerController.view.frame = CGRectMake(self.view.frame.size.width*0.60, 0, 0, self.view.frame.size.height);
         
-
-
         hamburgerController.view.frame = CGRectMake(0, 0, self.view.frame.size.width*0.60, self.view.frame.size.height);
         
         //self.hamburgerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
@@ -211,8 +215,6 @@
         
         
         [self.effectView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeMenu:)]];
-        
-    
     }];
     
     [self addChildViewController:hamburgerController];

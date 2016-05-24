@@ -22,6 +22,7 @@
 @implementation BONHamburgerViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
 
     [self buildCloseButton];
@@ -121,6 +122,9 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"BONLogin" bundle:nil];
         UIViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
         [parent displayContentController:loginViewController];
+        
+        NSLog(@"Login View Controller after logout is tapped in hamburger: %@", loginViewController);
+        
         return;
     }
     

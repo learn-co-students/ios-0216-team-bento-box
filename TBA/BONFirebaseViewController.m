@@ -24,8 +24,6 @@
 
 - (void)viewDidLoad {
     
-    
-    
     [super viewDidLoad];
     [self loadAddUserButton];
     [self loadLoginButton];
@@ -52,16 +50,16 @@
                                        FromViewController:self];
     
     [self.delegate didLoginUserWithFirebaseViewController:self];
-}
-- (IBAction)loginTapped:(id)sender {
     
-    NSLog(@"Log in button tapped");
+    [self.view endEditing:YES];
+}
+
+- (IBAction)loginTapped:(id)sender {
     
     [self.firebaseClient loginUserInFirebaseWithEmail:self.emailTextField.text
                                              Password:self.passwordTextField.text
                                    FromViewController:self];
-    
-    NSLog(@"User id: %@", self.firebaseClient.rootReference.authData.uid);
+    [self.view endEditing:YES];
 }
 
 #pragma mark - UIButtons and UITextfields constraints
